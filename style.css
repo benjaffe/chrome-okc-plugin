@@ -1,0 +1,161 @@
+
+.OKCP-bindings-not-yet-loaded .poly-hide-btn {visibility: hidden;}
+
+.personalized-match {position:absolute;right:200px;top:88px;max-width:300px;text-align:right;z-index:150;}
+.personalized-match .question-detail {display:none;padding:10px;}
+.personalized-match .match-ratios {position:relative;z-index:100;box-shadow: none;}
+.personalized-match:hover .match-ratios {box-shadow:0 1px 1px rgba(0, 0, 0, 0.2);}
+.personalized-match:hover .question-detail {display:block;}
+
+.personalized-match .question-detail {margin:0 10px 10px;padding:0 8px 8px;background-color:#AAA;border-radius:4px;}
+
+.personalized-match .question-detail ul {margin:0;}
+.personalized-match .question-detail>ul:last-child {border-bottom:none;}
+.personalized-match .question-detail li ul li:nth-child(2) {font-size:1.2em;text-align:left;}
+.personalized-match .category-header {text-align:center;text-transform:uppercase;font-weight:bold;background-color:grey;color:white;margin:0 -7px;box-shadow:0 1px 2px rgba(0,0,0,0.2);position:relative;border-bottom:solid 1px #555;border-top:solid 1px #555;}
+
+.personalized-match .match {padding: 5px;padding-bottom:10px;border-bottom:solid 1px #CCC;}
+.personalized-match .match-false {background: #F55; color:#700;}
+.personalized-match .match-true {background: #8C8; color:#050;}
+
+.personalized-match .match-ratio.bad-match {background: #F55;}
+.personalized-match .match-ratio {background: #999;}
+.personalized-match .match-ratio.great-match {background: #8C8;}
+
+.polyhidden {opacity:0.1;-webkit-transition:all 0.2s ease-out;}
+.polyhidden img {opacity:0.99;}
+.polyhidden:hover {opacity:1;}
+.polyhidden:hover img {opacity:1;}
+
+#match_results .polyhidden .essay {display:none;}
+#match_results .polyhidden .wrap {padding:12px 0;}
+#match_results .polyhidden .activity {border:none;}
+#match_results .polyhidden .percentages p {font-size:12px;line-height:16px;}
+#match_results .polyhidden .percentages {top:11px;}
+
+
+.poly-hide-btn {cursor:pointer;}
+.current-profile-polyhidden .poly-hide-btn:before {content:"\2713";}
+.current-profile-polyhidden #profile_thumbs,
+.current-profile-polyhidden #basic_info_sn {opacity:0.3;}
+
+
+.dot {width: 20px;height: 20px;position: absolute;right: 10px;top: 11px;background: #888;border-radius: 10px;box-shadow: inset 0px 0px 6px rgba(255, 255, 255, 0.4), 1px 1px 2px 0px rgba(0, 0, 0, 0.5);}
+.dot:after {content: "";position: absolute;top: 6px;width: 3px;height: 3px;border-radius: 3px;background: white;left: 7px;box-shadow: 0 0 4px 2px white;opacity: 0.7;}
+.dot-green {background: #3A2;}
+.dot-red {background: #B32;}
+
+.page-results-link {color:#96B7FF;font-size:0.9em;}
+#page-results:target {display:block;padding-top:10px;border-top:solid 3px #CCC;margin-top:10px;}
+
+#page-results {display:none;background:white;text-align:center;}
+#page-results .btn,
+#page-results .talk_btn,
+#page-results .edit_note,
+#page-results .answer_area,
+#page-results .pages,
+#page-results .oknotice {display:none;}
+
+#page-results .question {padding-bottom:10px;margin-bottom:10px;border-bottom:solid 1px #CCC;}
+#page-results .qtext {font-size: 1.2em;margin-bottom:8px;}
+#page-results .note {display:block;}
+
+
+
+/* ==========================================================
+ * Spinner
+ * =========================================================*/
+.spinner{
+     width:100px;
+     height:100px;
+     margin:30px auto;
+     position:relative;
+     opacity:0.4;
+     
+     -webkit-animation: rotateit 1.3s linear infinite;
+     -moz-animation: rotateit 1.3s linear infinite;
+     animation: rotateit 1.3s linear infinite;
+}
+@-webkit-keyframes rotateit {
+     from {
+          -webkit-transform: rotate(360deg);
+     }
+     to {
+          -webkit-transform: rotate(0deg);
+     }
+}
+@-moz-keyframes rotateit {
+     from {
+          -moz-transform: rotate(360deg);
+     }
+     to {
+          -moz-transform: rotate(0deg);
+     }
+}
+@keyframes rotateit {
+     from {
+          transform: rotate(360deg);
+     }
+     to {
+          transform: rotate(0deg);
+     }
+}
+/*=======================================================
+ * Circles
+ *======================================================*/
+.spinner div{
+     width: 10px;
+     height: 10px;
+     border-radius:50%;
+     background: black;
+     position: absolute;
+     top: 35px;
+     left: 45px;
+}
+.spinner div:nth-child(1){
+     -webkit-transform: rotate(0deg) translate(0, -15px) scale(1.4);
+     -moz-transform: rotate(0deg) translate(0, -15px) scale(1.4);
+     transform: rotate(0deg) translate(0, -15px) scale(1.4);
+}
+.spinner div:nth-child(2){
+     -webkit-transform: rotate(45deg) translate(0, -15px) scale(1.2);
+     -moz-transform: rotate(45deg) translate(0, -15px) scale(1.2);
+     transform: rotate(45deg) translate(0, -15px) scale(1.2);
+     opacity:0.7;
+}
+.spinner div:nth-child(3){
+     -webkit-transform: rotate(90deg) translate(0, -15px) scale(1.1);
+     -moz-transform: rotate(90deg) translate(0, -15px) scale(1.1);
+     transform: rotate(90deg) translate(0, -15px) scale(1.1);
+     opacity:0.6;
+}
+.spinner div:nth-child(4){
+     -webkit-transform: rotate(135deg) translate(0, -15px) scale(0.9);
+     -moz-transform: rotate(135deg) translate(0, -15px) scale(0.9);
+     transform: rotate(135deg) translate(0, -15px) scale(0.9);
+     opacity:0.5;
+}
+.spinner div:nth-child(5){
+     -webkit-transform: rotate(180deg) translate(0, -15px) scale(0.7);
+     -moz-transform: rotate(180deg) translate(0, -15px) scale(0.7);
+     transform: rotate(180deg) translate(0, -15px) scale(0.7);
+     opacity:0.4;
+}
+.spinner div:nth-child(6){
+     -webkit-transform: rotate(225deg) translate(0, -15px) scale(0.5);
+     -moz-transform: rotate(225deg) translate(0, -15px) scale(0.5);
+     transform: rotate(225deg) translate(0, -15px) scale(0.5);
+     opacity:0.3;
+}
+.spinner div:nth-child(7){
+     -webkit-transform: rotate(270deg) translate(0, -15px) scale(0.3);
+     -moz-transform: rotate(270deg) translate(0, -15px) scale(0.3);
+     transform: rotate(270deg) translate(0, -15px) scale(0.3);
+     opacity:0.2;
+}
+.spinner div:nth-child(8){
+     -webkit-transform: rotate(315deg) translate(0, -15px) scale(0.1);
+     -moz-transform: rotate(315deg) translate(0, -15px) scale(0.1);
+     transform: rotate(315deg) translate(0, -15px) scale(0.1);
+     opacity:0.1;
+}

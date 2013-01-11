@@ -1,0 +1,21 @@
+{
+  "name": "OkC Poly Viewer",
+  "version": "1.1.16",
+  "manifest_version": 2,
+  "description": "Are you poly and using OkCupid? You should definitely be using this extension!",
+  "permissions": [
+    "tabs", "http://*/*", "https://*/*"
+  ],
+  "background": {
+    "scripts": ["inject-ga-background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*.okcupid.com/*"],
+      "css": ["style.css"],
+      "js": ["knockout-2.2.0.js","jquery.min.js", "defaultQuestions.js", "ViewModels.js", "inject-ga.js", "gaq.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'"
+}

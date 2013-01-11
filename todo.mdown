@@ -1,0 +1,20 @@
+Profile:
+
+Last Viewed Date
+Interested/Uninterested
+Keywords
+Questions Answered
+
+lastViewed
+interestLevel
+	wantToMessage
+	uninterested
+	past
+
+
+List of Potential Features:
+	Answer Questions Guide http://www.okcupid.com/questions?rqid=256
+	Update fetcher with new fetching method
+		http://www.okcupid.com/profile/clarinetslide/questions?self_notes=1&mandatory=1
+		http://www.okcupid.com/profile/clarinetslide/questions?self_notes=1&very_important=1
+	Indicator: Do you fall into their age range? Do they fall into your age range? Put an indicator at the top.
