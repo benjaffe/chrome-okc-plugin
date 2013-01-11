@@ -3,6 +3,24 @@ chrome-okc-plugin
 
 OkCupid Poly Plugin
 
+FYI, the questions the plugin is currently looking at are:
+
+http://www.okcupid.com/questions?rqid=52827
+http://www.okcupid.com/questions?rqid=325
+http://www.okcupid.com/questions?rqid=1128
+http://www.okcupid.com/questions?rqid=16371
+http://www.okcupid.com/questions?rqid=33107
+http://www.okcupid.com/questions?rqid=41242
+http://www.okcupid.com/questions?rqid=48278
+http://www.okcupid.com/questions?rqid=44540
+http://www.okcupid.com/questions?rqid=1121
+http://www.okcupid.com/questions?rqid=784
+http://www.okcupid.com/questions?rqid=612
+http://www.okcupid.com/questions?rqid=15889
+http://www.okcupid.com/questions?rqid=80041
+
+
+
 Hellooo my lovely beta testers! All 68 of you! For the lazy, I've bolded the most important parts of this email.
 
 I've been hard at work optimizing the plugin, and version 1.1.0 is finally out. You should notice it's much snappier, especially when you've recently visited the person's profile. It's also using a proper observer system (Knockout.JS for the geeks), so hidden profiles should stay up-to-date better. The interface is the same... it's just faster and more reliable.
@@ -23,7 +41,7 @@ I've attached the most recent draft of the welcome email below, if anyone wants 
 Thanks, and I hope the plugin is as useful for you as it has been for me!
 Ben
 
-=================
+
 
 Hey everyone, thanks for the PMs and for joining the beta group (now 68 people, plus me). Please give this whole email a read so you know what to expect.
 
