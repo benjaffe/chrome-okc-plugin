@@ -3,6 +3,9 @@ chrome-okc-plugin
 
 OkCupid Poly Plugin
 
+Update: The plugin now automatically sorts users by enemy percentage on the match page.
+
+
 FYI, the questions the plugin is currently looking at are:
 
 http://www.okcupid.com/questions?rqid=52827
@@ -74,3 +77,4 @@ Just added poly-hide persistence across tabs, so things should stay in sync, and
 Thanks, and I look forward to the feedback. Happy browsing, and happy 2013!
 
 Ben
+ 

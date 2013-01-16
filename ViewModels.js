@@ -11,7 +11,9 @@ $('body').addClass('OKCP-bindings-not-yet-loaded');
 // if we're on a profile page
 if (_OKCP.profilePath !== '') {
 	$('#main_content .tabbed_heading').append('<div class="personalized-match">'+
-		'<a class="poly-hide-btn" data-bind="click: toggleHiddenProfile">Poly-Hide</a>'+
+		'<a class="hide-btn nodata-hide-btn" data-bind="click: toggleHideNoData, css: { polyhidden: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].d == true : false}">No Data</a>'+
+		'<a class="hide-btn poly-hide-btn" data-bind="click: toggleHideNotPoly, css: { polyhidden: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].p == true : false}">Not Poly</a>'+
+		'<a class="hide-btn uninterested-hide-btn" data-bind="click: toggleHideUninterested, css: { polyhidden: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].u == true : false}">Not For Me</a>'+
 		'<div class="spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>'+
 		'<ul class="match-ratios"></ul>'+
 		'<div class="question-detail"></div>'+
@@ -27,10 +29,29 @@ if (document.location.pathname === "/match") { //enable feature: sort by enemy p
 	sortByEnemyEnabled = true; // TODO: enable people to disable sortByEnemy
 
 	if (sortByEnemyEnabled) {
-		// sortByEnemy();
+		sortByEnemy();
 	}
 }
 
+function sortByEnemy() {
+	var matchResultsArr = $("#match_results .match_row"); //get array of elements
+	// console.log(matchResultsArr);
+	// sort based on enemy percentage
+	matchResultsArr.sort(function (a, b) {
+		a = parseInt($(a).find('.enemy .percentage').text().split('%')[0],10);
+		b = parseInt($(b).find('.enemy .percentage').text().split('%')[0],10);
+
+		// compare
+		if(a > b) {
+			return 1;
+		} else if(a < b) {
+			return -1;
+		} else {
+			return 0;
+		}
+	});
+	$("#match_results").html(matchResultsArr);//put sorted results back on page
+}
 
 
 function OKCP() {
@@ -51,8 +72,8 @@ function OKCP() {
 			storage.profileList[_OKCP.profileName][property] = value;
 			localStorage.okcp = JSON.stringify(storage);
 			console.log("writing to localStorage");
-			console.log(localStorage.okcp);
-			console.log('-----');
+			// console.log(localStorage.okcp);
+			// console.log('-----');
 		}
 	});
 	this.profileListData = ko.observable(this.profileList());
@@ -67,15 +88,41 @@ function OKCP() {
 	this.response = 0;
 	this.profileHidden = ko.observable(false);
 
-	this.toggleHiddenProfile = function() {
-		console.log('toggleHiddenProfile run');
-		this.profileHidden(!this.profileHidden()); //update page UI
+	this.calculateHiddenProfile = function() {
+		// console.log('toggleHiddenProfile run');
+		this.alertLocalStorageChange();
+		this.profileHidden(this.profileList()[_OKCP.profileName].p || this.profileList()[_OKCP.profileName].u || this.profileList()[_OKCP.profileName].d);
 		this.profileList("h",this.profileHidden()); //update storage
 		this.alertLocalStorageChange();
+		// console.log(this.profileList()[_OKCP.profileName].p + '' + this.profileList()[_OKCP.profileName].u + this.profileList()[_OKCP.profileName].d);
+		// this.profileHidden(this.profileList()[_OKCP.profileName].h); //update page UI
+		// console.log(this.profileHidden());
+		// console.log(this.profileList()[_OKCP.profileName].h);
+		
+		
+	};
+
+	this.toggleHideNotPoly = function(data) {
+		// console.log(data);
+		console.log('toggleHideNotPoly run');
+		this.profileList("p",!this.profileList()[_OKCP.profileName].p); //update storage
+		this.calculateHiddenProfile();
+	};
+
+	this.toggleHideUninterested = function(data) {
+		console.log('toggleHideUninterested run');
+		this.profileList("u",!this.profileList()[_OKCP.profileName].u); //update storage
+		this.calculateHiddenProfile();
+	};
+
+	this.toggleHideNoData = function(data) {
+		console.log('toggleHideNoData run');
+		this.profileList("d",!this.profileList()[_OKCP.profileName].d); //update storage
+		this.calculateHiddenProfile();
 	};
 	this.alertLocalStorageChange = function() {
 		_dummyObservable.notifySubscribers(); //force the computed value to fetch the new updated local storage by pretending we updated something else in the computed function.
-	}
+	};
 
 	this.getAnswers = function (list) {
 		var requestFailed = false;
@@ -187,7 +234,7 @@ function OKCP() {
 					questionList: OKCP.questionList,
 					responseCount: OKCP.responseCount
 				};
-				for (profile in recentProfiles) {
+				for (var profile in recentProfiles) {
 					if (profile === "_ATTENTION") continue;
 					if (new Date().getTime() - recentProfiles[profile].expires > 0) {
 						delete recentProfiles[profile]; // remove not-recently visited profiles
@@ -196,7 +243,7 @@ function OKCP() {
 				localStorage.okcpRecentProfiles = JSON.stringify(recentProfiles);
 
 				$('.spinner').remove();
-				for (category in OKCP.responseCount) {
+				for (var category in OKCP.responseCount) {
 					var countArr = OKCP.responseCount[category];
 					var matchRatio = Math.round(100*100*countArr[0]/countArr[1])/100;
 					var matchClass = "";
@@ -223,7 +270,7 @@ function OKCP() {
 				}
 			}
 		}
-	}
+	};
 }
 
 $(window).bind('storage', function(e) {
@@ -265,7 +312,6 @@ function applyBindingsToProfileThumb (objList, scopeOfBindingsStr) {
 _OKCP.currentProfileImage = $('#profile_thumbs');
 _OKCP.currentProfileImage.each(function() {
 	this.thumbName = $(this).find('#thumb0_a').attr('href').split('/photos')[0].split('/profile/')[1];
-	console.log(this.thumbName);
 });
 applyBindingsToProfileThumb(_OKCP.currentProfileImage,'#profile_thumbs');
 
@@ -332,16 +378,21 @@ _OKCP.conversationThumbs.each(function() {
 });
 applyBindingsToProfileThumb(_OKCP.conversationThumbs,'#conversations');
 
-// Match Search Page
-setTimeout(function() {
-	var matchresultsThumbs = $('#match_results .match_row');
-	matchresultsThumbs.each(function() {
-		this.thumbName = $(this).find('.username').text();
-		console.log(this.thumbName);
-	});
-	applyBindingsToProfileThumb(matchresultsThumbs,'#match_results');
-},1000);
 
+setInterval(function() {
+	var doSortByEnemy = false;
+	// Match Search Page
+	_OKCP.matchresultsThumbs = $('#match_results .match_row');
+	_OKCP.matchresultsThumbs.each(function() {
+		if ($(this).attr('data-bind') === undefined) {
+			this.thumbName = $(this).find('.username').text();
+			// console.log(this.thumbName + this.id);
+			applyBindingsToProfileThumb($(this),'#'+this.id);
+			doSortByEnemy = true;
+		}
+	});
+	if (doSortByEnemy) sortByEnemy();
+},1000);
 
 // Bindings are applied, so remove class from body enabling hide button.
 $('body').removeClass('OKCP-bindings-not-yet-loaded');

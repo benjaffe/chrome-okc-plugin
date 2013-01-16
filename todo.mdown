@@ -18,3 +18,16 @@ List of Potential Features:
 		http://www.okcupid.com/profile/clarinetslide/questions?self_notes=1&mandatory=1
 		http://www.okcupid.com/profile/clarinetslide/questions?self_notes=1&very_important=1
 	Indicator: Do you fall into their age range? Do they fall into your age range? Put an indicator at the top.
+	On one's own profile page, they can turn on or off questions that are coded
+	enable/disable categories
+
+Potential Categories
+	poly
+	notPossessive
+	science
+	children
+	trans-friendly (genderqueer-friendly)
+	gay-friendly
+	sex-positive
+	woman-friendly
+	potentially queer?
