@@ -6,27 +6,53 @@ _OKCP.urlSansParameters = location.href.split('?')[0];
 _OKCP.profilePath = _OKCP.urlSansParameters.split("/profile/")[1] || '';
 _OKCP.profileName = _OKCP.profilePath.split("/")[0];
 
+$('html').attr('id','okcp'); //so I have an ID to override OkC's broken CSS specificity madness
 $('body').addClass('OKCP-bindings-not-yet-loaded');
 
 // if we're on a profile page
 if (_OKCP.profilePath !== '') {
-	$('#main_content .tabbed_heading').append('<div class="personalized-match">'+
-		'<a class="hide-btn nodata-hide-btn" data-bind="click: toggleHideNoData, css: { polyhidden: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].d == true : false}">No Data</a>'+
-		'<a class="hide-btn poly-hide-btn" data-bind="click: toggleHideNotPoly, css: { polyhidden: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].p == true : false}">Not Poly</a>'+
-		'<a class="hide-btn uninterested-hide-btn" data-bind="click: toggleHideUninterested, css: { polyhidden: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].u == true : false}">Not For Me</a>'+
-		'<div class="spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>'+
-		'<ul class="match-ratios"></ul>'+
-		'<div class="question-detail"></div>'+
-		'<ul class="category-toggle-list"></ul>'+
-	'</div>');
+	$('#main_content .tabbed_heading').append('<div class="okcp-btns">'+
+		'<a class="okcp-btn toggleIsPoly" data-bind="click: toggleIsPoly, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].ip == true : false}">Poly</a>'+
+		'<a class="okcp-btn hide-btn poly-hide-btn" data-bind="click: toggleHideNotPoly, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].p == true : false}">Not Poly</a>'+
+		'<div class="divider"></div>'+
+		'<a class="okcp-btn" data-bind="click: toggleWantToMessage, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].wm == true : false}">To Message</a>'+
+		'<a class="okcp-btn" data-bind="click: toggleMaybeInterested, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].m == true : false}">Maybe</a>'+
+		'<div class="divider"></div>'+
+		'<a class="okcp-btn hide-btn uninterested-hide-btn" data-bind="click: toggleHideUninterested, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].u == true : false}">Not For Me</a>'+
+		'<a class="okcp-btn hide-btn nodata-hide-btn" data-bind="click: toggleHideNoData, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].d == true : false}">No Answers</a>'+
+	'</div>').append('<div class="spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>');
 
+	$('#actions').append('<table class="match-ratios-wrapper-outer"><tr><td class="match-ratios">'+
+		'<ul class="match-ratios-list"></ul>'+
+		'</td></tr></table>');
+	$('.match-ratios').hover(function() {
+		$('body').addClass('okcp-show-question-detail');
+	},function() {
+		$('body').removeClass('okcp-show-question-detail');
+	}).click(function() {
+		$('body').toggleClass('okcp-show-question-detail-hold');
+		var settings = JSON.parse(localStorage.okcpSettings);
+		if (settings.questionDetailPinned) {
+			settings.questionDetailPinned = !settings.questionDetailPinned;
+		} else {
+			settings.questionDetailPinned = false;
+		}
+		localStorage.okcpSettings = JSON.stringify(settings);
+	});
+
+	$('body').addClass(JSON.parse(localStorage.okcpSettings).questionDetailPinned ? 'okcp-show-question-detail-hold' : '');
+
+	$('#right_column').prepend('<div class="question-detail"></div>');
+
+	$('#save_unsave').parent().addClass('wide-buttons-that-are-now-not-wide left');
+	$('#save_unsave').parent().next().addClass('wide-buttons-that-are-now-not-wide right');
 }
 
 // if we're on the match search page
 if (document.location.pathname === "/match") { //enable feature: sort by enemy percentage
 
-	var sortByEnemyEnabled; // = !!JSON.parse(localStorage.okc).sortByEnemyEnabled || false;
-	sortByEnemyEnabled = true; // TODO: enable people to disable sortByEnemy
+	var sortByEnemyEnabled = true; // = !!JSON.parse(localStorage.okc).sortByEnemyEnabled || false;
+	sortByEnemyEnabled = false; // TODO: enable people to disable sortByEnemy
 
 	if (sortByEnemyEnabled) {
 		sortByEnemy();
@@ -87,20 +113,24 @@ function OKCP() {
 	this.responseGood = 0;
 	this.response = 0;
 	this.profileHidden = ko.observable(false);
+	this.profileShown = ko.observable(false);
 
 	this.calculateHiddenProfile = function() {
 		// console.log('toggleHiddenProfile run');
 		this.alertLocalStorageChange();
 		this.profileHidden(this.profileList()[_OKCP.profileName].p || this.profileList()[_OKCP.profileName].u || this.profileList()[_OKCP.profileName].d);
-		this.profileList("h",this.profileHidden()); //update storage
+		this.profileShown(this.profileList()[_OKCP.profileName].wm);
+		this.profileList("h",this.profileHidden() && !this.profileShown()); //update storage
 		this.alertLocalStorageChange();
 		// console.log(this.profileList()[_OKCP.profileName].p + '' + this.profileList()[_OKCP.profileName].u + this.profileList()[_OKCP.profileName].d);
 		// this.profileHidden(this.profileList()[_OKCP.profileName].h); //update page UI
 		// console.log(this.profileHidden());
 		// console.log(this.profileList()[_OKCP.profileName].h);
-		
-		
+		this.profileList("lm",Math.round(new Date().getTime()/1000)); //update last modified time
+		this.profileList("lv",Math.round(new Date().getTime()/1000)); //update last viewed time
 	};
+
+	this.profileList("lv",Math.round(new Date().getTime()/1000)); //update last viewed time
 
 	this.toggleHideNotPoly = function(data) {
 		// console.log(data);
@@ -118,6 +148,24 @@ function OKCP() {
 	this.toggleHideNoData = function(data) {
 		console.log('toggleHideNoData run');
 		this.profileList("d",!this.profileList()[_OKCP.profileName].d); //update storage
+		this.calculateHiddenProfile();
+	};
+
+	this.toggleIsPoly = function(data) {
+		console.log('toggleIsPoly run');
+		this.profileList("ip",!this.profileList()[_OKCP.profileName].ip); //update storage
+		this.calculateHiddenProfile();
+	};
+
+	this.toggleWantToMessage = function(data) {
+		console.log('toggleWantToMessage run');
+		this.profileList("wm",!this.profileList()[_OKCP.profileName].wm); //update storage
+		this.calculateHiddenProfile();
+	};
+
+	this.toggleMaybeInterested = function(data) {
+		console.log('toggleMaybeInterested run');
+		this.profileList("m",!this.profileList()[_OKCP.profileName].m); //update storage
 		this.calculateHiddenProfile();
 	};
 	this.alertLocalStorageChange = function() {
@@ -242,7 +290,7 @@ function OKCP() {
 				}
 				localStorage.okcpRecentProfiles = JSON.stringify(recentProfiles);
 
-				$('.spinner').remove();
+				$('.spinner').hide();
 				for (var category in OKCP.responseCount) {
 					var countArr = OKCP.responseCount[category];
 					var matchRatio = Math.round(100*100*countArr[0]/countArr[1])/100;
@@ -252,7 +300,7 @@ function OKCP() {
 					} else if (matchRatio < 50) {
 						matchClass = 'bad-match';
 					}
-					$('.match-ratios').append('<li class="match-ratio ' + matchClass + '">' + category + ': ' + matchRatio + '%</li>');
+					$('.match-ratios-list').append('<li class="match-ratio ' + matchClass + '"><span class="match-ratio-category">' + category + ':</span><span class="match-ratio-value">' + countArr[0] + '/' + countArr[1] + '</span></li>');//matchRatio + '%</li>');
 				}
 
 				for (var i = 0; i < OKCP.questionList.length; i++) {
@@ -274,7 +322,7 @@ function OKCP() {
 }
 
 $(window).bind('storage', function(e) {
-	console.log("refreshing from localStorage");
+	// console.log("refreshing from localStorage");
 	OKCP.alertLocalStorageChange();
 	OKCP.profileListData(OKCP.profileList());
 	OKCP.profileListData.notifySubscribers();
@@ -301,7 +349,14 @@ function applyBindingsToProfileThumb (objList, scopeOfBindingsStr) {
 	if (scopeOfBindings === null) return false;
 	objList.each(function() {
 		var thumbName = this.thumbName;
-		$(this).attr('data-bind','css: { "polyhidden": profileListData()["'+thumbName+'"] ? profileList()["'+thumbName+'"].h == true : false}');
+		var cssObj = 
+		$(this).attr('data-bind','css: {'+
+			'"okcp-hidden": profileListData()["'+thumbName+'"] ? profileList()["'+thumbName+'"].h == true : false,'+
+			'"okcp-no-answers": profileListData()["'+thumbName+'"] ? profileList()["'+thumbName+'"].d == true : false,'+
+			'"okcp-maybe": profileListData()["'+thumbName+'"] ? profileList()["'+thumbName+'"].m == true : false,'+
+			'"okcp-poly": profileListData()["'+thumbName+'"] ? profileList()["'+thumbName+'"].ip == true : false,'+
+			'"okcp-to-message": profileListData()["'+thumbName+'"] ? profileList()["'+thumbName+'"].wm == true : false'+
+		'}');
 	});
 	ko.applyBindings(OKCP, scopeOfBindings);
 }

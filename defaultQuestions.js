@@ -7,16 +7,28 @@ if (localStorage.okcp === undefined) {
 	});
 }
 
+if (!localStorage.okcpSettings || localStorage.okcpSettings === "undefined") {
+	localStorage.okcpSettings = JSON.stringify({});
+}
+
+var okcpBackupList = ['okcp_b130110'];
+for (var i = 0; i < okcpBackupList.length; i++) {
+	if (!!localStorage[okcpBackupList[i]]) {
+		localStorage.removeItem(okcpBackupList[i]);
+	}
+}
+
+localStorage.okcp_b130124 = localStorage.okcp; // backup
+
 // upgrade data model if needed
 if (JSON.parse(localStorage.okcp).hiddenProfileList !== undefined) {
-	localStorage.okcp_b130110 = localStorage.okcp; // backup
 	var oldData = JSON.parse(localStorage.okcp);
 	var newData = {
 		'dataModelVersion': '1.1.0',
 		'profileList': {}
 	};
 	for (i=0; i < oldData.hiddenProfileList.length; i++) {
-		newData.profileList[oldData.hiddenProfileList[i]] = {h:true}
+		newData.profileList[oldData.hiddenProfileList[i]] = {h:true};
 	}
 	localStorage.okcp = JSON.stringify(newData);
 	console.log('Updated Data Model to Version 1.1.0');

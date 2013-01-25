@@ -1,3 +1,40 @@
+Bugs:
+
+no bindings:
+	<!-- Recent Activity -->
+	Post-Message Suggestions
+	<!-- gallery on the home page -->
+
+Profile can be marked as poly and not poly simultaneously
+
+
+
+
+
+List of Potential Features:
+	Answer Questions Guide http://www.okcupid.com/questions?rqid=256
+	Update fetcher with new fetching method
+		http://www.okcupid.com/profile/clarinetslide/questions?self_notes=1&mandatory=1
+		http://www.okcupid.com/profile/clarinetslide/questions?self_notes=1&very_important=1
+	Indicator: Do you fall into their age range? Do they fall into your age range? Put an indicator at the top.
+	On one's own profile page, they can turn on or off questions that are coded
+	enable/disable categories
+	Pin should be across all page views
+
+Potential Categories
+	poly
+	notPossessive
+	science
+	children
+	trans-friendly (genderqueer-friendly)
+	gay-friendly
+	sex-positive
+	woman-friendly
+	meditation-friendly
+	potentially queer?
+
+
+
 Profile:
 
 Last Viewed Date
@@ -10,24 +47,3 @@ interestLevel
 	wantToMessage
 	uninterested
 	past
-
-
-List of Potential Features:
-	Answer Questions Guide http://www.okcupid.com/questions?rqid=256
-	Update fetcher with new fetching method
-		http://www.okcupid.com/profile/clarinetslide/questions?self_notes=1&mandatory=1
-		http://www.okcupid.com/profile/clarinetslide/questions?self_notes=1&very_important=1
-	Indicator: Do you fall into their age range? Do they fall into your age range? Put an indicator at the top.
-	On one's own profile page, they can turn on or off questions that are coded
-	enable/disable categories
-
-Potential Categories
-	poly
-	notPossessive
-	science
-	children
-	trans-friendly (genderqueer-friendly)
-	gay-friendly
-	sex-positive
-	woman-friendly
-	potentially queer?
