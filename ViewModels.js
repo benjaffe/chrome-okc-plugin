@@ -183,7 +183,7 @@ function OKCP() {
 		}
 
 		// check for cached question data
-		if (!!recentProfiles[_OKCP.profileName]) {
+		if (!!recentProfiles[_OKCP.profileName] && new Date().getTime() - recentProfiles[_OKCP.profileName].expires > 0) {
 			recentProfiles[_OKCP.profileName].expires = new Date().getTime() + 300000; //reset expires
 			OKCP.questionList = recentProfiles[_OKCP.profileName].questionList;
 			OKCP.responseCount = recentProfiles[_OKCP.profileName].responseCount;
