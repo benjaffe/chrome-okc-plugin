@@ -1,28 +1,18 @@
 Bugs:
-
-no bindings:
-	<!-- Recent Activity -->
-	Post-Message Suggestions
-	<!-- gallery on the home page -->
-
-Profile can be marked as poly and not poly simultaneously
+*	no bindings on post-message suggestions
+*	profile can be marked as poly and not poly simultaneously
 
 
-
-
-
-List of Potential Features:
-	Answer Questions Guide http://www.okcupid.com/questions?rqid=256
-	Update fetcher with new fetching method
-		http://www.okcupid.com/profile/clarinetslide/questions?self_notes=1&mandatory=1
-		http://www.okcupid.com/profile/clarinetslide/questions?self_notes=1&very_important=1
-	Indicator: Do you fall into their age range? Do they fall into your age range? Put an indicator at the top.
-	On one's own profile page, they can turn on or off questions that are coded
-	enable/disable categories
+List of Planned Features:
+	On one's own profile page, they can turn on or off categories that are coded (and questions from within)
+		Answer Questions Guide http://www.okcupid.com/questions?rqid=256
+	Implement New Categories (need to ask for help with this one)
 	Enable people to enable/disable sortByEnemy, or make a better UI for it.
-	Do something with last viewed?
-	Plugin configures itself based on important questions? Or at least based on user's answers
 
+List of Possible Features
+	Plugin configures itself based on important questions? Or at least based on user's answers
+	Do something with last viewed?
+	Indicator: Do you fall into their age range? Do they fall into your age range?
 
 Potential Categories
 	Poly (open to nonmonogamy)
@@ -41,14 +31,12 @@ Potential Categories
 	
 	potentially queer?
 	kid-friendly
-	has kids
 
 	Kid-Friendly (Can use OKC Profile Info to augment/override)
 
 	Kinsey Scale (not monosexual)
 	poly not in a primary
 	ADHD
-
 
 
 Profile:
