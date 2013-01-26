@@ -10,12 +10,17 @@
 	}
 
 	var storage = JSON.parse(localStorage.okcp);
-	storage.dataCleanupJobNumToReach = '1.1.33';
+	storage.dataCleanupJobNumToReach = '1.1.34';
+
 	if (storage.dataCleanupJobNum === storage.dataCleanupJobNumToReach) {
 		return false;
 	}
 
 	var upgradeMessage = ['Data Cleanup Run:'];
+
+	// confirm that proper keys exist
+	storage.settings = storage.settings || {};
+	storage.profileList = storage.profileList || {};
 
 	// if backup isn't current, create a backup
 	if (localStorage.okcpBackup_1_1_33 === undefined) {

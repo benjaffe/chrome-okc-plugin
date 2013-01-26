@@ -41,7 +41,7 @@ if (_OKCP.profilePath !== '') {
 	}).attr('data-bind','click: toggleQuestionDetailPinned'); //click functionality for the pinning feature
 
 	// The rest of the bindings for the pinning feature
-	$('body').attr('data-bind','css:{"okcp-show-question-detail-hold": settingsList()["questionDetailPinned"] == true}');
+	$('body').attr('data-bind','css:{"okcp-show-question-detail-hold": settingsList()["questionDetailPinned"] || false}');
 }
 
 
