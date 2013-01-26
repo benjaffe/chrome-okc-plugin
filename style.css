@@ -42,9 +42,9 @@ html div#loveisblindday div.inner {background-color: rgb(0,15,45);margin-top: 27
 .question-detail .match-false {background: #F55; color:#700;}
 .question-detail .match-true {background: #8C8; color:#050;}
 
-.match-ratio {background: #999;padding:0 4px;}
-.match-ratio.bad-match {background: #F55;}
-.match-ratio.great-match {background: #8C8;}
+#okcp .match-ratio {background: #999;padding:0 4px;}
+#okcp .match-ratio.bad-match {background: #F55;}
+#okcp .match-ratio.great-match {background: #8C8;}
 
 .match-ratio-category {display:inline-block;width:75%;margin-right:5%;text-align:right;}
 .match-ratio-value {display:inline-block;width:20%;}

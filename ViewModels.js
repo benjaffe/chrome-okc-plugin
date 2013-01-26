@@ -5,6 +5,9 @@ var _OKCP = {};
 _OKCP.urlSansParameters = location.href.split('?')[0];
 _OKCP.profilePath = _OKCP.urlSansParameters.split("/profile/")[1] || '';
 _OKCP.profileName = _OKCP.profilePath.split("/")[0];
+_OKCP.clientProfileName = $('#user_header .username').text();
+if (_OKCP.profilePath === "") _OKCP.profileName = _OKCP.clientProfileName;
+_OKCP.onOwnProfile = (_OKCP.clientProfileName === _OKCP.profileName);
 
 $('html').attr('id','okcp'); //so I have an ID to use when I have to override OkC's broken CSS specificity madness :(
 $('body').addClass('OKCP-bindings-not-yet-loaded');
@@ -22,8 +25,8 @@ if (_OKCP.profilePath !== '') {
 		'<a class="okcp-btn hide-btn uninterested-hide-btn" data-bind="click: toggleHideUninterested, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].u == true : false}">Not For Me</a>'+
 		'<a class="okcp-btn hide-btn nodata-hide-btn" data-bind="click: toggleHideNoData, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].d == true : false}">No Answers</a>'+
 	'</div>').append('<div class="spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>');
-	// (category match percentages)
-	$('#actions').append('<table class="match-ratios-wrapper-outer"><tr><td class="match-ratios">'+
+	// (category match percentages (#social exists on your own profile page, #actions is on others'))
+	$('#actions, #social').append('<table class="match-ratios-wrapper-outer"><tr><td class="match-ratios">'+
 		'<ul class="match-ratios-list"></ul>'+
 		'</td></tr></table>');
 	// question detail
@@ -202,12 +205,13 @@ function OKCP() {
 			
 			while (!requestFailed && OKCP.numRequestsMade < 10) {
 				updateQuestionPath();
-				// console.log('loading page '+ OKCP.questionPath);
+				console.log('loading page '+ OKCP.questionPath);
 				OKCP.numRequestsMade++;
 				$('<div id="page-results-' + OKCP.questionPageNum + '"></div>').appendTo(pageResultsDiv).load(OKCP.questionPath + ' #questions', function() {
 					OKCP.numRequestsFinished++;
 					// console.log(this);
 					for (var i = 0; i < list.length; i++) {
+						var theirAnswer, theirNote, yourAnswer, yourNote;
 						var listItem = list[i];
 						var num = listItem.qid;
 						var wrongAnswers = listItem.wrongAnswers;
@@ -215,11 +219,15 @@ function OKCP() {
 						var questionText = $(this).find("#qtext_"+num).text().trim();
 						if (questionText === "") continue;
 
-						var theirAnswer = $(this).find("#answer_target_"+num).text().trim();
-						var theirNote = $(this).find("#note_target_"+num).text().trim();
-						var yourAnswer = $(this).find("#answer_viewer_"+num).text().trim();
-						var yourNote = $(this).find("#note_viewer_"+num).text().trim();
-						
+						if (_OKCP.onOwnProfile) {
+							theirAnswer = $(this).find("#self_answers_"+num+" .match.mine").text().trim();
+							theirNote = $(this).find("#explanation_"+num).text().trim();
+						} else {
+							theirAnswer = $(this).find("#answer_target_"+num).text().trim();
+							theirNote = $(this).find("#note_target_"+num).text().trim();
+							yourAnswer = $(this).find("#answer_viewer_"+num).text().trim();
+							yourNote = $(this).find("#note_viewer_"+num).text().trim();
+						}
 						var match = true;
 						for (var j = 0; j < wrongAnswers.length; j++) {
 							// console.log(questionText + "  " + theirAnswer + " | " + wrongAnswers[j]);
@@ -265,9 +273,12 @@ function OKCP() {
 		}
 
 		function updateQuestionPath (pageNum) {
+			var questionFilterParameter = 'i_care=1';
+			if (_OKCP.onOwnProfile) {
+				questionFilterParameter = 'very_important=1';
+			}
 			OKCP.questionPageNum = pageNum || OKCP.questionPageNum;
-			OKCP.questionPath = "http://www.okcupid.com/profile/" + _OKCP.profileName + "/questions?n=1&low=" + (OKCP.questionPageNum*10+1) + "&i_care=1";
-			// console.log(OKCP.questionPath);
+			OKCP.questionPath = "http://www.okcupid.com/profile/" + _OKCP.profileName + "/questions?n=1&low=" + (OKCP.questionPageNum*10+1) + "&" + questionFilterParameter;
 			OKCP.questionPageNum++;
 		}
 
