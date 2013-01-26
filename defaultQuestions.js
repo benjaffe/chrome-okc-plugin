@@ -1,39 +1,56 @@
-
-// create a database if there isn't one
-if (localStorage.okcp === undefined) {
-	localStorage.okcp = JSON.stringify({
-		dataModelVersion:'1.1.0',
-		profileList: {}
-	});
-}
-
-if (!localStorage.okcpSettings || localStorage.okcpSettings === "undefined") {
-	localStorage.okcpSettings = JSON.stringify({});
-}
-
-var okcpBackupList = ['okcp_b130110'];
-for (var i = 0; i < okcpBackupList.length; i++) {
-	if (!!localStorage[okcpBackupList[i]]) {
-		localStorage.removeItem(okcpBackupList[i]);
+// check to see if any database upgrades or localStorage cleanups are necessary
+(function () {
+	// create a database if there isn't one
+	if (localStorage.okcp === undefined) {
+		localStorage.okcp = JSON.stringify({
+			dataModelVersion: '1.1.0',
+			profileList: {},
+			settings: {}
+		});
 	}
-}
 
-localStorage.okcp_b130124 = localStorage.okcp; // backup
-
-// upgrade data model if needed
-if (JSON.parse(localStorage.okcp).hiddenProfileList !== undefined) {
-	var oldData = JSON.parse(localStorage.okcp);
-	var newData = {
-		'dataModelVersion': '1.1.0',
-		'profileList': {}
-	};
-	for (i=0; i < oldData.hiddenProfileList.length; i++) {
-		newData.profileList[oldData.hiddenProfileList[i]] = {h:true};
+	var storage = JSON.parse(localStorage.okcp);
+	storage.dataCleanupJobNumToReach = '1.1.33';
+	if (storage.dataCleanupJobNum === storage.dataCleanupJobNumToReach) {
+		return false;
 	}
-	localStorage.okcp = JSON.stringify(newData);
-	console.log('Updated Data Model to Version 1.1.0');
-}
 
+	var upgradeMessage = ['Data Cleanup Run:'];
+
+	// if backup isn't current, create a backup
+	if (localStorage.okcpBackup_1_1_33 === undefined) {
+		localStorage.okcpBackup_1_1_33 = localStorage.okcp;
+		upgradeMessage.push('  * Created a database backup (version 1.1.33)');
+	}
+
+	// clean up deprecated keys
+	var deprecatedKeys = ['okcpSettings','okcp_b130110','okcp_b130124'];
+	for (var i = 0; i < deprecatedKeys.length; i++) {
+		if (!!localStorage[deprecatedKeys[i]]) {
+			localStorage.removeItem(deprecatedKeys[i]);
+			upgradeMessage.push('  * Removed deprecated key ('+deprecatedKeys[i]+')');
+		}
+	}
+
+	// upgrade data model from 1.x if needed
+	if (storage.hiddenProfileList !== undefined) {
+		var oldData = storage;
+		var newData = {
+			'dataModelVersion': '1.1.0',
+			'profileList': {}
+		};
+		for (i=0; i < oldData.hiddenProfileList.length; i++) {
+			newData.profileList[oldData.hiddenProfileList[i]] = {h:true};
+		}
+		localStorage.okcp = JSON.stringify(newData);
+		upgradeMessage.push('  * Updated Data Model to Version 1.1.0');
+	}
+
+	storage.dataCleanupJobNum = storage.dataCleanupJobNumToReach;
+	localStorage.okcp = JSON.stringify(storage);
+
+	console.log(upgradeMessage.join('\n'));
+})();
 
 // default questions
 localStorage.okcpDefaultQuestions = JSON.stringify([

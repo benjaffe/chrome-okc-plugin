@@ -19,7 +19,8 @@ List of Potential Features:
 	Indicator: Do you fall into their age range? Do they fall into your age range? Put an indicator at the top.
 	On one's own profile page, they can turn on or off questions that are coded
 	enable/disable categories
-	Pin should be across all page views
+	Enable people to enable/disable sortByEnemy, or make a better UI for it.
+	Do something with last viewed?
 
 Potential Categories
 	poly

@@ -6,11 +6,12 @@ _OKCP.urlSansParameters = location.href.split('?')[0];
 _OKCP.profilePath = _OKCP.urlSansParameters.split("/profile/")[1] || '';
 _OKCP.profileName = _OKCP.profilePath.split("/")[0];
 
-$('html').attr('id','okcp'); //so I have an ID to override OkC's broken CSS specificity madness
+$('html').attr('id','okcp'); //so I have an ID to use when I have to override OkC's broken CSS specificity madness :(
 $('body').addClass('OKCP-bindings-not-yet-loaded');
 
 // if we're on a profile page
 if (_OKCP.profilePath !== '') {
+	// Add the UI (buttons and spinner)
 	$('#main_content .tabbed_heading').append('<div class="okcp-btns">'+
 		'<a class="okcp-btn toggleIsPoly" data-bind="click: toggleIsPoly, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].ip == true : false}">Poly</a>'+
 		'<a class="okcp-btn hide-btn poly-hide-btn" data-bind="click: toggleHideNotPoly, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].p == true : false}">Not Poly</a>'+
@@ -21,70 +22,59 @@ if (_OKCP.profilePath !== '') {
 		'<a class="okcp-btn hide-btn uninterested-hide-btn" data-bind="click: toggleHideUninterested, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].u == true : false}">Not For Me</a>'+
 		'<a class="okcp-btn hide-btn nodata-hide-btn" data-bind="click: toggleHideNoData, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].d == true : false}">No Answers</a>'+
 	'</div>').append('<div class="spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>');
-
+	// (category match percentages)
 	$('#actions').append('<table class="match-ratios-wrapper-outer"><tr><td class="match-ratios">'+
 		'<ul class="match-ratios-list"></ul>'+
 		'</td></tr></table>');
+	// question detail
+	$('#right_column').prepend('<div class="question-detail"></div>');
+
+	// Now let's fix some of OkCupid's styling by adding a class (since sadly, they don't already have them)
+	$('#save_unsave').parent().addClass('wide-buttons-that-are-now-not-wide left');
+	$('#save_unsave').parent().next().addClass('wide-buttons-that-are-now-not-wide right');
+	
+	// Add hover and bindings for the category match ratio area. (Only doing the hover with JS since I can't with CSS)
 	$('.match-ratios').hover(function() {
 		$('body').addClass('okcp-show-question-detail');
 	},function() {
 		$('body').removeClass('okcp-show-question-detail');
-	}).click(function() {
-		$('body').toggleClass('okcp-show-question-detail-hold');
-		var settings = JSON.parse(localStorage.okcpSettings);
-		if (settings.questionDetailPinned) {
-			settings.questionDetailPinned = !settings.questionDetailPinned;
-		} else {
-			settings.questionDetailPinned = false;
-		}
-		localStorage.okcpSettings = JSON.stringify(settings);
-	});
+	}).attr('data-bind','click: toggleQuestionDetailPinned'); //click functionality for the pinning feature
 
-	$('body').addClass(JSON.parse(localStorage.okcpSettings).questionDetailPinned ? 'okcp-show-question-detail-hold' : '');
-
-	$('#right_column').prepend('<div class="question-detail"></div>');
-
-	$('#save_unsave').parent().addClass('wide-buttons-that-are-now-not-wide left');
-	$('#save_unsave').parent().next().addClass('wide-buttons-that-are-now-not-wide right');
-}
-
-// if we're on the match search page
-if (document.location.pathname === "/match") { //enable feature: sort by enemy percentage
-
-	var sortByEnemyEnabled = true; // = !!JSON.parse(localStorage.okc).sortByEnemyEnabled || false;
-	sortByEnemyEnabled = false; // TODO: enable people to disable sortByEnemy
-
-	if (sortByEnemyEnabled) {
-		sortByEnemy();
-	}
-}
-
-function sortByEnemy() {
-	var matchResultsArr = $("#match_results .match_row"); //get array of elements
-	// console.log(matchResultsArr);
-	// sort based on enemy percentage
-	matchResultsArr.sort(function (a, b) {
-		a = parseInt($(a).find('.enemy .percentage').text().split('%')[0],10);
-		b = parseInt($(b).find('.enemy .percentage').text().split('%')[0],10);
-
-		// compare
-		if(a > b) {
-			return 1;
-		} else if(a < b) {
-			return -1;
-		} else {
-			return 0;
-		}
-	});
-	$("#match_results").html(matchResultsArr);//put sorted results back on page
+	// The rest of the bindings for the pinning feature
+	$('body').attr('data-bind','css:{"okcp-show-question-detail-hold": settingsList()["questionDetailPinned"] == true}');
 }
 
 
 function OKCP() {
 	var _dummyObservable = ko.observable();
 
+	this.settingsList = ko.computed({
+		read: function() {
+			_dummyObservable();
+			return JSON.parse(localStorage.okcp).settings;
+		},
+		write: function(property, value) {
+			var storage = JSON.parse(localStorage.okcp);
+			console.log("Writing a settings property: " + property);
+			if (!storage.settings) {
+				storage.settings = {};
+			}
+			if (value === "toggle") {
+				storage.settings[property] = !storage.settings[property] || false;
+				console.log("toggled" + property);
+				console.log("value is now " + storage.settings[property]);
+			} else {
+				storage.settings[property] = value;
+				console.log("set" + property);
+				console.log("value is now " + storage.settings[property]);
+			}
+			localStorage.okcp = JSON.stringify(storage);
+			// console.log("writing to localStorage (settings modified)");
+			OKCP.alertLocalStorageChange();
+		}
+	});
+	this.settingsListData = ko.observable(this.settingsList());
 
-	
 	this.profileList = ko.computed({
 		read: function() {
 			_dummyObservable();
@@ -97,7 +87,7 @@ function OKCP() {
 			}
 			storage.profileList[_OKCP.profileName][property] = value;
 			localStorage.okcp = JSON.stringify(storage);
-			console.log("writing to localStorage");
+			// console.log("writing to localStorage (profileList modified)");
 			// console.log(localStorage.okcp);
 			// console.log('-----');
 		}
@@ -116,60 +106,71 @@ function OKCP() {
 	this.profileShown = ko.observable(false);
 
 	this.calculateHiddenProfile = function() {
-		// console.log('toggleHiddenProfile run');
 		this.alertLocalStorageChange();
 		this.profileHidden(this.profileList()[_OKCP.profileName].p || this.profileList()[_OKCP.profileName].u || this.profileList()[_OKCP.profileName].d);
 		this.profileShown(this.profileList()[_OKCP.profileName].wm);
 		this.profileList("h",this.profileHidden() && !this.profileShown()); //update storage
-		this.alertLocalStorageChange();
-		// console.log(this.profileList()[_OKCP.profileName].p + '' + this.profileList()[_OKCP.profileName].u + this.profileList()[_OKCP.profileName].d);
-		// this.profileHidden(this.profileList()[_OKCP.profileName].h); //update page UI
-		// console.log(this.profileHidden());
-		// console.log(this.profileList()[_OKCP.profileName].h);
+		this.alertLocalStorageChange(); //needs to be run twice, before the change, and also after
 		this.profileList("lm",Math.round(new Date().getTime()/1000)); //update last modified time
 		this.profileList("lv",Math.round(new Date().getTime()/1000)); //update last viewed time
 	};
 
 	this.profileList("lv",Math.round(new Date().getTime()/1000)); //update last viewed time
 
-	this.toggleHideNotPoly = function(data) {
-		// console.log(data);
-		console.log('toggleHideNotPoly run');
+	this.toggleHideNotPoly = function(data) {		console.log('toggleHideNotPoly run');
 		this.profileList("p",!this.profileList()[_OKCP.profileName].p); //update storage
 		this.calculateHiddenProfile();
 	};
 
-	this.toggleHideUninterested = function(data) {
-		console.log('toggleHideUninterested run');
+	this.toggleHideUninterested = function(data) {		console.log('toggleHideUninterested run');
 		this.profileList("u",!this.profileList()[_OKCP.profileName].u); //update storage
 		this.calculateHiddenProfile();
 	};
 
-	this.toggleHideNoData = function(data) {
-		console.log('toggleHideNoData run');
+	this.toggleHideNoData = function(data) {		console.log('toggleHideNoData run');
 		this.profileList("d",!this.profileList()[_OKCP.profileName].d); //update storage
 		this.calculateHiddenProfile();
 	};
 
-	this.toggleIsPoly = function(data) {
-		console.log('toggleIsPoly run');
+	this.toggleIsPoly = function(data) {		console.log('toggleIsPoly run');
 		this.profileList("ip",!this.profileList()[_OKCP.profileName].ip); //update storage
 		this.calculateHiddenProfile();
 	};
 
-	this.toggleWantToMessage = function(data) {
-		console.log('toggleWantToMessage run');
+	this.toggleWantToMessage = function(data) {		console.log('toggleWantToMessage run');
 		this.profileList("wm",!this.profileList()[_OKCP.profileName].wm); //update storage
 		this.calculateHiddenProfile();
 	};
 
-	this.toggleMaybeInterested = function(data) {
-		console.log('toggleMaybeInterested run');
+	this.toggleMaybeInterested = function(data) {		console.log('toggleMaybeInterested run');
 		this.profileList("m",!this.profileList()[_OKCP.profileName].m); //update storage
 		this.calculateHiddenProfile();
 	};
+
+	this.toggleQuestionDetailPinned = function(data) {
+		this.settingsList('questionDetailPinned','toggle');
+	};
+
 	this.alertLocalStorageChange = function() {
 		_dummyObservable.notifySubscribers(); //force the computed value to fetch the new updated local storage by pretending we updated something else in the computed function.
+	};
+
+	this.sortByEnemy = function() {
+		var matchResultsArr = $("#match_results .match_row"); //get array of elements
+		// sort based on enemy percentage
+		matchResultsArr.sort(function (a, b) {
+			a = parseInt($(a).find('.enemy .percentage').text().split('%')[0],10);
+			b = parseInt($(b).find('.enemy .percentage').text().split('%')[0],10);
+			// compare
+			if(a > b) {
+				return 1;
+			} else if (a < b) {
+				return -1;
+			} else {
+				return 0;
+			}
+		});
+		$("#match_results").html(matchResultsArr); //put sorted results back on page
 	};
 
 	this.getAnswers = function (list) {
@@ -254,12 +255,9 @@ function OKCP() {
 			}
 		}
 
-
 		function retrieveQuestion (num) {
 			for (var i = 0; i < questionsToCheckFor.length; i++) {
-				// console.log(num + "  " + questionsToCheckFor[i].qid);
 				if (num*1 === questionsToCheckFor[i].qid*1) {
-					// console.log(true);
 					return questionsToCheckFor[i];
 				}
 			}
@@ -326,6 +324,8 @@ $(window).bind('storage', function(e) {
 	OKCP.alertLocalStorageChange();
 	OKCP.profileListData(OKCP.profileList());
 	OKCP.profileListData.notifySubscribers();
+	OKCP.settingsListData(OKCP.settingsList());
+	OKCP.settingsListData.notifySubscribers();
 	// console.log(JSON.stringify(OKCP.profileList()));
 });
 
@@ -349,7 +349,6 @@ function applyBindingsToProfileThumb (objList, scopeOfBindingsStr) {
 	if (scopeOfBindings === null) return false;
 	objList.each(function() {
 		var thumbName = this.thumbName;
-		var cssObj = 
 		$(this).attr('data-bind','css: {'+
 			'"okcp-hidden": profileListData()["'+thumbName+'"] ? profileList()["'+thumbName+'"].h == true : false,'+
 			'"okcp-no-answers": profileListData()["'+thumbName+'"] ? profileList()["'+thumbName+'"].d == true : false,'+
@@ -361,7 +360,7 @@ function applyBindingsToProfileThumb (objList, scopeOfBindingsStr) {
 	ko.applyBindings(OKCP, scopeOfBindings);
 }
 
-//these are all the places we're looking for thumbnails to hide
+//these are all the places we're looking for thumbnails to potentially hide
 
 // current profile's profile image
 _OKCP.currentProfileImage = $('#profile_thumbs');
@@ -433,21 +432,22 @@ _OKCP.conversationThumbs.each(function() {
 });
 applyBindingsToProfileThumb(_OKCP.conversationThumbs,'#conversations');
 
-
+// This is run in a loop because as the user scrolls, more items will appear.
 setInterval(function() {
 	var doSortByEnemy = false;
 	// Match Search Page
 	_OKCP.matchresultsThumbs = $('#match_results .match_row');
 	_OKCP.matchresultsThumbs.each(function() {
+		//if it doesn't have a binding applied, apply one
 		if ($(this).attr('data-bind') === undefined) {
 			this.thumbName = $(this).find('.username').text();
-			// console.log(this.thumbName + this.id);
 			applyBindingsToProfileThumb($(this),'#'+this.id);
 			doSortByEnemy = true;
 		}
 	});
-	if (doSortByEnemy) sortByEnemy();
+	if (doSortByEnemy) OKCP.sortByEnemy();
 },1000);
+
 
 // Bindings are applied, so remove class from body enabling hide button.
 $('body').removeClass('OKCP-bindings-not-yet-loaded');
