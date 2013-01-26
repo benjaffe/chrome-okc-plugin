@@ -21,18 +21,33 @@ List of Potential Features:
 	enable/disable categories
 	Enable people to enable/disable sortByEnemy, or make a better UI for it.
 	Do something with last viewed?
+	Plugin configures itself based on important questions? Or at least based on user's answers
+
 
 Potential Categories
-	poly
-	notPossessive
-	science
-	children
-	trans-friendly (genderqueer-friendly)
-	gay-friendly
-	sex-positive
-	woman-friendly
+	Poly (open to nonmonogamy)
+	Sharing (partner openness)
+	Science-Based (science above faith) // Faith-Based
+	Nonreproductive (Not wanting kids) // Reproductive
+
+	Open-Mindedness
+	Gay-friendly
+	Trans-friendly (Genderqueer-friendly)
+	Sex-positive
+	Kinkiness (BD/DS/SM?)
+	Feminism
+	Leftism / Rightism
 	meditation-friendly
+	
 	potentially queer?
+	kid-friendly
+	has kids
+
+	Kid-Friendly (Can use OKC Profile Info to augment/override)
+
+	Kinsey Scale (not monosexual)
+	poly not in a primary
+	ADHD
 
 
 
