@@ -210,6 +210,7 @@ function OKCP() {
 				updateQuestionPath();
 				console.log('loading page '+ OKCP.questionPath);
 				OKCP.numRequestsMade++;
+				//add page results, parse the page
 				$('<div id="page-results-' + OKCP.questionPageNum + '"></div>').appendTo(pageResultsDiv).load(OKCP.questionPath + ' #questions', function() {
 					OKCP.numRequestsFinished++;
 					// console.log(this);
@@ -256,8 +257,7 @@ function OKCP() {
 						listItem.qid = listItem.qid+"-used";
 					}
 					// console.log(OKCP.questionList);
-					areWeDone();
-
+					areWeDone(false);
 				}).error(function(){
 					console.log("Request failed on number " + OKCP.numRequestsMade);
 					requestFailed = true;
@@ -285,6 +285,7 @@ function OKCP() {
 			OKCP.questionPageNum++;
 		}
 
+		// if we're done, it hides the spinner and adds the UI, then sorts the categories
 		function areWeDone(fromCached) {
 			if (fromCached || OKCP.numRequestsFinished === OKCP.numRequestsMade) {
 				// console.log(OKCP.questionList);
