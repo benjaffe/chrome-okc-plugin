@@ -6,6 +6,7 @@ Bugs:
 List of Planned Features:
 	On one's own profile page, they can turn on or off categories that are coded (and questions from within)
 		Answer Questions Guide http://www.okcupid.com/questions?rqid=256
+	Categories should be sorting consistently
 	Implement New Categories (need to ask for help with this one)
 	Enable people to enable/disable sortByEnemy, or make a better UI for it.
 

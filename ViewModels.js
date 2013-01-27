@@ -6,8 +6,11 @@ _OKCP.urlSansParameters = location.href.split('?')[0];
 _OKCP.profilePath = _OKCP.urlSansParameters.split("/profile/")[1] || '';
 _OKCP.profileName = _OKCP.profilePath.split("/")[0];
 _OKCP.clientProfileName = $('#user_header .username').text();
-if (_OKCP.profilePath === "") _OKCP.profileName = _OKCP.clientProfileName;
+if (_OKCP.profilePath === "") {
+	_OKCP.profileName = _OKCP.clientProfileName;
+}
 _OKCP.onOwnProfile = (_OKCP.clientProfileName === _OKCP.profileName);
+console.log(_OKCP.onOwnProfile);
 
 $('html').attr('id','okcp'); //so I have an ID to use when I have to override OkC's broken CSS specificity madness :(
 $('body').addClass('OKCP-bindings-not-yet-loaded');
@@ -325,6 +328,19 @@ function OKCP() {
 						$('.question-detail-'+question.category).prepend('<li class="category-header category-header-'+question.category+'">'+question.category+'</li>');
 					}
 				}
+
+				// sort categories
+				$('.match-ratios-list .match-ratio').sort(function(a,b) {
+					if ($(b).find('.match-ratio-category').text() === "poly:") return true;
+					if ($(a).find('.match-ratio-category').text() === "poly:") return false;
+					return ( $(a).find('.match-ratio-category').text() > $(b).find('.match-ratio-category').text() );
+				}).appendTo('.match-ratios-list');
+
+				$('.question-detail > ul').sort(function(a,b) {
+					if ($(b).find('.category-header').text() === "poly") return true;
+					if ($(a).find('.category-header').text() === "poly") return false;
+					return ( $(a).find('.category-header').text() > $(b).find('.category-header').text() );
+				}).appendTo('.question-detail');
 			}
 		}
 	};
