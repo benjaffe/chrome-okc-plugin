@@ -393,7 +393,7 @@ function applyBindingsToProfileThumb (objList, scopeOfBindingsStr) {
 // current profile's profile image
 _OKCP.currentProfileImage = $('#profile_thumbs');
 _OKCP.currentProfileImage.each(function() {
-	this.thumbName = $(this).find('#thumb0_a').attr('href').split('/photos')[0].split('/profile/')[1];
+	this.thumbName = $('#basic_info_sn').text();
 });
 applyBindingsToProfileThumb(_OKCP.currentProfileImage,'#profile_thumbs');
 
