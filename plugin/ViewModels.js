@@ -372,7 +372,16 @@ ko.applyBindings(OKCP);
 OKCP.getAnswers();
 
 // takes a jQuery collection and adds polyhidden class binding to the profile's 'h' key in storage (within the bindings scope)
-function applyBindingsToProfileThumb (objList, scopeOfBindingsStr) {
+function applyBindingsToProfileThumb (objList, scopeOfBindingsStr, retry) {
+	if(objList.length === 0 && !retry) {
+		setTimeout(function() {
+		applyBindingsToProfileThumb (objList, scopeOfBindingsStr, true);
+		},500);
+		return false;
+	} else if (objList.length === 0) {
+		return false;
+	}
+	if (retry) console.log(objList);
 	var scopeOfBindings = document.querySelector(scopeOfBindingsStr);
 	if (scopeOfBindings === null) return false;
 	objList.each(function() {
@@ -386,6 +395,7 @@ function applyBindingsToProfileThumb (objList, scopeOfBindingsStr) {
 		'}');
 	});
 	ko.applyBindings(OKCP, scopeOfBindings);
+	return true;
 }
 
 //these are all the places we're looking for thumbnails to potentially hide
@@ -417,6 +427,13 @@ _OKCP.similarUsersThumbs.each(function() {
 	this.thumbName = this.href.split('?')[0].split('/profile/')[1];
 });
 applyBindingsToProfileThumb(_OKCP.similarUsersThumbs,'#matchphotobrowser');
+
+// recent activity
+_OKCP.recentActivityUsersThumbs = $('#recent_activity .activity_item .image a');
+_OKCP.recentActivityUsersThumbs.each(function() {
+	this.thumbName = this.href.split('?')[0].split('/profile/')[1];
+});
+applyBindingsToProfileThumb(_OKCP.recentActivityUsersThumbs,'#recent_activity');
 
 // quiver
 _OKCP.quiverThumbs = $('#p_quiver #matches .photo');
