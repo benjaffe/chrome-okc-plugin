@@ -2,12 +2,18 @@ Bugs:
 *	no bindings on post-message suggestions
 *	profile can be marked as poly and not poly simultaneously
 
+For Next Version:
+	Let users see what questions they haven't answered
+	Comment explaining google analytics
 
-List of Planned Features:
+For Next Next Version:
 	On one's own profile page, they can turn on or off categories that are coded (and questions from within)
 		Answer Questions Guide http://www.okcupid.com/questions?rqid=256
-	Categories should be sorting consistently
 	Implement New Categories (need to ask for help with this one)
+
+
+List of Planned Features:
+	Categories should be sorting consistently (properly, meaning refactoring)
 	Enable people to enable/disable sortByEnemy, or make a better UI for it.
 
 List of Possible Features
