@@ -189,7 +189,7 @@ function OKCP() {
 		}
 
 		// check for cached question data
-		if (!!recentProfiles[_OKCP.profileName] && new Date().getTime() - recentProfiles[_OKCP.profileName].expires > 0) {
+		if (!!recentProfiles[_OKCP.profileName] && new Date().getTime() - recentProfiles[_OKCP.profileName].expires < 0) {
 			recentProfiles[_OKCP.profileName].expires = new Date().getTime() + 300000; //reset expires
 			OKCP.questionList = recentProfiles[_OKCP.profileName].questionList;
 			OKCP.responseCount = recentProfiles[_OKCP.profileName].responseCount;
@@ -477,24 +477,21 @@ _OKCP.conversationThumbs.each(function() {
 });
 applyBindingsToProfileThumb(_OKCP.conversationThumbs,'#conversations');
 
-// if sortByEnemy is enabled, set that up
-if (!!JSON.parse(localStorage.okcp).settings.sortByEnemy) {
-	// This is run in a loop because as the user scrolls, more items will appear.
-	setInterval(function() {
-		var doSortByEnemy = false;
-		// Match Search Page
-		_OKCP.matchresultsThumbs = $('#match_results .match_row');
-		_OKCP.matchresultsThumbs.each(function() {
-			//if it doesn't have a binding applied, apply one
-			if ($(this).attr('data-bind') === undefined) {
-				this.thumbName = $(this).find('.username').text();
-				applyBindingsToProfileThumb($(this),'#'+this.id);
-				doSortByEnemy = true;
-			}
-		});
-		if (doSortByEnemy) OKCP.sortByEnemy();
-	},1000);
-}
+// This is run in a loop because as the user scrolls, more items will appear.
+setInterval(function() {
+	var doSortByEnemy = false;
+	// Match Search Page
+	_OKCP.matchresultsThumbs = $('#match_results .match_row');
+	_OKCP.matchresultsThumbs.each(function() {
+		//if it doesn't have a binding applied, apply one
+		if ($(this).attr('data-bind') === undefined) {
+			this.thumbName = $(this).find('.username').text();
+			applyBindingsToProfileThumb($(this),'#'+this.id);
+			doSortByEnemy = !!JSON.parse(localStorage.okcp).settings.sortByEnemy; // doSortByEnemy = true if the setting is enabled
+		}
+	});
+	if (doSortByEnemy) OKCP.sortByEnemy();
+},1000);
 
 // Bindings are applied, so remove class from body enabling hide button.
 $('body').removeClass('OKCP-bindings-not-yet-loaded');

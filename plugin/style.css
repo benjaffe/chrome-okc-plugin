@@ -24,6 +24,7 @@
 .question-detail {position:relative;display:none;padding:0 8px 8px;max-width:300px;margin:0 0 10px;background-color:#AAA;border-radius:4px;min-width: 260px;-webkit-transition: all 0.5s ease-in-out;}
 .okcp-show-question-detail .question-detail,
 .okcp-show-question-detail-hold .question-detail {display:block;}
+.photos .question-detail {left:-94px;}
 .question-detail ul {margin:0;}
 .question-detail>ul:last-child {border-bottom:none;}
 .question-detail li ul li:nth-child(2) {font-size:1.2em;text-align:left;}
