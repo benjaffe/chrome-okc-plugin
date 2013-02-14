@@ -22,6 +22,9 @@
 
 /* UI - Question Detail */
 .question-detail {position:relative;display:none;padding:0 8px 8px;max-width:300px;margin:0 0 10px;background-color:#AAA;border-radius:4px;min-width: 260px;-webkit-transition: all 0.5s ease-in-out;}
+.questions-in-common {background-color:#CCC;color:#555;text-align:center;}
+.questions-in-common-many {background-color: #8C8;}
+.questions-in-common-few {background-color: #F55;}
 .okcp-show-question-detail .question-detail,
 .okcp-show-question-detail-hold .question-detail {display:block;}
 .photos .question-detail {left:-94px;}

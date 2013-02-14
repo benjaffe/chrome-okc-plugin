@@ -210,6 +210,21 @@ function OKCP() {
 				updateQuestionPath();
 				console.log('loading page '+ OKCP.questionPath);
 				OKCP.numRequestsMade++;
+				
+				//on the first page load, get meta info (number of questions in common)
+				if (OKCP.questionPageNum === 1) {
+					$('<div id="page-results-meta"></div>').appendTo(pageResultsDiv).load(OKCP.questionPath + ' .stats.lined', function() {
+						var questionsInCommon = $(this).find('.stats.lined li:nth-child(5) .large').text().split(' questions')[0];
+						var questionsInCommonAmountClass;
+						if (questionsInCommon > 100) {
+							questionsInCommonAmountClass = 'questions-in-common-many';
+						} else if (questionsInCommon < 34) {
+							questionsInCommonAmountClass = 'questions-in-common-few';
+						}
+						$('.question-detail').prepend('<div class="questions-in-common ' + questionsInCommonAmountClass + '">' + questionsInCommon + ' Questions in Common</div>');
+					});
+				}
+
 				//add page results, parse the page
 				$('<div id="page-results-' + OKCP.questionPageNum + '"></div>').appendTo(pageResultsDiv).load(OKCP.questionPath + ' #questions', function() {
 					OKCP.numRequestsFinished++;
