@@ -25,7 +25,7 @@
 .questions-in-common {background-color:#CCC;color:#555;text-align:center;}
 .questions-in-common-many {background-color: #8C8;}
 .questions-in-common-few {background-color: #F55;}
-.improve-accuracy {font-size:0.8em;padding-left:5px;}
+.improve-accuracy {font-size:0.8em;padding-left:5px;display:none;}
 .improve-accuracy:before {content:"...";margin-right:8px;color:#2855A2;}
 .improve-accuracy.disabled {display:none;}
 .okcp-show-question-detail .question-detail,
@@ -120,6 +120,7 @@
 
 
 /* Unanswered Questions */
+
 .unanswered-questions {position: absolute;z-index:3000;top: 200px;left: 50%;width: 530px;margin-left: -270px;background: #DDD;padding: 20px;box-shadow: 0 0 20px rgba(0,0,0,0.4);}
 .unanswered-questions iframe {margin-bottom:10px;border:solid 1px #888;}
 .notice.green, .options, .status, .cancel_btn, .answer_btn, .public_btn, .talk_btn, .reanswer_btn, .hide_on_answering {display:none;}
