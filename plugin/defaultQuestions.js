@@ -107,6 +107,11 @@ localStorage.okcpDefaultQuestions = JSON.stringify([
 		category: "poly",
 		wrongAnswers:["Yes, and I didn't tell at least one of them."]
 	},
+	{
+		qid:"423049", //If your partner told you they wanted to sleep with someone else, how would you react to that?
+		category: "poly",
+		wrongAnswers:["That would be a deal breaker."]
+	},
 	//posessive
 	{
 		qid:"784", //Would you be okay with your significant other spending a lot of time with one of his/her exes (as a friend)?
@@ -124,10 +129,41 @@ localStorage.okcpDefaultQuestions = JSON.stringify([
 		category: "science",
 		wrongAnswers:["Faith","Equally in both"]
 	},
+	{
+		qid:"126793", //How do you believe the universe most likely came into existence?
+		category: "science",
+		wrongAnswers:["God or gods created it within the last 10k years","God or gods created it a very long time ago"]
+	},
+	{
+		qid:"409", //A "shooting star" is a star that...
+		category: "science",
+		wrongAnswers:["...burned out, and collapsed","...collided with Earth's atmosphere","...got sucked into a black hole"]
+	},
+	{
+		qid:"258", //Did America really put a man on the moon?
+		category: "science",
+		wrongAnswers:["No"]
+	},
 	//children
 	{
 		qid:"80041", //Are you looking for a partner to have children with?
 		category: "children",
 		wrongAnswers:["Yes"]
-	}
+	}/*,
+	//aggressionSensitive
+	{
+		qid:"55349", //Have you ever thrown an object in anger during an argument?
+		category: "aggressionSensitive",
+		wrongAnswers:["Yes."]
+	},
+	{
+		qid:"386", //If someone intentionally damaged your property, would you be more likely to call the police, or to fight them?
+		category: "aggressionSensitive",
+		wrongAnswers:["Fight them"]
+	},
+	{
+		qid:"6689", //Are you quietly angry a lot of the time?
+		category: "aggressionSensitive",
+		wrongAnswers:["Yes"]
+	}*/
 ]);

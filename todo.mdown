@@ -21,29 +21,8 @@ List of Possible Features
 	Do something with last viewed?
 	Indicator: Do you fall into their age range? Do they fall into your age range?
 
-Potential Categories
-	Poly (open to nonmonogamy)
-	Sharing (partner openness)
-	Science-Based (science above faith) // Faith-Based
-	Nonreproductive (Not wanting kids) // Reproductive
 
-	Open-Mindedness
-	Gay-friendly
-	Trans-friendly (Genderqueer-friendly)
-	Sex-positive
-	Kinkiness (BD/DS/SM?)
-	Feminism
-	Leftism / Rightism
-	meditation-friendly
-	
-	potentially queer?
-	kid-friendly
 
-	Kid-Friendly (Can use OKC Profile Info to augment/override)
-
-	Kinsey Scale (not monosexual)
-	poly not in a primary
-	ADHD
 
 
 Profile:

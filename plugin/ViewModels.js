@@ -34,6 +34,7 @@ if (_OKCP.profilePath !== '') {
 		'</td></tr></table>');
 	// question detail
 	$('#right_column').prepend('<div class="question-detail"></div>');
+	$('.question-detail').prepend('<div class="questions-in-common"><a href="#" class="improve-accuracy" id="improve-accuracy" data-bind="click:showUnansweredQuestions">Improve Accuracy</a></div>');
 
 	// Now let's fix some of OkCupid's styling by adding a class (since sadly, they don't already have them)
 	$('#save_unsave').parent().addClass('wide-buttons-that-are-now-not-wide left');
@@ -157,6 +158,54 @@ function OKCP() {
 		this.settingsList('questionDetailPinned','toggle');
 	};
 
+	this.showUnansweredQuestions = function(data) {
+		var questions = JSON.parse(localStorage.okcpDefaultQuestions);
+		console.log(questions);
+		var unansweredQuestionsDiv = $('<div class="unanswered-questions"></div>').appendTo('body');
+		for (var i=0; i < questions.length; i++) {
+			var qid = questions[i].qid;
+			var iframe = $('<iframe class="unanswered-questions-iframe" src="http://www.okcupid.com/questions?rqid=' + qid + '" style="width:100%;height:1px;" qid="' + qid + '">');
+			// console.log(iframe);
+			unansweredQuestionsDiv.append(iframe);
+			
+			iframe.load(function() {
+				$(this).css({'height':'300px'});
+				var iFrameContent = $(this.contentDocument);
+				// console.log(iFrameContent);
+				// console.log(iFrameContent.find(".notice p:not(.btn)").text().indexOf('already answered this question') === -1);
+				if (iFrameContent.find(".notice p:not(.btn)").text().indexOf('already answered this question') !== -1) {
+					console.log('not doing ' + $(this).attr('qid'));
+					$(this).remove();
+					return false;
+				}
+				var questionStuff = iFrameContent.find('#new_question');
+				iFrameContent.find('body').html('<div class="big_dig" style="padding:0;"><div class="questions" id="addQuestionStuffHere" style="width:auto;margin:0;"></div></div>');
+				iFrameContent.find('#addQuestionStuffHere').html( questionStuff );
+				iFrameContent.find('.notice.green, .notice.pink .btn').hide();
+				$('<a class="iframe-close-btn">X</a>').insertBefore(this).click(function() {
+					$(this).next().add(this).hide(400,function() {
+						$(this).remove();
+						if($('.unanswered-questions').children().length === 0) {
+							$('.unanswered-questions').remove();
+						}
+					});
+				});
+				
+			});
+
+
+			// $('<div class="unanswered-questions-' + i + '"></div>').load('http://www.okcupid.com/questions?rqid=' + qid + ' #new_question', function() {
+			// 	if ($(this).find('.notice:contains(already answered this question)').length) {
+			// 		$(this).remove();
+			// 	} else {
+					
+					
+			// 	}
+				
+			// });
+		}
+	};
+
 	this.alertLocalStorageChange = function() {
 		_dummyObservable.notifySubscribers(); //force the computed value to fetch the new updated local storage by pretending we updated something else in the computed function.
 	};
@@ -203,25 +252,25 @@ function OKCP() {
 			//loop through every question page
 			var pageResultsDiv = $('<div id="page-results"></div>').appendTo('body');
 			$('#footer').append('<a class="page-results-link" href="#page-results">Show question results</a>');
-			
-			// console.log("getting answers");
-			
+
+
+
 			while (!requestFailed && OKCP.numRequestsMade < 10) {
 				updateQuestionPath();
 				console.log('loading page '+ OKCP.questionPath);
 				OKCP.numRequestsMade++;
-				
+
 				//on the first page load, get meta info (number of questions in common)
 				if (OKCP.questionPageNum === 1) {
 					$('<div id="page-results-meta"></div>').appendTo(pageResultsDiv).load(OKCP.questionPath + ' .stats.lined', function() {
 						var questionsInCommon = $(this).find('.stats.lined li:nth-child(5) .large').text().split(' questions')[0];
-						var questionsInCommonAmountClass;
+						var questionsInCommonAmountClass = "";
 						if (questionsInCommon > 100) {
 							questionsInCommonAmountClass = 'questions-in-common-many';
 						} else if (questionsInCommon < 34) {
 							questionsInCommonAmountClass = 'questions-in-common-few';
 						}
-						$('.question-detail').prepend('<div class="questions-in-common ' + questionsInCommonAmountClass + '">' + questionsInCommon + ' Questions in Common</div>');
+						$('.questions-in-common').addClass(questionsInCommonAmountClass).prepend(questionsInCommon + ' Questions in Common ');
 					});
 				}
 
@@ -281,14 +330,15 @@ function OKCP() {
 			}
 		}
 
-		function retrieveQuestion (num) {
+		/*function retrieveQuestion (num) {
+		console.log('ho hi hi');
 			for (var i = 0; i < questionsToCheckFor.length; i++) {
 				if (num*1 === questionsToCheckFor[i].qid*1) {
 					return questionsToCheckFor[i];
 				}
 			}
 			return false;
-		}
+		}*/
 
 		function updateQuestionPath (pageNum) {
 			var questionFilterParameter = 'i_care=1';
@@ -338,7 +388,8 @@ function OKCP() {
 					}
 					$('.question-detail-'+question.category).append('<li class="match match-' + question.match + '"><ul>'+
 						'<li class="question">' + question.question + '</li>'+
-						'<li class="answer">' + question.theirAnswer + ' -- ' + '</li>'+
+						'<li class="answer">' + question.theirAnswer + '</li>'+
+						'<li class="explanation">' + question.theirNote + '</li>'+
 						'</ul></li>');
 					if ($('.question-detail-'+question.category+' .match').length === 1) {
 						$('.question-detail-'+question.category).prepend('<li class="category-header category-header-'+question.category+'">'+question.category+'</li>');

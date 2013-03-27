@@ -25,6 +25,9 @@
 .questions-in-common {background-color:#CCC;color:#555;text-align:center;}
 .questions-in-common-many {background-color: #8C8;}
 .questions-in-common-few {background-color: #F55;}
+.improve-accuracy {font-size:0.8em;padding-left:5px;}
+.improve-accuracy:before {content:"...";margin-right:8px;color:#2855A2;}
+.improve-accuracy.disabled {display:none;}
 .okcp-show-question-detail .question-detail,
 .okcp-show-question-detail-hold .question-detail {display:block;}
 .photos .question-detail {left:-94px;}
@@ -32,9 +35,18 @@
 .question-detail>ul:last-child {border-bottom:none;}
 .question-detail li ul li:nth-child(2) {font-size:1.2em;text-align:left;}
 .category-header {text-align:center;text-transform:uppercase;font-weight:bold;background-color:gray;color:white;margin:0 -7px;box-shadow:0 1px 2px rgba(0,0,0,0.2);position:relative;border-bottom:solid 1px #555;border-top:solid 1px #555;}
-.question-detail .match {padding: 5px;padding-bottom:10px;border-bottom:solid 1px #CCC;}
+.question-detail .match {position:relative;padding: 5px;padding-bottom:10px;border-bottom:solid 1px #CCC;}
 .question-detail .match-false {background: #F55; color:#700;}
 .question-detail .match-true {background: #8C8; color:#050;}
+.question-detail .match .question {}
+.question-detail .match .answer {}
+.question-detail .match .explanation {height:0px;font-style:italic;margin:0 -5px -10px;overflow:hidden;opacity:0.8;}
+.question-detail .match:hover .explanation {height:auto;padding:5px;}
+.question-detail .match .explanation:empty {display:none;}
+.question-detail .match .explanation:before {content: "Explanation: ";font-style:normal;}
+.question-detail .match .explanation:after {content:"exp...";position:absolute;bottom:8px;right:4px;height:10px;}
+.question-detail .match:hover .explanation:after {display:none;}
+
 
 /* UI - Hidden Profile Thumbnails */
 .okcp-hidden {opacity:0.1;transition:all 0.2s ease-out;-webkit-transition:all 0.2s ease-out;}
@@ -106,6 +118,15 @@
 .image a {display:block;} /* makes the a tags encase the imgs so the text is at the top */
 #online_now {z-index: 10;} /* prevent online_now indicator from getting hidden behind the image */
 
+
+/* Unanswered Questions */
+.unanswered-questions {position: absolute;z-index:3000;top: 200px;left: 50%;width: 530px;margin-left: -270px;background: #DDD;padding: 20px;box-shadow: 0 0 20px rgba(0,0,0,0.4);}
+.unanswered-questions iframe {margin-bottom:10px;border:solid 1px #888;}
+.notice.green, .options, .status, .cancel_btn, .answer_btn, .public_btn, .talk_btn, .reanswer_btn, .hide_on_answering {display:none;}
+.qtext, .answer_area p {color: #2855A2;font-size:13px;font-weight: bold;line-height: 18px;margin:10px 0 5px;}
+.answer_area label {display:block;}
+.iframe-close-btn {position:absolute;right:15px;margin-top:-9px;background:#666;border-radius:20px;width:25px;height:22px;padding-top:3px;text-align:center;color:white;font-weight:bold;cursor:pointer;}
+.iframe-close-btn:hover {background:#333;color:#CCC;}
 
 /* Overrides (My god, some of these selectors are awful. Just for the record, they are copied and pasted from OkC's code. They are NOT mine!!) */
 #likeonfacebook {display: none;}
