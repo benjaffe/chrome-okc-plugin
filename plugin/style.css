@@ -25,7 +25,7 @@
 .questions-in-common {background-color:#CCC;color:#555;text-align:center;}
 .questions-in-common-many {background-color: #8C8;}
 .questions-in-common-few {background-color: #F55;}
-.improve-accuracy {font-size:0.8em;padding-left:5px;display:none;}
+.improve-accuracy {font-size:0.8em;padding-left:5px;}
 .improve-accuracy:before {content:"...";margin-right:8px;color:#2855A2;}
 .improve-accuracy.disabled {display:none;}
 .okcp-show-question-detail .question-detail,

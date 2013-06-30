@@ -39,7 +39,7 @@ if (_OKCP.profilePath !== '') {
 	// Now let's fix some of OkCupid's styling by adding a class (since sadly, they don't already have them)
 	$('#save_unsave').parent().addClass('wide-buttons-that-are-now-not-wide left');
 	$('#save_unsave').parent().next().addClass('wide-buttons-that-are-now-not-wide right');
-	
+
 	// Add hover and bindings for the category match ratio area. (Only doing the hover with JS since I can't with CSS)
 	$('.match-ratios').hover(function() {
 		$('body').addClass('okcp-show-question-detail');
@@ -167,30 +167,40 @@ function OKCP() {
 			var iframe = $('<iframe class="unanswered-questions-iframe" src="http://www.okcupid.com/questions?rqid=' + qid + '" style="width:100%;height:1px;" qid="' + qid + '">');
 			// console.log(iframe);
 			unansweredQuestionsDiv.append(iframe);
-			
+
 			iframe.load(function() {
 				$(this).css({'height':'300px'});
 				var iFrameContent = $(this.contentDocument);
 				// console.log(iFrameContent);
 				// console.log(iFrameContent.find(".notice p:not(.btn)").text().indexOf('already answered this question') === -1);
-				if (iFrameContent.find(".notice p:not(.btn)").text().indexOf('already answered this question') !== -1) {
+				console.log(iFrameContent.find(".notice.pink p").not(':hidden'));
+				if (iFrameContent.find(".notice p:not(.btn)").text().indexOf('already answered this question') !== -1 ||
+						iFrameContent.find(".notice.pink p:eq(1)").not(':hidden').size() > 0) {
 					console.log('not doing ' + $(this).attr('qid'));
 					$(this).remove();
+					if($('.unanswered-questions').children().length === 0) {
+						$('.improve-accuracy').hide();
+						$('.unanswered-questions').html('<h1>You have answered all the questions that this plugin currently checks. Congratulations!</h1>').delay(5000).hide(500);
+					}
 					return false;
 				}
 				var questionStuff = iFrameContent.find('#new_question');
-				iFrameContent.find('body').html('<div class="big_dig" style="padding:0;"><div class="questions" id="addQuestionStuffHere" style="width:auto;margin:0;"></div></div>');
+				iFrameContent.find('body > *').hide();
+				iFrameContent.find('body').append(('<div class="big_dig" style="padding:0;"><div class="questions" id="addQuestionStuffHere" style="width:auto;margin:0;"></div></div>'));
 				iFrameContent.find('#addQuestionStuffHere').html( questionStuff );
 				iFrameContent.find('.notice.green, .notice.pink .btn').hide();
+				iFrameContent.find('.submit_btn').click(function(){
+					iFrameContent.find('#new_question').hide();
+				});
 				$('<a class="iframe-close-btn">X</a>').insertBefore(this).click(function() {
 					$(this).next().add(this).hide(400,function() {
 						$(this).remove();
 						if($('.unanswered-questions').children().length === 0) {
 							$('.unanswered-questions').remove();
+							$(this).animate({'height':'158px'},800);
 						}
 					});
 				});
-				
 			});
 
 
