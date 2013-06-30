@@ -20,7 +20,7 @@ List of Possible Features
 	Plugin configures itself based on important questions? Or at least based on user's answers
 	Do something with last viewed?
 	Indicator: Do you fall into their age range? Do they fall into your age range?
-
+	Firefox Plugin
 
 
 

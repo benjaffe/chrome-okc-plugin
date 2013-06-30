@@ -135,8 +135,8 @@ html div#loveisblindday.expanded {height:80px;}
 html div#loveisblindday div.inner {background-color: rgb(0,15,45);margin-top: 27px;width: 300px;padding-top: 16px;}
 #p_profile div.tabbed_heading div#percentages span.match, #p_profile div.tabbed_heading div#percentages span.friend, #p_profile div.tabbed_heading div#percentages span.enemy {margin-bottom:1px;}
 #p_profile div.tabbed_heading div#basic_info div.aso_loc {max-width:240px;}
-#p_profile #rating {position:absolute;top:57px;left:204px;float:none;z-index:2;}
-#p_profile #rating span {margin-left: 4px;margin-bottom: 3px;}
+#p_profile #rating {position:absolute;top: 46px;left: 180px;float:none;z-index:2;-webkit-transform: scale(0.7);transform: scale(0.7);}
+#p_profile #rating span {margin-left: 4px;margin-bottom: 0px;}
 #p_profile #percentages {padding:20px 3px 40px;border-radius: 0 0 4px 4px;}
 #p_profile #upgrade_form {display:none;}
 #p_profile #actions {margin-bottom:-22px;height:220px;}
