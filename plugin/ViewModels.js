@@ -161,7 +161,7 @@ function OKCP() {
 	this.showUnansweredQuestions = function(data) {
 		var questions = JSON.parse(localStorage.okcpDefaultQuestions);
 		console.log(questions);
-		var unansweredQuestionsDiv = $('<div class="unanswered-questions"></div>').appendTo('body');
+		var unansweredQuestionsDiv = $('<div class="unanswered-questions"><h1 style="margin-bottom:8px;text-align:center;font-weight:normal;font-style:italic;">...loading...</h1></div>').appendTo('body');
 		for (var i=0; i < questions.length; i++) {
 			var qid = questions[i].qid;
 			var iframe = $('<iframe class="unanswered-questions-iframe" src="http://www.okcupid.com/questions?rqid=' + qid + '" style="width:100%;height:1px;" qid="' + qid + '">');
@@ -178,7 +178,7 @@ function OKCP() {
 						iFrameContent.find(".notice.pink p:eq(1)").not(':hidden').size() > 0) {
 					console.log('not doing ' + $(this).attr('qid'));
 					$(this).remove();
-					if($('.unanswered-questions').children().length === 0) {
+					if($('.unanswered-questions').children().length === 1) {
 						$('.improve-accuracy').hide();
 						$('.unanswered-questions').html('<h1>You have answered all the questions that this plugin currently checks. Congratulations!</h1>').delay(5000).hide(500);
 					}
