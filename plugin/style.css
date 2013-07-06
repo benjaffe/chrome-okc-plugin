@@ -9,6 +9,10 @@
 
 /* UI - match ratios */
 #okcp .match-ratios-wrapper-outer {position:absolute;top:116px;height:125px;width:100%;} /* Yes, I know, a table... get over it. There's no vertical centering method for elements with an unknown height that doesn't make me cringe. */
+#okcp .match-ratios-wrapper-outer:before {content:"(Click to pin questions below)";position:absolute;right:186px;top:70px;min-width:206px;padding:4px 0 5px;text-align:center;background: black;color:white;border-radius:4px;opacity:0;}
+#okcp .okcp-show-question-detail-hold .match-ratios-wrapper-outer:before {content:"(Click to unpin questions below)";}
+#okcp .match-ratios-wrapper-outer:hover:before {opacity:1;transition:opacity 1s 2s;}
+
 #okcp .match-ratios-list {box-shadow: none;margin:0;padding:0;}
 #okcp .match-ratio {background: #999;padding:0 4px;}
 #okcp .match-ratio.bad-match {background: #F55;}
@@ -22,6 +26,7 @@
 
 /* UI - Question Detail */
 .question-detail {position:relative;display:none;padding:0 8px 8px;max-width:300px;margin:0 0 10px;background-color:#AAA;border-radius:4px;min-width: 260px;-webkit-transition: all 0.5s ease-in-out;}
+#p_profile .photos .question-detail {left: -34px;min-width: 200px;}
 .questions-in-common {background-color:#CCC;color:#555;text-align:center;}
 .questions-in-common-many {background-color: #8C8;}
 .questions-in-common-few {background-color: #F55;}
