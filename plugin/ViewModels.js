@@ -34,7 +34,10 @@ if (_OKCP.profilePath !== '') {
 		'</td></tr></table>');
 	// question detail
 	$('#right_column').prepend('<div class="question-detail"></div>');
-	$('.question-detail').prepend('<div class="questions-in-common"><a href="#" class="improve-accuracy" id="improve-accuracy" data-bind="click:showUnansweredQuestions">Improve Accuracy</a></div>');
+	var questionsInCommonElem = $('<div class="questions-in-common"></div>').prependTo('.question-detail');
+	if (JSON.parse(localStorage.okcp).accuracyImprovedAsOfVersionNum != "1.1.5") {
+		questionsInCommonElem.append('<a href="#" class="improve-accuracy" id="improve-accuracy" data-bind="click:showUnansweredQuestions">Improve Accuracy</a>');
+	}
 
 	// Now let's fix some of OkCupid's styling by adding a class (since sadly, they don't already have them)
 	$('#save_unsave').parent().addClass('wide-buttons-that-are-now-not-wide left');
@@ -181,6 +184,9 @@ function OKCP() {
 					if($('.unanswered-questions').children().length === 1) {
 						$('.improve-accuracy').hide();
 						$('.unanswered-questions').html('<h1>You have answered all the questions that this plugin currently checks. Congratulations!</h1>').delay(5000).hide(500);
+						var storage = JSON.parse(localStorage.okcp);
+						storage.accuracyImprovedAsOfVersionNum = "1.1.5";
+						localStorage.okcp = JSON.stringify(storage);
 					}
 					return false;
 				}
@@ -430,7 +436,6 @@ $(window).bind('storage', function(e) {
 	OKCP.profileListData.notifySubscribers();
 	OKCP.settingsListData(OKCP.settingsList());
 	OKCP.settingsListData.notifySubscribers();
-	// console.log(JSON.stringify(OKCP.profileList()));
 });
 
 // if no entry for current profile exists, make one!
