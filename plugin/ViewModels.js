@@ -12,7 +12,7 @@ if (_OKCP.profilePath === "") {
 _OKCP.onOwnProfile = (_OKCP.clientProfileName === _OKCP.profileName);
 console.log(_OKCP.onOwnProfile);
 
-$('html').attr('id','okcp'); //so I have an ID to use when I have to override OkC's broken CSS specificity madness :(
+$('html').attr('id','okcp'); //this is so I have an ID to use in my CSS when I have to override OkC's broken CSS specificity madness :(
 $('body').addClass('OKCP-bindings-not-yet-loaded');
 
 // if we're on a profile page

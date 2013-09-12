@@ -3,7 +3,6 @@ Bugs:
 *	profile can be marked as poly and not poly simultaneously
 
 For Next Version:
-	Let users see what questions they haven't answered
 	Comment explaining google analytics
 
 For Next Next Version:

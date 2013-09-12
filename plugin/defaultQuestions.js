@@ -61,6 +61,16 @@
 localStorage.okcpDefaultQuestions = JSON.stringify([
 	//poly
 	{
+		qid:"99709", //Do you consider yourself polyamorous?
+		category: "poly",
+		wrongAnswers:["No"]
+	},
+	{
+		qid:"131794", //How do you feel about polyamory? (multiple relationships)
+		category: "poly",
+		wrongAnswers:["That's cheating, monogamy is the only way to go","I'm open to the concept, but its not for me","Like swingers?"]
+	},
+	{
 		qid:"52827", //Would you consider connecting with someone whose relationship status is 'seeing someone' or 'married'?
 		category: "poly",
 		answers:[],
@@ -112,6 +122,11 @@ localStorage.okcpDefaultQuestions = JSON.stringify([
 		category: "poly",
 		wrongAnswers:["That would be a deal breaker."]
 	},
+	{
+		qid:"28742", //Is it okay for a married person to play around with someone with the permission of their spouse?
+		category: "poly",
+		wrongAnswers:["No"]
+	},
 	//posessive
 	{
 		qid:"784", //Would you be okay with your significant other spending a lot of time with one of his/her exes (as a friend)?
@@ -149,6 +164,33 @@ localStorage.okcpDefaultQuestions = JSON.stringify([
 		qid:"80041", //Are you looking for a partner to have children with?
 		category: "children",
 		wrongAnswers:["Yes"]
+	}/*,
+	// Fetish
+	{
+		qid:"67511", //Suppose you're dating someone who seems to have long-term potential. You discover that they want to urinate on you during sex. Would you consider staying with this person?
+		category: "fetish",
+		wrongAnswers:["Yes."]
+	},
+	{
+		qid:"1401", //Have you ever had a sexual encounter with someone of the same sex?
+		category: "fetish",
+		wrongAnswers:["No, and I would never."]
+	},
+	{
+		qid:"665", //Are you fetish-friendly?
+		category: "fetish",
+		wrongAnswers:["Ew!"]
+	},
+	//BDSM
+	{
+		qid:"463", //In your ideal sexual encounter, do you take control, or do they?
+		category: "bdsm",
+		wrongAnswers:["I take control"]
+	},
+	{
+		qid:"84005", //As an adult, have you ever worn a leash and collar in public?
+		category: "bdsm",
+		wrongAnswers:["No."]
 	}/*,
 	//aggressionSensitive
 	{
