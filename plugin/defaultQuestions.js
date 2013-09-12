@@ -169,7 +169,7 @@ localStorage.okcpDefaultQuestions = JSON.stringify([
 	{
 		qid:"67511", //Suppose you're dating someone who seems to have long-term potential. You discover that they want to urinate on you during sex. Would you consider staying with this person?
 		category: "fetish",
-		wrongAnswers:["Yes."]
+		wrongAnswers:["No."]
 	},
 	{
 		qid:"1401", //Have you ever had a sexual encounter with someone of the same sex?
