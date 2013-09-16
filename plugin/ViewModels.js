@@ -166,6 +166,7 @@ function OKCP() {
 		console.log(questions);
 		var unansweredQuestionsDiv = $('<div class="unanswered-questions"><h1 class="unanswered-questions-loadingtext" style="margin-bottom:8px;text-align:center;font-weight:normal;font-style:italic;">...loading...</h1></div>').appendTo('body');
 		var numUnansweredQuestionsNotYetLoaded = questions.length;
+		console.log(OKCP.clearCachedQuestionData());
 		for (var i=0; i < questions.length; i++) {
 			var qid = questions[i].qid;
 			var iframe = $('<iframe class="unanswered-questions-iframe" src="http://www.okcupid.com/questions?rqid=' + qid + '" style="width:100%;height:1px;" qid="' + qid + '">');
@@ -216,12 +217,12 @@ function OKCP() {
 
 
 			// $('<div class="unanswered-questions-' + i + '"></div>').load('http://www.okcupid.com/questions?rqid=' + qid + ' #new_question', function() {
-			// 	if ($(this).find('.notice:contains(already answered this question)').length) {
-			// 		$(this).remove();
-			// 	} else {
+			//	if ($(this).find('.notice:contains(already answered this question)').length) {
+			//		$(this).remove();
+			//	} else {
 					
 					
-			// 	}
+			//	}
 				
 			// });
 		}
@@ -247,6 +248,16 @@ function OKCP() {
 			}
 		});
 		$("#match_results").html(matchResultsArr); //put sorted results back on page
+	};
+
+	this.clearCachedQuestionData = function() {
+		console.log("cleared cached question data");
+		var recentProfiles = JSON.parse(localStorage.okcpRecentProfiles);
+		for (var profile in recentProfiles) {
+			if (profile === "_ATTENTION") continue;
+			delete recentProfiles[profile]; // remove not-recently visited profiles
+		}
+		localStorage.okcpRecentProfiles = JSON.stringify(recentProfiles);
 	};
 
 	this.getAnswers = function (list) {

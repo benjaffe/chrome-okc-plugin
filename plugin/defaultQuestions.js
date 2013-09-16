@@ -61,7 +61,8 @@
 localStorage.okcpDefaultQuestions = JSON.stringify({
 	questionsVersionNum : "1.1.6",
 	questionsList : [
-	//poly
+
+	//===== poly =====
 	{
 		qid:"99709", //Do you consider yourself polyamorous?
 		category: "poly",
@@ -110,9 +111,9 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		wrongAnswers:["No."]
 	},
 	{
-		qid:"44540", //If you were in a serious relationship, would you mind if your significant other maintained an active profile on OkCupid?
+		qid:"423049", //If your partner told you they wanted to sleep with someone else, how would you react to that?
 		category: "poly",
-		wrongAnswers:["Yes - I would mind this."]
+		wrongAnswers:["That would be a deal breaker."]
 	},
 	{
 		qid:"1121", //Have you ever had multiple romantic partners during the same time period?
@@ -120,42 +121,62 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		wrongAnswers:["Yes, and I didn't tell at least one of them."]
 	},
 	{
-		qid:"423049", //If your partner told you they wanted to sleep with someone else, how would you react to that?
-		category: "poly",
-		wrongAnswers:["That would be a deal breaker."]
-	},
-	{
 		qid:"28742", //Is it okay for a married person to play around with someone with the permission of their spouse?
 		category: "poly",
 		wrongAnswers:["No"]
 	},
-		{
+	{
 		qid:"18564", //Do you believe that it is possible to experience romantic love for more than one person at a time without loving one less because of your love for the other?
 		category: "poly",
 		wrongAnswers:["No"]
 	},
-		{
+	{
 		qid:"47098", //Would you consider dating someone who likes to maintain more than one sexual partnership, but keeps these relationships separate from one another? In other words ... Multiple partners, but only one at a time.
 		category: "poly",
 		wrongAnswers:["No."]
 	},
-		{
+	{
 		qid:"36", //Would you ever consider an open marriage? That means you can sleep with other people.
 		category: "poly",
 		wrongAnswers:["No"]
+	},
+	{
+		qid:"44540", //If you were in a serious relationship, would you mind if your significant other maintained an active profile on OkCupid?
+		category: "poly",
+		wrongAnswers:["Yes - I would mind this."]
 	},
 	{
 		qid:"1440", //Jealousy: healthy or unhealthy, in the context of a relationship?
 		category: "poly",
 		wrongAnswers:["Healthy"]
 	},
-	//posessive
+
+	//===== posessive =====
 	{
 		qid:"784", //Would you be okay with your significant other spending a lot of time with one of his/her exes (as a friend)?
 		category: "notPosessive",
 		wrongAnswers:["No"]
 	},
-	//science
+
+	//===== sex-positive =====
+
+	{
+		qid:"13", //Is a girl who's slept with 100 guys a bad person?
+		category: "sexPositive",
+		wrongAnswers:["Yes"]
+	},
+	{
+		qid:"61903", //Would you be concerned if your partner still masturbated, even though you were sexually active together?
+		category: "sexPositive",
+		wrongAnswers:["Yes"] //maybe "Maybe / I don't know"
+	},
+	{
+		qid:"20976", //You're in a new relationship and your partner admits that they have had 14 sexual partners. Does that sound like a lot to you?
+		category: "sexPositive",
+		wrongAnswers:["Yes, and it makes me uncomfortable."]
+	},
+
+	//===== science =====
 	{
 		qid:"612", //Should evolution and creationism be taught side-by-side in schools?
 		category: "science",
@@ -181,13 +202,30 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		category: "science",
 		wrongAnswers:["No"]
 	},
-	//children
+	{
+		qid:"178", //Which is bigger?
+		category: "science",
+		wrongAnswers:["The earth"]
+	},
+	{
+		qid:"19898", //Do you enjoy finding out what makes things work the way they do?
+		category: "science",
+		wrongAnswers:["As long as it works, who cares why?"]
+	},
+	{
+		qid:"301", //Are you annoyed by people who are super logical?
+		category: "science",
+		wrongAnswers:["Yes"]
+	},
+
+	//===== children =====
 	{
 		qid:"80041", //Are you looking for a partner to have children with?
 		category: "children",
 		wrongAnswers:["Yes"]
 	}/*,
-	// Fetish
+
+	//===== fetish =====
 	{
 		qid:"67511", //Suppose you're dating someone who seems to have long-term potential. You discover that they want to urinate on you during sex. Would you consider staying with this person?
 		category: "fetish",
@@ -203,7 +241,8 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		category: "fetish",
 		wrongAnswers:["Ew!"]
 	},
-	//BDSM
+	
+	//===== BDSM =====
 	{
 		qid:"463", //In your ideal sexual encounter, do you take control, or do they?
 		category: "bdsm",
@@ -214,7 +253,8 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		category: "bdsm",
 		wrongAnswers:["No."]
 	}/*,
-	//aggressionSensitive
+
+	//===== aggressionSensitive =====
 	{
 		qid:"55349", //Have you ever thrown an object in anger during an argument?
 		category: "aggressionSensitive",
@@ -235,12 +275,65 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 /*
 
 from TheOriginalRaconteur1 sent 4 hours ago
-<p id="qtext_30392" class="qtext">Would you be comfortable marrying a bisexual person</p>
-<p id="qtext_37708" class="qtext">The idea of gay and lesbian couples having children is:</p>
+30392" Would you be comfortable marrying a bisexual person
+37708" The idea of gay and lesbian couples having children is:
 
 Josiah
 1435 - Do you consider yourself sexually open minded?
 Poly - Yes
 Not Poly - No
 
+
+	{
+		qid:"20976", //You're in a new relationship and your partner admits that they have had 14 sexual partners. Does that sound like a lot to you?
+		category: "",
+		wrongAnswers:["Yes, and it makes me uncomfortable."]
+	},
+	{
+		qid:"46563", //Assume you have a homosexual friend who is the same gender as you. Would it bother you if they hugged you?
+		category: "",
+		wrongAnswers:["Yes"] //maybe "Only if I thought the hug was more than friendly"
+	},
+	{
+		qid:"55744", //If you were going to have a child, would you want the other parent to be of the same ethnicity as you?
+		category: "racism",
+		wrongAnswers:["Yes"] //maybe "No"
+	},
+	{
+		qid:"29055", //How do you feel about living with a signficant other before marriage?
+		category: "",
+		wrongAnswers:["I'm against that."]
+	},
+	{
+		qid:"358077", //Could you date someone who was really messy?
+		category: "ADHD",
+		wrongAnswers:["No"]
+	},
+	{
+		qid:"57731", //Would you consider dating someone who is much kinkier than you are?
+		category: "",
+		wrongAnswers:["No."]
+	},
+	{
+		qid:"65937", //Imagine that you come home to find a partner pouring red wine all over a stranger's naked body and then licking it off. Which, if any of the following, would bother you most?
+		category: "",
+		wrongAnswers:[""]
+	},
+	{
+		qid:"212813", //Which best describes your political beliefs?
+		category: "politics",
+		wrongAnswers:[""]
+	},
+	{
+		qid:"1153", //Sexually explicit art or song lyrics should be
+		category: "",
+		wrongAnswers:["Censored to protect society"]
+	},
+
+	{
+		qid:"", //
+		category: "",
+		wrongAnswers:[""]
+	},
+	
 */
