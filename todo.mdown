@@ -3,7 +3,8 @@ Bugs:
 *	profile can be marked as poly and not poly simultaneously
 
 For Next Version:
-	Comment explaining google analytics
+*	"Adding a way to select which types of questions it displays might be a nice feature." -Utensil
+
 
 For Next Next Version:
 	On one's own profile page, they can turn on or off categories that are coded (and questions from within)

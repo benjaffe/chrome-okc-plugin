@@ -35,7 +35,7 @@ if (_OKCP.profilePath !== '') {
 	// question detail
 	$('#right_column').prepend('<div class="question-detail"></div>');
 	var questionsInCommonElem = $('<div class="questions-in-common"></div>').prependTo('.question-detail');
-	if (JSON.parse(localStorage.okcp).accuracyImprovedAsOfVersionNum != "1.1.5") {
+	if (JSON.parse(localStorage.okcp).accuracyImprovedAsOfVersionNum != JSON.parse(localStorage.okcpDefaultQuestions).questionsVersionNum) {
 		questionsInCommonElem.append('<a href="#" class="improve-accuracy" id="improve-accuracy" data-bind="click:showUnansweredQuestions">Improve Accuracy</a>');
 	}
 
@@ -162,9 +162,10 @@ function OKCP() {
 	};
 
 	this.showUnansweredQuestions = function(data) {
-		var questions = JSON.parse(localStorage.okcpDefaultQuestions);
+		var questions = JSON.parse(localStorage.okcpDefaultQuestions).questionsList;
 		console.log(questions);
-		var unansweredQuestionsDiv = $('<div class="unanswered-questions"><h1 style="margin-bottom:8px;text-align:center;font-weight:normal;font-style:italic;">...loading...</h1></div>').appendTo('body');
+		var unansweredQuestionsDiv = $('<div class="unanswered-questions"><h1 class="unanswered-questions-loadingtext" style="margin-bottom:8px;text-align:center;font-weight:normal;font-style:italic;">...loading...</h1></div>').appendTo('body');
+		var numUnansweredQuestionsNotYetLoaded = questions.length;
 		for (var i=0; i < questions.length; i++) {
 			var qid = questions[i].qid;
 			var iframe = $('<iframe class="unanswered-questions-iframe" src="http://www.okcupid.com/questions?rqid=' + qid + '" style="width:100%;height:1px;" qid="' + qid + '">');
@@ -172,6 +173,10 @@ function OKCP() {
 			unansweredQuestionsDiv.append(iframe);
 
 			iframe.load(function() {
+				numUnansweredQuestionsNotYetLoaded--;
+				if (numUnansweredQuestionsNotYetLoaded <= 0) {
+					$(".unanswered-questions-loadingtext").remove();
+				}
 				$(this).css({'height':'300px'});
 				var iFrameContent = $(this.contentDocument);
 				// console.log(iFrameContent);
@@ -185,7 +190,7 @@ function OKCP() {
 						$('.improve-accuracy').hide();
 						$('.unanswered-questions').html('<h1>You have answered all the questions that this plugin currently checks. Congratulations!</h1>').delay(5000).hide(500);
 						var storage = JSON.parse(localStorage.okcp);
-						storage.accuracyImprovedAsOfVersionNum = "1.1.5";
+						storage.accuracyImprovedAsOfVersionNum = JSON.parse(localStorage.okcpDefaultQuestions).questionsVersionNum;
 						localStorage.okcp = JSON.stringify(storage);
 					}
 					return false;
@@ -202,7 +207,7 @@ function OKCP() {
 					$(this).next().add(this).hide(400,function() {
 						$(this).remove();
 						if($('.unanswered-questions').children().length === 0) {
-							$('.unanswered-questions').remove();
+							$('.unanswered-questions').fadeOut(200,function(){$(this).remove();});
 							$(this).animate({'height':'158px'},800);
 						}
 					});
@@ -250,7 +255,7 @@ function OKCP() {
 
 		// get list of questions and categories to compare to
 		if (list === undefined) {
-			list = localStorage.okcpDefaultQuestions ? JSON.parse(localStorage.okcpDefaultQuestions) : [];
+			list = localStorage.okcpDefaultQuestions ? JSON.parse(localStorage.okcpDefaultQuestions).questionsList : [];
 		}
 
 		// check for cached question data

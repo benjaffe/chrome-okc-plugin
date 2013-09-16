@@ -58,7 +58,9 @@
 })();
 
 // default questions
-localStorage.okcpDefaultQuestions = JSON.stringify([
+localStorage.okcpDefaultQuestions = JSON.stringify({
+	questionsVersionNum : "1.1.6",
+	questionsList : [
 	//poly
 	{
 		qid:"99709", //Do you consider yourself polyamorous?
@@ -68,7 +70,7 @@ localStorage.okcpDefaultQuestions = JSON.stringify([
 	{
 		qid:"131794", //How do you feel about polyamory? (multiple relationships)
 		category: "poly",
-		wrongAnswers:["That's cheating, monogamy is the only way to go","I'm open to the concept, but its not for me","Like swingers?"]
+		wrongAnswers:["That's cheating, monogamy is the only way to go","I'm open to the concept, but its not for me"]
 	},
 	{
 		qid:"52827", //Would you consider connecting with someone whose relationship status is 'seeing someone' or 'married'?
@@ -126,6 +128,26 @@ localStorage.okcpDefaultQuestions = JSON.stringify([
 		qid:"28742", //Is it okay for a married person to play around with someone with the permission of their spouse?
 		category: "poly",
 		wrongAnswers:["No"]
+	},
+		{
+		qid:"18564", //Do you believe that it is possible to experience romantic love for more than one person at a time without loving one less because of your love for the other?
+		category: "poly",
+		wrongAnswers:["No"]
+	},
+		{
+		qid:"47098", //Would you consider dating someone who likes to maintain more than one sexual partnership, but keeps these relationships separate from one another? In other words ... Multiple partners, but only one at a time.
+		category: "poly",
+		wrongAnswers:["No."]
+	},
+		{
+		qid:"36", //Would you ever consider an open marriage? That means you can sleep with other people.
+		category: "poly",
+		wrongAnswers:["No"]
+	},
+	{
+		qid:"1440", //Jealousy: healthy or unhealthy, in the context of a relationship?
+		category: "poly",
+		wrongAnswers:["Healthy"]
 	},
 	//posessive
 	{
@@ -208,4 +230,17 @@ localStorage.okcpDefaultQuestions = JSON.stringify([
 		category: "aggressionSensitive",
 		wrongAnswers:["Yes"]
 	}*/
-]);
+]});
+
+/*
+
+from TheOriginalRaconteur1 sent 4 hours ago
+<p id="qtext_30392" class="qtext">Would you be comfortable marrying a bisexual person</p>
+<p id="qtext_37708" class="qtext">The idea of gay and lesbian couples having children is:</p>
+
+Josiah
+1435 - Do you consider yourself sexually open minded?
+Poly - Yes
+Not Poly - No
+
+*/
