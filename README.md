@@ -3,53 +3,9 @@ chrome-okc-plugin
 
 OkCupid Poly Plugin
 
-Update: The plugin now automatically sorts users by enemy percentage on the match page.
-
-
-FYI, the questions the plugin is currently looking at are:
-
-http://www.okcupid.com/questions?rqid=52827
-http://www.okcupid.com/questions?rqid=325
-http://www.okcupid.com/questions?rqid=1128
-http://www.okcupid.com/questions?rqid=16371
-http://www.okcupid.com/questions?rqid=33107
-http://www.okcupid.com/questions?rqid=41242
-http://www.okcupid.com/questions?rqid=48278
-http://www.okcupid.com/questions?rqid=44540
-http://www.okcupid.com/questions?rqid=1121
-http://www.okcupid.com/questions?rqid=784
-http://www.okcupid.com/questions?rqid=612
-http://www.okcupid.com/questions?rqid=15889
-http://www.okcupid.com/questions?rqid=80041
-
-
-
-Hellooo my lovely beta testers! All 68 of you! For the lazy, I've bolded the most important parts of this email.
-
-I've been hard at work optimizing the plugin, and version 1.1.0 is finally out. You should notice it's much snappier, especially when you've recently visited the person's profile. It's also using a proper observer system (Knockout.JS for the geeks), so hidden profiles should stay up-to-date better. The interface is the same... it's just faster and more reliable.
-
-After the extension updates itself to version 1.1.0, it will disable itself. You'll have to re-enable it manually. I had to tweak the manifest file to get things to work, so it's now complaining about needing more permissions. 
-
-To re-enable the plugin, open Chrome, click Window - Extensions. Then, scroll down to "OkC Poly Viewer 1.1.0" and click the "Enable" checkbox.
-
-I'd love feedback from any or all of you. Here are my questions:
-
-* Has this plugin made OkCupid nicer or easier for you to use?
-* Does the plugin make sense? Is it intuitive? If not, do you have any suggestions?
-* Do you want to see any other categories aside from poly, notPosessive, science, and children? Someone suggested trans-friendly and gay-friendly.
-* If you want me to add a category, would you be willing to help me figure out which questions would indicate if someone fits in that category or not?
-
-I've attached the most recent draft of the welcome email below, if anyone wants more information or the plugin link.
-
-Thanks, and I hope the plugin is as useful for you as it has been for me!
-Ben
-
-
-
-Hey everyone, thanks for the PMs and for joining the beta group (now 68 people, plus me). Please give this whole email a read so you know what to expect.
-
-Here's the link for the browser plugin:
 https://chrome.google.com/webstore/detail/okc-poly-viewer/cgdblghohnaeeejaoincmbcdkdnodkei
+
+This document is out of date...
 
 Features:
 It's really simple, and there's not much interaction. Just load up a page, and after a delay, a box will appear at the top of their profile with percentage matches for each of the questions that the plugin checks for. Roll your mouse over that box for details.
