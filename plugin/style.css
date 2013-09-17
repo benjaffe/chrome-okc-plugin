@@ -8,7 +8,7 @@
 .okcp-btn.checked:after {content:"\2611";}
 
 /* UI - match ratios */
-.match-ratios-wrapper-outer {position:absolute;right: 160px;top: 11px;height:195px;width:100%;} /* Yes, I know, a table... it's legacy code that I haven't refactored yet, originally used for vertical centering in a complicated situation */
+.match-ratios-wrapper-outer {position:absolute;right: 160px;top: 11px;height:195px;width:100%;} /* Yes, a table... for complicated layout, vertical aligning to the bottom while scrolling when there are too many */
 
 #okcp .match-ratios-list {box-shadow: none;margin:0;padding:0;max-height: 210px;overflow-y: scroll;overflow-x:hidden;}
 
@@ -174,7 +174,7 @@ html div#loveisblindday div.inner {background-color: rgb(0,15,45);margin-top: 27
 #p_profile #actions .wide-buttons-that-are-now-not-wide #unhide_btn,
 #p_profile #actions .wide-buttons-that-are-now-not-wide .flag {width:39px;padding:0;/*border-radius:0!important;*/}
 #p_profile #actions .btn.hideflag {float: right;width: 100px;}
-#p_profile #actions .btn.hideflag a {width: 40px;}
+#p_profile #actions .btn.hideflag a {width: 45px;}
 /*#p_profile #actions .wide-buttons-that-are-now-not-wide.right {width:50px;}*/
 /*#p_profile #actions .wide-buttons-that-are-now-not-wide.left a {border-radius: 3px 0 0 3px !important;border-right:none!important;}*/
 /*#p_profile #actions .wide-buttons-that-are-now-not-wide.right a {border-radius: 0 3px 3px 0 !important;}*/
