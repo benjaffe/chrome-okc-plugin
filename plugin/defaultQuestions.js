@@ -59,7 +59,7 @@
 
 // default questions
 localStorage.okcpDefaultQuestions = JSON.stringify({
-	questionsVersionNum : "1.1.6",
+	questionsVersionNum : "1.1.7",
 	questionsList : [
 
 	//===== poly =====
@@ -175,6 +175,11 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		category: "sexPositive",
 		wrongAnswers:["Yes, and it makes me uncomfortable."]
 	},
+	{
+		qid:"1435", //Do you consider yourself sexually open minded?
+		category: "sexPositive",
+		wrongAnswers:["No"]
+	},
 
 	//===== science =====
 	{
@@ -223,7 +228,7 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		qid:"80041", //Are you looking for a partner to have children with?
 		category: "children",
 		wrongAnswers:["Yes"]
-	}/*,
+	},
 
 	//===== fetish =====
 	{
@@ -232,14 +237,32 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		wrongAnswers:["No."]
 	},
 	{
-		qid:"1401", //Have you ever had a sexual encounter with someone of the same sex?
-		category: "fetish",
-		wrongAnswers:["No, and I would never."]
-	},
-	{
 		qid:"665", //Are you fetish-friendly?
 		category: "fetish",
 		wrongAnswers:["Ew!"]
+	},
+
+	//===== unaggressive =====
+	{
+		qid:"55349", //Have you ever thrown an object in anger during an argument?
+		category: "unaggressive",
+		wrongAnswers:["Yes."]
+	},
+	{
+		qid:"386", //If someone intentionally damaged your property, would you be more likely to call the police, or to fight them?
+		category: "unaggressive",
+		wrongAnswers:["Fight them"]
+	},
+	{
+		qid:"6689", //Are you quietly angry a lot of the time?
+		category: "unaggressive",
+		wrongAnswers:["Yes"]
+	}
+	/*
+	{
+		qid:"1401", //Have you ever had a sexual encounter with someone of the same sex?
+		category: "fetish",
+		wrongAnswers:["No, and I would never."]
 	},
 	
 	//===== BDSM =====
@@ -252,23 +275,6 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		qid:"84005", //As an adult, have you ever worn a leash and collar in public?
 		category: "bdsm",
 		wrongAnswers:["No."]
-	}/*,
-
-	//===== aggressionSensitive =====
-	{
-		qid:"55349", //Have you ever thrown an object in anger during an argument?
-		category: "aggressionSensitive",
-		wrongAnswers:["Yes."]
-	},
-	{
-		qid:"386", //If someone intentionally damaged your property, would you be more likely to call the police, or to fight them?
-		category: "aggressionSensitive",
-		wrongAnswers:["Fight them"]
-	},
-	{
-		qid:"6689", //Are you quietly angry a lot of the time?
-		category: "aggressionSensitive",
-		wrongAnswers:["Yes"]
 	}*/
 ]});
 
@@ -278,27 +284,19 @@ from TheOriginalRaconteur1 sent 4 hours ago
 30392" Would you be comfortable marrying a bisexual person
 37708" The idea of gay and lesbian couples having children is:
 
-Josiah
-1435 - Do you consider yourself sexually open minded?
-Poly - Yes
-Not Poly - No
 
-
-	{
-		qid:"20976", //You're in a new relationship and your partner admits that they have had 14 sexual partners. Does that sound like a lot to you?
-		category: "",
-		wrongAnswers:["Yes, and it makes me uncomfortable."]
-	},
 	{
 		qid:"46563", //Assume you have a homosexual friend who is the same gender as you. Would it bother you if they hugged you?
 		category: "",
 		wrongAnswers:["Yes"] //maybe "Only if I thought the hug was more than friendly"
 	},
+
 	{
 		qid:"55744", //If you were going to have a child, would you want the other parent to be of the same ethnicity as you?
 		category: "racism",
 		wrongAnswers:["Yes"] //maybe "No"
 	},
+
 	{
 		qid:"29055", //How do you feel about living with a signficant other before marriage?
 		category: "",

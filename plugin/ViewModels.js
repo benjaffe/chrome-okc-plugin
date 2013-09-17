@@ -10,13 +10,19 @@ if (_OKCP.profilePath === "") {
 	_OKCP.profileName = _OKCP.clientProfileName;
 }
 _OKCP.onOwnProfile = (_OKCP.clientProfileName === _OKCP.profileName);
-console.log(_OKCP.onOwnProfile);
+// console.log(_OKCP.onOwnProfile);
 
 $('html').attr('id','okcp'); //this is so I have an ID to use in my CSS when I have to override OkC's broken CSS specificity madness :(
 $('body').addClass('OKCP-bindings-not-yet-loaded');
 
 // if we're on a profile page
 if (_OKCP.profilePath !== '') {
+	// Change OkCupid's UI
+	$('#visit_button').insertAfter($('#similar_users_list'));
+
+	// $('#user_pane').append($('#right_column'));
+	
+
 	// Add the UI (buttons and spinner)
 	$('#main_content .tabbed_heading').append('<div class="okcp-btns">'+
 		'<a class="okcp-btn toggleIsPoly" data-bind="click: toggleIsPoly, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].ip == true : false}">Poly</a>'+
@@ -33,7 +39,7 @@ if (_OKCP.profilePath !== '') {
 		'<ul class="match-ratios-list"></ul>'+
 		'</td></tr></table>');
 	// question detail
-	$('#right_column').prepend('<div class="question-detail"></div>');
+	$('#right_column').before('<div class="question-detail"></div>');
 	var questionsInCommonElem = $('<div class="questions-in-common"></div>').prependTo('.question-detail');
 	if (JSON.parse(localStorage.okcp).accuracyImprovedAsOfVersionNum != JSON.parse(localStorage.okcpDefaultQuestions).questionsVersionNum) {
 		questionsInCommonElem.append('<a href="#" class="improve-accuracy" id="improve-accuracy" data-bind="click:showUnansweredQuestions">Improve Accuracy</a>');
@@ -43,15 +49,6 @@ if (_OKCP.profilePath !== '') {
 	$('#save_unsave').parent().addClass('wide-buttons-that-are-now-not-wide left');
 	$('#save_unsave').parent().next().addClass('wide-buttons-that-are-now-not-wide right');
 
-	// Add hover and bindings for the category match ratio area. (Only doing the hover with JS since I can't with CSS)
-	$('.match-ratios').hover(function() {
-		$('body').addClass('okcp-show-question-detail');
-	},function() {
-		$('body').removeClass('okcp-show-question-detail');
-	}).attr('data-bind','click: toggleQuestionDetailPinned'); //click functionality for the pinning feature
-
-	// The rest of the bindings for the pinning feature
-	$('body').attr('data-bind','css:{"okcp-show-question-detail-hold": settingsList()["questionDetailPinned"] || false}');
 }
 
 
@@ -163,10 +160,10 @@ function OKCP() {
 
 	this.showUnansweredQuestions = function(data) {
 		var questions = JSON.parse(localStorage.okcpDefaultQuestions).questionsList;
-		console.log(questions);
+		//console.log(questions);
 		var unansweredQuestionsDiv = $('<div class="unanswered-questions"><h1 class="unanswered-questions-loadingtext" style="margin-bottom:8px;text-align:center;font-weight:normal;font-style:italic;">...loading...</h1></div>').appendTo('body');
 		var numUnansweredQuestionsNotYetLoaded = questions.length;
-		console.log(OKCP.clearCachedQuestionData());
+		//console.log(OKCP.clearCachedQuestionData());
 		for (var i=0; i < questions.length; i++) {
 			var qid = questions[i].qid;
 			var iframe = $('<iframe class="unanswered-questions-iframe" src="http://www.okcupid.com/questions?rqid=' + qid + '" style="width:100%;height:1px;" qid="' + qid + '">');
@@ -289,20 +286,21 @@ function OKCP() {
 
 			while (!requestFailed && OKCP.numRequestsMade < 10) {
 				updateQuestionPath();
-				console.log('loading page '+ OKCP.questionPath);
+				//console.log('loading page '+ OKCP.questionPath);
 				OKCP.numRequestsMade++;
 
 				//on the first page load, get meta info (number of questions in common)
 				if (OKCP.questionPageNum === 1) {
 					$('<div id="page-results-meta"></div>').appendTo(pageResultsDiv).load(OKCP.questionPath + ' .stats.lined', function() {
-						var questionsInCommon = $(this).find('.stats.lined li:nth-child(5) .large').text().split(' questions')[0];
+						var questionsInCommon = $('.comparison>p:first-child').text().split(' of ')[0];//$(this).find('.stats.lined li:nth-child(5) .large').text().split(' questions')[0];
 						var questionsInCommonAmountClass = "";
 						if (questionsInCommon > 100) {
 							questionsInCommonAmountClass = 'questions-in-common-many';
 						} else if (questionsInCommon < 34) {
 							questionsInCommonAmountClass = 'questions-in-common-few';
 						}
-						$('.questions-in-common').addClass(questionsInCommonAmountClass).prepend(questionsInCommon + ' Questions in Common ');
+						console.log(questionsInCommon);
+						$('.questions-in-common').addClass(questionsInCommonAmountClass).prepend(questionsInCommon + ' Common Questions');
 					});
 				}
 
@@ -362,16 +360,6 @@ function OKCP() {
 			}
 		}
 
-		/*function retrieveQuestion (num) {
-		console.log('ho hi hi');
-			for (var i = 0; i < questionsToCheckFor.length; i++) {
-				if (num*1 === questionsToCheckFor[i].qid*1) {
-					return questionsToCheckFor[i];
-				}
-			}
-			return false;
-		}*/
-
 		function updateQuestionPath (pageNum) {
 			var questionFilterParameter = 'i_care=1';
 			if (_OKCP.onOwnProfile) {
@@ -426,6 +414,16 @@ function OKCP() {
 					if ($('.question-detail-'+question.category+' .match').length === 1) {
 						$('.question-detail-'+question.category).prepend('<li class="category-header category-header-'+question.category+'">'+question.category+'</li>');
 					}
+				}
+
+
+
+				if ($('.question-detail > ul').length === 0) {
+					$('.question-detail').append('<ul><li class="match match-nomatches"><ul>'+
+						'<li class="noresults">' + 'No Results' + '</li>'+
+						'<li class="note">' + 'To improve the plugin\'s accuracy, answer more questions publicly and rank them as "Very Important" or "Mandatory". You can also click the "Improve Accuracy" link at the top of this panel to help out.' + '</li>'+
+						'</ul></li></ul>');
+					return false;
 				}
 
 				// sort categories
