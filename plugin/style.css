@@ -10,19 +10,20 @@
 /* UI - match ratios */
 .match-ratios-wrapper-outer {position:absolute;right: 160px;top: 11px;height:195px;width:100%;} /* Yes, I know, a table... it's legacy code that I haven't refactored yet, originally used for vertical centering in a complicated situation */
 
-.match-ratios-list {box-shadow: none;margin:0;padding:0;}
-.match-ratio {background:#CCC;border-bottom:solid 1px #AAA;}
-.match-ratio:first-child {border-top:solid 1px #AAA;}
-.match-ratio .match-ratio-value {background: #CCC;text-align: center;border-radius: 10px;margin:2px 2% 2px 0;}
-.match-ratio.bad-match .match-ratio-value {background: #F55;}
-.match-ratio.great-match .match-ratio-value {background: #8C8;}
-.match-ratio-category {display:inline-block;width:70%;margin-right:5%;text-align:right;}
-.match-ratio-value {display:inline-block;width:23%;}
+#okcp .match-ratios-list {box-shadow: none;margin:0;padding:0;max-height: 210px;overflow-y: scroll;overflow-x:hidden;}
 
-/* UI - match ratios - pin icon: *
-.match-ratios:before {content:"";position:absolute;top:0;right:0;height:13px;width:9px;background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAANCAYAAAB7AEQGAAAAiElEQVQY062Ouw0DIRQEtwC7GiRacEBK5hIIKIAqIKMk6iBCBK4APd8GZ3G+jxw4WCHNjMSDiMB7L0qp3cjp8XPEEaaUNtHqNlHO+U/R6Xe1VjjnDg8np0cI4TBYRw9jzGVE/7lp2a2U8qTovT8mjjlCaw1aaxlj4DTirLXyzXZRjPG1vPeZvQG/dhE3NHzq2wAAAABJRU5ErkJggg==');}
-.okcp-show-question-detail-hold .match-ratios:before {background-position: 0 3px;background-repeat: no-repeat;}
-/**/
+#okcp .match-ratios-list::-webkit-scrollbar {-webkit-appearance: none;width: 7px;}
+#okcp .match-ratios-list::-webkit-scrollbar-thumb {border-radius: 4px;background-color: rgba(0,0,0,.5);-webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);}
+
+#okcp .match-ratios {vertical-align: bottom;}
+#okcp .match-ratio .match-ratio-value {background: #CCC;text-align: center;border-radius: 10px;margin:2px 2% 2px 0;text-shadow:1px 1px 2px rgba(255,255,255,0.5);}
+#okcp .match-ratio.bad-match .match-ratio-value {background: #F77;color:black;}
+#okcp .match-ratio.great-match .match-ratio-value {background: #8C8;}
+#okcp .match-ratio.one-data-point-match .match-ratio-value {background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAJ0lEQVQIW2NkwASSICFGNHGwIBA8R5aACyLrQBGESWAIIks8R7cLADoBBTkr0a5oAAAAAElFTkSuQmCC);}
+#okcp .match-ratio.more-than-10 .match-ratio-value {font-size: 0.8em;letter-spacing:-1px;}
+#okcp .match-ratio-category {display:inline-block;width:70%;margin-right:5%;text-align:right;}
+#okcp .match-ratio-value {display:inline-block;width:23%;}
+
 
 /* UI - Question Detail */
 .question-detail {position:absolute;right:12px;top:260px;padding:0 8px 8px;max-width:300px;margin:0 0 10px;border-radius:4px;min-width: 260px;-webkit-transition: all 0.5s ease-in-out;}

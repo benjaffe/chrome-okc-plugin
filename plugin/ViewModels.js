@@ -393,10 +393,16 @@ function OKCP() {
 					var countArr = OKCP.responseCount[category];
 					var matchRatio = Math.round(100*100*countArr[0]/countArr[1])/100;
 					var matchClass = "";
-					if (matchRatio > 90 && countArr[1]>1) {
+					if ((matchRatio > 66 && countArr[1] === 3) || (matchRatio >= 75 && countArr[1] === 4) || matchRatio >= 80) {
 						matchClass = 'great-match';
 					} else if (matchRatio < 50) {
 						matchClass = 'bad-match';
+					}
+					if (countArr[1]===1) {
+						matchClass += ' one-data-point-match';
+					}
+					if (countArr[1] >= 10) {
+						matchClass += ' more-than-10';
 					}
 					$('.match-ratios-list').append('<li class="match-ratio ' + matchClass + '"><span class="match-ratio-category">' + category + ':</span><span class="match-ratio-value">' + countArr[0] + '/' + countArr[1] + '</span></li>');//matchRatio + '%</li>');
 				}
