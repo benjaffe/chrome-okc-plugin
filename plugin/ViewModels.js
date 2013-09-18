@@ -19,6 +19,7 @@ $('body').addClass('OKCP-bindings-not-yet-loaded');
 if (_OKCP.profilePath !== '') {
 	// Change OkCupid's UI
 	$('#visit_button').insertAfter($('#similar_users_list'));
+	$('#profile_ad').hide();//insertAfter($('#visit_button')).css({'margin-top':'15px'});
 
 	// $('#user_pane').append($('#right_column'));
 	

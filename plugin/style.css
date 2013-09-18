@@ -26,7 +26,7 @@
 
 
 /* UI - Question Detail */
-.question-detail {position:absolute;right:12px;top:260px;padding:0 8px 8px;max-width:300px;margin:0 0 10px;border-radius:4px;min-width: 260px;-webkit-transition: all 0.5s ease-in-out;}
+.question-detail {position:absolute;z-index:512;right:12px;top:260px;padding:0 8px 8px;max-width:300px;margin:0 0 10px;border-radius:4px;min-width: 260px;-webkit-transition: all 0.5s ease-in-out;}
 #p_profile .photos .question-detail {left: -34px;min-width: 200px;}
 .questions-in-common {text-align:center;
      color:#2855A2;height: 30px;padding:0;font-size: 12px;font-weight: bold;line-height: 31px;text-shadow: 0px 1px 0px #fff;
@@ -47,7 +47,7 @@
 .improve-accuracy {font-size:0.8em;padding-left:5px;}
 .improve-accuracy:before {content:"...";margin-right:5px;color:#2855A2;}
 .improve-accuracy.disabled {display:none;}
-.photos .question-detail {left:-94px;}
+.photos .question-detail {right: -191px;}
 .question-detail>* {box-shadow:0 3px 4px rgba(0,0,0,0.3);}
 .question-detail ul {margin:0;}
 .question-detail>ul:last-child {border-bottom:none;}
