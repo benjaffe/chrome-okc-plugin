@@ -18,7 +18,9 @@ $('body').addClass('OKCP-bindings-not-yet-loaded');
 // if we're on a profile page
 if (_OKCP.profilePath !== '') {
 	// Change OkCupid's UI
-	$('#visit_button').insertAfter($('#similar_users_list'));
+	if ($('#visit_button a:contains(Enable invisible browsing)').size() > 0) {
+		$('#visit_button').addClass('moved').insertAfter($('#similar_users_list'));
+	}
 	$('#profile_ad').hide();//insertAfter($('#visit_button')).css({'margin-top':'15px'});
 
 	// $('#user_pane').append($('#right_column'));
@@ -598,4 +600,19 @@ setInterval(function() {
 // Bindings are applied, so remove class from body enabling hide button.
 $('body').removeClass('OKCP-bindings-not-yet-loaded');
 
-
+function debug() {
+	$('.question').prepend('<div class="okcp-add-question">Add Question</div>');
+	$('.okcp-add-question').click(function() {
+		var question = $(this).parent();
+		var qid = question.attr('id').split('question_')[1];
+		var qtext = $('#qtext_' + qid).text();
+		var answers = [];
+		$('#answer_'+qid+' .their_answer').each(function() {
+			answers.push( $(this).parent().text() );
+		});
+		var category = prompt("What category does this question fall under?");
+		category = category.toLowerCase();
+		$('body').append('<div class="copy-this"></div>');
+		'{\n\tqid:"' + qid + '", //' + qtext + '\n\tcategory: "' + category + '",\n\twrongAnswers:["' + answers.join(",") + '"]\n\t},'
+	});
+}

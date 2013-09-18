@@ -182,7 +182,7 @@ html div#loveisblindday div.inner {background-color: rgb(0,15,45);margin-top: 27
 #p_profile #profile_details,
 #p_profile #similar_users_list {background:white;}
 #p_profile #right_column {position: absolute;top: 235px;right: -183px;width: 171px;}
-#p_profile #right_column #visit_button {margin: 20px 0 0;}
+#p_profile #right_column #visit_button.moved {margin-top: 20px;}
 #p_profile #right_column #visit_button .btn {width:auto;}
 #p_profile #right_column #profile_details dl dd {padding-left: 20px; text-indent: 65px;text-align: right}
 #p_profile #right_column #similar_users_list .info {min-height: 50px;height: auto;}
