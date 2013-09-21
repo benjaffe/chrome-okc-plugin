@@ -230,18 +230,6 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		wrongAnswers:["Yes"]
 	},
 
-	//===== fetish =====
-	{
-		qid:"67511", //Suppose you're dating someone who seems to have long-term potential. You discover that they want to urinate on you during sex. Would you consider staying with this person?
-		category: "fetish",
-		wrongAnswers:["No."]
-	},
-	{
-		qid:"665", //Are you fetish-friendly?
-		category: "fetish",
-		wrongAnswers:["Ew!"]
-	},
-
 	//===== unaggressive =====
 	{
 		qid:"55349", //Have you ever thrown an object in anger during an argument?
@@ -257,6 +245,18 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		qid:"6689", //Are you quietly angry a lot of the time?
 		category: "unaggressive",
 		wrongAnswers:["Yes"]
+	},
+
+	//===== fetish =====
+	{
+		qid:"67511", //Suppose you're dating someone who seems to have long-term potential. You discover that they want to urinate on you during sex. Would you consider staying with this person?
+		category: "fetish",
+		wrongAnswers:["No."]
+	},
+	{
+		qid:"665", //Are you fetish-friendly?
+		category: "fetish",
+		wrongAnswers:["Ew!"]
 	}
 	/*
 	{

@@ -2,6 +2,7 @@ $ = jQuery;
 
 var _OKCP = {};
 
+// Initial setup
 _OKCP.urlSansParameters = location.href.split('?')[0];
 _OKCP.profilePath = _OKCP.urlSansParameters.split("/profile/")[1] || '';
 _OKCP.profileName = _OKCP.profilePath.split("/")[0];
@@ -10,10 +11,23 @@ if (_OKCP.profilePath === "") {
 	_OKCP.profileName = _OKCP.clientProfileName;
 }
 _OKCP.onOwnProfile = (_OKCP.clientProfileName === _OKCP.profileName);
-// console.log(_OKCP.onOwnProfile);
+
+// TODO: This is a stupid hack to get rid of the guilt banner and I don't like it, so fix it some other way!
+var blarg = setInterval(function() {
+	var guiltBanner = $('[style="width: 184px; float: left; margin-top: 188px; overflow: hidden;"]');
+	if (guiltBanner.size() > 0) {
+		guiltBanner.hide();
+		clearInterval(blarg);
+	}
+}, 1)
 
 $('html').attr('id','okcp'); //this is so I have an ID to use in my CSS when I have to override OkC's broken CSS specificity madness :(
+
+// keep things from displaying until they're set up
 $('body').addClass('OKCP-bindings-not-yet-loaded');
+
+// add the thumbnail image viewer DOM object
+$('#wrapper').append('<img src="" style="background:white url('+chrome.extension.getURL('images/ajax-loader.gif')+') no-repeat center center" class="largeThumbViewer"></img>');
 
 // if we're on a profile page
 if (_OKCP.profilePath !== '') {
@@ -21,9 +35,7 @@ if (_OKCP.profilePath !== '') {
 	if ($('#visit_button a:contains(Enable invisible browsing)').size() > 0) {
 		$('#visit_button').addClass('moved').insertAfter($('#similar_users_list'));
 	}
-	$('#profile_ad').hide();//insertAfter($('#visit_button')).css({'margin-top':'15px'});
-
-	// $('#user_pane').append($('#right_column'));
+	$('#profile_ad').hide();
 	
 
 	// Add the UI (buttons and spinner)
@@ -114,6 +126,15 @@ function OKCP() {
 	this.response = 0;
 	this.profileHidden = ko.observable(false);
 	this.profileShown = ko.observable(false);
+
+	this.swapLargeThumb = function(vm,e) {
+		var t = e.target
+    	var largeThumbPath = getLargeThumbUrl(t.src);
+    	$('.largeThumbViewer').attr('src',chrome.extension.getURL('images/ajax-loader.gif')).attr('src',largeThumbPath).show();
+    };
+    this.swapSmallThumb = function(vm,e) {
+       $('.largeThumbViewer').hide();
+    };
 
 	this.calculateHiddenProfile = function() {
 		this.alertLocalStorageChange();
@@ -476,7 +497,7 @@ ko.applyBindings(OKCP);
 OKCP.getAnswers();
 
 // takes a jQuery collection and adds polyhidden class binding to the profile's 'h' key in storage (within the bindings scope)
-function applyBindingsToProfileThumb (objList, scopeOfBindingsStr, retry) {
+function applyBindingsToProfileThumb (objList, scopeOfBindingsStr, retry, largeThumbnailHoverEnabled) {
 	if(objList.length === 0 && !retry) {
 		setTimeout(function() {
 		applyBindingsToProfileThumb (objList, scopeOfBindingsStr, true);
@@ -490,16 +511,28 @@ function applyBindingsToProfileThumb (objList, scopeOfBindingsStr, retry) {
 	if (scopeOfBindings === null) return false;
 	objList.each(function() {
 		var thumbName = this.thumbName;
-		$(this).attr('data-bind','css: {'+
+		var dataBind = 'css: {'+
 			'"okcp-hidden": profileListData()["'+thumbName+'"] ? profileList()["'+thumbName+'"].h == true : false,'+
 			'"okcp-no-answers": profileListData()["'+thumbName+'"] ? profileList()["'+thumbName+'"].d == true : false,'+
 			'"okcp-maybe": profileListData()["'+thumbName+'"] ? profileList()["'+thumbName+'"].m == true : false,'+
 			'"okcp-poly": profileListData()["'+thumbName+'"] ? profileList()["'+thumbName+'"].ip == true : false,'+
-			'"okcp-to-message": profileListData()["'+thumbName+'"] ? profileList()["'+thumbName+'"].wm == true : false'+
-		'}');
+			'"okcp-to-message": profileListData()["'+thumbName+'"] ? profileList()["'+thumbName+'"].wm == true : false,'+
+			'"thumbImg": !!this.thumbImg'+
+		'}';
+		if (largeThumbnailHoverEnabled) {
+			dataBind += ', event: { mouseover: swapLargeThumb, mouseout: swapSmallThumb}'
+		}
+		$(this).attr('data-bind',dataBind);
 	});
 	ko.applyBindings(OKCP, scopeOfBindings);
 	return true;
+}
+
+function getLargeThumbUrl(url) {
+	var arr1 = url.split('/images/');
+	arr2 = arr1[1].split('/');
+	newURL = arr1[0] + '/images/250x250/160x160/' + arr2.splice(2).join('/');
+	return(newURL);
 }
 
 //these are all the places we're looking for thumbnails to potentially hide
@@ -509,77 +542,77 @@ _OKCP.currentProfileImage = $('#profile_thumbs');
 _OKCP.currentProfileImage.each(function() {
 	this.thumbName = $('#basic_info_sn').text();
 });
-applyBindingsToProfileThumb(_OKCP.currentProfileImage,'#profile_thumbs');
+applyBindingsToProfileThumb(_OKCP.currentProfileImage,'#profile_thumbs', false, false);
 
 // left sidebar ("you might like" and "you recently visited")
 _OKCP.sidebarThumbs = $('#sidebar_main a[href*="profile"]');
 _OKCP.sidebarThumbs.each(function() {
 	this.thumbName = this.href.split('?')[0].split('/profile/')[1];
 });
-applyBindingsToProfileThumb(_OKCP.sidebarThumbs,'#sidebar_main');
+applyBindingsToProfileThumb(_OKCP.sidebarThumbs,'#sidebar_main', false, true);
 
 // right sidebar
 _OKCP.similarUsersThumbs = $('#similar_users_list .user_image');
 _OKCP.similarUsersThumbs.each(function() {
 	this.thumbName = this.href.split('?')[0].split('/profile/')[1];
 });
-applyBindingsToProfileThumb(_OKCP.similarUsersThumbs,'#similar_users_list');
+applyBindingsToProfileThumb(_OKCP.similarUsersThumbs,'#similar_users_list', false, true);
 
 // home page match photo slideshow browser thingy
 _OKCP.similarUsersThumbs = $('#matchphotobrowser .image > a');
 _OKCP.similarUsersThumbs.each(function() {
 	this.thumbName = this.href.split('?')[0].split('/profile/')[1];
 });
-applyBindingsToProfileThumb(_OKCP.similarUsersThumbs,'#matchphotobrowser');
+applyBindingsToProfileThumb(_OKCP.similarUsersThumbs,'#matchphotobrowser', false, false);
 
 // recent activity
 _OKCP.recentActivityUsersThumbs = $('#recent_activity .activity_item .image a');
 _OKCP.recentActivityUsersThumbs.each(function() {
 	this.thumbName = this.href.split('?')[0].split('/profile/')[1];
 });
-applyBindingsToProfileThumb(_OKCP.recentActivityUsersThumbs,'#recent_activity');
+applyBindingsToProfileThumb(_OKCP.recentActivityUsersThumbs,'#recent_activity', false, true);
 
 // quiver
 _OKCP.quiverThumbs = $('#p_quiver #matches .photo');
 _OKCP.quiverThumbs.each(function() {
 	this.thumbName = this.href.split('?')[0].split('/profile/')[1];
 });
-applyBindingsToProfileThumb(_OKCP.quiverThumbs,'#p_quiver #matches');
+applyBindingsToProfileThumb(_OKCP.quiverThumbs,'#p_quiver #matches', false, true);
 
 // favorites
 _OKCP.favoritesThumbs = $('#p_favorites #main_column .user_row_item');
 _OKCP.favoritesThumbs.each(function() {
 	this.thumbName = this.id.split('usr-')[1];
 });
-applyBindingsToProfileThumb(_OKCP.favoritesThumbs,'#p_favorites #main_column');
+applyBindingsToProfileThumb(_OKCP.favoritesThumbs,'#p_favorites #main_column', false, true);
 
 // visitors
 _OKCP.visitorsThumbs = $('#p_stalkers #main_column .user_row_item');
 _OKCP.visitorsThumbs.each(function() {
 	this.thumbName = this.id.split('usr-')[1];
 });
-applyBindingsToProfileThumb(_OKCP.visitorsThumbs,'#p_stalkers #main_column');
+applyBindingsToProfileThumb(_OKCP.visitorsThumbs,'#p_stalkers #main_column', false, true);
 
 // quickmatch
 _OKCP.quickmatchThumbs = $('#p_votes #main_column .user_row_item, #p_likes #main_column .user_row_item');
 _OKCP.quickmatchThumbs.each(function() {
 	this.thumbName = this.id.split('usr-')[1];
 });
-applyBindingsToProfileThumb(_OKCP.quickmatchThumbs,'#p_votes #main_column');
+applyBindingsToProfileThumb(_OKCP.quickmatchThumbs,'#p_votes #main_column', false, true);
 
 // mailbox
 _OKCP.mailboxThumbs = $('#messages .photo');
 _OKCP.mailboxThumbs.each(function() {
 	this.thumbName = this.href.split('/profile/')[1];
 });
-applyBindingsToProfileThumb(_OKCP.mailboxThumbs,'#messages');
+applyBindingsToProfileThumb(_OKCP.mailboxThumbs,'#messages', false, true);
 
 // IM
 _OKCP.conversationThumbs = $('#conversations .user_thumb > a');
 _OKCP.conversationThumbs.each(function() {
 	this.thumbName = this.href.split('/profile/')[1];
 });
-applyBindingsToProfileThumb(_OKCP.conversationThumbs,'#conversations');
+applyBindingsToProfileThumb(_OKCP.conversationThumbs,'#conversations', false, true);
 
 // This is run in a loop because as the user scrolls, more items will appear.
 setInterval(function() {

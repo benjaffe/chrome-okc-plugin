@@ -47,7 +47,7 @@
 .improve-accuracy {font-size:0.8em;padding-left:5px;}
 .improve-accuracy:before {content:"...";margin-right:5px;color:#2855A2;}
 .improve-accuracy.disabled {display:none;}
-.photos .question-detail {right: -191px;}
+.photos + .question-detail {right: -191px;}
 .question-detail>* {box-shadow:0 3px 4px rgba(0,0,0,0.3);}
 .question-detail ul {margin:0;}
 .question-detail>ul:last-child {border-bottom:none;}
@@ -75,6 +75,10 @@
 .question-detail .match .explanation:after {content:"exp...";position:absolute;bottom:8px;left:4px;height:10px;color:#666;font-size:.9em;}
 .question-detail .match:hover .explanation:after {display:none;}
 
+
+/* UI - Thumbnail Viewer */
+.largeThumbViewer {display:none;position:fixed;width:250px;height:250px;top:10px;left:50%;margin-left: -574px;
+z-index:74656;padding:10px;border:solid 2px #333;border-radius:6px;}
 
 /* UI - Hidden Profile Thumbnails */
 .okcp-hidden {opacity:0.1;transition:all 0.2s ease-out;-webkit-transition:all 0.2s ease-out;}
@@ -158,6 +162,7 @@
 .iframe-close-btn:hover {background:#333;color:#CCC;}
 
 /* Overrides (My god, some of these selectors are awful. Just for the record, they are copied and pasted from OkC's code. They are NOT mine!!) */
+#wrapper {position:relative;}
 #likeonfacebook {display: none;}
 html div#loveisblindday.expanded {height:80px;}
 html div#loveisblindday div.inner {background-color: rgb(0,15,45);margin-top: 27px;width: 300px;padding-top: 16px;}
@@ -182,6 +187,7 @@ html div#loveisblindday div.inner {background-color: rgb(0,15,45);margin-top: 27
 #p_profile #profile_details,
 #p_profile #similar_users_list {background:white;}
 #p_profile #right_column {position: absolute;top: 235px;right: -183px;width: 171px;}
+#p_profile #right_column #visit_button {margin-top: 0px;}
 #p_profile #right_column #visit_button.moved {margin-top: 20px;}
 #p_profile #right_column #visit_button .btn {width:auto;}
 #p_profile #right_column #profile_details dl dd {padding-left: 20px; text-indent: 65px;text-align: right}

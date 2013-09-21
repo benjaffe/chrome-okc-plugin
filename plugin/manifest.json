@@ -1,6 +1,6 @@
 {
   "name": "OkC Poly Viewer",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "manifest_version": 2,
   "description": "Are you poly and using OkCupid? You should definitely be using this extension!",
   
@@ -23,5 +23,6 @@
       "js": ["knockout-2.2.0.js","jquery.min.js", "defaultQuestions.js", "ViewModels.js"],
       "run_at": "document_end"
     }
-  ]
+  ],
+  "web_accessible_resources":  ["images/ajax-loader.gif"]
 }
