@@ -1,39 +1,32 @@
-Bugs:
-*	no bindings on post-message suggestions
-*	profile can be marked as poly and not poly simultaneously
+## For Next Version:
+ 
+* Questions customization stage 1
+    * For or against kids, poly, etc
 
-For Next Version:
-*	"Adding a way to select which types of questions it displays might be a nice feature." -Utensil
+## For Next Next Version:
 
+* Questions customization stage 2
+    * De-binary-ize the questions!
 
-For Next Next Version:
-	On one's own profile page, they can turn on or off categories that are coded (and questions from within)
-		Answer Questions Guide http://www.okcupid.com/questions?rqid=256
-	Implement New Categories (need to ask for help with this one)
+## Ideas for the future:
+### (sorted by rough priority)
 
+* Do something with last viewed. When did the user last view this profile?
+* Questions customization stage 3
+    * 1. Let people add questions and categories.
+    * 2. Let people suggest questions and categories, and we moderate.
+* Make plugin configures itself based on user's answers.
+* Firefox Plugin
+* SortByEnemy on match page (needs better UI to ship, but already implemented)
+* Do you fall into their age range? Do they fall into your age range?
+ 
+ 
+## Things I might want to store:
+ 
+* Last Viewed Date
+* Keywords
+* Questions Answered
 
-List of Planned Features:
-	Categories should be sorting consistently (properly, meaning refactoring)
-	Enable people to enable/disable sortByEnemy, or make a better UI for it.
+## Notes:
 
-List of Possible Features
-	Plugin configures itself based on important questions? Or at least based on user's answers
-	Do something with last viewed?
-	Indicator: Do you fall into their age range? Do they fall into your age range?
-	Firefox Plugin
-
-
-
-
-Profile:
-
-Last Viewed Date
-Interested/Uninterested
-Keywords
-Questions Answered
-
-lastViewed
-interestLevel
-	wantToMessage
-	uninterested
-	past
+URL by question ID: http://www.okcupid.com/questions?rqid=256
