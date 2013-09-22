@@ -19,7 +19,7 @@ var blarg = setInterval(function() {
 		guiltBanner.hide();
 		clearInterval(blarg);
 	}
-}, 1);
+}, 1)
 
 $('html').attr('id','okcp'); //this is so I have an ID to use in my CSS when I have to override OkC's broken CSS specificity madness :(
 
