@@ -47,7 +47,7 @@
 .improve-accuracy {font-size:0.8em;padding-left:5px;}
 .improve-accuracy:before {content:"...";margin-right:5px;color:#2855A2;}
 .improve-accuracy.disabled {display:none;}
-.photos + .question-detail {right: -191px;}
+.photos + .question-detail {display:none;right: -191px;}
 .question-detail>* {box-shadow:0 3px 4px rgba(0,0,0,0.3);}
 .question-detail ul {margin:0;}
 .question-detail>ul:last-child {border-bottom:none;}
