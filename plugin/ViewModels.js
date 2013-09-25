@@ -520,7 +520,7 @@ function applyBindingsToProfileThumb (objList, scopeOfBindingsStr, retry, largeT
 			'"thumbImg": !!this.thumbImg'+
 		'}';
 		if (largeThumbnailHoverEnabled) {
-			dataBind += ', event: { mouseover: swapLargeThumb, mouseout: swapSmallThumb}'
+			dataBind += ', event: { mouseover: swapLargeThumb, mouseout: swapSmallThumb}';
 		}
 		$(this).attr('data-bind',dataBind);
 	});
@@ -645,7 +645,6 @@ function debug() {
 		});
 		var category = prompt("What category does this question fall under?");
 		category = category.toLowerCase();
-		$('body').append('<div class="copy-this"></div>');
-		'{\n\tqid:"' + qid + '", //' + qtext + '\n\tcategory: "' + category + '",\n\twrongAnswers:["' + answers.join(",") + '"]\n\t},'
+		$('<div class="copy-this"></div>').appendTo('body').text('{\n\tqid:"' + qid + '", //' + qtext + '\n\tcategory: "' + category + '",\n\twrongAnswers:["' + answers.join(",") + '"]\n\t},');
 	});
 }
