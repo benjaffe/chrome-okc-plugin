@@ -1,9 +1,9 @@
 {
   "name": "OkC Poly Viewer",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "manifest_version": 2,
   "description": "Are you poly and using OkCupid? You should definitely be using this extension!",
-  
+  "homepage_url": "http://extensionizr.com",
   "browser_action": {
     "default_icon": {
       "19": "images/icon19.png"
@@ -11,8 +11,6 @@
     "default_title": "Alt-friendly OkC",
     "default_popup": "options.html"
   },
-
-  "options_page": "options.html",
   "permissions": [
     "http://*.okcupid.com/*", "https://*.okcupid.com/*", "clipboardWrite", "tabs"
   ],
