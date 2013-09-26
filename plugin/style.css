@@ -147,6 +147,11 @@
 
 
 
+/* New Unreleased Features */
+.new-feature {display:none;}
+.devmode .new-feature {display:block;} /* If you want to see the new features, add a class of "devmode" to the html element */
+
+
 
 /* UI Tweaks and Fixes */
 .image a {display:block;} /* makes the a tags encase the imgs so the text is at the top */

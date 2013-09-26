@@ -633,8 +633,8 @@ setInterval(function() {
 // Bindings are applied, so remove class from body enabling hide button.
 $('body').removeClass('OKCP-bindings-not-yet-loaded');
 
-function debug() {
-	$('.question').prepend('<div class="okcp-add-question">Add Question</div>');
+(function () {
+	$('.question').prepend('<div class="okcp-add-question new-feature">Add Question</div>');
 	$('.okcp-add-question').click(function() {
 		var question = $(this).parent();
 		var qid = question.attr('id').split('question_')[1];
@@ -647,4 +647,4 @@ function debug() {
 		category = category.toLowerCase();
 		$('<div class="copy-this"></div>').appendTo('body').text('{\n\tqid:"' + qid + '", //' + qtext + '\n\tcategory: "' + category + '",\n\twrongAnswers:["' + answers.join(",") + '"]\n\t},');
 	});
-}
+})();
