@@ -7,14 +7,13 @@
 .okcp-btn.checked {opacity:1;color:#356;}
 .okcp-btn.checked:after {content:"\2611";}
 
-/* UI - match ratios */
+
+
+/* UI - Match Ratios */
 .match-ratios-wrapper-outer {position:absolute;right: 160px;top: 11px;height:195px;width:100%;} /* Yes, a table... for complicated layout, vertical aligning to the bottom while scrolling when there are too many */
-
 #okcp .match-ratios-list {box-shadow: none;margin:0;padding:0;max-height: 210px;overflow-y: scroll;overflow-x:hidden;}
-
 #okcp .match-ratios-list::-webkit-scrollbar {-webkit-appearance: none;width: 7px;}
 #okcp .match-ratios-list::-webkit-scrollbar-thumb {border-radius: 4px;background-color: rgba(0,0,0,.5);-webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);}
-
 #okcp .match-ratios {vertical-align: bottom;}
 #okcp .match-ratio .match-ratio-value {background: #CCC;text-align: center;border-radius: 10px;margin:2px 2% 2px 0;text-shadow:1px 1px 2px rgba(255,255,255,0.5);}
 #okcp .match-ratio.bad-match .match-ratio-value {background: #F77;color:black;}
@@ -25,23 +24,12 @@
 #okcp .match-ratio-value {display:inline-block;width:23%;}
 
 
+
 /* UI - Question Detail */
 .question-detail {position:absolute;z-index:512;right:12px;top:260px;padding:0 8px 8px;max-width:300px;margin:0 0 10px;border-radius:4px;min-width: 260px;-webkit-transition: all 0.5s ease-in-out;}
 #p_profile .photos .question-detail {left: -34px;min-width: 200px;}
-.questions-in-common {text-align:center;
-     color:#2855A2;height: 30px;padding:0;font-size: 12px;font-weight: bold;line-height: 31px;text-shadow: 0px 1px 0px #fff;
-     border: 1px solid #d5e1ed;
-     border-top: 1px solid #fff;
-     border-bottom: 1px solid #b8cadd;
-     background: #d5e1ed;
-     background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#e3ebf3),color-stop(100%,#d5e1ed));
-     background: -webkit-linear-gradient(top,#e3ebf3 0%,#d5e1ed 100%);
-     background: -o-linear-gradient(top,#e3ebf3 0%,#d5e1ed 100%);
-     background: -ms-linear-gradient(top,#e3ebf3 0%,#d5e1ed 100%);
-     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e3ebf3',endColorstr='#d5e1ed',GradientType=0);
-     -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e3ebf3',endColorstr='#d5e1ed',GradientType=0);
-     background: linear-gradient(top,#e3ebf3 0%,#d5e1ed 100%);
-}
+.questions-in-common {text-align:center;color:#2855A2;height: 30px;padding:0;font-size: 12px;font-weight: bold;line-height: 31px;text-shadow: 0px 1px 0px #fff;border: 1px solid #d5e1ed;border-top: 1px solid #fff;border-bottom: 1px solid #b8cadd;
+     background: #d5e1ed;background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#e3ebf3),color-stop(100%,#d5e1ed));background: -webkit-linear-gradient(top,#e3ebf3 0%,#d5e1ed 100%);background: -o-linear-gradient(top,#e3ebf3 0%,#d5e1ed 100%);background: -ms-linear-gradient(top,#e3ebf3 0%,#d5e1ed 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e3ebf3',endColorstr='#d5e1ed',GradientType=0);-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e3ebf3',endColorstr='#d5e1ed',GradientType=0);background: linear-gradient(top,#e3ebf3 0%,#d5e1ed 100%);}
 .questions-in-common-many {}
 .questions-in-common-few {}
 .improve-accuracy {font-size:0.8em;padding-left:5px;}
@@ -68,7 +56,7 @@
 .question-detail .match:hover .question:after {display:none;}
 .question-detail .match:hover .answer {font-size:1.1em;}
 .question-detail .match .answer {text-align:right;color:#555;font-size:11px;}
-.question-detail .match .explanation {height:0px;font-style:italic;margin:0 -5px -10px;overflow:hidden;font-size:11px;}
+.question-detail .match .explanation {height:0;font-style:italic;margin:0 -5px -10px;overflow:hidden;font-size:11px;}
 .question-detail .match:hover .explanation {height:auto;padding:5px;font-style: italic;color:#666;}
 .question-detail .match .explanation:empty {display:none;}
 .question-detail .match .explanation:before {content: "Explanation: ";font-style:normal;}
@@ -76,9 +64,11 @@
 .question-detail .match:hover .explanation:after {display:none;}
 
 
+
 /* UI - Thumbnail Viewer */
-.largeThumbViewer {display:none;position:fixed;width:250px;height:250px;top:10px;left:50%;margin-left: -574px;
-z-index:74656;padding:10px;border:solid 2px #333;border-radius:6px;}
+.largeThumbViewer {display:none;position:fixed;width:250px;height:250px;top:10px;left:50%;margin-left: -574px;z-index:74656;padding:10px;border:solid 2px #333;border-radius:6px;}
+
+
 
 /* UI - Hidden Profile Thumbnails */
 .okcp-hidden {opacity:0.1;transition:all 0.2s ease-out;-webkit-transition:all 0.2s ease-out;}
@@ -94,7 +84,8 @@ z-index:74656;padding:10px;border:solid 2px #333;border-radius:6px;}
 #match_results .okcp-hidden .percentages {top:11px;}
 
 
-/* === Thumbnail Letter Indicators === */
+
+/* UI - Thumbnail Letter Indicators */
 .okcp-poly,
 .okcp-to-message,
 .okcp-maybe {position:relative;}
@@ -115,7 +106,6 @@ z-index:74656;padding:10px;border:solid 2px #333;border-radius:6px;}
 .okcp-to-message:hover::before {content:"Message Me!";}
 .okcp-maybe:hover::before {content:"Maybe";}
 
-
 .okcp-poly.okcp-to-message::before {content:"P M";}
 .okcp-to-message.okcp-maybe::before {content:"? M";}
 .okcp-poly.okcp-maybe::before {content:"? P";}
@@ -126,8 +116,7 @@ z-index:74656;padding:10px;border:solid 2px #333;border-radius:6px;}
 .okcp-poly.okcp-maybe:hover::before {content:"Poly, Maybe";}
 .okcp-poly.okcp-to-message.okcp-maybe:hover::before {content:"Poly, Maybe\aMessage Me";}
 
-
-/* All of the places the text should be smaller */
+     /* All of the places the letter indicators should be smaller */
 #sidebar_main .okcp-poly::before,
 #sidebar_main .okcp-to-message::before,
 #sidebar_main .okcp-maybe::before,
@@ -138,7 +127,7 @@ z-index:74656;padding:10px;border:solid 2px #333;border-radius:6px;}
 #messages .okcp-to-message::before,
 #messages .okcp-maybe::before {padding:0 1px;font-size:16px;}
 
-/* All of the places the text should be repositioned */
+     /* All of the places the letter indicators should be repositioned */
 .user_row_item.okcp-poly::before,
 .user_row_item.okcp-to-message::before,
 .user_row_item.okcp-maybe::before {top:12px;padding:4px 2px;}
@@ -146,20 +135,24 @@ z-index:74656;padding:10px;border:solid 2px #333;border-radius:6px;}
 .match_row.okcp-to-message::before,
 .match_row.okcp-maybe::before {top:19px;left:14px;padding:4px 2px;}
 
+
+
+/* UI - Unanswered Questions */
+.unanswered-questions {position: absolute;z-index:3000;top: 200px;left: 50%;width: 530px;margin-left: -270px;background: #DDD;padding: 20px;box-shadow: 0 0 20px rgba(0,0,0,0.4);}
+.unanswered-questions iframe {margin-bottom:10px;border:solid 1px #888;}
+.qtext, .answer_area p {color: #2855A2;font-size:13px;font-weight: bold;line-height: 18px;margin:10px 0 5px;}
+.answer_area label {display:block;}
+.iframe-close-btn {position:absolute;right:15px;margin-top:-9px;background:#666;border-radius:20px;width:25px;height:22px;padding-top:3px;text-align:center;color:white;font-weight:bold;cursor:pointer;}
+.iframe-close-btn:hover {background:#333;color:#CCC;}
+
+
+
+
 /* UI Tweaks and Fixes */
 .image a {display:block;} /* makes the a tags encase the imgs so the text is at the top */
 #online_now {z-index: 10;} /* prevent online_now indicator from getting hidden behind the image */
 
 
-/* Unanswered Questions */
-
-.unanswered-questions {position: absolute;z-index:3000;top: 200px;left: 50%;width: 530px;margin-left: -270px;background: #DDD;padding: 20px;box-shadow: 0 0 20px rgba(0,0,0,0.4);}
-.unanswered-questions iframe {margin-bottom:10px;border:solid 1px #888;}
-/*.notice.green, .options, .status, .cancel_btn, .answer_btn, .public_btn, .talk_btn, .reanswer_btn, .hide_on_answering {display:none;}*/
-.qtext, .answer_area p {color: #2855A2;font-size:13px;font-weight: bold;line-height: 18px;margin:10px 0 5px;}
-.answer_area label {display:block;}
-.iframe-close-btn {position:absolute;right:15px;margin-top:-9px;background:#666;border-radius:20px;width:25px;height:22px;padding-top:3px;text-align:center;color:white;font-weight:bold;cursor:pointer;}
-.iframe-close-btn:hover {background:#333;color:#CCC;}
 
 /* Overrides (My god, some of these selectors are awful. Just for the record, they are copied and pasted from OkC's code. They are NOT mine!!) */
 #wrapper {position:relative;}
@@ -180,9 +173,6 @@ html div#loveisblindday div.inner {background-color: rgb(0,15,45);margin-top: 27
 #p_profile #actions .wide-buttons-that-are-now-not-wide .flag {width:39px;padding:0;/*border-radius:0!important;*/}
 #p_profile #actions .btn.hideflag {float: right;width: 100px;}
 #p_profile #actions .btn.hideflag a {width: 45px;}
-/*#p_profile #actions .wide-buttons-that-are-now-not-wide.right {width:50px;}*/
-/*#p_profile #actions .wide-buttons-that-are-now-not-wide.left a {border-radius: 3px 0 0 3px !important;border-right:none!important;}*/
-/*#p_profile #actions .wide-buttons-that-are-now-not-wide.right a {border-radius: 0 3px 3px 0 !important;}*/
 
 #p_profile #profile_details,
 #p_profile #similar_users_list {background:white;}
@@ -197,28 +187,16 @@ html div#loveisblindday div.inner {background-color: rgb(0,15,45);margin-top: 27
 
 #ajax_location {display:block;}
 
-/* Ads 
-#right_side_bar,
-#skyscraper_floater_wrapper,
-#skyscraper_floater_wrapper2,
-#leaderboard_wrapper {display:none;} /**/   
 
+
+/* Hide features until they're ready */
 .OKCP-bindings-not-yet-loaded .match-ratios-wrapper-outer,
 .OKCP-bindings-not-yet-loaded .okcp-btns,
 .OKCP-bindings-not-yet-loaded .question-detail {visibility: hidden;}
 
 
 
-
-
-/* Unused */
-/*.dot {width: 20px;height: 20px;position: absolute;right: 10px;top: 11px;background: #888;border-radius: 10px;box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.4), 1px 1px 2px 0 rgba(0, 0, 0, 0.5);}
-.dot:after {content: "";position: absolute;top: 6px;width: 3px;height: 3px;border-radius: 3px;background: white;left: 7px;box-shadow: 0 0 4px 2px white;opacity: 0.7;}
-.dot-green {background: #3A2;}
-.dot-red {background: #B32;}
-*/
-
-/* Styling for the page results at the bottom */
+/* Styling for the (usually hidden) page results at the bottom */
 .page-results-link {color:#96B7FF;font-size:0.9em;}
 #page-results:target {display:block;padding-top:10px;border-top:solid 3px #CCC;margin-top:10px;}
 
@@ -236,89 +214,18 @@ html div#loveisblindday div.inner {background-color: rgb(0,15,45);margin-top: 27
 
 
 
-/* ==========================================================
- * Spinner
- * =========================================================*/
-.spinner {
-     position:absolute;
-     top:115px;
-     right:205px;
-     width:100px;
-     height:100px;
-     opacity:0.4;
-     
-     -webkit-animation: rotateit 1.3s linear infinite;
-     -moz-animation: rotateit 1.3s linear infinite;
-     animation: rotateit 1.3s linear infinite;
-}
-@-webkit-keyframes rotateit {
-     from { -webkit-transform: rotate(360deg); }
-     to { -webkit-transform: rotate(0deg); }
-}
-@-moz-keyframes rotateit {
-     from { -moz-transform: rotate(360deg); }
-     to { -moz-transform: rotate(0deg); }
-}
-@keyframes rotateit {
-     from { transform: rotate(360deg); }
-     to   { transform: rotate(0deg); }
-}
-/*=======================================================
- * Circles
- *======================================================*/
-.spinner div{
-     width: 10px;
-     height: 10px;
-     border-radius:50%;
-     background: black;
-     position: absolute;
-     top: 35px;
-     left: 45px;
-}
-.spinner div:nth-child(1){
-     -webkit-transform: rotate(0deg) translate(0, -15px) scale(1.4);
-     -moz-transform: rotate(0deg) translate(0, -15px) scale(1.4);
-     transform: rotate(0deg) translate(0, -15px) scale(1.4);
-}
-.spinner div:nth-child(2){
-     -webkit-transform: rotate(45deg) translate(0, -15px) scale(1.2);
-     -moz-transform: rotate(45deg) translate(0, -15px) scale(1.2);
-     transform: rotate(45deg) translate(0, -15px) scale(1.2);
-     opacity:0.7;
-}
-.spinner div:nth-child(3){
-     -webkit-transform: rotate(90deg) translate(0, -15px) scale(1.1);
-     -moz-transform: rotate(90deg) translate(0, -15px) scale(1.1);
-     transform: rotate(90deg) translate(0, -15px) scale(1.1);
-     opacity:0.6;
-}
-.spinner div:nth-child(4){
-     -webkit-transform: rotate(135deg) translate(0, -15px) scale(0.9);
-     -moz-transform: rotate(135deg) translate(0, -15px) scale(0.9);
-     transform: rotate(135deg) translate(0, -15px) scale(0.9);
-     opacity:0.5;
-}
-.spinner div:nth-child(5){
-     -webkit-transform: rotate(180deg) translate(0, -15px) scale(0.7);
-     -moz-transform: rotate(180deg) translate(0, -15px) scale(0.7);
-     transform: rotate(180deg) translate(0, -15px) scale(0.7);
-     opacity:0.4;
-}
-.spinner div:nth-child(6){
-     -webkit-transform: rotate(225deg) translate(0, -15px) scale(0.5);
-     -moz-transform: rotate(225deg) translate(0, -15px) scale(0.5);
-     transform: rotate(225deg) translate(0, -15px) scale(0.5);
-     opacity:0.3;
-}
-.spinner div:nth-child(7){
-     -webkit-transform: rotate(270deg) translate(0, -15px) scale(0.3);
-     -moz-transform: rotate(270deg) translate(0, -15px) scale(0.3);
-     transform: rotate(270deg) translate(0, -15px) scale(0.3);
-     opacity:0.2;
-}
-.spinner div:nth-child(8){
-     -webkit-transform: rotate(315deg) translate(0, -15px) scale(0.1);
-     -moz-transform: rotate(315deg) translate(0, -15px) scale(0.1);
-     transform: rotate(315deg) translate(0, -15px) scale(0.1);
-     opacity:0.1;
-}
+/* Spinner */
+.spinner {position:absolute;top:115px;right:205px;width:100px;height:100px;opacity:0.4;-webkit-animation: rotateit 1.3s linear infinite;animation: rotateit 1.3s linear infinite;}
+@-webkit-keyframes rotateit {from { -webkit-transform: rotate(360deg); }to { -webkit-transform: rotate(0deg); }}
+@keyframes rotateit {from { transform: rotate(360deg); }to { transform: rotate(0deg); }}
+/* Circles */
+.spinner div{width: 10px;height: 10px;border-radius:50%;background: black;position: absolute;top: 35px;left: 45px;}
+.spinner div:nth-child(1){-webkit-transform: rotate(0deg) translate(0, -15px) scale(1.4);transform: rotate(0deg) translate(0, -15px) scale(1.4);}
+.spinner div:nth-child(2){-webkit-transform: rotate(45deg) translate(0, -15px) scale(1.2);transform: rotate(45deg) translate(0, -15px) scale(1.2);opacity:0.7;}
+.spinner div:nth-child(3){-webkit-transform: rotate(90deg) translate(0, -15px) scale(1.1);transform: rotate(90deg) translate(0, -15px) scale(1.1);opacity:0.6;}
+.spinner div:nth-child(4){-webkit-transform: rotate(135deg) translate(0, -15px) scale(0.9);transform: rotate(135deg) translate(0, -15px) scale(0.9);opacity:0.5;}
+.spinner div:nth-child(5){-webkit-transform: rotate(180deg) translate(0, -15px) scale(0.7);transform: rotate(180deg) translate(0, -15px) scale(0.7);opacity:0.4;}
+.spinner div:nth-child(6){-webkit-transform: rotate(225deg) translate(0, -15px) scale(0.5);transform: rotate(225deg) translate(0, -15px) scale(0.5);opacity:0.3;}
+.spinner div:nth-child(7){-webkit-transform: rotate(270deg) translate(0, -15px) scale(0.3);transform: rotate(270deg) translate(0, -15px) scale(0.3);opacity:0.2;}
+.spinner div:nth-child(8){-webkit-transform: rotate(315deg) translate(0, -15px) scale(0.1);transform: rotate(315deg) translate(0, -15px) scale(0.1);opacity:0.1;}
+
