@@ -10,7 +10,7 @@
 	}
 
 	var storage = JSON.parse(localStorage.okcp);
-	storage.dataCleanupJobNumToReach = '1.1.34';
+	storage.dataCleanupJobNumToReach = '1.1.35';
 
 	if (storage.dataCleanupJobNum === storage.dataCleanupJobNumToReach) {
 		return false;
@@ -59,7 +59,7 @@
 
 // default questions
 localStorage.okcpDefaultQuestions = JSON.stringify({
-	questionsVersionNum : "1.1.7",
+	questionsVersionNum : "1.1.9",
 	questionsList : [
 
 	//===== poly =====
@@ -222,6 +222,11 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		category: "science",
 		wrongAnswers:["Yes"]
 	},
+	{
+		qid:"20408", //Do you believe in an energy field that surrounds us that we can manipulate through reiki, acupuncture, chakra balancing, yoga, or some other system?
+		category: "science",
+		wrongAnswers:["Yes, and I practice one/some of these.","Yes, but I don't practice any of these."]
+	},
 
 	//===== children =====
 	{
@@ -257,13 +262,36 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		qid:"665", //Are you fetish-friendly?
 		category: "fetish",
 		wrongAnswers:["Ew!"]
-	}
+	},
 	/*
 	{
 		qid:"1401", //Have you ever had a sexual encounter with someone of the same sex?
 		category: "fetish",
 		wrongAnswers:["No, and I would never."]
+	},*/
+
+	//===== Non-religious =====
+	{
+		qid:"115", //Do animals have "souls" like humans do?
+		category: "nonReligious",
+		wrongAnswers:["Yes"]
 	},
+	{
+		qid:"763", //Do you believe in karma?
+		category: "nonReligious",
+		wrongAnswers:["Yes"]
+	},
+	{
+		qid:"156917", //Are you an Atheist?
+		category: "nonReligious",
+		wrongAnswers:["No"]
+	},
+	{
+		qid:"210", //Do you believe in God?
+		category: "nonReligious",
+		wrongAnswers:["Yes"]
+	},
+	/*
 	
 	//===== BDSM =====
 	{
