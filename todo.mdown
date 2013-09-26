@@ -2,6 +2,7 @@
  
 * Questions customization stage 1
     * For or against kids, poly, etc
+    * Let user suggest questions, (submit to Google Forms?) (currently working on it -B)
 
 ## For Next Next Version:
 

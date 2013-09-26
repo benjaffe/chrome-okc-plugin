@@ -197,11 +197,11 @@ html div#loveisblindday div.inner {background-color: rgb(0,15,45);margin-top: 27
 
 #ajax_location {display:block;}
 
-/* Ads */
+/* Ads 
 #right_side_bar,
 #skyscraper_floater_wrapper,
 #skyscraper_floater_wrapper2,
-#leaderboard_wrapper {display:none;}
+#leaderboard_wrapper {display:none;} /**/   
 
 .OKCP-bindings-not-yet-loaded .match-ratios-wrapper-outer,
 .OKCP-bindings-not-yet-loaded .okcp-btns,
