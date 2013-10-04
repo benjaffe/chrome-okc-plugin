@@ -14,7 +14,7 @@ _OKCP.onOwnProfile = (_OKCP.clientProfileName === _OKCP.profileName);
 
 // TODO: This is a stupid hack to get rid of the guilt banner and I don't like it, so fix it some other way!
 var blarg = setInterval(function() {
-	var guiltBanner = $('[style="width: 184px; float: left; margin-top: 188px; overflow: hidden;"]');
+	var guiltBanner = $('[style="width: 184px; float: left; margin-top: 188px; overflow: hidden;"], [onclick*="AdFreeAd.go(true);"]');
 	if (guiltBanner.size() > 0) {
 		guiltBanner.hide();
 		clearInterval(blarg);
@@ -338,6 +338,7 @@ function OKCP() {
 						var num = listItem.qid;
 						var wrongAnswers = listItem.wrongAnswers;
 						if ($("#question_" + num + ".public").length === 0) continue;
+						// if ($('#question_' + num + '.public').length === 0) {console.log("passing "+num);continue;}
 						var questionText = $(this).find("#qtext_"+num).text().trim();
 						if (questionText === "") continue;
 

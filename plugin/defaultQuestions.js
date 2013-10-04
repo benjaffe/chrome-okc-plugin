@@ -145,13 +145,13 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		category: "poly",
 		wrongAnswers:["Yes - I would mind this."]
 	},
-	{
-		qid:"1440", //Jealousy: healthy or unhealthy, in the context of a relationship?
-		category: "poly",
-		wrongAnswers:["Healthy"]
-	},
 
 	//===== posessive =====
+	{
+		qid:"1440", //Jealousy: healthy or unhealthy, in the context of a relationship?
+		category: "notPosessive",
+		wrongAnswers:["Healthy"]
+	},
 	{
 		qid:"784", //Would you be okay with your significant other spending a lot of time with one of his/her exes (as a friend)?
 		category: "notPosessive",
