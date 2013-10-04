@@ -469,6 +469,9 @@ function OKCP() {
 					if ($(a).find('.category-header').text() === "poly") return false;
 					return ( $(a).find('.category-header').text() > $(b).find('.category-header').text() );
 				}).appendTo('.question-detail');
+
+				// HACK HACK HACK (this way, nonReligious doesn't show up green or red)
+				$('#okcp .match-ratio-category:contains(nonReligious)').parent().removeClass('great-match');
 			}
 		}
 	};
