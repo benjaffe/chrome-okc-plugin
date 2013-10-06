@@ -4,6 +4,8 @@
     * For or against kids, poly, etc
     * Let user suggest questions, (submit to Google Forms?) (currently working on it -B)
 
+* A way to enable/disable the plugin
+
 ## For Next Next Version:
 
 * Questions customization stage 2

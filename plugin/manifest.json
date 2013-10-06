@@ -1,14 +1,15 @@
 {
-  "name": "OkC Poly Viewer",
-  "version": "2.1.4",
+  "name": "OkCupid (for the Non-Mainstream User)",
+  "short_name": "OkC Alt Ext",
+  "version": "2.1.5",
   "manifest_version": 2,
-  "description": "Are you poly and using OkCupid? You should definitely be using this extension!",
-  "homepage_url": "http://extensionizr.com",
+  "description": "Are you using OkCupid? Are you *not* a white monogamous straight male? You should definitely be using this extension.",
+  "homepage_url": "https://github.com/benjaffe/chrome-okc-plugin",
   "browser_action": {
     "default_icon": {
       "19": "images/icon19.png"
     },
-    "default_title": "Alt-friendly OkC",
+    "default_title": "OkCupid (for the Non-Mainstream User)",
     "default_popup": "options.html"
   },
   "permissions": [

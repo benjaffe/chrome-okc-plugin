@@ -1,3 +1,13 @@
+#logo:after {
+content: "(enhanced)";
+position: absolute;
+top: 45px;
+left: 31px;
+color: #CDE;
+font-style: italic;
+font-size: 12px;
+letter-spacing: -0.2px;
+}
 
 /* UI - Buttons */
 .okcp-btns {position:absolute;top:79px;right:29px;text-align:right;font-size:1.3em;}
@@ -195,6 +205,7 @@ html div#loveisblindday div.inner {background-color: rgb(0,15,45);margin-top: 27
 
 
 /* Hide features until they're ready */
+.OKCP-bindings-not-yet-loaded #logo:after,
 .OKCP-bindings-not-yet-loaded .match-ratios-wrapper-outer,
 .OKCP-bindings-not-yet-loaded .okcp-btns,
 .OKCP-bindings-not-yet-loaded .question-detail {visibility: hidden;}
