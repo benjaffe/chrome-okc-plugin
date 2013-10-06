@@ -14,9 +14,9 @@ _OKCP.onOwnProfile = (_OKCP.clientProfileName === _OKCP.profileName);
 
 // TODO: This is a stupid hack to get rid of the guilt banner and I don't like it, so fix it some other way!
 var blarg = setInterval(function() {
-	var guiltBanner = $('[style="width: 184px; float: left; margin-top: 188px; overflow: hidden;"], [onclick*="AdFreeAd.go(true);"]');
+	var guiltBanner = $('.quickbuybox').prev('div:not("#main_content")');
 	if (guiltBanner.size() > 0) {
-		guiltBanner.hide();
+		guiltBanner.addClass('guilt');
 		clearInterval(blarg);
 	}
 }, 1);
