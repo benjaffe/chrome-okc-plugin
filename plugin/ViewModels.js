@@ -1,44 +1,55 @@
 $ = jQuery;
 
-var _OKCP = {};
-
 // Initial setup
+var _OKCP = {};
+var stateAbbr = {"Alaska" : "AK", "Alabama" : "AL", "Arkansas" : "AR", "American Samoa" : "AS", "Arizona" : "AZ", "California" : "CA", "Colorado" : "CO", "Connecticut" : "CT", "District of Columbia" : "DC", "Delaware" : "DE", "Florida" : "FL", "Georgia" : "GA", "Guam" : "GU", "Hawaii" : "HI", "Iowa" : "IA", "Idaho" : "ID", "Illinois" : "IL", "Indiana" : "IN", "Kansas" : "KS", "Kentucky" : "KY", "Louisiana" : "LA", "Massachusetts" : "MA", "Maryland" : "MD", "Maine" : "ME", "Michigan" : "MI", "Minnesota" : "MN", "Missouri" : "MO", "Mississippi" : "MS", "Montana" : "MT", "North Carolina" : "NC", "North Dakota" : "ND", "Nebraska" : "NE", "New Hampshire" : "NH", "New Jersey" : "NJ", "New Mexico" : "NM", "Nevada" : "NV", "New York" : "NY", "Ohio" : "OH", "Oklahoma" : "OK", "Oregon" : "OR", "Pennsylvania" : "PA", "Puerto Rico" : "PR", "Rhode Island" : "RI", "South Carolina" : "SC", "South Dakota" : "SD", "Tennessee" : "TN", "Texas" : "TX", "Utah" : "UT", "Virginia" : "VA", "Virgin Islands" : "VI", "Vermont" : "VT", "Washington" : "WA", "Wisconsin" : "WI", "West Virginia" : "WV", "Wyoming" : "WY"};
+
+// _OKCP.questionFetchingMethod = "original";
+_OKCP.questionFetchingMethod = "mobile_app";
+_OKCP.largeThumbSize = '250';
 _OKCP.urlSansParameters = location.href.split('?')[0];
 _OKCP.profilePath = _OKCP.urlSansParameters.split("/profile/")[1] || '';
 _OKCP.profileName = _OKCP.profilePath.split("/")[0];
 _OKCP.clientProfileName = $('#user_header .username').text();
-if (_OKCP.profilePath === "") {
-	_OKCP.profileName = _OKCP.clientProfileName;
-}
-_OKCP.onOwnProfile = (_OKCP.clientProfileName === _OKCP.profileName);
 
-// TODO: This is a stupid hack to get rid of the guilt banner and I don't like it, so fix it some other way!
-var blarg = setInterval(function() {
+// If we're our own profile
+if (_OKCP.profilePath === '') {
+	_OKCP.profileName = _OKCP.clientProfileName;
+	_OKCP.onOwnProfile = true;
+}
+
+// Basic CSS Helpers
+$('html').attr('id','okcp') //an ID to use to override OkC's sad CSS specificity madness
+	.addClass('OKCP-bindings-not-yet-loaded'); //, and a class to hide everything until it is set up
+
+// Give the guilt banner a class so we can hide it
+var guiltBannerHiderTimer = setInterval(function() {
 	var guiltBanner = $('.quickbuybox').prev('div:not("#main_content")');
 	if (guiltBanner.size() > 0) {
 		guiltBanner.addClass('guilt');
-		clearInterval(blarg);
+		clearInterval(guiltBannerHiderTimer);
 	}
 }, 1);
 
-$('html').attr('id','okcp'); //this is so I have an ID to use in my CSS when I have to override OkC's broken CSS specificity madness :(
+$(document).mousemove(function(e){
+	console.log(e.pageX > document.body.clientWidth/2-390);
+	// if (largeThumbViewerElem.filter(':hidden').size() > 0){
+	if (e.pageX < document.body.clientWidth/2-390) $('html').addClass('mouseOnLeft').removeClass('mouseOnRight');
+	else if (e.pageX > document.body.clientWidth/2+240) $('html').addClass('mouseOnRight').removeClass('mouseOnLeft');
+	else $('html').removeClass('mouseOnLeft mouseOnRight');
+	// }
+});
 
-// keep things from displaying until they're set up
-$('body').addClass('OKCP-bindings-not-yet-loaded');
 
-// add the thumbnail image viewer DOM object
-$('#wrapper').append('<img src="" style="background:white url('+chrome.extension.getURL('images/ajax-loader.gif')+') no-repeat center center" class="largeThumbViewer"></img>');
+/*=== UI ===*/
+
+// add the large thumbnail image viewer
+var largeThumbViewerElem = $('<div class="largeThumbViewer"><img src="" class="largeThumbViewerImage" /><p class="largeThumbViewerCaption"></p></div>').appendTo('#wrapper').attr('style','background:white url('+chrome.extension.getURL('images/ajax-loader.gif')+') no-repeat center center');
 
 // if we're on a profile page
 if (_OKCP.profilePath !== '') {
-	// Change OkCupid's UI
-	if ($('#visit_button a:contains(Enable invisible browsing)').size() > 0) {
-		$('#visit_button').addClass('moved').insertAfter($('#similar_users_list'));
-	}
-	$('#profile_ad').hide();
 	
-
-	// Add the UI (buttons and spinner)
+	// UI: link-buttons and spinner)
 	$('#main_content .tabbed_heading').append('<div class="okcp-btns">'+
 		'<a class="okcp-btn toggleIsPoly" data-bind="click: toggleIsPoly, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].ip == true : false}">Poly</a>'+
 		'<a class="okcp-btn hide-btn poly-hide-btn" data-bind="click: toggleHideNotPoly, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].p == true : false}">Not Poly</a>'+
@@ -49,21 +60,28 @@ if (_OKCP.profilePath !== '') {
 		'<a class="okcp-btn hide-btn uninterested-hide-btn" data-bind="click: toggleHideUninterested, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].u == true : false}">Not For Me</a>'+
 		'<a class="okcp-btn hide-btn nodata-hide-btn" data-bind="click: toggleHideNoData, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].d == true : false}">No Answers</a>'+
 	'</div>').append('<div class="spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>');
-	// (category match percentages (#social exists on your own profile page, #actions is on others'))
+	
+	// UI: Category match percentages (#social exists on your own profile page, #actions is on others')
 	$('#actions, #social').append('<table class="match-ratios-wrapper-outer"><tr><td class="match-ratios">'+
 		'<ul class="match-ratios-list"></ul>'+
 		'</td></tr></table>');
-	// question detail
+
+	// UI: Question Detail
 	$('#right_column').before('<div class="question-detail"></div>');
 	var questionsInCommonElem = $('<div class="questions-in-common"></div>').prependTo('.question-detail');
 	if (JSON.parse(localStorage.okcp).accuracyImprovedAsOfVersionNum != JSON.parse(localStorage.okcpDefaultQuestions).questionsVersionNum) {
 		questionsInCommonElem.append('<a href="#" class="improve-accuracy" id="improve-accuracy" data-bind="click:showUnansweredQuestions">Improve Accuracy</a>');
 	}
 
-	// Now let's fix some of OkCupid's styling by adding a class (since sadly, they don't already have them)
+	// Fixing OkC UI Issues
 	$('#save_unsave').parent().addClass('wide-buttons-that-are-now-not-wide left');
 	$('#save_unsave').parent().next().addClass('wide-buttons-that-are-now-not-wide right');
 
+	// Change OkCupid's UI
+	if ($('#visit_button a:contains(Enable invisible browsing)').size() > 0) {
+		$('#visit_button').addClass('moved').insertAfter($('#similar_users_list'));
+	}
+	$('#profile_ad').hide();
 }
 
 
@@ -128,9 +146,16 @@ function OKCP() {
 	this.profileShown = ko.observable(false);
 
 	this.swapLargeThumb = function(vm,e) {
-		var t = e.target
-    	var largeThumbPath = getLargeThumbUrl(t.src);
-    	$('.largeThumbViewer').attr('src',chrome.extension.getURL('images/ajax-loader.gif')).attr('src',largeThumbPath).show();
+		var t = e.target;
+		var profileName = t.parentElement.href.split('profile/')[1].split('?')[0];
+		var largeThumbPath = getLargeThumbUrl(t.src);
+		$('.largeThumbViewerImage').attr('src',chrome.extension.getURL('images/ajax-loader.gif')).attr('src',largeThumbPath);
+		$('.largeThumbViewerCaption').text('...');
+		$('.largeThumbViewer').show();
+		$.getJSON('http://www.okcupid.com/profile/'+profileName+'?json=2',function(data){
+			// console.log(data);
+			$('.largeThumbViewerCaption').html(data.username + ' / ' + data.age + ' / ' + data.sex + ' / ' + data.location.split(', ')[0] + ', ' + stateAbbr[data.location.split(', ')[1]] + ' (' + data.distance + data.units + ')');
+		});
     };
     this.swapSmallThumb = function(vm,e) {
        $('.largeThumbViewer').hide();
@@ -310,89 +335,156 @@ function OKCP() {
 
 			while (!requestFailed && OKCP.numRequestsMade < 10) {
 				updateQuestionPath();
-				//console.log('loading page '+ OKCP.questionPath);
+				// console.log('loading page '+ OKCP.questionPath);
 				OKCP.numRequestsMade++;
 
-				//on the first page load, get meta info (number of questions in common)
-				if (OKCP.questionPageNum === 1) {
-					$('<div id="page-results-meta"></div>').appendTo(pageResultsDiv).load(OKCP.questionPath + ' .stats.lined', function() {
-						var questionsInCommon = $('.comparison>p:first-child').text().split(' of ')[0];//$(this).find('.stats.lined li:nth-child(5) .large').text().split(' questions')[0];
-						var questionsInCommonAmountClass = "";
-						if (questionsInCommon > 100) {
-							questionsInCommonAmountClass = 'questions-in-common-many';
-						} else if (questionsInCommon < 34) {
-							questionsInCommonAmountClass = 'questions-in-common-few';
+				if (_OKCP.questionFetchingMethod === "original") {
+					//on the first page load, get meta info (number of questions in common)
+					if (OKCP.questionPageNum === 1) {
+						$('<div id="page-results-meta"></div>').appendTo(pageResultsDiv).load(OKCP.questionPath + ' .stats.lined', function() {
+							var questionsInCommon = $('.comparison>p:first-child').text().split(' of ')[0];//$(this).find('.stats.lined li:nth-child(5) .large').text().split(' questions')[0];
+							var questionsInCommonAmountClass = "";
+							if (questionsInCommon > 100) {
+								questionsInCommonAmountClass = 'questions-in-common-many';
+							} else if (questionsInCommon < 34) {
+								questionsInCommonAmountClass = 'questions-in-common-few';
+							}
+							console.log(questionsInCommon);
+							$('.questions-in-common').addClass(questionsInCommonAmountClass).prepend(questionsInCommon + ' Common Questions');
+						});
+					}
+
+					//add page results, parse the page
+					$('<div id="page-results-' + OKCP.questionPageNum + '"></div>').appendTo(pageResultsDiv).load(OKCP.questionPath + ' #questions', function() {
+						OKCP.numRequestsFinished++;
+						// console.log(this);
+						for (var i = 0; i < list.length; i++) {
+							var theirAnswer, theirNote, yourAnswer, yourNote;
+							var listItem = list[i];
+							var num = listItem.qid;
+							var wrongAnswers = listItem.wrongAnswers;
+							if ($("#question_" + num + ".public").length === 0) continue;
+							// if ($('#question_' + num + '.public').length === 0) {console.log("passing "+num);continue;}
+							var questionText = $(this).find("#qtext_"+num).text().trim();
+							if (questionText === "") continue;
+
+							if (_OKCP.onOwnProfile) {
+								theirAnswer = $(this).find("#self_answers_"+num+" .match.mine").text().trim();
+								theirNote = $(this).find("#explanation_"+num).text().trim();
+							} else {
+								theirAnswer = $(this).find("#answer_target_"+num).text().trim();
+								theirNote = $(this).find("#note_target_"+num).text().trim();
+								yourAnswer = $(this).find("#answer_viewer_"+num).text().trim();
+								yourNote = $(this).find("#note_viewer_"+num).text().trim();
+							}
+							var match = true;
+							for (var j = 0; j < wrongAnswers.length; j++) {
+								// console.log(questionText + "  " + theirAnswer + " | " + wrongAnswers[j]);
+								if (wrongAnswers[j] === theirAnswer) match = false;
+							}
+
+							if (!OKCP.responseCount[listItem.category]) { //ensure there's an entry for the category count
+								OKCP.responseCount[listItem.category] = [0,0];
+							}
+							if (match) {
+								OKCP.responseCount[listItem.category][0]++;
+							}
+							OKCP.responseCount[listItem.category][1]++;
+							OKCP.questionList.push({
+								question: questionText,
+								theirAnswer: theirAnswer,
+								theirNote: theirNote,
+								yourAnswer: yourAnswer,
+								yourNote: yourNote,
+								match: match,
+								category: listItem.category
+							});
+							listItem.qid = listItem.qid+"-used";
 						}
-						console.log(questionsInCommon);
-						$('.questions-in-common').addClass(questionsInCommonAmountClass).prepend(questionsInCommon + ' Common Questions');
+						// console.log(OKCP.questionList);
+						areWeDone(false);
+					}).error(function(){
+						console.log("Request failed on number " + OKCP.numRequestsMade);
+						requestFailed = true;
+					});
+				} else if (_OKCP.questionFetchingMethod === "mobile_app") {
+					//TODO: on the first page load, get meta info (number of questions in common)
+
+					//add page results, parse the page
+					$('<div id="page-results-' + OKCP.questionPageNum + '"></div>').appendTo(pageResultsDiv).load(OKCP.questionPath + ' [class$="questions"]', function() {
+						OKCP.numRequestsFinished++;
+						// console.log(this);
+						for (var i = 0; i < list.length; i++) {
+							var theirAnswer, theirNote, yourAnswer, yourNote;
+							var listItem = list[i];
+							var num = listItem.qid;
+							var wrongAnswers = listItem.wrongAnswers;
+							var questionElem = $('[id*="question_' + num + '"][public]');
+
+							// console.log(questionElem);
+							// if question isn't present on page, continue
+							if (questionElem.length === 0) {continue;}
+
+							
+							// get question information
+							var questionText = questionElem.find('h4').text().trim();
+							if (questionText === "") continue;
+
+							if (_OKCP.onOwnProfile) {
+								theirAnswer = questionElem.find("#self_answers_"+num+" .match.mine").text().trim();
+								theirNote = questionElem.find("#explanation_"+num).text().trim();
+							} else {
+								theirAnswer = questionElem.find('[id*="answer_target"]').text().trim();
+								theirNote   = questionElem.find('[id*="note_target"]').text().trim();
+								yourAnswer  = questionElem.find('[id*="answer_viewer"]').text().trim();
+								yourNote    = questionElem.find('[id*="note_viewer"]').text().trim();
+							}
+							var match = true;
+							for (var j = 0; j < wrongAnswers.length; j++) {
+								// console.log(questionText + "  " + theirAnswer + " | " + wrongAnswers[j]);
+								if (wrongAnswers[j] === theirAnswer) match = false;
+							}
+
+							if (!OKCP.responseCount[listItem.category]) { //ensure there's an entry for the category count
+								OKCP.responseCount[listItem.category] = [0,0];
+							}
+							if (match) {
+								OKCP.responseCount[listItem.category][0]++;
+							}
+							OKCP.responseCount[listItem.category][1]++;
+							OKCP.questionList.push({
+								question: questionText,
+								theirAnswer: theirAnswer,
+								theirNote: theirNote,
+								yourAnswer: yourAnswer,
+								yourNote: yourNote,
+								match: match,
+								category: listItem.category
+							});
+							// console.log(OKCP.questionList);
+							listItem.qid = listItem.qid+"-used";
+						}
+						// console.log(OKCP.questionList);
+						areWeDone(false);
+					}).error(function(){
+						console.log("Request failed on number " + OKCP.numRequestsMade);
+						requestFailed = true;
 					});
 				}
-
-				//add page results, parse the page
-				$('<div id="page-results-' + OKCP.questionPageNum + '"></div>').appendTo(pageResultsDiv).load(OKCP.questionPath + ' #questions', function() {
-					OKCP.numRequestsFinished++;
-					// console.log(this);
-					for (var i = 0; i < list.length; i++) {
-						var theirAnswer, theirNote, yourAnswer, yourNote;
-						var listItem = list[i];
-						var num = listItem.qid;
-						var wrongAnswers = listItem.wrongAnswers;
-						if ($("#question_" + num + ".public").length === 0) continue;
-						// if ($('#question_' + num + '.public').length === 0) {console.log("passing "+num);continue;}
-						var questionText = $(this).find("#qtext_"+num).text().trim();
-						if (questionText === "") continue;
-
-						if (_OKCP.onOwnProfile) {
-							theirAnswer = $(this).find("#self_answers_"+num+" .match.mine").text().trim();
-							theirNote = $(this).find("#explanation_"+num).text().trim();
-						} else {
-							theirAnswer = $(this).find("#answer_target_"+num).text().trim();
-							theirNote = $(this).find("#note_target_"+num).text().trim();
-							yourAnswer = $(this).find("#answer_viewer_"+num).text().trim();
-							yourNote = $(this).find("#note_viewer_"+num).text().trim();
-						}
-						var match = true;
-						for (var j = 0; j < wrongAnswers.length; j++) {
-							// console.log(questionText + "  " + theirAnswer + " | " + wrongAnswers[j]);
-							if (wrongAnswers[j] === theirAnswer) match = false;
-						}
-
-						if (!OKCP.responseCount[listItem.category]) { //ensure there's an entry for the category count
-							OKCP.responseCount[listItem.category] = [0,0];
-						}
-						if (match) {
-							OKCP.responseCount[listItem.category][0]++;
-						}
-						OKCP.responseCount[listItem.category][1]++;
-						OKCP.questionList.push({
-							question: questionText,
-							theirAnswer: theirAnswer,
-							theirNote: theirNote,
-							yourAnswer: yourAnswer,
-							yourNote: yourNote,
-							match: match,
-							category: listItem.category
-						});
-						listItem.qid = listItem.qid+"-used";
-					}
-					// console.log(OKCP.questionList);
-					areWeDone(false);
-				}).error(function(){
-					console.log("Request failed on number " + OKCP.numRequestsMade);
-					requestFailed = true;
-				});
-
 			}
 		}
 
 		function updateQuestionPath (pageNum) {
-			var questionFilterParameter = 'i_care=1';
-			if (_OKCP.onOwnProfile) {
-				questionFilterParameter = 'very_important=1';
+			if (_OKCP.questionFetchingMethod === "original" || _OKCP.questionFetchingMethod === "mobile_app") {
+				var questionFilterParameter = 'i_care=1';
+				if (_OKCP.onOwnProfile) {
+					questionFilterParameter = 'very_important=1';
+				}
+				OKCP.questionPageNum = pageNum || OKCP.questionPageNum;
+				OKCP.questionPath = "http://www.okcupid.com/profile/" + _OKCP.profileName + "/questions?n=1&low=" + (OKCP.questionPageNum*10+1) + "&" + questionFilterParameter;
+				if (_OKCP.questionFetchingMethod === "mobile_app") OKCP.questionPath += '&mobile_app=1';
+				OKCP.questionPageNum++;
 			}
-			OKCP.questionPageNum = pageNum || OKCP.questionPageNum;
-			OKCP.questionPath = "http://www.okcupid.com/profile/" + _OKCP.profileName + "/questions?n=1&low=" + (OKCP.questionPageNum*10+1) + "&" + questionFilterParameter;
-			OKCP.questionPageNum++;
 		}
 
 		// if we're done, it hides the spinner and adds the UI, then sorts the categories
@@ -535,7 +627,7 @@ function applyBindingsToProfileThumb (objList, scopeOfBindingsStr, retry, largeT
 function getLargeThumbUrl(url) {
 	var arr1 = url.split('/images/');
 	arr2 = arr1[1].split('/');
-	newURL = arr1[0] + '/images/250x250/160x160/' + arr2.splice(2).join('/');
+	newURL = arr1[0] + '/images/'+_OKCP.largeThumbSize+'x'+_OKCP.largeThumbSize+'/160x160/' + arr2.splice(2).join('/');
 	return(newURL);
 }
 
@@ -567,7 +659,7 @@ _OKCP.similarUsersThumbs = $('#matchphotobrowser .image > a');
 _OKCP.similarUsersThumbs.each(function() {
 	this.thumbName = this.href.split('?')[0].split('/profile/')[1];
 });
-applyBindingsToProfileThumb(_OKCP.similarUsersThumbs,'#matchphotobrowser', false, false);
+applyBindingsToProfileThumb(_OKCP.similarUsersThumbs,'#matchphotobrowser', false, true);
 
 // recent activity
 _OKCP.recentActivityUsersThumbs = $('#recent_activity .activity_item .image a');
@@ -635,7 +727,7 @@ setInterval(function() {
 },1000);
 
 // Bindings are applied, so remove class from body enabling hide button.
-$('body').removeClass('OKCP-bindings-not-yet-loaded');
+$('.OKCP-bindings-not-yet-loaded').removeClass('OKCP-bindings-not-yet-loaded');
 
 (function () {
 	$('.question').prepend('<div class="okcp-add-question new-feature">Add Question</div>');

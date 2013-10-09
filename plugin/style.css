@@ -1,12 +1,12 @@
 #logo:after {
-content: "(enhanced)";
-position: absolute;
-top: 45px;
-left: 31px;
-color: #CDE;
-font-style: italic;
-font-size: 12px;
-letter-spacing: -0.2px;
+     content: "(enhanced)";
+     position: absolute;
+     top: 45px;
+     left: 31px;
+     color: #CDE;
+     font-style: italic;
+     font-size: 12px;
+     letter-spacing: -0.2px;
 }
 
 /* UI - Buttons */
@@ -76,8 +76,9 @@ letter-spacing: -0.2px;
 
 
 /* UI - Thumbnail Viewer */
-.largeThumbViewer {display:none;position:fixed;width:250px;height:250px;top:10px;left:50%;margin-left: -574px;z-index:74656;padding:10px;border:solid 2px #333;border-radius:6px;}
-
+.largeThumbViewer {display:none;position:fixed;width:250px;top:10px;left:50%;margin-left: -574px;z-index:74656;padding:10px;border:solid 2px #333;border-radius:6px;pointer-events:none;}
+.mouseOnLeft .largeThumbViewer {margin-left: -390px;top:240px;}
+.mouseOnRight .largeThumbViewer {margin-left:120px;top:150px;}
 
 
 /* UI - Hidden Profile Thumbnails */
