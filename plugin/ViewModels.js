@@ -150,12 +150,12 @@ function OKCP() {
 		var profileName = t.parentElement.href.split('profile/')[1].split('?')[0];
 		var largeThumbPath = getLargeThumbUrl(t.src);
 		$('.largeThumbViewerImage').attr('src',chrome.extension.getURL('images/ajax-loader.gif')).attr('src',largeThumbPath);
-		$('.largeThumbViewerCaption').text('...');
+		// $('.largeThumbViewerCaption').text('...');
 		$('.largeThumbViewer').show();
-		$.getJSON('http://www.okcupid.com/profile/'+profileName+'?json=2',function(data){
-			// console.log(data);
-			$('.largeThumbViewerCaption').html(data.username + ' / ' + data.age + ' / ' + data.sex + ' / ' + data.location.split(', ')[0] + ', ' + stateAbbr[data.location.split(', ')[1]] + ' (' + data.distance + data.units + ')');
-		});
+		// $.getJSON('http://www.okcupid.com/profile/'+profileName+'?json=2',function(data){
+		// 	// console.log(data);
+		// 	$('.largeThumbViewerCaption').html(data.username + ' / ' + data.age + ' / ' + data.sex + ' / ' + data.location.split(', ')[0] + ', ' + stateAbbr[data.location.split(', ')[1]] + ' (' + data.distance + data.units + ')');
+		// });
     };
     this.swapSmallThumb = function(vm,e) {
        $('.largeThumbViewer').hide();
@@ -392,6 +392,7 @@ function OKCP() {
 							OKCP.responseCount[listItem.category][1]++;
 							OKCP.questionList.push({
 								question: questionText,
+								qid: num,
 								theirAnswer: theirAnswer,
 								theirNote: theirNote,
 								yourAnswer: yourAnswer,
@@ -454,6 +455,7 @@ function OKCP() {
 							OKCP.responseCount[listItem.category][1]++;
 							OKCP.questionList.push({
 								question: questionText,
+								qid: num,
 								theirAnswer: theirAnswer,
 								theirNote: theirNote,
 								yourAnswer: yourAnswer,
@@ -530,7 +532,7 @@ function OKCP() {
 						$('.question-detail').append('<ul class="question-detail-'+question.category+'"></ul>');
 					}
 					$('.question-detail-'+question.category).append('<li class="match match-' + question.match + '"><ul>'+
-						'<li class="question">' + question.question + '</li>'+
+						'<li class="question qid-'+question.qid+'">' + question.question + '</li>'+
 						'<li class="answer">' + question.theirAnswer + '</li>'+
 						'<li class="explanation">' + question.theirNote + '</li>'+
 						'</ul></li>');
