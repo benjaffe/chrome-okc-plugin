@@ -7,6 +7,8 @@ var stateAbbr = {"Alaska" : "AK", "Alabama" : "AL", "Arkansas" : "AR", "American
 // _OKCP.questionFetchingMethod = "original";
 _OKCP.questionFetchingMethod = "mobile_app";
 _OKCP.largeThumbSize = '250';
+_OKCP.cacheEnabled = true;
+// _OKCP.cacheEnabled = false;
 _OKCP.urlSansParameters = location.href.split('?')[0];
 _OKCP.profilePath = _OKCP.urlSansParameters.split("/profile/")[1] || '';
 _OKCP.profileName = _OKCP.profilePath.split("/")[0];
@@ -32,7 +34,7 @@ var guiltBannerHiderTimer = setInterval(function() {
 }, 1);
 
 $(document).mousemove(function(e){
-	console.log(e.pageX > document.body.clientWidth/2-390);
+	// console.log(e.pageX > document.body.clientWidth/2-390);
 	// if (largeThumbViewerElem.filter(':hidden').size() > 0){
 	if (e.pageX < document.body.clientWidth/2-390) $('html').addClass('mouseOnLeft').removeClass('mouseOnRight');
 	else if (e.pageX > document.body.clientWidth/2+240) $('html').addClass('mouseOnRight').removeClass('mouseOnLeft');
@@ -316,7 +318,7 @@ function OKCP() {
 		}
 
 		// check for cached question data
-		if (!!recentProfiles[_OKCP.profileName] && new Date().getTime() - recentProfiles[_OKCP.profileName].expires < 0) {
+		if (!!recentProfiles[_OKCP.profileName] && _OKCP.cacheEnabled && new Date().getTime() - recentProfiles[_OKCP.profileName].expires < 0) {
 			recentProfiles[_OKCP.profileName].expires = new Date().getTime() + 300000; //reset expires
 			OKCP.questionList = recentProfiles[_OKCP.profileName].questionList;
 			OKCP.responseCount = recentProfiles[_OKCP.profileName].responseCount;
@@ -415,12 +417,23 @@ function OKCP() {
 					$('<div id="page-results-' + OKCP.questionPageNum + '"></div>').appendTo(pageResultsDiv).load(OKCP.questionPath + ' [class$="questions"]', function() {
 						OKCP.numRequestsFinished++;
 						// console.log(this);
+
+						//fix the illegal ids that break jQuery
+						$('[id]').each(function(){
+							var elem = $(this);
+							var oldID = elem.attr('id');
+							var idArr = oldID.split('\\\"');
+							if (idArr.length > 2) {
+								$(this).attr('id',idArr[1]);
+							}
+						});
 						for (var i = 0; i < list.length; i++) {
 							var theirAnswer, theirNote, yourAnswer, yourNote;
 							var listItem = list[i];
 							var num = listItem.qid;
 							var wrongAnswers = listItem.wrongAnswers;
-							var questionElem = $('[id*="question_' + num + '"][public]');
+							var questionElem = $('#question_' + num + '[public]');
+							if (questionElem.size() > 0) console.log(questionElem[0].id.split('\\\"'));
 
 							// console.log(questionElem);
 							// if question isn't present on page, continue
@@ -435,10 +448,10 @@ function OKCP() {
 								theirAnswer = questionElem.find("#self_answers_"+num+" .match.mine").text().trim();
 								theirNote = questionElem.find("#explanation_"+num).text().trim();
 							} else {
-								theirAnswer = questionElem.find('[id*="answer_target"]').text().trim();
-								theirNote   = questionElem.find('[id*="note_target"]').text().trim();
-								yourAnswer  = questionElem.find('[id*="answer_viewer"]').text().trim();
-								yourNote    = questionElem.find('[id*="note_viewer"]').text().trim();
+								theirAnswer = questionElem.find('#answer_target_'+num).text().trim();
+								theirNote   = questionElem.find('#note_target_'+num).text().trim();
+								yourAnswer  = questionElem.find('#answer_viewer_'+num).text().trim();
+								yourNote    = questionElem.find('#note_viewer_'+num).text().trim();
 							}
 							var match = true;
 							for (var j = 0; j < wrongAnswers.length; j++) {
@@ -453,6 +466,7 @@ function OKCP() {
 								OKCP.responseCount[listItem.category][0]++;
 							}
 							OKCP.responseCount[listItem.category][1]++;
+							console.log(num + " - " + questionText);
 							OKCP.questionList.push({
 								question: questionText,
 								qid: num,
