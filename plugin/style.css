@@ -76,9 +76,9 @@
 
 
 /* UI - Thumbnail Viewer */
-.largeThumbViewer {display:none;position:fixed;width:250px;top:10px;left:50%;margin-left: -574px;z-index:74656;padding:10px;border:solid 2px #333;border-radius:6px;pointer-events:none;}
-.mouseOnLeft .largeThumbViewer {margin-left: -390px;top:240px;}
-.mouseOnRight .largeThumbViewer {margin-left:120px;top:150px;}
+.largeThumbViewer {display:none;position:fixed;width:250px;top:10px;left:50%;margin-left: -125px;z-index:74656;padding:10px;border:solid 2px #333;border-radius:6px;pointer-events:none;}
+.mouseOnLeft .largeThumbViewer {margin-left: -390px;}
+.mouseOnRight .largeThumbViewer {margin-left:120px;}
 
 
 /* UI - Hidden Profile Thumbnails */
