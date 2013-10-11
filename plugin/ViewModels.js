@@ -7,12 +7,15 @@ var stateAbbr = {"Alaska" : "AK", "Alabama" : "AL", "Arkansas" : "AR", "American
 // _OKCP.questionFetchingMethod = "original";
 _OKCP.questionFetchingMethod = "mobile_app";
 _OKCP.largeThumbSize = '250';
-_OKCP.cacheEnabled = true;
-// _OKCP.cacheEnabled = false;
 _OKCP.urlSansParameters = location.href.split('?')[0];
 _OKCP.profilePath = _OKCP.urlSansParameters.split("/profile/")[1] || '';
 _OKCP.profileName = _OKCP.profilePath.split("/")[0];
 _OKCP.clientProfileName = $('#user_header .username').text();
+
+_OKCP.cacheEnabled = true;
+// _OKCP.cacheEnabled = false;
+_OKCP.debugTimerEnabled = false;
+_OKCP.debugTimer = null;
 
 // If we're our own profile
 if (_OKCP.profilePath === '') {
@@ -36,8 +39,8 @@ var guiltBannerHiderTimer = setInterval(function() {
 $(document).mousemove(function(e){
 	// console.log(e.pageX > document.body.clientWidth/2-390);
 	// if (largeThumbViewerElem.filter(':hidden').size() > 0){
-	if (e.pageX < document.body.clientWidth/2-390) {console.log('left');$('html').addClass('mouseOnLeft').removeClass('mouseOnRight');}
-	else if (e.pageX > document.body.clientWidth/2+395) {console.log('right');$('html').addClass('mouseOnRight').removeClass('mouseOnLeft');}
+	if (e.pageX < document.body.clientWidth/2-390) $('html').addClass('mouseOnLeft').removeClass('mouseOnRight');
+	else if (e.pageX > document.body.clientWidth/2+395) $('html').addClass('mouseOnRight').removeClass('mouseOnLeft');
 	else $('html').removeClass('mouseOnLeft mouseOnRight');
 	// }
 });
@@ -333,8 +336,6 @@ function OKCP() {
 			var pageResultsDiv = $('<div id="page-results"></div>').appendTo('body');
 			$('#footer').append('<a class="page-results-link" href="#page-results">Show question results</a>');
 
-
-
 			while (!requestFailed && OKCP.numRequestsMade < 10) {
 				updateQuestionPath();
 				// console.log('loading page '+ OKCP.questionPath);
@@ -580,6 +581,13 @@ function OKCP() {
 
 				// HACK HACK HACK (this way, nonReligious doesn't show up green or red)
 				$('#okcp .match-ratio-category:contains(nonReligious)').parent().removeClass('great-match');
+
+				if (_OKCP.debugTimerEnabled) {
+					console.log('Fetching the questions took ' + (new Date().getTime() - _OKCP.debugTimer.getTime()) + ' ms');
+					var timeList = JSON.parse(localStorage.timeList);
+					timeList.push(1*(new Date().getTime() - _OKCP.debugTimer.getTime()));
+					localStorage.timeList = JSON.stringify(timeList);
+				}
 			}
 		}
 	};
@@ -605,6 +613,7 @@ localStorage.okcp = JSON.stringify(storage);
 window.OKCP = new OKCP();
 ko.applyBindings(OKCP);
 
+if (_OKCP.debugTimerEnabled) {_OKCP.debugTimer = new Date();}
 
 OKCP.getAnswers();
 
