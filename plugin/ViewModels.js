@@ -754,6 +754,8 @@ setInterval(function() {
 // Bindings are applied, so remove class from body enabling hide button.
 $('.OKCP-bindings-not-yet-loaded').removeClass('OKCP-bindings-not-yet-loaded');
 
+
+// Testing new features
 (function () {
 	$('.question').prepend('<div class="okcp-add-question new-feature">Add Question</div>');
 	$('.okcp-add-question').click(function() {
