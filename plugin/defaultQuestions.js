@@ -485,13 +485,55 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		wrongAnswers:["Yes"]
 	},
 	
+		//===== love =====
+	{
+		qid:"35", //Regardless of future plans, what's more interesting to you right now?
+		category: "love",
+		wrongAnswers:["Sex"]
+	},
+	{
+		qid:"14913", //Did you join OkCupid just so you could find people to have sex with?
+		category: "love",
+		wrongAnswers:["Yes"]
+	},
+	{
+		qid:"41953", //About how long do you want your next relationship to last?
+		category: "love",
+		wrongAnswers:["One night","A few months to a year"]
+	},
+	{
+		qid:"20135", //How do you feel about falling in love?
+		category: "love",
+		wrongAnswers:["I try to avoid it","I'm indifferent / not sure"]
+	},
+	
 	//===== children =====
 	{
-		qid:"80041", //Are you looking for a partner to have children with?
+		qid:"105", //Do you have a child or children?
 		category: "children",
 		wrongAnswers:["Yes"]
 	},
-
+	{
+		qid:"979", //How many children would you ideally like to have?
+		category: "children",
+		wrongAnswers:["None"]
+	},
+	{
+		qid:"63010", //Do you have names planned out for future children?
+		category: "children",
+		wrongAnswers:["No, and I'm not planning on any future children."]
+	},
+	{
+		qid:"80041", //Are you looking for a partner to have children with?
+		category: "children",
+		wrongAnswers:["No"]
+	},
+	{
+		qid:"15698", //How do you feel about kids?
+		category: "children",
+		wrongAnswers:["God, how revolting. *shudder*","They're okay, but keep the unruly ones at bay.","I'm indifferent."]
+	},
+	
 	//===== unaggressive =====
 	{
 		qid:"55349", //Have you ever thrown an object in anger during an argument?
