@@ -15,12 +15,18 @@ module.exports = function(grunt) {
     compress: {
       zip: {
         options: {
-          archive: './<%= pkg.version =%>.zip',
+          archive: './<%= pkg.version %>.zip',
           mode: 'zip'
         },
-        files: {
+        files: [
           { src: './plugin/**'}
-        }
+        ]
+      }
+    },
+    watch: {
+      scripts: {
+        files: ['plugin/manifest.json'],
+        tasks: ['fixmanifest, compress']
       }
     }
   });
@@ -28,8 +34,16 @@ module.exports = function(grunt) {
   // Load the plugins
   // grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-compress');
-  
+  grunt.loadNpmTasks('grunt-contrib-watch');
+
   // Default task(s).
+  grunt.registerTask('fixmanifest', function() {
+   var manifestTemp = require('plugin/manifest.json');
+   var packageTemp = require('package.json');
+   packageTemp.version = manifestTemp.version;
+   fs.writeFileSync('package.json', JSON.stringify(packageTemp,null,2));
+  });
+
   grunt.registerTask('default', ['compress']);
 
 };
