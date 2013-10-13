@@ -254,6 +254,87 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		wrongAnswers:["No."]
 	},
 	
+		//===== anal =====
+	{
+		qid:"1040", //Receiving anal sex?
+		category: "anal",
+		wrongAnswers:["I don't like it / I don't think I would like it"]
+	},
+	{
+		qid:"18600", //People who like RECEIVING anal sex are...
+		category: "anal",
+		wrongAnswers:["Perverts","Beyond my comprehension"]
+	},
+	{
+		qid:"64476", //Under the right circumstances, would you allow a partner to lick your anus?
+		category: "anal",
+		wrongAnswers:["No."]
+	},
+	
+	//===== submissive =====
+	{
+		qid:"463", //In your ideal sexual encounter, do you take control, or do they?
+		category: "submissive",
+		wrongAnswers:["I take control"]
+	},
+	{
+		qid:"60726", //If a trusted partner asked you to submit to them sexually, would you? Assume that this would involve letting them collar you, command you, and have control over you during sex.
+		category: "submissive",
+		wrongAnswers:["No."]
+	},
+	{
+		qid:"38320", //Is it generally acceptable to you for a sex partner to initiate foreplay while you are sleeping?
+		category: "submissive",
+		wrongAnswers:["No."]
+	},
+	{
+		qid:"83808", //Would you ever consider a relationship where you would take on an exclusive sexual role as master or slave?
+		category: "submissive",
+		wrongAnswers:["No","Yes, as the master only."]
+	},
+	{
+		qid:"79635", //How would you feel if someone called you "good girl" or "good boy" during sex?
+		category: "submissive",
+		wrongAnswers:["Negative.","Indifferent."]
+	},
+	{
+		qid:"11", //How does the idea of being slapped hard in the face during sex make you feel?
+		category: "submissive",
+		wrongAnswers:["Horrified","Indifferent"]
+	},
+	{
+		qid:"84005", //As an adult, have you ever worn a leash and collar in public?
+		category: "submissive",
+		wrongAnswers:["No."]
+	},
+	{
+		qid:"48347", //Do you think you could ever enjoy being humiliated as part of a sexual experience?
+		category: "submissive",
+		wrongAnswers:["No."]
+	},
+	
+	//===== cuddling =====
+	{
+		qid:"48753", //Do you like to cuddle?
+		category: "cuddling",
+		wrongAnswers:["No.","Sometimes - It depends."]
+	},
+	{
+		qid:"19378", //How are you most likely to show your partner you care?
+		category: "cuddling",
+		wrongAnswers:["Gifts: Buy them flowers, jewelery or a new gadget","Actions: Do something nice (like a date or errand)","Words: Tell them how much you appreciate them"]
+	},
+	{
+		qid:"72318", //Would you consider inviting someone to bed with you for clearly-stated non-sexual purposes (e.g., cuddle and sleep only) on a first date?
+		category: "cuddling",
+		wrongAnswers:["No."]
+	},
+	{
+		qid:"41850", //How important is it for you to make physical contact when showing affection for someone?
+		category: "cuddling",
+		wrongAnswers:["Not important.","Somewhat important."]
+	},
+	
 		//===== noDrugs =====
 	{
 		qid:"501", //Have you smoked a cigarette in the last 6 months?
