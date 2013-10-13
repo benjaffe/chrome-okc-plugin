@@ -254,6 +254,58 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		wrongAnswers:["No."]
 	},
 	
+		//===== noDrugs =====
+	{
+		qid:"501", //Have you smoked a cigarette in the last 6 months?
+		category: "noDrugs",
+		wrongAnswers:["Yes"]
+	},
+	{
+		qid:"79", //What's your relationship with marijuana?
+		category: "noDrugs",
+		wrongAnswers:["I smoke regularly.","I smoke occasionally."]
+	},
+	{
+		qid:"23954", //Do you ever feel the need to get really drunk?
+		category: "noDrugs",
+		wrongAnswers:["Often","Sometimes","Rarely"]
+	},
+	{
+		qid:"82566", //Do you like coffee?
+		category: "noDrugs",
+		wrongAnswers:["Yes. I need it to function."]
+	},
+	{
+		qid:"8155", //On average, which best describes how often you GET WICKED DRUNK?
+		category: "noDrugs",
+		wrongAnswers:["Once every month or three.","Weekly / Bi-Weekly","Twice a week or more"]
+	},
+	{
+		qid:"62254", //If it were legal to do so where you live, would you smoke marijuana?
+		category: "noDrugs",
+		wrongAnswers:["Yes."]
+	},
+	{
+		qid:"77", //How frequently do you drink alcohol?
+		category: "noDrugs",
+		wrongAnswers:["Sometimes","Very often"]
+	},
+	{
+		qid:"38051", //How often do you gamble?
+		category: "noDrugs",
+		wrongAnswers:["Often.","Rarely."]
+	},
+	{
+		qid:"84023", //Could you live the rest of your life without drinking alcohol?
+		category: "noDrugs",
+		wrongAnswers:["No."]
+	},
+	{
+		qid:"80621", //How often do you smoke cigars?
+		category: "noDrugs",
+		wrongAnswers:["Frequently.","Occasionally."]
+	},
+	
 	//===== science =====
 	{
 		qid:"612", //Should evolution and creationism be taught side-by-side in schools?
