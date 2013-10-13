@@ -145,7 +145,7 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		category: "poly",
 		wrongAnswers:["Yes - I would mind this."]
 	},
-
+	
 	//===== posessive =====
 	{
 		qid:"1440", //Jealousy: healthy or unhealthy, in the context of a relationship?
@@ -162,9 +162,40 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		category: "posessive",
 		wrongAnswers:["Sure, no problem."]
 	},
-
+	
+	//===== masochistic =====
+	{
+		qid:"30", //Would you like to receive pain during sex?
+		category: "masochistic",
+		wrongAnswers:["No"]
+	},
+	{
+		qid:"28545", //When having sex, do you like to have your hair pulled?
+		category: "masochistic",
+		wrongAnswers:["No way.","Don't know / Not sure."]
+	},
+	
+	//===== dominant =====
+	{
+		qid:"61733", //Would you be pleased if a partner expressed the desire to be sexually humiliated by you?
+		category: "dominant",
+		wrongAnswers:["No."]
+		
+	},
+	//===== bondage =====
+	{
+		qid:"29", //Would you rather...
+		category: "bondage",
+		wrongAnswers:["avoid bondage all together","do the tying"]
+	},
+	{
+		qid:"1134", //Do you have a desire (even if it's secret) to take part in sexual activities involving bondage?
+		category: "bondage",
+		wrongAnswers:["No","Absolutely not."]
+	},
+	
 	//===== sex-positive =====
-
+	
 	{
 		qid:"13", //Is a girl who's slept with 100 guys a bad person?
 		category: "sexPositive",
