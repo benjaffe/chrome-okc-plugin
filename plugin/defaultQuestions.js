@@ -149,13 +149,18 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 	//===== posessive =====
 	{
 		qid:"1440", //Jealousy: healthy or unhealthy, in the context of a relationship?
-		category: "notPosessive",
-		wrongAnswers:["Healthy"]
+		category: "posessive",
+		wrongAnswers:["Unhealthy"]
 	},
 	{
 		qid:"784", //Would you be okay with your significant other spending a lot of time with one of his/her exes (as a friend)?
-		category: "notPosessive",
-		wrongAnswers:["No"]
+		category: "posessive",
+		wrongAnswers:["Yes"]
+	},
+	{
+		qid:"31581", //Your significant other's ex is coming into town and he/she wants to go out to dinner with them alone. How do you react?
+		category: "posessive",
+		wrongAnswers:["Sure, no problem."]
 	},
 
 	//===== sex-positive =====
