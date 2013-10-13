@@ -534,6 +534,7 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		wrongAnswers:["God, how revolting. *shudder*","They're okay, but keep the unruly ones at bay.","I'm indifferent."]
 	},
 	
+/*
 	//===== unaggressive =====
 	{
 		qid:"55349", //Have you ever thrown an object in anger during an argument?
@@ -545,12 +546,29 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		category: "unaggressive",
 		wrongAnswers:["Fight them"]
 	},
+*/
+		//===== happy =====
 	{
-		qid:"6689", //Are you quietly angry a lot of the time?
-		category: "unaggressive",
+		qid:"1707", //Which of the following best describes your typical demeanor?
+		category: "happy",
+		wrongAnswers:["Meh. I have my ups and downs.","Annoyed. The world sucks."]
+	},
+	{
+		qid:"27477", //Do you often find yourself worrying about things that you have no control over?
+		category: "happy",
 		wrongAnswers:["Yes"]
 	},
-
+	{
+		qid:"6689", //Are you quietly angry a lot of the time?
+		category: "happy",
+		wrongAnswers:["Yes"]
+	},
+	{
+		qid:"16293", //How's it going?
+		category: "happy",
+		wrongAnswers:["Life is a meaningless hell and I hope you die","Oh, it's going."]
+	},
+	
 	//===== fetish =====
 	{
 		qid:"67511", //Suppose you're dating someone who seems to have long-term potential. You discover that they want to urinate on you during sex. Would you consider staying with this person?
