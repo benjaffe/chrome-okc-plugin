@@ -216,7 +216,44 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		category: "sexPositive",
 		wrongAnswers:["No"]
 	},
-
+	
+	//===== kinky =====
+	{
+		qid:"18530", //Do you want your partner to be kinkier than you?
+		category: "kinky",
+		wrongAnswers:["No"]
+	},
+	{
+		qid:"1028", //Is your ideal sex rough or gentle?
+		category: "kinky",
+		wrongAnswers:["Gentle","I'm a virgin"]
+	},
+	{
+		qid:"72086", //If your partner needed lovemaking to always be gentle, would you be fine with this?
+		category: "kinky",
+		wrongAnswers:["Yes."]
+	},
+	{
+		qid:"9628", //Biting?
+		category: "kinky",
+		wrongAnswers:["No"]
+	},
+	{
+		qid:"1133", //Do you have rape fantasies?
+		category: "kinky",
+		wrongAnswers:["No"]
+	},
+	{
+		qid:"30115", //Have you ever gotten, or would you ever get, a piercing below the belt?
+		category: "kinky",
+		wrongAnswers:["I wouldn't."]
+	},
+	{
+		qid:"58812", //Would you consider roleplaying out a rape fantasy with partner who asked you to?
+		category: "kinky",
+		wrongAnswers:["No."]
+	},
+	
 	//===== science =====
 	{
 		qid:"612", //Should evolution and creationism be taught side-by-side in schools?
