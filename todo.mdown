@@ -1,20 +1,24 @@
 ## For Next Version:
  
-* Questions customization stage 1
-    * For or against kids, poly, etc
-    * Let user suggest questions, (submit to Google Forms?) (currently working on it -B)
-
+* Refactor: questions into JSON, customizable path to pull from?
 * A way to enable/disable the plugin
 
 ## For Next Next Version:
 
-* Questions customization stage 2
-    * De-binary-ize the questions!
+* Questions customization stage 1
+    * For or against kids, poly, etc
+    * Let user suggest questions, (submit to Google Forms?) (currently working on it -B)
 
 ## Ideas for the future:
 ### (sorted by rough priority)
 
+* Refactor: split up source
+
+* Make a build script (grunt?)
 * Do something with last viewed. When did the user last view this profile?
+
+* Questions customization stage 2
+    * De-binary-ize the questions!
 * Questions customization stage 3
     * 1. Let people add questions and categories.
     * 2. Let people suggest questions and categories, and we moderate.
