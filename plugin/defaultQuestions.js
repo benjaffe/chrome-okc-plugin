@@ -195,11 +195,15 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 	},
 	
 	//===== sex-positive =====
-	
 	{
 		qid:"13", //Is a girl who's slept with 100 guys a bad person?
 		category: "sexPositive",
 		wrongAnswers:["Yes"]
+	},
+	{
+		qid:"12964", //Would you need to sleep with someone before you considered marrying them?
+		category: "sexPositive",
+		wrongAnswers:["No"]
 	},
 	{
 		qid:"61903", //Would you be concerned if your partner still masturbated, even though you were sexually active together?
@@ -212,9 +216,29 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		wrongAnswers:["Yes, and it makes me uncomfortable."]
 	},
 	{
+		qid:"86366", //Could you have respect for someone after having sex with them on the first meeting/date?
+		category: "sexPositive",
+		wrongAnswers:["Maybe, depending upon the circumstances.","No."]
+	},
+	{
 		qid:"1435", //Do you consider yourself sexually open minded?
 		category: "sexPositive",
 		wrongAnswers:["No"]
+	},
+	{
+		qid:"294", //Which is more important for a good match?
+		category: "sexPositive",
+		wrongAnswers:["Having similar political beliefs"]
+	},
+	{
+		qid:"19681", //Are some sex acts with consenting adults inherently wrong or immoral? Assume no unusual risk of injury.
+		category: "sexPositive",
+		wrongAnswers:["Yes"]
+	},
+	{
+		qid:"24375", //Say you've started seeing someone you really like. As far as you're concerned, how long will it take before you have sex?
+		category: "sexPositive",
+		wrongAnswers:["6 or more dates","Only after the wedding"]
 	},
 	
 	//===== kinky =====
@@ -254,7 +278,7 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		wrongAnswers:["No."]
 	},
 	
-		//===== anal =====
+	//===== anal =====
 	{
 		qid:"1040", //Receiving anal sex?
 		category: "anal",
@@ -312,6 +336,12 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		category: "submissive",
 		wrongAnswers:["No."]
 	},
+	//===== shaved =====
+	{
+		qid:"58829", //When it comes to your pubic hair, do you make a regular effort to maintain its appearance (or lack thereof)?
+		category: "shaved",
+		wrongAnswers:["No."]
+	},
 	
 	//===== cuddling =====
 	{
@@ -335,7 +365,7 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		wrongAnswers:["Not important.","Somewhat important."]
 	},
 	
-		//===== noDrugs =====
+	//===== noDrugs =====
 	{
 		qid:"501", //Have you smoked a cigarette in the last 6 months?
 		category: "noDrugs",
@@ -431,7 +461,7 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 	},
 */
 	
-		//===== intelligent =====
+	//===== intelligent =====
 	{
 		qid:"255", //STALE is to STEAL as 89475 is to...
 		category: "intelligent",
@@ -485,7 +515,7 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		wrongAnswers:["Yes"]
 	},
 	
-		//===== love =====
+	//===== love =====
 	{
 		qid:"35", //Regardless of future plans, what's more interesting to you right now?
 		category: "love",
@@ -634,19 +664,17 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		wrongAnswers:["True"]
 	},
 	
-	/*
-	
 	//===== BDSM =====
-	{
-		qid:"463", //In your ideal sexual encounter, do you take control, or do they?
-		category: "bdsm",
-		wrongAnswers:["I take control"]
+		{
+		qid:"20", //BDSM: Without looking it up, do you know exactly what it stands for?
+		category: "BDSM",
+		wrongAnswers:["No"]
 	},
 	{
-		qid:"84005", //As an adult, have you ever worn a leash and collar in public?
-		category: "bdsm",
+		qid:"1011", //Do you know what a 'safeword' is, in a sexual context?
+		category: "BDSM",
 		wrongAnswers:["No."]
-	}*/
+	},
 ]});
 
 /*
