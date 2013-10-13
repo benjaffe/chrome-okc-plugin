@@ -404,6 +404,12 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		wrongAnswers:["God or gods created it within the last 10k years","God or gods created it a very long time ago"]
 	},
 	{
+		qid:"20408", //Do you believe in an energy field that surrounds us that we can manipulate through reiki, acupuncture, chakra balancing, yoga, or some other system?
+		category: "science",
+		wrongAnswers:["Yes, and I practice one/some of these.","Yes, but I don't practice any of these."]
+	},
+/*
+	{
 		qid:"409", //A "shooting star" is a star that...
 		category: "science",
 		wrongAnswers:["...burned out, and collapsed","...collided with Earth's atmosphere","...got sucked into a black hole"]
@@ -413,12 +419,7 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		category: "science",
 		wrongAnswers:["No"]
 	},
-	{
-		qid:"178", //Which is bigger?
-		category: "science",
-		wrongAnswers:["The earth"]
-	},
-	{
+		{
 		qid:"19898", //Do you enjoy finding out what makes things work the way they do?
 		category: "science",
 		wrongAnswers:["As long as it works, who cares why?"]
@@ -428,10 +429,38 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		category: "science",
 		wrongAnswers:["Yes"]
 	},
+*/
+	
+		//===== intelligent =====
 	{
-		qid:"20408", //Do you believe in an energy field that surrounds us that we can manipulate through reiki, acupuncture, chakra balancing, yoga, or some other system?
-		category: "science",
-		wrongAnswers:["Yes, and I practice one/some of these.","Yes, but I don't practice any of these."]
+		qid:"255", //STALE is to STEAL as 89475 is to...
+		category: "intelligent",
+		wrongAnswers:["89457","98547","89754"]
+	},
+	{
+		qid:"511", //If you flipped three pennies, what would be the odds that they all came out the same?
+		category: "intelligent",
+		wrongAnswers:["I admit, I don't know!","1 in 3","1 in 4"]
+	},
+	{
+		qid:"178", //Which is bigger?
+		category: "intelligent",
+		wrongAnswers:["The earth"]
+	},
+	{
+		qid:"8672", //In the line Wherefore art thou Romeo?, what does wherefore mean?
+		category: "intelligent",
+		wrongAnswers:["Where","How","Who cares / wtf?"]
+	},
+	{
+		qid:"1201", //What is next in this series? 1, 4, 10, 19, 31, _
+		category: "intelligent",
+		wrongAnswers:["36","48","Don't know / don't care"]
+	},
+	{
+		qid:"14835", //If you turn a left-handed glove inside out, it fits...
+		category: "intelligent",
+		wrongAnswers:["On my left hand"]
 	},
 	
 	//===== noArtist =====
@@ -497,7 +526,7 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		category: "fetish",
 		wrongAnswers:["No, and I would never."]
 	},*/
-
+	
 	//===== Non-religious =====
 	{
 		qid:"115", //Do animals have "souls" like humans do?
@@ -519,6 +548,32 @@ localStorage.okcpDefaultQuestions = JSON.stringify({
 		category: "nonReligious",
 		wrongAnswers:["Yes"]
 	},
+	{
+		qid:"156913", //Are you Christian?
+		category: "nonReligious",
+		wrongAnswers:["Yes"]
+	},
+	{
+		qid:"156915", //Are you a Buddhist?
+		category: "nonReligious",
+		wrongAnswers:["Yes"]
+	},
+	{
+		qid:"156914", //Are you Jewish?
+		category: "nonReligious",
+		wrongAnswers:["Yes"]
+	},
+	{
+		qid:"156916", //Are you Muslim?
+		category: "nonReligious",
+		wrongAnswers:["Yes"]
+	},
+	{
+		qid:"44", //Some religions are more correct than others.
+		category: "nonReligious",
+		wrongAnswers:["True"]
+	},
+	
 	/*
 	
 	//===== BDSM =====
