@@ -3,15 +3,6 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    // uglify: {
-    //   options: {
-    //     banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
-    //   },
-    //   build: {
-    //     src: 'src/<%= pkg.name %>.js',
-    //     dest: 'build/<%= pkg.name %>.min.js'
-    //   }
-    // }
     compress: {
       zip: {
         options: {
@@ -21,6 +12,15 @@ module.exports = function(grunt) {
         files: [
           { src: './plugin/**'}
         ]
+      }
+    },
+    open : {
+      dev : {
+        path: 'https://chrome.google.com/webstore/developer/edit/cgdblghohnaeeejaoincmbcdkdnodkei',
+        app: 'Google Chrome Canary'
+      },
+      file : {
+        path : '/Users/ben/Sites/chrome-okc-plugin'
       }
     },
     watch: {
@@ -35,6 +35,7 @@ module.exports = function(grunt) {
   // grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-open');
 
   // Default task(s).
   grunt.registerTask('package-the-plugin', function() {
@@ -48,6 +49,7 @@ module.exports = function(grunt) {
 
     grunt.config('compress.zip.options.archive',packageTemp.version+'.zip');
     grunt.task.run('compress');
+    grunt.task.run('open');
   });
 
   grunt.registerTask('default', []);
