@@ -26,7 +26,7 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: ['plugin/manifest.json'],
-        tasks: ['fixmanifest, compress']
+        tasks: ['package-the-plugin']
       }
     }
   });
@@ -37,13 +37,18 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task(s).
-  grunt.registerTask('fixmanifest', function() {
-   var manifestTemp = require('plugin/manifest.json');
-   var packageTemp = require('package.json');
-   packageTemp.version = manifestTemp.version;
-   fs.writeFileSync('package.json', JSON.stringify(packageTemp,null,2));
+  grunt.registerTask('package-the-plugin', function() {
+    var manifestTemp = require('./plugin/manifest.json');
+    var packageTemp = require('./package.json');
+    packageTemp.version = manifestTemp.version;
+    console.log('hi');
+    console.log(packageTemp.version);
+    var fs = require('fs');
+    fs.writeFileSync('./package.json', JSON.stringify(packageTemp,null,2));
+
+    grunt.config('compress.zip.options.archive',packageTemp.version+'.zip');
+    grunt.task.run('compress');
   });
 
-  grunt.registerTask('default', ['compress']);
-
+  grunt.registerTask('default', []);
 };
