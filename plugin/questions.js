@@ -1,0 +1,2 @@
+var fileQuestions =[];
+// localStorage.fileQuestions ={};
