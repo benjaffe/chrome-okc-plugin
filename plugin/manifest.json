@@ -1,7 +1,7 @@
 {
   "name": "OkCupid (for Non-Mainstream Users)",
   "short_name": "OkC Alt Ext",
-  "version": "2.1.6",
+  "version": "2.2.0",
   "manifest_version": 2,
   "description": "Are you using OkCupid? Are you *not* a white monogamous straight male? You should definitely be using this extension.",
   "homepage_url": "https://github.com/benjaffe/chrome-okc-plugin",
