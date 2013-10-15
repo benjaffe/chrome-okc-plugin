@@ -12,8 +12,8 @@ _OKCP.profilePath = _OKCP.urlSansParameters.split("/profile/")[1] || '';
 _OKCP.profileName = _OKCP.profilePath.split("/")[0];
 _OKCP.clientProfileName = $('#user_header .username').text();
 
-_OKCP.cacheEnabled = true;
-// _OKCP.cacheEnabled = false;
+// _OKCP.cacheEnabled = true;
+_OKCP.cacheEnabled = false;
 _OKCP.debugTimerEnabled = false;
 _OKCP.debugTimer = null;
 
