@@ -19,7 +19,14 @@
     {
       "matches": ["http://*.okcupid.com/*"],
       "css": ["style.css"],
-      "js": ["knockout-2.2.0.js","jquery.min.js", "defaultQuestions.js", "ViewModels.js"],
+      "js": ["knockout-2.2.0.js","jquery.min.js",
+		"questions.js",
+		"questions/poly.js",
+		"questions/bi.js",
+		"questions/veggie_vegan.js",
+		"questions/drugs_smokes.js",
+		"questions/science.js",
+		"defaultQuestions.js", "ViewModels.js"],
       "run_at": "document_end"
     }
   ],

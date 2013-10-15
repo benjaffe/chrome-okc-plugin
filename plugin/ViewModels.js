@@ -1,5 +1,7 @@
 $ = jQuery;
 
+var numQuestionPages =20;		//how many pages to search through to match question answers (10 questions per page, sorted by 'i_care' so mandatory and very important answers will show up first - later questions after this limit will NOT be searched/matched at all!! So make sure to make this number big enough and that users mark their questions as very important to ensure they get matched! Note: bigger numbers mean slower loading of results.)
+
 // Initial setup
 var _OKCP = {};
 var stateAbbr = {"Alaska" : "AK", "Alabama" : "AL", "Arkansas" : "AR", "American Samoa" : "AS", "Arizona" : "AZ", "California" : "CA", "Colorado" : "CO", "Connecticut" : "CT", "District of Columbia" : "DC", "Delaware" : "DE", "Florida" : "FL", "Georgia" : "GA", "Guam" : "GU", "Hawaii" : "HI", "Iowa" : "IA", "Idaho" : "ID", "Illinois" : "IL", "Indiana" : "IN", "Kansas" : "KS", "Kentucky" : "KY", "Louisiana" : "LA", "Massachusetts" : "MA", "Maryland" : "MD", "Maine" : "ME", "Michigan" : "MI", "Minnesota" : "MN", "Missouri" : "MO", "Mississippi" : "MS", "Montana" : "MT", "North Carolina" : "NC", "North Dakota" : "ND", "Nebraska" : "NE", "New Hampshire" : "NH", "New Jersey" : "NJ", "New Mexico" : "NM", "Nevada" : "NV", "New York" : "NY", "Ohio" : "OH", "Oklahoma" : "OK", "Oregon" : "OR", "Pennsylvania" : "PA", "Puerto Rico" : "PR", "Rhode Island" : "RI", "South Carolina" : "SC", "South Dakota" : "SD", "Tennessee" : "TN", "Texas" : "TX", "Utah" : "UT", "Virginia" : "VA", "Virgin Islands" : "VI", "Vermont" : "VT", "Washington" : "WA", "Wisconsin" : "WI", "West Virginia" : "WV", "Wyoming" : "WY"};
@@ -336,7 +338,9 @@ function OKCP() {
 			var pageResultsDiv = $('<div id="page-results"></div>').appendTo('body');
 			$('#footer').append('<a class="page-results-link" href="#page-results">Show question results</a>');
 
-			while (!requestFailed && OKCP.numRequestsMade < 10) {
+
+
+			while (!requestFailed && OKCP.numRequestsMade < numQuestionPages) {
 				updateQuestionPath();
 				// console.log('loading page '+ OKCP.questionPath);
 				OKCP.numRequestsMade++;
@@ -433,18 +437,18 @@ function OKCP() {
 							var listItem = list[i];
 							var num = listItem.qid;
 							var wrongAnswers = listItem.wrongAnswers;
-							var questionElem = $('#question_' + num + '[public]');
+							// var questionElem = $('#question_' + num + '[public]');		//misses some
+							var questionElem = $('#question_' + num);
 							if (questionElem.size() > 0) console.log(questionElem[0].id.split('\\\"'));
 
 							// console.log(questionElem);
 							// if question isn't present on page, continue
 							if (questionElem.length === 0) {continue;}
-
 							
 							// get question information
 							var questionText = questionElem.find('h4').text().trim();
 							if (questionText === "") continue;
-
+							
 							if (_OKCP.onOwnProfile) {
 								theirAnswer = questionElem.find("#self_answers_"+num+" .match.mine").text().trim();
 								theirNote = questionElem.find("#explanation_"+num).text().trim();
