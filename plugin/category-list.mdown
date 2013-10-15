@@ -1,0 +1,58 @@
+relationship model
+	poly/non-monog
+	poly-open
+	monog
+	not possessive
+	children
+	traditional-conservative
+
+drugs / smoking
+	cigarettes / cigars / tobacco
+	marijuana
+	harder/other drugs
+
+sexuality / gender
+	gay-friendly
+	bi-open
+	trans-friendly
+	sex-positive
+
+
+sex
+	cuddling
+	love priority
+	fetish
+	kinky
+	BDSM
+	masochistic
+	dominant
+	submissive
+	bondage
+	anal
+	shaved
+
+veggie/vegan
+	veggie / vegan
+
+science / spirituality
+	science-friendly
+	logic
+	spiritual
+	non-spiritual
+	religious
+	non-religious
+
+discrimination
+	race
+	women
+	mental health
+	disability
+	weight
+
+other
+	artist
+	non-artist
+
+demeanor
+	generally happy
+	unaggressive

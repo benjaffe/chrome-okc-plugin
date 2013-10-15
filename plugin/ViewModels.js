@@ -14,8 +14,8 @@ _OKCP.profilePath = _OKCP.urlSansParameters.split("/profile/")[1] || '';
 _OKCP.profileName = _OKCP.profilePath.split("/")[0];
 _OKCP.clientProfileName = $('#user_header .username').text();
 
-_OKCP.cacheEnabled = true;
-// _OKCP.cacheEnabled = false;
+// _OKCP.cacheEnabled = true;
+_OKCP.cacheEnabled = false;
 _OKCP.debugTimerEnabled = false;
 _OKCP.debugTimer = null;
 
@@ -584,7 +584,7 @@ function OKCP() {
 				}).appendTo('.question-detail');
 
 				// HACK HACK HACK (this way, nonReligious doesn't show up green or red)
-				$('#okcp .match-ratio-category:contains(nonReligious)').parent().removeClass('great-match');
+				$('#okcp .match-ratio-category:contains(notReligious)').parent().removeClass('great-match');
 
 				if (_OKCP.debugTimerEnabled) {
 					console.log('Fetching the questions took ' + (new Date().getTime() - _OKCP.debugTimer.getTime()) + ' ms');

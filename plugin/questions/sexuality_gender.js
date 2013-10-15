@@ -1,10 +1,14 @@
 //question search words: bisexual, sex, homosexual, gay, lesbian, gender
-fileQuestions.bi =
+fileQuestions.sexuality_gender =
 	[
+		//gay-friendly
+
+
+		//bi-friendly
 		{
 			"qid":"1401",
 			"text":"Have you ever had a sexual encounter with someone of the same sex?",
-			"category": "bi",
+			"category": "biOpen",
 			"wrongAnswers":["No, and I would never.", "Yes, and I did not enjoy myself."]
 		},
 		
@@ -23,8 +27,6 @@ fileQuestions.bi =
 			"wrongAnswers":[]
 		},
 		*/
-		
-		
 		{
 			"qid":"35203",
 			"text":"Would you consider being in a relationship with someone who has had homosexual sex?",
@@ -54,6 +56,35 @@ fileQuestions.bi =
 			"qid":"219",
 			"text":"Gay marriage -- should it be legal?",
 			"category": "biOpen",
+			"wrongAnswers":["No"]
+		},
+
+		//trans-friendly
+
+
+		//sex-positive
+		{
+			"qid":"13",
+			"text":"Is a girl who's slept with 100 guys a bad person?",
+			"category": "sexPositive",
+			"wrongAnswers":["Yes"]
+		},
+		{
+			"qid":"61903",
+			"text":"Would you be concerned if your partner still masturbated, even though you were sexually active together?",
+			"category": "sexPositive",
+			"wrongAnswers":["Yes"] //maybe "Maybe / I don't know"
+		},
+		{
+			"qid":"20976",
+			"text":"You're in a new relationship and your partner admits that they have had 14 sexual partners. Does that sound like a lot to you?",
+			"category": "sexPositive",
+			"wrongAnswers":["Yes, and it makes me uncomfortable."]
+		},
+		{
+			"qid":"1435",
+			"text":"Do you consider yourself sexually open minded?",
+			"category": "sexPositive",
 			"wrongAnswers":["No"]
 		}
 	];

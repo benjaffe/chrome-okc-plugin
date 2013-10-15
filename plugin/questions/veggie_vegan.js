@@ -1,6 +1,7 @@
 //question search words: vegetarian, vegan
 fileQuestions.veg =
 	[
+		//veg
 		{
 			"qid":"179268",
 			"text":"Are you either vegetarian or vegan?",
@@ -18,5 +19,7 @@ fileQuestions.veg =
 			"text":"If an otherwise perfect match gave you an ultimatum to become a vegetarian, what would you do?",
 			"category": "veg",
 			"wrongAnswers":["Smile - I'm already a vegetarian."]		//"Comply - Become a vegetarian."
-		},
+		}
+
+		//not veg
 	];

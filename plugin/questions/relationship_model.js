@@ -1,5 +1,6 @@
-fileQuestions.poly =
+fileQuestions.relationship_model =
 	[
+		//open to polyamory
 		{
 			"qid":"325",
 			"text":"Would you consider having an open relationship (i.e., one where you can see other people)?",
@@ -44,10 +45,7 @@ fileQuestions.poly =
 		},
 
 		
-		
-		
-		
-		
+		//polyamorous
 		{
 			"qid":"99709",
 			"text":"Do you consider yourself polyamorous?",
@@ -133,5 +131,35 @@ fileQuestions.poly =
 			"text":"If you had to choose one for the rest of your life, which would you pick?",
 			"category": "poly",
 			"wrongAnswers":["Monogamy"]
+		},
+
+		//monogamous
+
+
+		//not possessive
+		{
+			"qid":"1440",
+			"text":"Jealousy: healthy or unhealthy, in the context of a relationship?",
+			"category": "notPosessive",
+			"wrongAnswers":["Healthy"]
+		},
+		{
+			"qid":"784",
+			"text":"Would you be okay with your significant other spending a lot of time with one of his/her exes (as a friend)?",
+			"category": "notPosessive",
+			"wrongAnswers":["No"]
+		},
+
+		//wanting children
+
+
+		//not wanting children
+		{
+			"qid":"80041", //Are you looking for a partner to have children with?
+			"category": "children",
+			"wrongAnswers":["Yes"]
 		}
+
+		//traditional conservative
+
 	];
