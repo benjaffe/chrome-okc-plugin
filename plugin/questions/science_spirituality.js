@@ -1,4 +1,4 @@
-fileQuestions.science =
+fileQuestions.science_spirituality =
 	[
 		//scientific literacy
 		{

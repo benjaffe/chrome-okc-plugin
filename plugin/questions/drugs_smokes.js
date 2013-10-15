@@ -1,5 +1,5 @@
 //question search words: smoke, smokes, cigarette, cigarettes, cigar, cigars, tobacco, marijuana, weed, pot, drug, drugs
-fileQuestions.drugs =
+fileQuestions.drugs_smokes =
 	[
 		//cigarettes / cigars / tobacco
 		{

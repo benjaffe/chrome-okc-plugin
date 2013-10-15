@@ -439,8 +439,7 @@ function OKCP() {
 							var wrongAnswers = listItem.wrongAnswers;
 							// var questionElem = $('#question_' + num + '[public]');		//misses some
 							var questionElem = $('#question_' + num);
-							if (questionElem.size() > 0) console.log(questionElem[0].id.split('\\\"'));
-
+							
 							// console.log(questionElem);
 							// if question isn't present on page, continue
 							if (questionElem.length === 0) {continue;}
@@ -454,6 +453,7 @@ function OKCP() {
 								theirNote = questionElem.find("#explanation_"+num).text().trim();
 							} else {
 								theirAnswer = questionElem.find('#answer_target_'+num).text().trim();
+								if (theirAnswer === '') continue; //if the answer elem doesn't exist, continue
 								theirNote   = questionElem.find('#note_target_'+num).text().trim();
 								yourAnswer  = questionElem.find('#answer_viewer_'+num).text().trim();
 								yourNote    = questionElem.find('#note_viewer_'+num).text().trim();
@@ -471,7 +471,7 @@ function OKCP() {
 								OKCP.responseCount[listItem.category][0]++;
 							}
 							OKCP.responseCount[listItem.category][1]++;
-							console.log(num + " - " + questionText);
+							// console.log(num + " - " + questionText);
 							OKCP.questionList.push({
 								question: questionText,
 								qid: num,

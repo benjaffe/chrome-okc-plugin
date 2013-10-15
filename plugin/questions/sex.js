@@ -1,4 +1,4 @@
-fileQuestions.relationship_model =
+fileQuestions.sex =
 	[
 		//cuddling
 
