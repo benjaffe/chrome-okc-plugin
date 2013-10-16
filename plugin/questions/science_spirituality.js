@@ -23,7 +23,7 @@ fileQuestions.science_spirituality =
 			"qid":"15889",
 			"text":"Do you put more weight in science or faith?",
 			"category": "science",
-			"wrongAnswers":["Faith","Equally in both"]
+			"wrongAnswers":["Faith"]
 		},
 		{
 			"qid":"126793",

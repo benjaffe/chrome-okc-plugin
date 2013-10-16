@@ -19,12 +19,12 @@ fileQuestions.relationship_model =
 			"category": "polyOpen",
 			"wrongAnswers":["Yes - I would mind this."]
 		},
-		{
-			"qid":"32",
-			"text":"Group sex (with 3 or more people):",
-			"category": "polyOpen",
-			"wrongAnswers":["I have little or no interest."]
-		},
+		// {
+		// 	"qid":"32",
+		// 	"text":"Group sex (with 3 or more people):",
+		// 	"category": "polyOpen",
+		// 	"wrongAnswers":["I have little or no interest."]
+		// },
 		{
 			"qid":"784",
 			"text":"Would you be okay with your significant other spending a lot of time with one of his/her exes (as a friend)?",
@@ -52,7 +52,7 @@ fileQuestions.relationship_model =
 			"category": "poly",
 			"wrongAnswers":["No"]
 		},
-		{
+		{ //could also work with polyOpen
 			"qid":"131794",
 			"text":"How do you feel about polyamory? (multiple relationships)",
 			"category": "poly",
@@ -66,7 +66,7 @@ fileQuestions.relationship_model =
 			"conclusiveAnswers":[],
 			"wrongAnswers":["No to both"]
 		},
-		{
+		{ //yes even in secret should fit a different category
 			"qid":"1128",
 			"text":"Would you date someone who was already in a committed relationship with someone else?",
 			"category": "poly",
@@ -95,12 +95,6 @@ fileQuestions.relationship_model =
 			"text":"If your partner told you they wanted to sleep with someone else, how would you react to that?",
 			"category": "poly",
 			"wrongAnswers":["That would be a deal breaker."]
-		},
-		{
-			"qid":"1121",
-			"text":"Have you ever had multiple romantic partners during the same time period?",
-			"category": "poly",
-			"wrongAnswers":["Yes, and I didn't tell at least one of them."]
 		},
 		{
 			"qid":"28742",
@@ -134,6 +128,15 @@ fileQuestions.relationship_model =
 		},
 
 		//monogamous
+
+
+		//communication
+		{
+			"qid":"1121",
+			"text":"Have you ever had multiple romantic partners during the same time period?",
+			"category": "communication",
+			"wrongAnswers":["Yes, and I didn't tell at least one of them."]
+		},
 
 
 		//not possessive

@@ -92,7 +92,7 @@ fileQuestions.sexuality_gender =
 			"qid":"61903",
 			"text":"Would you be concerned if your partner still masturbated, even though you were sexually active together?",
 			"category": "sexPositive",
-			"wrongAnswers":["Yes"] //maybe "Maybe / I don't know"
+			"wrongAnswers":["Yes", "Maybe / I don't know"]
 		},
 		{
 			"qid":"20976",
