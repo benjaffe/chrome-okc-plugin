@@ -7,12 +7,12 @@ fileQuestions.sex =
 			"category": "cuddling",
 			"wrongAnswers":["No.","Sometimes - It depends."]
 		},
-		{
-			"qid":"19378",
-			"text":"How are you most likely to show your partner you care?",
-			"category": "cuddling",
-			"wrongAnswers":["Gifts: Buy them flowers, jewelery or a new gadget","Actions: Do something nice (like a date or errand)","Words: Tell them how much you appreciate them"]
-		},
+		// {
+		// 	"qid":"19378",
+		// 	"text":"How are you most likely to show your partner you care?",
+		// 	"category": "cuddling",
+		// 	"wrongAnswers":["Gifts: Buy them flowers, jewelery or a new gadget","Actions: Do something nice (like a date or errand)","Words: Tell them how much you appreciate them"]
+		// },
 		{
 			"qid":"72318",
 			"text":"Would you consider inviting someone to bed with you for clearly-stated non-sexual purposes (e.g., cuddle and sleep only) on a first date?",
