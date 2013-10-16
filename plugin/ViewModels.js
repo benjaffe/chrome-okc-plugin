@@ -424,7 +424,7 @@ function OKCP() {
 						// console.log(this);
 
 						//fix the illegal ids that break jQuery
-						$('[id]').each(function(){
+						$(this).find('[id]').each(function(){
 							var elem = $(this);
 							var oldID = elem.attr('id');
 							var idArr = oldID.split('\\\"');
@@ -438,7 +438,7 @@ function OKCP() {
 							var num = listItem.qid;
 							var wrongAnswers = listItem.wrongAnswers;
 							// var questionElem = $('#question_' + num + '[public]');		//misses some
-							var questionElem = $('#question_' + num);
+							var questionElem = $(this).find('#question_' + num);
 							
 							// console.log(questionElem);
 							// if question isn't present on page, continue
