@@ -12,7 +12,7 @@
 	}
 
 	var storage = JSON.parse(localStorage.okcp);
-	storage.dataCleanupJobNumToReach = '1.1.35';
+	storage.dataCleanupJobNumToReach = '1.1.40';
 
 	if (storage.dataCleanupJobNum === storage.dataCleanupJobNumToReach) {
 		return false;
@@ -23,6 +23,7 @@
 	// confirm that proper keys exist
 	storage.settings = storage.settings || {};
 	storage.profileList = storage.profileList || {};
+	storage.questionCategories = storage.questionCategories || ["unaggressive","happy","poly","polyOpen","notPossessive","science","cuddling","sexPositive"];
 
 	// if backup isn't current, create a backup
 	if (localStorage.okcpBackup_1_1_33 === undefined) {
@@ -66,7 +67,7 @@ $.getJSON('questions/questions-poly-bi.json', function(data) {
 */
 
 var questions ={
-	"questionsVersionNum" : "1.2.0",
+	"questionsVersionNum" : "1.3.0",
 	"questionsList":
 	[
 	]
@@ -88,11 +89,31 @@ for(xx in localStorage.fileQuestions) {
 */
 
 var xx;
+var fullQuestionsList = [];
+var filteredQuestionsList = [];
+var desiredCategories = JSON.parse(localStorage.okcp).questionCategories;
 for(xx in fileQuestions) {
 	// console.log(JSON.stringify(fileQuestions[xx]));
 	// questions.questionsList.push(fileQuestions[xx]);		//it's an array so need to use 'concat', not 'push'
-	questions.questionsList =questions.questionsList.concat(fileQuestions[xx]);
+	fullQuestionsList = fullQuestionsList.concat(fileQuestions[xx]);
 }
+
+console.log(fullQuestionsList);
+
+//loop through all questions
+for (xx in fullQuestionsList) {
+	//loop through desired categories
+	for (var i = desiredCategories.length - 1; i >= 0; i--) {
+		//if the current questions matches, use it
+		if (fullQuestionsList[xx].category === desiredCategories[i]) {
+			filteredQuestionsList.push(fullQuestionsList[xx]);
+		}
+		
+	};
+}
+console.log(filteredQuestionsList);
+
+questions.questionsList = filteredQuestionsList;
 
 // console.log(JSON.stringify(questions));
 localStorage.okcpDefaultQuestions = JSON.stringify(questions);
