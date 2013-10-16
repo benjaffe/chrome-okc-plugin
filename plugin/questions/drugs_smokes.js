@@ -45,25 +45,25 @@ fileQuestions.drugs_smokes =
 		{
 			"qid":"23954",
 			"text":"Do you ever feel the need to get really drunk?",
-			"category": "noDrugs",
+			"category": "drugs",
 			"wrongAnswers":["Often","Sometimes","Rarely"]
 		},
 		{
 			"qid":"8155",
 			"text":"On average, which best describes how often you GET WICKED DRUNK?",
-			"category": "noDrugs",
+			"category": "drugs",
 			"wrongAnswers":["Once every month or three.","Weekly / Bi-Weekly","Twice a week or more"]
 		},
 		{
 			"qid":"77",
 			"text":"How frequently do you drink alcohol?",
-			"category": "noDrugs",
+			"category": "drugs",
 			"wrongAnswers":["Sometimes","Very often"]
 		},
 		{
 			"qid":"84023",
 			"text":"Could you live the rest of your life without drinking alcohol?",
-			"category": "noDrugs",
+			"category": "drugs",
 			"wrongAnswers":["No."]
 		},
 
@@ -71,13 +71,13 @@ fileQuestions.drugs_smokes =
 		{
 			"qid":"82566",
 			"text":"Do you like coffee?",
-			"category": "noDrugs",
+			"category": "drugs",
 			"wrongAnswers":["Yes. I need it to function."]
 		},
 		{
 			"qid":"38051",
 			"text":"How often do you gamble?",
-			"category": "noDrugs",
+			"category": "drugs",
 			"wrongAnswers":["Often.","Rarely."]
 		},
 
