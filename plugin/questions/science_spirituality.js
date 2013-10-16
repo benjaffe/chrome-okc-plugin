@@ -88,12 +88,6 @@ fileQuestions.science_spirituality =
 			"category": "logic",
 			"wrongAnswers":["On my left hand"]
 		},
-		{
-			"qid":"301",
-			"text":"Are you annoyed by people who are super logical?",
-			"category": "logic",
-			"wrongAnswers":["Yes"]
-		},
 
 
 		//spiritual
