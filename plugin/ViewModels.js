@@ -346,75 +346,75 @@ function OKCP() {
 				OKCP.numRequestsMade++;
 
 				if (_OKCP.questionFetchingMethod === "original") {
-					//on the first page load, get meta info (number of questions in common)
-					if (OKCP.questionPageNum === 1) {
-						$('<div id="page-results-meta"></div>').appendTo(pageResultsDiv).load(OKCP.questionPath + ' .stats.lined', function() {
-							var questionsInCommon = $('.comparison>p:first-child').text().split(' of ')[0];//$(this).find('.stats.lined li:nth-child(5) .large').text().split(' questions')[0];
-							var questionsInCommonAmountClass = "";
-							if (questionsInCommon > 100) {
-								questionsInCommonAmountClass = 'questions-in-common-many';
-							} else if (questionsInCommon < 34) {
-								questionsInCommonAmountClass = 'questions-in-common-few';
-							}
-							console.log(questionsInCommon);
-							$('.questions-in-common').addClass(questionsInCommonAmountClass).prepend(questionsInCommon + ' Common Questions');
-						});
-					}
+					// //on the first page load, get meta info (number of questions in common)
+					// if (OKCP.questionPageNum === 1) {
+					// 	$('<div id="page-results-meta"></div>').appendTo(pageResultsDiv).load(OKCP.questionPath + ' .stats.lined', function() {
+					// 		var questionsInCommon = $('.comparison>p:first-child').text().split(' of ')[0];//$(this).find('.stats.lined li:nth-child(5) .large').text().split(' questions')[0];
+					// 		var questionsInCommonAmountClass = "";
+					// 		if (questionsInCommon > 100) {
+					// 			questionsInCommonAmountClass = 'questions-in-common-many';
+					// 		} else if (questionsInCommon < 34) {
+					// 			questionsInCommonAmountClass = 'questions-in-common-few';
+					// 		}
+					// 		console.log(questionsInCommon);
+					// 		$('.questions-in-common').addClass(questionsInCommonAmountClass).prepend(questionsInCommon + ' Common Questions');
+					// 	});
+					// }
 
-					//add page results, parse the page
-					$('<div id="page-results-' + OKCP.questionPageNum + '"></div>').appendTo(pageResultsDiv).load(OKCP.questionPath + ' #questions', function() {
-						OKCP.numRequestsFinished++;
-						// console.log(this);
-						for (var i = 0; i < list.length; i++) {
-							var theirAnswer, theirNote, yourAnswer, yourNote;
-							var listItem = list[i];
-							var num = listItem.qid;
-							var wrongAnswers = listItem.wrongAnswers;
-							if ($("#question_" + num + ".public").length === 0) continue;
-							// if ($('#question_' + num + '.public').length === 0) {console.log("passing "+num);continue;}
-							var questionText = $(this).find("#qtext_"+num).text().trim();
-							if (questionText === "") continue;
+					// //add page results, parse the page
+					// $('<div id="page-results-' + OKCP.questionPageNum + '"></div>').appendTo(pageResultsDiv).load(OKCP.questionPath + ' #questions', function() {
+					// 	OKCP.numRequestsFinished++;
+					// 	// console.log(this);
+					// 	for (var i = 0; i < list.length; i++) {
+					// 		var theirAnswer, theirNote, yourAnswer, yourNote;
+					// 		var listItem = list[i];
+					// 		var num = listItem.qid;
+					// 		var wrongAnswers = listItem.wrongAnswers;
+					// 		if ($("#question_" + num + ".public").length === 0) continue;
+					// 		// if ($('#question_' + num + '.public').length === 0) {console.log("passing "+num);continue;}
+					// 		var questionText = $(this).find("#qtext_"+num).text().trim();
+					// 		if (questionText === "") continue;
 
-							if (_OKCP.onOwnProfile) {
-								theirAnswer = $(this).find("#self_answers_"+num+" .match.mine").text().trim();
-								theirNote = $(this).find("#explanation_"+num).text().trim();
-							} else {
-								theirAnswer = $(this).find("#answer_target_"+num).text().trim();
-								theirNote = $(this).find("#note_target_"+num).text().trim();
-								yourAnswer = $(this).find("#answer_viewer_"+num).text().trim();
-								yourNote = $(this).find("#note_viewer_"+num).text().trim();
-							}
-							var match = true;
-							for (var j = 0; j < wrongAnswers.length; j++) {
-								// console.log(questionText + "  " + theirAnswer + " | " + wrongAnswers[j]);
-								if (wrongAnswers[j] === theirAnswer) match = false;
-							}
+					// 		if (_OKCP.onOwnProfile) {
+					// 			theirAnswer = $(this).find("#self_answers_"+num+" .match.mine").text().trim();
+					// 			theirNote = $(this).find("#explanation_"+num).text().trim();
+					// 		} else {
+					// 			theirAnswer = $(this).find("#answer_target_"+num).text().trim();
+					// 			theirNote = $(this).find("#note_target_"+num).text().trim();
+					// 			yourAnswer = $(this).find("#answer_viewer_"+num).text().trim();
+					// 			yourNote = $(this).find("#note_viewer_"+num).text().trim();
+					// 		}
+					// 		var match = true;
+					// 		for (var j = 0; j < wrongAnswers.length; j++) {
+					// 			// console.log(questionText + "  " + theirAnswer + " | " + wrongAnswers[j]);
+					// 			if (wrongAnswers[j] === theirAnswer) match = false;
+					// 		}
 
-							if (!OKCP.responseCount[listItem.category]) { //ensure there's an entry for the category count
-								OKCP.responseCount[listItem.category] = [0,0];
-							}
-							if (match) {
-								OKCP.responseCount[listItem.category][0]++;
-							}
-							OKCP.responseCount[listItem.category][1]++;
-							OKCP.questionList.push({
-								question: questionText,
-								qid: num,
-								theirAnswer: theirAnswer,
-								theirNote: theirNote,
-								yourAnswer: yourAnswer,
-								yourNote: yourNote,
-								match: match,
-								category: listItem.category
-							});
-							listItem.qid = listItem.qid+"-used";
-						}
-						// console.log(OKCP.questionList);
-						areWeDone(false);
-					}).error(function(){
-						console.log("Request failed on number " + OKCP.numRequestsMade);
-						requestFailed = true;
-					});
+					// 		if (!OKCP.responseCount[listItem.category]) { //ensure there's an entry for the category count
+					// 			OKCP.responseCount[listItem.category] = [0,0];
+					// 		}
+					// 		if (match) {
+					// 			OKCP.responseCount[listItem.category][0]++;
+					// 		}
+					// 		OKCP.responseCount[listItem.category][1]++;
+					// 		OKCP.questionList.push({
+					// 			question: questionText,
+					// 			qid: num,
+					// 			theirAnswer: theirAnswer,
+					// 			theirNote: theirNote,
+					// 			yourAnswer: yourAnswer,
+					// 			yourNote: yourNote,
+					// 			match: match,
+					// 			category: listItem.category
+					// 		});
+					// 		listItem.qid = listItem.qid+"-used";
+					// 	}
+					// 	// console.log(OKCP.questionList);
+					// 	areWeDone(false);
+					// }).error(function(){
+					// 	console.log("Request failed on number " + OKCP.numRequestsMade);
+					// 	requestFailed = true;
+					// });
 				} else if (_OKCP.questionFetchingMethod === "mobile_app") {
 					//TODO: on the first page load, get meta info (number of questions in common)
 
