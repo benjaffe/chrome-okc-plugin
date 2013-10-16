@@ -98,8 +98,6 @@ for(xx in fileQuestions) {
 	fullQuestionsList = fullQuestionsList.concat(fileQuestions[xx]);
 }
 
-console.log(fullQuestionsList);
-
 //loop through all questions
 for (xx in fullQuestionsList) {
 	//loop through desired categories
@@ -111,7 +109,6 @@ for (xx in fullQuestionsList) {
 		
 	};
 }
-console.log(filteredQuestionsList);
 
 questions.questionsList = filteredQuestionsList;
 

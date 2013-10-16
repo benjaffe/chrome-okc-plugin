@@ -14,10 +14,15 @@ _OKCP.profilePath = _OKCP.urlSansParameters.split("/profile/")[1] || '';
 _OKCP.profileName = _OKCP.profilePath.split("/")[0];
 _OKCP.clientProfileName = $('#user_header .username').text();
 
-// _OKCP.cacheEnabled = true;
-_OKCP.cacheEnabled = false;
-_OKCP.debugTimerEnabled = false;
+_OKCP.cacheEnabled = true;
+_OKCP.debugTimerEnabled = false; //for timing how long question requests take
 _OKCP.debugTimer = null;
+
+// dev mode toggle
+if (JSON.parse(localStorage.devMode) === true) {
+	_OKCP.cacheEnabled = false;
+}
+
 
 // If we're our own profile
 if (_OKCP.profilePath === '') {
