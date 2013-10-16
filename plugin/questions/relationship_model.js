@@ -140,14 +140,20 @@ fileQuestions.relationship_model =
 		{
 			"qid":"1440",
 			"text":"Jealousy: healthy or unhealthy, in the context of a relationship?",
-			"category": "notPosessive",
+			"category": "notPossessive",
 			"wrongAnswers":["Healthy"]
 		},
 		{
 			"qid":"784",
 			"text":"Would you be okay with your significant other spending a lot of time with one of his/her exes (as a friend)?",
-			"category": "notPosessive",
+			"category": "notPossessive",
 			"wrongAnswers":["No"]
+		},
+		{
+			"qid":"31581",
+			"text":"Your significant other's ex is coming into town and he/she wants to go out to dinner with them alone. How do you react?",
+			"category": "notPossessive",
+			"wrongAnswers":["No way.","Not thrilled, but go ahead."]
 		},
 
 		//wanting children

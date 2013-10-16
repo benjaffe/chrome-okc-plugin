@@ -4,7 +4,7 @@ fileQuestions.sexuality_gender =
 		//gay-friendly
 
 
-		//bi-friendly
+		//bi-open
 		{
 			"qid":"1401",
 			"text":"Have you ever had a sexual encounter with someone of the same sex?",
@@ -62,10 +62,29 @@ fileQuestions.sexuality_gender =
 		//trans-friendly
 
 
+
 		//sex-positive
+		{
+			"qid":"12964",
+			"text":"Would you need to sleep with someone before you considered marrying them?",
+			"category": "sexPositive",
+			"wrongAnswers":["No"]
+		},
+		{
+			"qid":"86366",
+			"text":"Could you have respect for someone after having sex with them on the first meeting/date?",
+			"category": "sexPositive",
+			"wrongAnswers":["Maybe, depending upon the circumstances.","No."]
+		},
 		{
 			"qid":"13",
 			"text":"Is a girl who's slept with 100 guys a bad person?",
+			"category": "sexPositive",
+			"wrongAnswers":["Yes"]
+		},
+		{
+			"qid":"19681",
+			"text":"Are some sex acts with consenting adults inherently wrong or immoral? Assume no unusual risk of injury.",
 			"category": "sexPositive",
 			"wrongAnswers":["Yes"]
 		},
@@ -86,5 +105,18 @@ fileQuestions.sexuality_gender =
 			"text":"Do you consider yourself sexually open minded?",
 			"category": "sexPositive",
 			"wrongAnswers":["No"]
-		}
+		}/*,
+		{
+			"qid":"294",
+			"text":"Which is more important for a good match?",
+			"category": "sexPositive",
+			"wrongAnswers":["Having similar political beliefs"]
+		},
+		{
+			"qid":"24375",
+			"text":"Say you've started seeing someone you really like. As far as you're concerned, how long will it take before you have sex?",
+			"category": "sexPositive",
+			"wrongAnswers":["6 or more dates","Only after the wedding"]
+		}*/
+
 	];

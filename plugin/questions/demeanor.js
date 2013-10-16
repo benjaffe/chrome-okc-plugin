@@ -1,4 +1,4 @@
-fileQuestions.demeanor = 
+fileQuestions.demeanor =
 	[
 		//unaggressive
 		{
@@ -18,10 +18,27 @@ fileQuestions.demeanor =
 			"text":"Are you quietly angry a lot of the time?",
 			"category": "unaggressive",
 			"wrongAnswers":["Yes"]
-		}
+		},
 
 
 		//generally happy
-
+		{
+			"qid":"1707",
+			"text":"Which of the following best describes your typical demeanor?",
+			"category": "happy",
+			"wrongAnswers":["Meh. I have my ups and downs.","Annoyed. The world sucks."]
+		},
+		{
+			"qid":"27477",
+			"text":"Do you often find yourself worrying about things that you have no control over?",
+			"category": "happy",
+			"wrongAnswers":["Yes"]
+		},
+		{
+			"qid":"16293",
+			"text":"How's it going?",
+			"category": "happy",
+			"wrongAnswers":["Life is a meaningless hell and I hope you die","Oh, it's going."]
+		}
 
 	];

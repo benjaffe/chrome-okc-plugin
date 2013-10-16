@@ -53,6 +53,42 @@ fileQuestions.science_spirituality =
 
 		//logic
 		{
+			"qid":"255",
+			"text":"STALE is to STEAL as 89475 is to...",
+			"category": "logic",
+			"wrongAnswers":["89457","98547","89754"]
+		},
+		{
+			"qid":"511",
+			"text":"If you flipped three pennies, what would be the odds that they all came out the same?",
+			"category": "logic",
+			"wrongAnswers":["I admit, I don't know!","1 in 3","1 in 4"]
+		},
+		{
+			"qid":"178",
+			"text":"Which is bigger?",
+			"category": "logic",
+			"wrongAnswers":["The earth"]
+		},
+		{
+			"qid":"8672",
+			"text":"In the line Wherefore art thou Romeo?, what does wherefore mean?",
+			"category": "logic",
+			"wrongAnswers":["Where","How","Who cares / wtf?"]
+		},
+		{
+			"qid":"1201",
+			"text":"What is next in this series? 1, 4, 10, 19, 31, _",
+			"category": "logic",
+			"wrongAnswers":["36","48","Don't know / don't care"]
+		},
+		{
+			"qid":"14835",
+			"text":"If you turn a left-handed glove inside out, it fits...",
+			"category": "logic",
+			"wrongAnswers":["On my left hand"]
+		},
+		{
 			"qid":"301",
 			"text":"Are you annoyed by people who are super logical?",
 			"category": "logic",
@@ -67,20 +103,50 @@ fileQuestions.science_spirituality =
 		{
 			"qid":"763",
 			"text":"Do you believe in karma?",
-			"category": "notReligious",
+			"category": "notSpiritual",
 			"wrongAnswers":["Yes"]
 		},
 		{
 			"qid":"210",
 			"text":"Do you believe in God?",
-			"category": "notReligious",
+			"category": "notSpiritual",
 			"wrongAnswers":["Yes"]
-		}
+		},
 
 		//religious
 
 
 		//non-religious
+		{
+			"qid":"156913",
+			"text":"Are you Christian?",
+			"category": "nonReligious",
+			"wrongAnswers":["Yes"]
+		},
+		{
+			"qid":"156915",
+			"text":"Are you a Buddhist?",
+			"category": "nonReligious",
+			"wrongAnswers":["Yes"]
+		},
+		{
+			"qid":"156914",
+			"text":"Are you Jewish?",
+			"category": "nonReligious",
+			"wrongAnswers":["Yes"]
+		},
+		{
+			"qid":"156916",
+			"text":"Are you Muslim?",
+			"category": "nonReligious",
+			"wrongAnswers":["Yes"]
+		},
+		{
+			"qid":"44",
+			"text":"Some religions are more correct than others.",
+			"category": "nonReligious",
+			"wrongAnswers":["True"]
+		},
 
 
 		/*
