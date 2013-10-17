@@ -19,7 +19,7 @@ _OKCP.debugTimerEnabled = false; //for timing how long question requests take
 _OKCP.debugTimer = null;
 
 // dev mode toggle
-if (JSON.parse(localStorage.devMode) === true) {
+if (!!localStorage.devMode && JSON.parse(localStorage.devMode) === true) {
 	_OKCP.cacheEnabled = false;
 }
 
