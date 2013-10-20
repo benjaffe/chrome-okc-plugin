@@ -438,17 +438,17 @@ function OKCP() {
 							}
 						});
 						for (var i = 0; i < list.length; i++) {
-							var theirAnswer, theirNote, yourAnswer, yourNote;
+							var theirAnswer, theirAnswerIndex, theirNote, yourAnswer, yourNote, answerScore, answerWeight, answerScoreWeighted;
 							var listItem = list[i];
 							var num = listItem.qid;
-							var wrongAnswers = listItem.wrongAnswers;
+							var possibleAnswers = listItem.answerText;
 							// var questionElem = $('#question_' + num + '[public]');		//misses some
 							var questionElem = $(this).find('#question_' + num);
 							
 							// console.log(questionElem);
 							// if question isn't present on page, continue
 							if (questionElem.length === 0) {continue;}
-							
+							console.log("hey there " + num);
 							// get question information
 							var questionText = questionElem.find('h4').text().trim();
 							if (questionText === "") continue;
@@ -463,19 +463,24 @@ function OKCP() {
 								yourAnswer  = questionElem.find('#answer_viewer_'+num).text().trim();
 								yourNote    = questionElem.find('#note_viewer_'+num).text().trim();
 							}
-							var match = true;
-							for (var j = 0; j < wrongAnswers.length; j++) {
+							for (var j = 0; j < possibleAnswers.length; j++) {
 								// console.log(questionText + "  " + theirAnswer + " | " + wrongAnswers[j]);
-								if (wrongAnswers[j] === theirAnswer) match = false;
+								if (possibleAnswers[j] === theirAnswer) {
+									theirAnswerIndex = j;
+									break;
+								}
 							}
+							answerScore = listItem.score[theirAnswerIndex];
+							answerWeight = listItem.weight ? listItem.weight[theirAnswerIndex] || 1 : 1;
+							answerScoreWeighted = ((answerScore+1) / 2) * answerWeight;
+							console.log(answerScore + " " + answerWeight);
+
 
 							if (!OKCP.responseCount[listItem.category]) { //ensure there's an entry for the category count
 								OKCP.responseCount[listItem.category] = [0,0];
 							}
-							if (match) {
-								OKCP.responseCount[listItem.category][0]++;
-							}
-							OKCP.responseCount[listItem.category][1]++;
+							OKCP.responseCount[listItem.category][0] += answerScoreWeighted;
+							OKCP.responseCount[listItem.category][1] += answerWeight;
 							// console.log(num + " - " + questionText);
 							OKCP.questionList.push({
 								question: questionText,
@@ -484,7 +489,9 @@ function OKCP() {
 								theirNote: theirNote,
 								yourAnswer: yourAnswer,
 								yourNote: yourNote,
-								match: match,
+								answerScore: answerScore,
+								answerWeight: answerWeight,
+								answerScoreWeighted: answerScoreWeighted,
 								category: listItem.category
 							});
 							// console.log(OKCP.questionList);
@@ -555,7 +562,9 @@ function OKCP() {
 					if ($('.question-detail-'+question.category).length === 0) {
 						$('.question-detail').append('<ul class="question-detail-'+question.category+'"></ul>');
 					}
-					$('.question-detail-'+question.category).append('<li class="match match-' + question.match + '"><ul>'+
+					var matchClass = 'match-' + (Math.floor(question.answerScoreWeighted*5));
+					console.log(matchClass + ' ' + question.answerScoreWeighted);
+					$('.question-detail-'+question.category).append('<li class="match ' + matchClass + '"><ul>'+
 						'<li class="question qid-'+question.qid+'">' + question.question + '</li>'+
 						'<li class="answer">' + question.theirAnswer + '</li>'+
 						'<li class="explanation">' + question.theirNote + '</li>'+

@@ -1,30 +1,61 @@
 //question search words: smoke, smokes, cigarette, cigarettes, cigar, cigars, tobacco, marijuana, weed, pot, drug, drugs
 fileQuestions.drugs_smokes =
 	[
-		//cigarettes / cigars / tobacco
+		//non_smoker
 		{
 			"qid":"501",
 			"text":"Have you smoked a cigarette in the last 6 months?",
-			"category": "drugs",
-			"wrongAnswers":["Yes"]
+			"category": "non_smoker",
+			"answerText": ["Yes", "No"],
+			"score": [-1, 1]
+		},
+		{
+			"qid":"13006",
+			"text":"Would you go out with a smoker?",
+			"category": "non_smoker",
+			"answerText": ["Yes", "Yes, but only an occasional/social smoker","No"],
+			"score": [-1, -1, 1],
+			"weight": [0.7, 0.4, 1]
 		},
 		{
 			"qid":"80621",
 			"text":"How often do you smoke cigars?",
-			"category": "drugs",
-			"wrongAnswers":["Frequently.", "Occasionally."]
+			"category": "non_smoker",
+			"answerText": ["Frequently.", "Occasionally.", "Never."],
+			"score": [-1, -1, 1]
 		},
+
+		//smoker
+		{
+			"qid":"501",
+			"text":"Have you smoked a cigarette in the last 6 months?",
+			"category": "smoker",
+			"answerText": ["Yes", "No"],
+			"score": [1, -1]
+		},
+		{
+			"qid":"13006",
+			"text":"Would you go out with a smoker?",
+			"category": "smoker",
+			"answerText": ["Yes", "Yes, but only an occasional/social smoker","No"],
+			"score": [1, 1, -1],
+			"weight": [0.7, 0.4, 1]
+		},
+		{
+			"qid":"80621",
+			"text":"How often do you smoke cigars?",
+			"category": "smoker",
+			"answerText": ["Frequently.", "Occasionally.", "Never."],
+			"score": [1, 1, -1]
+		},
+
+		// cigars / tobacco
+		
 		{
 			"qid":"81504",
 			"text":"Do you chew tobacco?",
 			"category": "drugs",
 			"wrongAnswers":["Yes."]
-		},
-		{
-			"qid":"13006",
-			"text":"Would you go out with a smoker?",
-			"category": "drugs",
-			"wrongAnswers":["Yes", "Yes, but only an occasional/social smoker"]
 		},
 		
 		//marijuana
