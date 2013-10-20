@@ -339,6 +339,7 @@ function OKCP() {
 
 
 		function loadProfileAnswers() {
+			if (location.href.split('/profile/')[1] === undefined) return false;
 			//loop through every question page
 			var pageResultsDiv = $('<div id="page-results"></div>').appendTo('body');
 			$('#footer').append('<a class="page-results-link" href="#page-results">Show question results</a>');
