@@ -14,8 +14,8 @@ fileQuestions.drugs_smokes =
 			"text":"Would you go out with a smoker?",
 			"category": "non_smoker",
 			"answerText": ["Yes", "Yes, but only an occasional/social smoker","No"],
-			"score": [-1, -1, 1],
-			"weight": [0.7, 0.4, 1]
+			"score": [-0.5, 0, 1],
+			"weight": [0.7, 0.2, 1]
 		},
 		{
 			"qid":"80621",
@@ -39,7 +39,7 @@ fileQuestions.drugs_smokes =
 			"category": "smoker",
 			"answerText": ["Yes", "Yes, but only an occasional/social smoker","No"],
 			"score": [1, 1, -1],
-			"weight": [0.7, 0.4, 1]
+			"weight": [0.7, 0.5, 1]
 		},
 		{
 			"qid":"80621",

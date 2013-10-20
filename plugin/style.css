@@ -25,9 +25,13 @@
 #okcp .match-ratios-list::-webkit-scrollbar {-webkit-appearance: none;width: 7px;}
 #okcp .match-ratios-list::-webkit-scrollbar-thumb {border-radius: 4px;background-color: rgba(0,0,0,.5);-webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);}
 #okcp .match-ratios {vertical-align: bottom;}
-#okcp .match-ratio .match-ratio-value {display:inline-block;width:23%;margin:2px 2% 2px 0;background: #CCC;text-align: center;border-radius: 10px;text-shadow:1px 1px 2px rgba(255,255,255,0.5);}
-#okcp .match-ratio.bad-match .match-ratio-value {background: #F77;color:black;}
-#okcp .match-ratio.great-match .match-ratio-value {background: #8C8;}
+#okcp .match-ratio .match-ratio-value {display:inline-block;width:23%;margin:2px 2% 2px 0;background: #CCC;color:black;text-align: center;border-radius: 10px;text-shadow:1px 1px 2px rgba(255,255,255,0.5);}
+#okcp .match-ratio.match-0 .match-ratio-value {background: #E44;}
+#okcp .match-ratio.match-1 .match-ratio-value {background: #D66;}
+#okcp .match-ratio.match-2 .match-ratio-value {background: #888;}
+#okcp .match-ratio.match-3 .match-ratio-value {background: #797;}
+#okcp .match-ratio.match-4 .match-ratio-value {background: #8A8;}
+#okcp .match-ratio.match-5 .match-ratio-value {background: #8C8;}
 #okcp .match-ratio.one-data-point-match .match-ratio-value {background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAJ0lEQVQIW2NkwASSICFGNHGwIBA8R5aACyLrQBGESWAIIks8R7cLADoBBTkr0a5oAAAAAElFTkSuQmCC);}
 #okcp .match-ratio.more-than-10 .match-ratio-value {font-size: 0.8em;letter-spacing:-1px;}
 #okcp .match-ratio-category {display:inline-block;width:70%;margin-right:5%;text-align:right;}
@@ -55,7 +59,7 @@
 .question-detail .match .answer:after {position:absolute;right:10px;margin-top:6px;content:"";width:10px;height:10px;border-radius:5px;background:#777;} /*{background: #F55; color:#700;}*/
 .question-detail .match-0 .answer:after {background:#F44;}
 .question-detail .match-1 .answer:after {background:#D66;}
-.question-detail .match-2 .answer:after {background:#966;}
+.question-detail .match-2 .answer:after {background:#888;}
 .question-detail .match-3 .answer:after {background:#787;}
 .question-detail .match-4 .answer:after {background:#8A8;}
 .question-detail .match-5 .answer:after {background: #8D8;}
