@@ -493,7 +493,8 @@ function OKCP() {
 								answerScore: answerScore,
 								answerWeight: answerWeight,
 								answerScoreWeighted: answerScoreWeighted,
-								category: listItem.category
+								category: listItem.category,
+								categoryReadable: listItem.category.split('_').join(' ')
 							});
 							// console.log(OKCP.questionList);
 							listItem.qid = listItem.qid+"-used";
@@ -543,13 +544,14 @@ function OKCP() {
 				for (var category in OKCP.responseCount) {
 					var countArr = OKCP.responseCount[category];
 					var matchClass = 'match-' + Math.floor(countArr[0]/countArr[1]*5);
+					var categoryReadable = category.split('_').join(' ');
 					if (countArr[1]===1) {
 						matchClass += ' one-data-point-match';
 					}
 					if (countArr[1] >= 10) {
 						matchClass += ' more-than-10';
 					}
-					$('.match-ratios-list').append('<li class="match-ratio ' + matchClass + '"><span class="match-ratio-category">' + category + ':</span><span class="match-ratio-value">' + Math.round(countArr[0]*10)/10 + '/' + Math.round(countArr[1]*10)/10 + '</span></li>');//matchRatio + '%</li>');
+					$('.match-ratios-list').append('<li class="match-ratio ' + matchClass + '"><span class="match-ratio-category">' + categoryReadable + ':</span><span class="match-ratio-value">' + Math.round(countArr[0]*10)/10 + '/' + Math.round(countArr[1]*10)/10 + '</span></li>');//matchRatio + '%</li>');
 				}
 
 				for (var i = 0; i < OKCP.questionList.length; i++) {
@@ -565,7 +567,7 @@ function OKCP() {
 						'<li class="explanation">' + question.theirNote + '</li>'+
 						'</ul></li>');
 					if ($('.question-detail-'+question.category+' .match').length === 1) {
-						$('.question-detail-'+question.category).prepend('<li class="category-header category-header-'+question.category+'">'+question.category+'</li>');
+						$('.question-detail-'+question.category).prepend('<li class="category-header category-header-'+question.category+'">'+question.categoryReadable+'</li>');
 					}
 				}
 
