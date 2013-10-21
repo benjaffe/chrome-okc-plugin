@@ -94,14 +94,14 @@ fileQuestions.drugs_smokes =
 			"text":"On average, which best describes how often you GET WICKED DRUNK?",
 			"category": "no_alcohol",
 			"answerText": ["Twice a week or more", "Weekly / Bi-Weekly", "Once every month or three.", "Seldom or never."],
-			"score": [-1, -0.8, -0.2, 1]
+			"score": [-1, -0.8, 0.1, 1]
 		},
 		{
 			"qid":"77",
 			"text":"How frequently do you drink alcohol?",
 			"category": "no_alcohol",
 			"answerText": ["Very often", "Sometimes", "Rarely", "Never"],
-			"score": [-1, -1, 0, 1]
+			"score": [-1, -1, 0.3, 1]
 		},
 		{
 			"qid":"84023",
