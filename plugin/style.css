@@ -25,14 +25,34 @@
 #okcp .match-ratios-list::-webkit-scrollbar {-webkit-appearance: none;width: 7px;}
 #okcp .match-ratios-list::-webkit-scrollbar-thumb {border-radius: 4px;background-color: rgba(0,0,0,.5);-webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);}
 #okcp .match-ratios {vertical-align: bottom;}
-#okcp .match-ratio .match-ratio-value {display:inline-block;width:23%;margin:2px 2% 2px 0;background: #CCC;color:black;text-align: center;border-radius: 10px;text-shadow:1px 1px 2px rgba(255,255,255,0.5);}
-#okcp .match-ratio.match-0 .match-ratio-value {background: #E44;}
+#okcp .match-ratio {position:relative;margin-bottom:2px;height:20px;}
+
+#okcp .match-ratio .match-ratio-progressbar {position:absolute;top:0;bottom:0;right:0;width:0%;border-radius: 15px;opacity:1;}
+#okcp .match-ratio .match-ratio-value {display:none;position:absolute;right:0;width:23%;margin-right:2%;background:transparent;color:black;text-align: center;border-radius: 10px;text-shadow:1px 1px 2px rgba(255,255,255,0.5);}
+#okcp .match-ratio .match-ratio-category {position:absolute;right:-3px;text-shadow:0 0 0 rgba(0,0,0,0.4), 0 0 3px #FFF;color:#000;z-index:5;}
+
+#okcp .match-ratio.not-a-match .match-ratio-category {right:8px;}
+#okcp .match-ratio.not-a-match .match-ratio-category,
+#okcp .match-ratio.not-a-match .match-ratio-value {color:#900;}
+
+#okcp .match-ratios:hover .match-ratio-value {display:block;}
+#okcp .match-ratios:hover .match-ratio-category {right:21%;}
+#okcp .match-ratios:hover .match-ratio-category:after {content:":";}
+
+#okcp .match-ratio.match-0 .match-ratio-progressbar {background: #E44;}
+#okcp .match-ratio.match-1 .match-ratio-progressbar {background: #D77;}
+#okcp .match-ratio.match-2 .match-ratio-progressbar {background: #AAA;}
+#okcp .match-ratio.match-3 .match-ratio-progressbar {background: #8A8;}
+#okcp .match-ratio.match-4 .match-ratio-progressbar {background: #8C8;}
+#okcp .match-ratio.match-5 .match-ratio-progressbar {background: #8D8;}
+
+/*#okcp .match-ratio.match-0 .match-ratio-value {background: #E44;}
 #okcp .match-ratio.match-1 .match-ratio-value {background: #D66;}
 #okcp .match-ratio.match-2 .match-ratio-value {background: #888;}
 #okcp .match-ratio.match-3 .match-ratio-value {background: #797;}
 #okcp .match-ratio.match-4 .match-ratio-value {background: #8A8;}
 #okcp .match-ratio.match-5 .match-ratio-value {background: #8C8;}
-#okcp .match-ratio.one-data-point-match .match-ratio-value {background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAJ0lEQVQIW2NkwASSICFGNHGwIBA8R5aACyLrQBGESWAIIks8R7cLADoBBTkr0a5oAAAAAElFTkSuQmCC);}
+*/#okcp .match-ratio.one-data-point-match .match-ratio-progressbar {background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAJ0lEQVQIW2NkwASSICFGNHGwIBA8R5aACyLrQBGESWAIIks8R7cLADoBBTkr0a5oAAAAAElFTkSuQmCC);}
 #okcp .match-ratio.more-than-10 .match-ratio-value {font-size: 0.8em;letter-spacing:-1px;}
 #okcp .match-ratio-category {display:inline-block;width:70%;margin-right:5%;text-align:right;}
 

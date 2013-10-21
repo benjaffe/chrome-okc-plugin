@@ -551,7 +551,15 @@ function OKCP() {
 					if (countArr[1] >= 10) {
 						matchClass += ' more-than-10';
 					}
-					$('.match-ratios-list').append('<li class="match-ratio ' + matchClass + '"><span class="match-ratio-category">' + categoryReadable + ':</span><span class="match-ratio-value">' + Math.round(countArr[0]*10)/10 + '/' + Math.round(countArr[1]*10)/10 + '</span></li>');//matchRatio + '%</li>');
+					if (countArr[0]/countArr[1] <= 0.1) {
+						matchClass += ' not-a-match';
+					}
+					var numerator = Math.round(countArr[0]*10)/10+'';
+					var denominator = Math.round(countArr[1]*10)/10+'';
+					var numeratorArr = numerator.split('.');
+					var denominatorArr = denominator.split('.');
+					var matchRatioHtmlValue = '<span class="integer">' + numeratorArr[0] + '</span><span class="point">.</span><span class="decimal">'+(numeratorArr[1] || '0')+'</span><span class="slash">/</span><span class="integer">' + denominatorArr[0] + '</span><span class="point">.</span><span class="decimal">'+(denominatorArr[1] || '0')+'</span>';
+					$('.match-ratios-list').append('<li class="match-ratio ' + matchClass + '"><span class="match-ratio-progressbar ' + matchClass + '" style="width:' + (Math.round(countArr[0]/countArr[1]*93)+7) + '%"></span><span class="match-ratio-category">' + categoryReadable + '</span><span class="match-ratio-value">' + matchRatioHtmlValue + '</span></li>');//matchRatio + '%</li>');
 				}
 
 				for (var i = 0; i < OKCP.questionList.length; i++) {
