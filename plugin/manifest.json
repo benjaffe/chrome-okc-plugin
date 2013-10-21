@@ -30,7 +30,7 @@
       "questions/sex.js",
       "questions/sexuality_gender.js",
       "questions/veggie_vegan.js",
-		"defaultQuestions.js", "ViewModels.js"],
+		"defaultQuestions.js", "ViewModels.js", "devTools.js"],
       "run_at": "document_end"
     }
   ],
