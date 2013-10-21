@@ -111,6 +111,36 @@ fileQuestions.drugs_smokes =
 			"score": [1, -1]
 		},
 
+		//alcohol
+		{
+			"qid":"23954",
+			"text":"Do you ever feel the need to get really drunk?",
+			"category": "alcohol",
+			"answerText": ["Often", "Sometimes", "Rarely", "Never"],
+			"score": [1, 0.8, 0, -1]
+		},
+		{
+			"qid":"8155",
+			"text":"On average, which best describes how often you GET WICKED DRUNK?",
+			"category": "alcohol",
+			"answerText": ["Twice a week or more", "Weekly / Bi-Weekly", "Once every month or three.", "Seldom or never."],
+			"score": [1, 0.8, 0.2, -1]
+		},
+		{
+			"qid":"77",
+			"text":"How frequently do you drink alcohol?",
+			"category": "alcohol",
+			"answerText": ["Very often", "Sometimes", "Rarely", "Never"],
+			"score": [1, 1, 0, -1]
+		},
+		{
+			"qid":"84023",
+			"text":"Could you live the rest of your life without drinking alcohol?",
+			"category": "alcohol",
+			"answerText": ["Yes.", "No."],
+			"score": [-1, 1]
+		},
+
 		//no_other_addictions
 		{
 			"qid":"82566",
