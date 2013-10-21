@@ -51,41 +51,41 @@ fileQuestions.science_spirituality =
 		},
 
 
-		//logic
+		//quizzes
 		{
 			"qid":"255",
 			"text":"STALE is to STEAL as 89475 is to...",
-			"category": "logic",
+			"category": "quizzes",
 			"wrongAnswers":["89457","98547","89754"]
 		},
 		{
 			"qid":"511",
 			"text":"If you flipped three pennies, what would be the odds that they all came out the same?",
-			"category": "logic",
+			"category": "quizzes",
 			"wrongAnswers":["I admit, I don't know!","1 in 3","1 in 4"]
 		},
 		{
 			"qid":"178",
 			"text":"Which is bigger?",
-			"category": "logic",
+			"category": "quizzes",
 			"wrongAnswers":["The earth"]
 		},
 		{
 			"qid":"8672",
 			"text":"In the line Wherefore art thou Romeo?, what does wherefore mean?",
-			"category": "logic",
+			"category": "quizzes",
 			"wrongAnswers":["Where","How","Who cares / wtf?"]
 		},
 		{
 			"qid":"1201",
 			"text":"What is next in this series? 1, 4, 10, 19, 31, _",
-			"category": "logic",
+			"category": "quizzes",
 			"wrongAnswers":["36","48","Don't know / don't care"]
 		},
 		{
 			"qid":"14835",
 			"text":"If you turn a left-handed glove inside out, it fits...",
-			"category": "logic",
+			"category": "quizzes",
 			"wrongAnswers":["On my left hand"]
 		},
 
