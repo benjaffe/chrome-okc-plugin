@@ -38,7 +38,7 @@ fileQuestions.demeanor =
 			"category": "generally_happy",
 			"answerText": ["I'm fine, really", "Just great!  How bout you?", "Oh, it's going.", "Life is a meaningless hell and I hope you die"],
 			"score": [1, 1, 0, -1],
-			"weight": [0, 1, 1, 1] //I don't know what the first answer means
+			"weight": [0, 1, 1, 1] //I don't know what the first answer means, so it has a weight of 0
 		}
 
 	];
