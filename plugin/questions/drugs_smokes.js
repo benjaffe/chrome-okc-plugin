@@ -214,5 +214,5 @@ fileQuestions.drugs_smokes =
 			"category": "no_harder_drugs",
 			"answerText": ["Yes, I have used psychedelic drugs.", "No, I have not used them and I would not try them.", "No, I have not used them but I would try them."],
 			"score": [-1, 1, -1]
-		},
+		}
 	];
