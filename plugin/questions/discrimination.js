@@ -26,6 +26,41 @@ fileQuestions.discrimination =
 		//women
 
 
+		//LGBT_discrimination
+		{
+			"qid":"44384",
+			"text":"Which best represents your opinion of same-sex relationships?",
+			"category": "LGBT_discrimination",
+			"answerText": ["Girl-on-girl is okay, but guy-on-guy is wrong.", "Guy-on-guy is okay, but girl-on-girl is wrong.", "All same-sex relationships are wrong.", "It's all fine by me."],
+			"score": [-0.5, -0.5, -1, 1],
+			"weight": [1, 1, 1, 1]
+		},
+		{
+			"qid":"219",
+			"text":"Gay marriage -- should it be legal?",
+			"category": "LGBT_discrimination",
+			"answerText": ["Yes", "No"],
+			"score": [1, -1],
+			"weight": [1, 1]
+		},
+		{
+			"qid":"40484",
+			"text":"Would you date someone, knowing that they had a VERY close family member (parent, sibling) who was openly gay?",
+			"category": "LGBT_discrimination",
+			"answerText": ["Yes", "No", "I'm Not Sure", "If they didn't flaunt it, it would be all right."],
+			"score": [1, -1, -0.5, -0.5],
+			"weight": [1, 1, 1, 1]
+		},
+		{
+			"qid":"46563",
+			"text":"Assume you have a homosexual friend who is the same gender as you. Would it bother you if they hugged you?",
+			"category": "bi-open",
+			"answerText": ["Yes.", "No.", "Only if I thought the hug was more than friendly."],
+			"score": [-1, 1, 0],
+			"weight": [0.5, 0.5, 0]
+		},
+
+
 		//mental health
 
 
