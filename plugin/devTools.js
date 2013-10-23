@@ -1,4 +1,5 @@
 if (!!localStorage.devMode && JSON.parse(localStorage.devMode) === true) {
+	$('html').addClass('devmode');
 	var qid = location.href.split('rqid=')[1];
 	if (!!qid) {
 		var myArr = [], textToCopy;
