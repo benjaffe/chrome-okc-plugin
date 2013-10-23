@@ -21,7 +21,7 @@ fileQuestions.discrimination =
 			}
 		],
 
-		//women
+		//women_nondiscriminating
 
 
 		"LGBT_nondiscriminating": [
@@ -56,13 +56,13 @@ fileQuestions.discrimination =
 		],
 
 
-		//mental health
+		//mental_health_nondiscriminating
 
 
-		//disability
+		//disability_nondiscriminating
 
 
-		"weight": [
+		"weight_nondiscriminating": [
 			{
 				"qid":"52682",
 				"text":"If one of your potential matches were overweight, would that be a dealbreaker?",

@@ -1,9 +1,6 @@
 //question search words: bisexual, sex, homosexual, gay, lesbian, gender
 fileQuestions.sexuality_gender =
 	{
-		//gay-friendly
-
-
 		"bi-open": [
 			{
 				"qid":"1401",
@@ -42,7 +39,7 @@ fileQuestions.sexuality_gender =
 			}
 		],
 
-		//trans-friendly
+		//transgender
 
 
 

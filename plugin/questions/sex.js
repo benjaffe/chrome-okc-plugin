@@ -62,12 +62,15 @@ fileQuestions.sex =
 			}
 		],
 
-		//group_sex
-		// {
-		// 	"qid":"32",
-		// 	"text":"Group sex (with 3 or more people):",
-		// 	"wrongAnswers":["I have little or no interest."]
-		// },
+		"group_sex": [
+			{
+				"qid":"32",
+				"text":"Group sex (with 3 or more people):",
+				"answerText": ["I have tried it.", "It seriously interests me.", "I have little or no interest."],
+				"score": [1, 1, -1],
+				"weight": [1, 1, 1]
+			}
+		],
 
 		"fetish": [
 			{
