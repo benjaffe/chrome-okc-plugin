@@ -1,0 +1,33 @@
+## the new file loading order and responsibilities:
+knockout,
+jquery,
+init.js
+	handles creating the initial data files, like _OKCP
+	checks if data upgrades are needed
+questions.js
+	get fileQuestions ready (could be in init.js)
+questions_metacategory_n.js
+	add question categories
+defaultQuestions.js
+	put questions together in one file, push into storage
+devTools.js
+	augment question pages
+	disable cache
+fixAndAugmentUI.js
+	init interface (add id to html, etc)
+	hide guilt banner
+	fix OKC UI issues
+	add ui for link buttons
+	add ui for questions
+thumbViewer.js
+	thumbnail viewer
+increaseAccuracy.js
+	showUnansweredQuestions
+sortByEnemy.js (currently disabled)
+	sortByEnemy
+getAnswers.js
+	get answers!!
+ViewModels.js
+	--knockout
+		storage for link buttons
+	respond to storage change
