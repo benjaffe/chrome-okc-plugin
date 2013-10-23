@@ -1,6 +1,6 @@
 fileQuestions.discrimination =
 	{
-		"race": [
+		"race_nondiscriminating": [
 			{
 				"qid":"123",
 				"text":"Would you strongly prefer to go out with someone of your own skin color / racial background?",
@@ -24,7 +24,7 @@ fileQuestions.discrimination =
 		//women
 
 
-		"LGBT_discrimination": [
+		"LGBT_nondiscriminating": [
 			{
 				"qid":"44384",
 				"text":"Which best represents your opinion of same-sex relationships?",

@@ -233,7 +233,7 @@ fileQuestions.relationship_model =
 		//monogamous
 
 
-		"communication": [
+		"communicative": [
 			{
 				"qid":"1121",
 				"text":"Have you ever had multiple romantic partners during the same time period?",

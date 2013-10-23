@@ -1,6 +1,6 @@
 fileQuestions.science_spirituality =
 	{
-		"science_literacy": [
+		"science_literate": [
 			{
 				"qid":"409", //A "shooting star" is a star that...
 				"answerText": ["...burned out, and collapsed", "...collided with Earth's atmosphere", "...got sucked into a black hole", "...isn't really a star"],
