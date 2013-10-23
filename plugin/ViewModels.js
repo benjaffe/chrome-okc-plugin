@@ -545,7 +545,7 @@ function OKCP() {
 					var countArr = OKCP.responseCount[category];
 					var matchClass = 'match-' + Math.floor(countArr[0]/countArr[1]*5);
 					var categoryReadable = category.split('_').join(' ');
-					if (countArr[1]===1) {
+					if (countArr[1]<=1) {
 						matchClass += ' one-data-point-match';
 					}
 					if (countArr[1] >= 10) {
