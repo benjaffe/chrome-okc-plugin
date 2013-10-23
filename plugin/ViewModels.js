@@ -620,9 +620,6 @@ function OKCP() {
 					return ( $(a).find('.category-header').text() > $(b).find('.category-header').text() );
 				}).appendTo('.question-detail');
 
-				// HACK HACK HACK (this way, nonReligious doesn't show up green or red)
-				$('#okcp .match-ratio-category:contains(notReligious)').parent().removeClass('great-match');
-
 				if (_OKCP.debugTimerEnabled) {
 					console.log('Fetching the questions took ' + (new Date().getTime() - _OKCP.debugTimer.getTime()) + ' ms');
 					var timeList = JSON.parse(localStorage.timeList);
