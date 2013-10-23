@@ -89,13 +89,16 @@ for(xx in localStorage.fileQuestions) {
 */
 
 var xx;
-var fullQuestionsList = [];
-var filteredQuestionsList = [];
+var fullQuestionsList = {};
+var filteredQuestionsList = {};
 var desiredCategories = JSON.parse(localStorage.okcp).questionCategories;
+
 for(xx in fileQuestions) {
-	// console.log(JSON.stringify(fileQuestions[xx]));
-	// questions.questionsList.push(fileQuestions[xx]);		//it's an array so need to use 'concat', not 'push'
-	fullQuestionsList = fullQuestionsList.concat(fileQuestions[xx]);
+	for (yy in fileQuestions[xx]) {
+		if (fileQuestions[xx].hasOwnProperty(yy)) {
+			fullQuestionsList[yy] = fileQuestions[xx][yy];
+		}
+	}
 }
 
 //loop through all questions
@@ -103,14 +106,12 @@ for (xx in fullQuestionsList) {
 	//loop through desired categories
 	for (var i = desiredCategories.length - 1; i >= 0; i--) {
 		//if the current questions matches, use it
-		if (fullQuestionsList[xx].category === desiredCategories[i]) {
-			filteredQuestionsList.push(fullQuestionsList[xx]);
+		if (xx === desiredCategories[i]) {
+			filteredQuestionsList[xx] = fullQuestionsList[xx];
 		}
 		
 	};
 }
 
 questions.questionsList = filteredQuestionsList;
-
-// console.log(JSON.stringify(questions));
 localStorage.okcpDefaultQuestions = JSON.stringify(questions);
