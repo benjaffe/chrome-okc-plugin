@@ -5,6 +5,15 @@ var numQuestionPages =20;		//how many pages to search through to match question 
 // Initial setup
 var _OKCP = {};
 var stateAbbr = {"Alaska" : "AK", "Alabama" : "AL", "Arkansas" : "AR", "American Samoa" : "AS", "Arizona" : "AZ", "California" : "CA", "Colorado" : "CO", "Connecticut" : "CT", "District of Columbia" : "DC", "Delaware" : "DE", "Florida" : "FL", "Georgia" : "GA", "Guam" : "GU", "Hawaii" : "HI", "Iowa" : "IA", "Idaho" : "ID", "Illinois" : "IL", "Indiana" : "IN", "Kansas" : "KS", "Kentucky" : "KY", "Louisiana" : "LA", "Massachusetts" : "MA", "Maryland" : "MD", "Maine" : "ME", "Michigan" : "MI", "Minnesota" : "MN", "Missouri" : "MO", "Mississippi" : "MS", "Montana" : "MT", "North Carolina" : "NC", "North Dakota" : "ND", "Nebraska" : "NE", "New Hampshire" : "NH", "New Jersey" : "NJ", "New Mexico" : "NM", "Nevada" : "NV", "New York" : "NY", "Ohio" : "OH", "Oklahoma" : "OK", "Oregon" : "OR", "Pennsylvania" : "PA", "Puerto Rico" : "PR", "Rhode Island" : "RI", "South Carolina" : "SC", "South Dakota" : "SD", "Tennessee" : "TN", "Texas" : "TX", "Utah" : "UT", "Virginia" : "VA", "Virgin Islands" : "VI", "Vermont" : "VT", "Washington" : "WA", "Wisconsin" : "WI", "West Virginia" : "WV", "Wyoming" : "WY"};
+var objLength = function(obj){
+	var len = 0;
+	$.each(obj, function (i) { 
+		console.log(obj[i]);
+		len++;
+	}) 
+	console.log(len);
+	return len;
+};
 
 // _OKCP.questionFetchingMethod = "original";
 _OKCP.questionFetchingMethod = "mobile_app";
@@ -223,7 +232,9 @@ function OKCP() {
 		var questions = JSON.parse(localStorage.okcpDefaultQuestions).questionsList;
 		//console.log(questions);
 		var unansweredQuestionsDiv = $('<div class="unanswered-questions"><h1 class="unanswered-questions-loadingtext" style="margin-bottom:8px;text-align:center;font-weight:normal;font-style:italic;">...loading...</h1></div>').appendTo('body');
-		var numUnansweredQuestionsNotYetLoaded = questions.length;
+		var numUnansweredQuestionsNotYetLoaded = objLength(questions);
+		console.log(questions);
+		console.log(numUnansweredQuestionsNotYetLoaded);
 		//console.log(OKCP.clearCachedQuestionData());
 		for (var i=0; i < questions.length; i++) {
 			var qid = questions[i].qid;
@@ -324,7 +335,7 @@ function OKCP() {
 
 		// get list of questions and categories to compare to
 		if (list === undefined) {
-			list = localStorage.okcpDefaultQuestions ? JSON.parse(localStorage.okcpDefaultQuestions).questionsList : [];
+			list = localStorage.okcpDefaultQuestions ? JSON.parse(localStorage.okcpDefaultQuestions).questionsList : {};
 		}
 
 		// check for cached question data
@@ -339,6 +350,7 @@ function OKCP() {
 
 
 		function loadProfileAnswers() {
+			if (location.href.split('/profile/')[1] === undefined) return false;
 			//loop through every question page
 			var pageResultsDiv = $('<div id="page-results"></div>').appendTo('body');
 			$('#footer').append('<a class="page-results-link" href="#page-results">Show question results</a>');
@@ -437,58 +449,73 @@ function OKCP() {
 								$(this).attr('id',idArr[1]);
 							}
 						});
-						for (var i = 0; i < list.length; i++) {
-							var theirAnswer, theirNote, yourAnswer, yourNote;
-							var listItem = list[i];
-							var num = listItem.qid;
-							var wrongAnswers = listItem.wrongAnswers;
-							// var questionElem = $('#question_' + num + '[public]');		//misses some
-							var questionElem = $(this).find('#question_' + num);
-							
-							// console.log(questionElem);
-							// if question isn't present on page, continue
-							if (questionElem.length === 0) {continue;}
-							
-							// get question information
-							var questionText = questionElem.find('h4').text().trim();
-							if (questionText === "") continue;
-							
-							if (_OKCP.onOwnProfile) {
-								theirAnswer = questionElem.find("#self_answers_"+num+" .match.mine").text().trim();
-								theirNote = questionElem.find("#explanation_"+num).text().trim();
-							} else {
-								theirAnswer = questionElem.find('#answer_target_'+num).text().trim();
-								if (theirAnswer === '') continue; //if the answer elem doesn't exist, continue
-								theirNote   = questionElem.find('#note_target_'+num).text().trim();
-								yourAnswer  = questionElem.find('#answer_viewer_'+num).text().trim();
-								yourNote    = questionElem.find('#note_viewer_'+num).text().trim();
-							}
-							var match = true;
-							for (var j = 0; j < wrongAnswers.length; j++) {
-								// console.log(questionText + "  " + theirAnswer + " | " + wrongAnswers[j]);
-								if (wrongAnswers[j] === theirAnswer) match = false;
-							}
 
-							if (!OKCP.responseCount[listItem.category]) { //ensure there's an entry for the category count
-								OKCP.responseCount[listItem.category] = [0,0];
+						for (var category in list) {
+							var categoryQuestionList = list[category];
+							for (var i = 0; i < categoryQuestionList.length; i++) {
+								var listItem = categoryQuestionList[i]
+								// console.log('ho');
+								var theirAnswer, theirAnswerIndex, theirNote, yourAnswer, yourNote, answerScore, answerWeight, answerScoreWeighted;
+								// var listItem = list[i];
+								// console.log(listItem);
+								var num = listItem.qid;
+								var possibleAnswers = listItem.answerText;
+								// var questionElem = $('#question_' + num + '[public]');		//misses some
+								var questionElem = $(this).find('#question_' + num);
+								
+								// console.log(questionElem);
+								// if question isn't present on page, continue
+								if (questionElem.length === 0) {continue;}
+								// console.log("hey there " + num);
+								// get question information
+								var questionText = questionElem.find('h4').text().trim();
+								if (questionText === "") continue;
+								
+								if (_OKCP.onOwnProfile) {
+									theirAnswer = questionElem.find("#self_answers_"+num+" .match.mine").text().trim();
+									theirNote = questionElem.find("#explanation_"+num).text().trim();
+								} else {
+									theirAnswer = questionElem.find('#answer_target_'+num).text().trim();
+									if (theirAnswer === '') continue; //if the answer elem doesn't exist, continue
+									theirNote   = questionElem.find('#note_target_'+num).text().trim();
+									yourAnswer  = questionElem.find('#answer_viewer_'+num).text().trim();
+									yourNote    = questionElem.find('#note_viewer_'+num).text().trim();
+								}
+								for (var j = 0; j < possibleAnswers.length; j++) {
+									// console.log(questionText + "  " + theirAnswer + " | " + wrongAnswers[j]);
+									if (possibleAnswers[j] === theirAnswer) {
+										theirAnswerIndex = j;
+										break;
+									}
+								}
+								answerScore = listItem.score[theirAnswerIndex];
+								answerWeight = listItem.weight ? listItem.weight[theirAnswerIndex] || 1 : 1;
+								answerScoreWeighted = ((answerScore+1) / 2) * answerWeight;
+								// console.log(answerScore + " " + answerWeight);
+
+								// Ask Chuck
+								if (!OKCP.responseCount[category]) { //ensure there's an entry for the category count
+									OKCP.responseCount[category] = [0,0];
+								}
+								OKCP.responseCount[category][0] += answerScoreWeighted;
+								OKCP.responseCount[category][1] += answerWeight;
+								// console.log(num + " - " + questionText);
+								OKCP.questionList.push({
+									question: questionText,
+									qid: num,
+									theirAnswer: theirAnswer,
+									theirNote: theirNote,
+									yourAnswer: yourAnswer,
+									yourNote: yourNote,
+									answerScore: answerScore,
+									answerWeight: answerWeight,
+									answerScoreWeighted: answerScoreWeighted,
+									category: category,
+									categoryReadable: category.split('_').join(' ')
+								});
+								// console.log(OKCP.questionList);
+								listItem.qid = listItem.qid+"-used";
 							}
-							if (match) {
-								OKCP.responseCount[listItem.category][0]++;
-							}
-							OKCP.responseCount[listItem.category][1]++;
-							// console.log(num + " - " + questionText);
-							OKCP.questionList.push({
-								question: questionText,
-								qid: num,
-								theirAnswer: theirAnswer,
-								theirNote: theirNote,
-								yourAnswer: yourAnswer,
-								yourNote: yourNote,
-								match: match,
-								category: listItem.category
-							});
-							// console.log(OKCP.questionList);
-							listItem.qid = listItem.qid+"-used";
 						}
 						// console.log(OKCP.questionList);
 						areWeDone(false);
@@ -534,20 +561,23 @@ function OKCP() {
 				$('.spinner').hide();
 				for (var category in OKCP.responseCount) {
 					var countArr = OKCP.responseCount[category];
-					var matchRatio = Math.round(100*100*countArr[0]/countArr[1])/100;
-					var matchClass = "";
-					if ((matchRatio > 66 && countArr[1] === 3) || (matchRatio >= 75 && countArr[1] === 4) || matchRatio >= 80) {
-						matchClass = 'great-match';
-					} else if (matchRatio < 50) {
-						matchClass = 'bad-match';
-					}
-					if (countArr[1]===1) {
+					var matchClass = 'match-' + Math.floor(countArr[0]/countArr[1]*5);
+					var categoryReadable = category.split('_').join(' ');
+					if (countArr[1]<=1) {
 						matchClass += ' one-data-point-match';
 					}
 					if (countArr[1] >= 10) {
 						matchClass += ' more-than-10';
 					}
-					$('.match-ratios-list').append('<li class="match-ratio ' + matchClass + '"><span class="match-ratio-category">' + category + ':</span><span class="match-ratio-value">' + countArr[0] + '/' + countArr[1] + '</span></li>');//matchRatio + '%</li>');
+					if (countArr[0]/countArr[1] <= 0.1) {
+						matchClass += ' not-a-match';
+					}
+					var numerator = Math.round(countArr[0]*10)/10+'';
+					var denominator = Math.round(countArr[1]*10)/10+'';
+					var numeratorArr = numerator.split('.');
+					var denominatorArr = denominator.split('.');
+					var matchRatioHtmlValue = '<span class="integer">' + numeratorArr[0] + '</span><span class="point">.</span><span class="decimal">'+(numeratorArr[1] || '0')+'</span><span class="slash">/</span><span class="integer">' + denominatorArr[0] + '</span><span class="point">.</span><span class="decimal">'+(denominatorArr[1] || '0')+'</span>';
+					$('.match-ratios-list').append('<li class="match-ratio ' + matchClass + '"><span class="match-ratio-progressbar ' + matchClass + '" style="width:' + (Math.round(countArr[0]/countArr[1]*93)+7) + '%"></span><span class="match-ratio-category">' + categoryReadable + '</span><span class="match-ratio-value">' + matchRatioHtmlValue + '</span></li>');//matchRatio + '%</li>');
 				}
 
 				for (var i = 0; i < OKCP.questionList.length; i++) {
@@ -555,13 +585,15 @@ function OKCP() {
 					if ($('.question-detail-'+question.category).length === 0) {
 						$('.question-detail').append('<ul class="question-detail-'+question.category+'"></ul>');
 					}
-					$('.question-detail-'+question.category).append('<li class="match match-' + question.match + '"><ul>'+
+					var matchClass = 'match-' + (Math.floor(question.answerScoreWeighted*5));
+					// console.log(matchClass + ' ' + question.answerScoreWeighted);
+					$('.question-detail-'+question.category).append('<li class="match ' + matchClass + '"><ul>'+
 						'<li class="question qid-'+question.qid+'">' + question.question + '</li>'+
 						'<li class="answer">' + question.theirAnswer + '</li>'+
 						'<li class="explanation">' + question.theirNote + '</li>'+
 						'</ul></li>');
 					if ($('.question-detail-'+question.category+' .match').length === 1) {
-						$('.question-detail-'+question.category).prepend('<li class="category-header category-header-'+question.category+'">'+question.category+'</li>');
+						$('.question-detail-'+question.category).prepend('<li class="category-header category-header-'+question.category+'">'+question.categoryReadable+'</li>');
 					}
 				}
 
@@ -587,9 +619,6 @@ function OKCP() {
 					if ($(a).find('.category-header').text() === "poly") return false;
 					return ( $(a).find('.category-header').text() > $(b).find('.category-header').text() );
 				}).appendTo('.question-detail');
-
-				// HACK HACK HACK (this way, nonReligious doesn't show up green or red)
-				$('#okcp .match-ratio-category:contains(notReligious)').parent().removeClass('great-match');
 
 				if (_OKCP.debugTimerEnabled) {
 					console.log('Fetching the questions took ' + (new Date().getTime() - _OKCP.debugTimer.getTime()) + ' ms');

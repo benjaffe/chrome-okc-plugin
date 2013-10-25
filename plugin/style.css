@@ -20,18 +20,41 @@
 
 
 /* UI - Match Ratios */
-.match-ratios-wrapper-outer {position:absolute;right: 160px;top: 11px;height:195px;width:100%;} /* Yes, a table... for complicated layout, vertical aligning to the bottom while scrolling when there are too many */
+.match-ratios-wrapper-outer {position:absolute;right: 170px;top: 11px;height:195px;width:240px;} /* Yes, a table... for complicated layout, vertical aligning to the bottom while scrolling when there are too many */
 #okcp .match-ratios-list {box-shadow: none;margin:0;padding:0;max-height: 210px;overflow-y: scroll;overflow-x:hidden;}
 #okcp .match-ratios-list::-webkit-scrollbar {-webkit-appearance: none;width: 7px;}
 #okcp .match-ratios-list::-webkit-scrollbar-thumb {border-radius: 4px;background-color: rgba(0,0,0,.5);-webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);}
 #okcp .match-ratios {vertical-align: bottom;}
-#okcp .match-ratio .match-ratio-value {background: #CCC;text-align: center;border-radius: 10px;margin:2px 2% 2px 0;text-shadow:1px 1px 2px rgba(255,255,255,0.5);}
-#okcp .match-ratio.bad-match .match-ratio-value {background: #F77;color:black;}
-#okcp .match-ratio.great-match .match-ratio-value {background: #8C8;}
-#okcp .match-ratio.one-data-point-match .match-ratio-value {background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAJ0lEQVQIW2NkwASSICFGNHGwIBA8R5aACyLrQBGESWAIIks8R7cLADoBBTkr0a5oAAAAAElFTkSuQmCC);}
+#okcp .match-ratio {position:relative;margin-bottom:2px;height:20px;}
+
+#okcp .match-ratio .match-ratio-progressbar {position:absolute;top:0;bottom:0;right:0;width:0%;border-radius: 15px;opacity:1;}
+#okcp .match-ratio .match-ratio-value {display:none;position:absolute;right:0;width:23%;margin-right:2%;background:transparent;color:black;text-align: center;border-radius: 10px;text-shadow:1px 1px 2px rgba(255,255,255,0.5);}
+#okcp .match-ratio .match-ratio-category {position:absolute;right:-3px;text-shadow:0 0 0 rgba(0,0,0,0.4), 0 0 3px #FFF;color:#000;z-index:5;}
+
+#okcp .match-ratio.not-a-match .match-ratio-category {right:8px;}
+#okcp .match-ratio.not-a-match .match-ratio-category,
+#okcp .match-ratio.not-a-match .match-ratio-value {color:#900;}
+
+#okcp .match-ratios:hover .match-ratio-value {display:block;}
+#okcp .match-ratios:hover .match-ratio-category {right:21%;}
+#okcp .match-ratios:hover .match-ratio-category:after {content:":";}
+
+#okcp .match-ratio.match-0 .match-ratio-progressbar {background: #E44;}
+#okcp .match-ratio.match-1 .match-ratio-progressbar {background: #D77;}
+#okcp .match-ratio.match-2 .match-ratio-progressbar {background: #AAA;}
+#okcp .match-ratio.match-3 .match-ratio-progressbar {background: #8A8;}
+#okcp .match-ratio.match-4 .match-ratio-progressbar {background: #8C8;}
+#okcp .match-ratio.match-5 .match-ratio-progressbar {background: #8D8;}
+
+/*#okcp .match-ratio.match-0 .match-ratio-value {background: #E44;}
+#okcp .match-ratio.match-1 .match-ratio-value {background: #D66;}
+#okcp .match-ratio.match-2 .match-ratio-value {background: #888;}
+#okcp .match-ratio.match-3 .match-ratio-value {background: #797;}
+#okcp .match-ratio.match-4 .match-ratio-value {background: #8A8;}
+#okcp .match-ratio.match-5 .match-ratio-value {background: #8C8;}
+*/#okcp .match-ratio.one-data-point-match .match-ratio-progressbar {background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAJ0lEQVQIW2NkwASSICFGNHGwIBA8R5aACyLrQBGESWAIIks8R7cLADoBBTkr0a5oAAAAAElFTkSuQmCC);}
 #okcp .match-ratio.more-than-10 .match-ratio-value {font-size: 0.8em;letter-spacing:-1px;}
 #okcp .match-ratio-category {display:inline-block;width:70%;margin-right:5%;text-align:right;}
-#okcp .match-ratio-value {display:inline-block;width:23%;}
 
 
 
@@ -53,9 +76,13 @@
 .category-header {text-align:center;text-transform:uppercase;font-weight:bold;background-color:gray;color:white;margin:0 -7px;box-shadow:0 1px 2px rgba(0,0,0,0.2);position:relative;border-bottom:solid 1px #555;border-top:solid 1px #555;}
 .question-detail .match {position:relative;padding: 5px;padding-bottom:10px;border-bottom:solid 1px #DDD;background: white;color: black;}
 .question-detail .match .answer {padding-right: 20px;padding-left: 18px;}
-.question-detail .match .answer:after {position:absolute;right:10px;margin-top:6px;content:"";width:10px;height:10px;border-radius:5px;background:#F55;} /*{background: #F55; color:#700;}*/
-.question-detail .match-false .answer:after {background:#F55;}
-.question-detail .match-true .answer:after {background: #8C8;}
+.question-detail .match .answer:after {position:absolute;right:10px;margin-top:6px;content:"";width:10px;height:10px;border-radius:5px;background:#777;} /*{background: #F55; color:#700;}*/
+.question-detail .match-0 .answer:after {background:#F44;}
+.question-detail .match-1 .answer:after {background:#D66;}
+.question-detail .match-2 .answer:after {background:#888;}
+.question-detail .match-3 .answer:after {background:#787;}
+.question-detail .match-4 .answer:after {background:#8A8;}
+.question-detail .match-5 .answer:after {background: #8D8;}
 .question-detail .match .question {position:relative;font-size:11px;color:#999; height: 1.6em;overflow: hidden;}
 .question-detail .match .question:after {content:"...";position:absolute;top:0;right:0;}
 .question-detail .match-nomatches {text-align: center;}
@@ -177,6 +204,7 @@ html div#loveisblindday.expanded {height:80px;}
 html div#loveisblindday div.inner {background-color: rgb(0,15,45);margin-top: 27px;width: 300px;padding-top: 16px;}
 #p_profile div.tabbed_heading div#percentages span.match, #p_profile div.tabbed_heading div#percentages span.friend, #p_profile div.tabbed_heading div#percentages span.enemy {margin-bottom:1px;}
 #p_profile div.tabbed_heading div#basic_info div.aso_loc {max-width:240px;}
+#basic_info #basic_info_sn {text-shadow: 0px 1px 0px #fff, 1px 1px 0px #E1E1E1, -1px 1px 0px #E1E1E1, 1px -1px 0px #E1E1E1, -1px -1px 0px #E1E1E1;}
 #p_profile #rating {position:absolute;top: 46px;left: 180px;float:none;z-index:2;-webkit-transform: scale(0.7);transform: scale(0.7);}
 #p_profile #rating span {margin-left: 4px;margin-bottom: 0px;}
 #p_profile #percentages {padding:20px 3px 40px;border-radius: 0 0 4px 4px;}
