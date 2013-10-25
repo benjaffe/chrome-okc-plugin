@@ -1,71 +1,6 @@
-$ = jQuery;
-
-var numQuestionPages =20;		//how many pages to search through to match question answers (10 questions per page, sorted by 'i_care' so mandatory and very important answers will show up first - later questions after this limit will NOT be searched/matched at all!! So make sure to make this number big enough and that users mark their questions as very important to ensure they get matched! Note: bigger numbers mean slower loading of results.)
-
-// Initial setup
-var _OKCP = {};
-var stateAbbr = {"Alaska" : "AK", "Alabama" : "AL", "Arkansas" : "AR", "American Samoa" : "AS", "Arizona" : "AZ", "California" : "CA", "Colorado" : "CO", "Connecticut" : "CT", "District of Columbia" : "DC", "Delaware" : "DE", "Florida" : "FL", "Georgia" : "GA", "Guam" : "GU", "Hawaii" : "HI", "Iowa" : "IA", "Idaho" : "ID", "Illinois" : "IL", "Indiana" : "IN", "Kansas" : "KS", "Kentucky" : "KY", "Louisiana" : "LA", "Massachusetts" : "MA", "Maryland" : "MD", "Maine" : "ME", "Michigan" : "MI", "Minnesota" : "MN", "Missouri" : "MO", "Mississippi" : "MS", "Montana" : "MT", "North Carolina" : "NC", "North Dakota" : "ND", "Nebraska" : "NE", "New Hampshire" : "NH", "New Jersey" : "NJ", "New Mexico" : "NM", "Nevada" : "NV", "New York" : "NY", "Ohio" : "OH", "Oklahoma" : "OK", "Oregon" : "OR", "Pennsylvania" : "PA", "Puerto Rico" : "PR", "Rhode Island" : "RI", "South Carolina" : "SC", "South Dakota" : "SD", "Tennessee" : "TN", "Texas" : "TX", "Utah" : "UT", "Virginia" : "VA", "Virgin Islands" : "VI", "Vermont" : "VT", "Washington" : "WA", "Wisconsin" : "WI", "West Virginia" : "WV", "Wyoming" : "WY"};
-var objLength = function(obj){
-	var len = 0;
-	$.each(obj, function (i) { 
-		console.log(obj[i]);
-		len++;
-	}) 
-	console.log(len);
-	return len;
-};
-
-// _OKCP.questionFetchingMethod = "original";
-_OKCP.questionFetchingMethod = "mobile_app";
-_OKCP.largeThumbSize = '250';
-_OKCP.urlSansParameters = location.href.split('?')[0];
-_OKCP.profilePath = _OKCP.urlSansParameters.split("/profile/")[1] || '';
-_OKCP.profileName = _OKCP.profilePath.split("/")[0];
-_OKCP.clientProfileName = $('#user_header .username').text();
-
-_OKCP.cacheEnabled = true;
-_OKCP.debugTimerEnabled = false; //for timing how long question requests take
-_OKCP.debugTimer = null;
-
-// dev mode toggle
-if (!!localStorage.devMode && JSON.parse(localStorage.devMode) === true) {
-	_OKCP.cacheEnabled = false;
-}
-
-
-// If we're our own profile
-if (_OKCP.profilePath === '') {
-	_OKCP.profileName = _OKCP.clientProfileName;
-	_OKCP.onOwnProfile = true;
-}
-
-// Basic CSS Helpers
-$('html').attr('id','okcp') //an ID to use to override OkC's sad CSS specificity madness
-	.addClass('OKCP-bindings-not-yet-loaded'); //, and a class to hide everything until it is set up
-
-// Give the guilt banner a class so we can hide it
-var guiltBannerHiderTimer = setInterval(function() {
-	var guiltBanner = $('.quickbuybox').prev('div:not("#main_content")');
-	if (guiltBanner.size() > 0) {
-		guiltBanner.addClass('guilt');
-		clearInterval(guiltBannerHiderTimer);
-	}
-}, 1);
-
-$(document).mousemove(function(e){
-	// console.log(e.pageX > document.body.clientWidth/2-390);
-	// if (largeThumbViewerElem.filter(':hidden').size() > 0){
-	if (e.pageX < document.body.clientWidth/2-390) $('html').addClass('mouseOnLeft').removeClass('mouseOnRight');
-	else if (e.pageX > document.body.clientWidth/2+395) $('html').addClass('mouseOnRight').removeClass('mouseOnLeft');
-	else $('html').removeClass('mouseOnLeft mouseOnRight');
-	// }
-});
 
 
 /*=== UI ===*/
-
-// add the large thumbnail image viewer
-var largeThumbViewerElem = $('<div class="largeThumbViewer"><img src="" class="largeThumbViewerImage" /><p class="largeThumbViewerCaption"></p></div>').appendTo('#wrapper').attr('style','background:white url('+chrome.extension.getURL('images/ajax-loader.gif')+') no-repeat center center');
 
 // if we're on a profile page
 if (_OKCP.profilePath !== '') {
@@ -91,18 +26,12 @@ if (_OKCP.profilePath !== '') {
 	$('#right_column').before('<div class="question-detail"></div>');
 	var questionsInCommonElem = $('<div class="questions-in-common"></div>').prependTo('.question-detail');
 	if (JSON.parse(localStorage.okcp).accuracyImprovedAsOfVersionNum != JSON.parse(localStorage.okcpDefaultQuestions).questionsVersionNum) {
-		questionsInCommonElem.append('<a href="#" class="improve-accuracy" id="improve-accuracy" data-bind="click:showUnansweredQuestions">Improve Accuracy</a>');
+		$('<a href="#" class="improve-accuracy" id="improve-accuracy">Improve Accuracy</a>').appendTo(questionsInCommonElem).click(function(){
+			_OKCP.showUnansweredQuestions();
+		});
+
 	}
 
-	// Fixing OkC UI Issues
-	$('#save_unsave').parent().addClass('wide-buttons-that-are-now-not-wide left');
-	$('#save_unsave').parent().next().addClass('wide-buttons-that-are-now-not-wide right');
-
-	// Change OkCupid's UI
-	if ($('#visit_button a:contains(Enable invisible browsing)').size() > 0) {
-		$('#visit_button').addClass('moved').insertAfter($('#similar_users_list'));
-	}
-	$('#profile_ad').hide();
 }
 
 
@@ -154,22 +83,14 @@ function OKCP() {
 		}
 	});
 	this.profileListData = ko.observable(this.profileList());
-	this.questionPageNum = 0; //for iterating over question pages
-	this.questionPath = undefined; //for storing the path of the question page as we iterate
 
-	this.questionList = [];
-	this.numRequestsMade = 0;
-	this.numRequestsFinished = 0;
-	this.responseCount = {};
-	this.responseGood = 0;
-	this.response = 0;
 	this.profileHidden = ko.observable(false);
 	this.profileShown = ko.observable(false);
 
 	this.swapLargeThumb = function(vm,e) {
 		var t = e.target;
 		var profileName = t.parentElement.href.split('profile/')[1].split('?')[0];
-		var largeThumbPath = getLargeThumbUrl(t.src);
+		var largeThumbPath = _OKCP.getLargeThumbUrl(t.src);
 		$('.largeThumbViewerImage').attr('src',chrome.extension.getURL('images/ajax-loader.gif')).attr('src',largeThumbPath);
 		// $('.largeThumbViewerCaption').text('...');
 		$('.largeThumbViewer').show();
@@ -228,95 +149,8 @@ function OKCP() {
 		this.settingsList('questionDetailPinned','toggle');
 	};
 
-	this.showUnansweredQuestions = function(data) {
-		var questions = JSON.parse(localStorage.okcpDefaultQuestions).questionsList;
-		//console.log(questions);
-		var unansweredQuestionsDiv = $('<div class="unanswered-questions"><h1 class="unanswered-questions-loadingtext" style="margin-bottom:8px;text-align:center;font-weight:normal;font-style:italic;">...loading...</h1></div>').appendTo('body');
-		var numUnansweredQuestionsNotYetLoaded = objLength(questions);
-		console.log(questions);
-		console.log(numUnansweredQuestionsNotYetLoaded);
-		//console.log(OKCP.clearCachedQuestionData());
-		for (var i=0; i < questions.length; i++) {
-			var qid = questions[i].qid;
-			var iframe = $('<iframe class="unanswered-questions-iframe" src="http://www.okcupid.com/questions?rqid=' + qid + '" style="width:100%;height:1px;" qid="' + qid + '">');
-			// console.log(iframe);
-			unansweredQuestionsDiv.append(iframe);
-
-			iframe.load(function() {
-				numUnansweredQuestionsNotYetLoaded--;
-				if (numUnansweredQuestionsNotYetLoaded <= 0) {
-					$(".unanswered-questions-loadingtext").remove();
-				}
-				$(this).css({'height':'300px'});
-				var iFrameContent = $(this.contentDocument);
-				// console.log(iFrameContent);
-				// console.log(iFrameContent.find(".notice p:not(.btn)").text().indexOf('already answered this question') === -1);
-				console.log(iFrameContent.find(".notice.pink p").not(':hidden'));
-				if (iFrameContent.find(".notice p:not(.btn)").text().indexOf('already answered this question') !== -1 ||
-						iFrameContent.find(".notice.pink p:eq(1)").not(':hidden').size() > 0) {
-					console.log('not doing ' + $(this).attr('qid'));
-					$(this).remove();
-					if($('.unanswered-questions').children().length === 1) {
-						$('.improve-accuracy').hide();
-						$('.unanswered-questions').html('<h1>You have answered all the questions that this plugin currently checks. Congratulations!</h1>').delay(5000).hide(500);
-						var storage = JSON.parse(localStorage.okcp);
-						storage.accuracyImprovedAsOfVersionNum = JSON.parse(localStorage.okcpDefaultQuestions).questionsVersionNum;
-						localStorage.okcp = JSON.stringify(storage);
-					}
-					return false;
-				}
-				var questionStuff = iFrameContent.find('#new_question');
-				iFrameContent.find('body > *').hide();
-				iFrameContent.find('body').append(('<div class="big_dig" style="padding:0;"><div class="questions" id="addQuestionStuffHere" style="width:auto;margin:0;"></div></div>'));
-				iFrameContent.find('#addQuestionStuffHere').html( questionStuff );
-				iFrameContent.find('.notice.green, .notice.pink .btn').hide();
-				iFrameContent.find('.submit_btn').click(function(){
-					iFrameContent.find('#new_question').hide();
-				});
-				$('<a class="iframe-close-btn">X</a>').insertBefore(this).click(function() {
-					$(this).next().add(this).hide(400,function() {
-						$(this).remove();
-						if($('.unanswered-questions').children().length === 0) {
-							$('.unanswered-questions').fadeOut(200,function(){$(this).remove();});
-							$(this).animate({'height':'158px'},800);
-						}
-					});
-				});
-			});
-
-
-			// $('<div class="unanswered-questions-' + i + '"></div>').load('http://www.okcupid.com/questions?rqid=' + qid + ' #new_question', function() {
-			//	if ($(this).find('.notice:contains(already answered this question)').length) {
-			//		$(this).remove();
-			//	} else {
-					
-					
-			//	}
-				
-			// });
-		}
-	};
-
 	this.alertLocalStorageChange = function() {
 		_dummyObservable.notifySubscribers(); //force the computed value to fetch the new updated local storage by pretending we updated something else in the computed function.
-	};
-
-	this.sortByEnemy = function() {
-		var matchResultsArr = $("#match_results .match_row"); //get array of elements
-		// sort based on enemy percentage
-		matchResultsArr.sort(function (a, b) {
-			a = parseInt($(a).find('.enemy .percentage').text().split('%')[0],10);
-			b = parseInt($(b).find('.enemy .percentage').text().split('%')[0],10);
-			// compare
-			if(a > b) {
-				return 1;
-			} else if (a < b) {
-				return -1;
-			} else {
-				return 0;
-			}
-		});
-		$("#match_results").html(matchResultsArr); //put sorted results back on page
 	};
 
 	this.clearCachedQuestionData = function() {
@@ -329,306 +163,6 @@ function OKCP() {
 		localStorage.okcpRecentProfiles = JSON.stringify(recentProfiles);
 	};
 
-	this.getAnswers = function (list) {
-		var requestFailed = false;
-		var recentProfiles = localStorage.okcpRecentProfiles ? JSON.parse(localStorage.okcpRecentProfiles) : {"_ATTENTION":"This is just temporary caching to avoid hitting the server a million times. Notice there's an expires time built in for each key."};
-
-		// get list of questions and categories to compare to
-		if (list === undefined) {
-			list = localStorage.okcpDefaultQuestions ? JSON.parse(localStorage.okcpDefaultQuestions).questionsList : {};
-		}
-
-		// check for cached question data
-		if (!!recentProfiles[_OKCP.profileName] && _OKCP.cacheEnabled && new Date().getTime() - recentProfiles[_OKCP.profileName].expires < 0) {
-			recentProfiles[_OKCP.profileName].expires = new Date().getTime() + 300000; //reset expires
-			OKCP.questionList = recentProfiles[_OKCP.profileName].questionList;
-			OKCP.responseCount = recentProfiles[_OKCP.profileName].responseCount;
-			areWeDone(true);
-		} else {
-			loadProfileAnswers();
-		}
-
-
-		function loadProfileAnswers() {
-			if (location.href.split('/profile/')[1] === undefined) return false;
-			//loop through every question page
-			var pageResultsDiv = $('<div id="page-results"></div>').appendTo('body');
-			$('#footer').append('<a class="page-results-link" href="#page-results">Show question results</a>');
-
-
-
-			while (!requestFailed && OKCP.numRequestsMade < numQuestionPages) {
-				updateQuestionPath();
-				// console.log('loading page '+ OKCP.questionPath);
-				OKCP.numRequestsMade++;
-
-				if (_OKCP.questionFetchingMethod === "original") {
-					// //on the first page load, get meta info (number of questions in common)
-					// if (OKCP.questionPageNum === 1) {
-					// 	$('<div id="page-results-meta"></div>').appendTo(pageResultsDiv).load(OKCP.questionPath + ' .stats.lined', function() {
-					// 		var questionsInCommon = $('.comparison>p:first-child').text().split(' of ')[0];//$(this).find('.stats.lined li:nth-child(5) .large').text().split(' questions')[0];
-					// 		var questionsInCommonAmountClass = "";
-					// 		if (questionsInCommon > 100) {
-					// 			questionsInCommonAmountClass = 'questions-in-common-many';
-					// 		} else if (questionsInCommon < 34) {
-					// 			questionsInCommonAmountClass = 'questions-in-common-few';
-					// 		}
-					// 		console.log(questionsInCommon);
-					// 		$('.questions-in-common').addClass(questionsInCommonAmountClass).prepend(questionsInCommon + ' Common Questions');
-					// 	});
-					// }
-
-					// //add page results, parse the page
-					// $('<div id="page-results-' + OKCP.questionPageNum + '"></div>').appendTo(pageResultsDiv).load(OKCP.questionPath + ' #questions', function() {
-					// 	OKCP.numRequestsFinished++;
-					// 	// console.log(this);
-					// 	for (var i = 0; i < list.length; i++) {
-					// 		var theirAnswer, theirNote, yourAnswer, yourNote;
-					// 		var listItem = list[i];
-					// 		var num = listItem.qid;
-					// 		var wrongAnswers = listItem.wrongAnswers;
-					// 		if ($("#question_" + num + ".public").length === 0) continue;
-					// 		// if ($('#question_' + num + '.public').length === 0) {console.log("passing "+num);continue;}
-					// 		var questionText = $(this).find("#qtext_"+num).text().trim();
-					// 		if (questionText === "") continue;
-
-					// 		if (_OKCP.onOwnProfile) {
-					// 			theirAnswer = $(this).find("#self_answers_"+num+" .match.mine").text().trim();
-					// 			theirNote = $(this).find("#explanation_"+num).text().trim();
-					// 		} else {
-					// 			theirAnswer = $(this).find("#answer_target_"+num).text().trim();
-					// 			theirNote = $(this).find("#note_target_"+num).text().trim();
-					// 			yourAnswer = $(this).find("#answer_viewer_"+num).text().trim();
-					// 			yourNote = $(this).find("#note_viewer_"+num).text().trim();
-					// 		}
-					// 		var match = true;
-					// 		for (var j = 0; j < wrongAnswers.length; j++) {
-					// 			// console.log(questionText + "  " + theirAnswer + " | " + wrongAnswers[j]);
-					// 			if (wrongAnswers[j] === theirAnswer) match = false;
-					// 		}
-
-					// 		if (!OKCP.responseCount[listItem.category]) { //ensure there's an entry for the category count
-					// 			OKCP.responseCount[listItem.category] = [0,0];
-					// 		}
-					// 		if (match) {
-					// 			OKCP.responseCount[listItem.category][0]++;
-					// 		}
-					// 		OKCP.responseCount[listItem.category][1]++;
-					// 		OKCP.questionList.push({
-					// 			question: questionText,
-					// 			qid: num,
-					// 			theirAnswer: theirAnswer,
-					// 			theirNote: theirNote,
-					// 			yourAnswer: yourAnswer,
-					// 			yourNote: yourNote,
-					// 			match: match,
-					// 			category: listItem.category
-					// 		});
-					// 		listItem.qid = listItem.qid+"-used";
-					// 	}
-					// 	// console.log(OKCP.questionList);
-					// 	areWeDone(false);
-					// }).error(function(){
-					// 	console.log("Request failed on number " + OKCP.numRequestsMade);
-					// 	requestFailed = true;
-					// });
-				} else if (_OKCP.questionFetchingMethod === "mobile_app") {
-					//TODO: on the first page load, get meta info (number of questions in common)
-
-					//add page results, parse the page
-					$('<div id="page-results-' + OKCP.questionPageNum + '"></div>').appendTo(pageResultsDiv).load(OKCP.questionPath + ' [class$="questions"]', function() {
-						OKCP.numRequestsFinished++;
-						// console.log(this);
-
-						//fix the illegal ids that break jQuery
-						$(this).find('[id]').each(function(){
-							var elem = $(this);
-							var oldID = elem.attr('id');
-							var idArr = oldID.split('\\\"');
-							if (idArr.length > 2) {
-								$(this).attr('id',idArr[1]);
-							}
-						});
-
-						for (var category in list) {
-							var categoryQuestionList = list[category];
-							for (var i = 0; i < categoryQuestionList.length; i++) {
-								var listItem = categoryQuestionList[i]
-								// console.log('ho');
-								var theirAnswer, theirAnswerIndex, theirNote, yourAnswer, yourNote, answerScore, answerWeight, answerScoreWeighted;
-								// var listItem = list[i];
-								// console.log(listItem);
-								var num = listItem.qid;
-								var possibleAnswers = listItem.answerText;
-								// var questionElem = $('#question_' + num + '[public]');		//misses some
-								var questionElem = $(this).find('#question_' + num);
-								
-								// console.log(questionElem);
-								// if question isn't present on page, continue
-								if (questionElem.length === 0) {continue;}
-								// console.log("hey there " + num);
-								// get question information
-								var questionText = questionElem.find('h4').text().trim();
-								if (questionText === "") continue;
-								
-								if (_OKCP.onOwnProfile) {
-									theirAnswer = questionElem.find("#self_answers_"+num+" .match.mine").text().trim();
-									theirNote = questionElem.find("#explanation_"+num).text().trim();
-								} else {
-									theirAnswer = questionElem.find('#answer_target_'+num).text().trim();
-									if (theirAnswer === '') continue; //if the answer elem doesn't exist, continue
-									theirNote   = questionElem.find('#note_target_'+num).text().trim();
-									yourAnswer  = questionElem.find('#answer_viewer_'+num).text().trim();
-									yourNote    = questionElem.find('#note_viewer_'+num).text().trim();
-								}
-								for (var j = 0; j < possibleAnswers.length; j++) {
-									// console.log(questionText + "  " + theirAnswer + " | " + wrongAnswers[j]);
-									if (possibleAnswers[j] === theirAnswer) {
-										theirAnswerIndex = j;
-										break;
-									}
-								}
-								answerScore = listItem.score[theirAnswerIndex];
-								answerWeight = listItem.weight ? listItem.weight[theirAnswerIndex] || 1 : 1;
-								answerScoreWeighted = ((answerScore+1) / 2) * answerWeight;
-								// console.log(answerScore + " " + answerWeight);
-
-								// Ask Chuck
-								if (!OKCP.responseCount[category]) { //ensure there's an entry for the category count
-									OKCP.responseCount[category] = [0,0];
-								}
-								OKCP.responseCount[category][0] += answerScoreWeighted;
-								OKCP.responseCount[category][1] += answerWeight;
-								// console.log(num + " - " + questionText);
-								OKCP.questionList.push({
-									question: questionText,
-									qid: num,
-									theirAnswer: theirAnswer,
-									theirNote: theirNote,
-									yourAnswer: yourAnswer,
-									yourNote: yourNote,
-									answerScore: answerScore,
-									answerWeight: answerWeight,
-									answerScoreWeighted: answerScoreWeighted,
-									category: category,
-									categoryReadable: category.split('_').join(' ')
-								});
-								// console.log(OKCP.questionList);
-								listItem.qid = listItem.qid+"-used";
-							}
-						}
-						// console.log(OKCP.questionList);
-						areWeDone(false);
-					}).error(function(){
-						console.log("Request failed on number " + OKCP.numRequestsMade);
-						requestFailed = true;
-					});
-				}
-			}
-		}
-
-		function updateQuestionPath (pageNum) {
-			if (_OKCP.questionFetchingMethod === "original" || _OKCP.questionFetchingMethod === "mobile_app") {
-				var questionFilterParameter = 'i_care=1';
-				if (_OKCP.onOwnProfile) {
-					questionFilterParameter = 'very_important=1';
-				}
-				OKCP.questionPageNum = pageNum || OKCP.questionPageNum;
-				OKCP.questionPath = "http://www.okcupid.com/profile/" + _OKCP.profileName + "/questions?n=1&low=" + (OKCP.questionPageNum*10+1) + "&" + questionFilterParameter;
-				if (_OKCP.questionFetchingMethod === "mobile_app") OKCP.questionPath += '&mobile_app=1';
-				OKCP.questionPageNum++;
-			}
-		}
-
-		// if we're done, it hides the spinner and adds the UI, then sorts the categories
-		function areWeDone(fromCached) {
-			if (fromCached || OKCP.numRequestsFinished === OKCP.numRequestsMade) {
-				// console.log(OKCP.questionList);
-				// put this data into localStorage
-				recentProfiles[_OKCP.profileName] = {
-					expires: new Date().getTime() + 600000, // temporarily-cached data expires 10 minutes from being set
-					questionList: OKCP.questionList,
-					responseCount: OKCP.responseCount
-				};
-				for (var profile in recentProfiles) {
-					if (profile === "_ATTENTION") continue;
-					if (new Date().getTime() - recentProfiles[profile].expires > 0) {
-						delete recentProfiles[profile]; // remove not-recently visited profiles
-					}
-				}
-				localStorage.okcpRecentProfiles = JSON.stringify(recentProfiles);
-
-				$('.spinner').hide();
-				for (var category in OKCP.responseCount) {
-					var countArr = OKCP.responseCount[category];
-					var matchClass = 'match-' + Math.floor(countArr[0]/countArr[1]*5);
-					var categoryReadable = category.split('_').join(' ');
-					if (countArr[1]<=1) {
-						matchClass += ' one-data-point-match';
-					}
-					if (countArr[1] >= 10) {
-						matchClass += ' more-than-10';
-					}
-					if (countArr[0]/countArr[1] <= 0.1) {
-						matchClass += ' not-a-match';
-					}
-					var numerator = Math.round(countArr[0]*10)/10+'';
-					var denominator = Math.round(countArr[1]*10)/10+'';
-					var numeratorArr = numerator.split('.');
-					var denominatorArr = denominator.split('.');
-					var matchRatioHtmlValue = '<span class="integer">' + numeratorArr[0] + '</span><span class="point">.</span><span class="decimal">'+(numeratorArr[1] || '0')+'</span><span class="slash">/</span><span class="integer">' + denominatorArr[0] + '</span><span class="point">.</span><span class="decimal">'+(denominatorArr[1] || '0')+'</span>';
-					$('.match-ratios-list').append('<li class="match-ratio ' + matchClass + '"><span class="match-ratio-progressbar ' + matchClass + '" style="width:' + (Math.round(countArr[0]/countArr[1]*93)+7) + '%"></span><span class="match-ratio-category">' + categoryReadable + '</span><span class="match-ratio-value">' + matchRatioHtmlValue + '</span></li>');//matchRatio + '%</li>');
-				}
-
-				for (var i = 0; i < OKCP.questionList.length; i++) {
-					var question = OKCP.questionList[i];
-					if ($('.question-detail-'+question.category).length === 0) {
-						$('.question-detail').append('<ul class="question-detail-'+question.category+'"></ul>');
-					}
-					var matchClass = 'match-' + (Math.floor(question.answerScoreWeighted*5));
-					// console.log(matchClass + ' ' + question.answerScoreWeighted);
-					$('.question-detail-'+question.category).append('<li class="match ' + matchClass + '"><ul>'+
-						'<li class="question qid-'+question.qid+'">' + question.question + '</li>'+
-						'<li class="answer">' + question.theirAnswer + '</li>'+
-						'<li class="explanation">' + question.theirNote + '</li>'+
-						'</ul></li>');
-					if ($('.question-detail-'+question.category+' .match').length === 1) {
-						$('.question-detail-'+question.category).prepend('<li class="category-header category-header-'+question.category+'">'+question.categoryReadable+'</li>');
-					}
-				}
-
-
-
-				if ($('.question-detail > ul').length === 0) {
-					$('.question-detail').append('<ul><li class="match match-nomatches"><ul>'+
-						'<li class="noresults">' + 'No Results' + '</li>'+
-						'<li class="note">' + 'To improve the plugin\'s accuracy, answer more questions publicly and rank them as "Very Important" or "Mandatory". You can also click the "Improve Accuracy" link at the top of this panel to help out.' + '</li>'+
-						'</ul></li></ul>');
-					return false;
-				}
-
-				// sort categories
-				$('.match-ratios-list .match-ratio').sort(function(a,b) {
-					if ($(b).find('.match-ratio-category').text() === "poly:") return true;
-					if ($(a).find('.match-ratio-category').text() === "poly:") return false;
-					return ( $(a).find('.match-ratio-category').text() > $(b).find('.match-ratio-category').text() );
-				}).appendTo('.match-ratios-list');
-
-				$('.question-detail > ul').sort(function(a,b) {
-					if ($(b).find('.category-header').text() === "poly") return true;
-					if ($(a).find('.category-header').text() === "poly") return false;
-					return ( $(a).find('.category-header').text() > $(b).find('.category-header').text() );
-				}).appendTo('.question-detail');
-
-				if (_OKCP.debugTimerEnabled) {
-					console.log('Fetching the questions took ' + (new Date().getTime() - _OKCP.debugTimer.getTime()) + ' ms');
-					var timeList = JSON.parse(localStorage.timeList);
-					timeList.push(1*(new Date().getTime() - _OKCP.debugTimer.getTime()));
-					localStorage.timeList = JSON.stringify(timeList);
-				}
-			}
-		}
-	};
 }
 
 $(window).bind('storage', function(e) {
@@ -650,10 +184,6 @@ localStorage.okcp = JSON.stringify(storage);
 // apply bindings for everything except thumbs (as of 1/10, that's only the "hide" button)
 window.OKCP = new OKCP();
 ko.applyBindings(OKCP);
-
-if (_OKCP.debugTimerEnabled) {_OKCP.debugTimer = new Date();}
-
-OKCP.getAnswers();
 
 // takes a jQuery collection and adds polyhidden class binding to the profile's 'h' key in storage (within the bindings scope)
 function applyBindingsToProfileThumb (objList, scopeOfBindingsStr, retry, largeThumbnailHoverEnabled) {
@@ -685,13 +215,6 @@ function applyBindingsToProfileThumb (objList, scopeOfBindingsStr, retry, largeT
 	});
 	ko.applyBindings(OKCP, scopeOfBindings);
 	return true;
-}
-
-function getLargeThumbUrl(url) {
-	var arr1 = url.split('/images/');
-	arr2 = arr1[1].split('/');
-	newURL = arr1[0] + '/images/'+_OKCP.largeThumbSize+'x'+_OKCP.largeThumbSize+'/160x160/' + arr2.splice(2).join('/');
-	return(newURL);
 }
 
 //these are all the places we're looking for thumbnails to potentially hide
@@ -773,39 +296,7 @@ _OKCP.conversationThumbs.each(function() {
 });
 applyBindingsToProfileThumb(_OKCP.conversationThumbs,'#conversations', false, true);
 
-// This is run in a loop because as the user scrolls, more items will appear.
-setInterval(function() {
-	var doSortByEnemy = false;
-	// Match Search Page
-	_OKCP.matchresultsThumbs = $('#match_results .match_row');
-	_OKCP.matchresultsThumbs.each(function() {
-		//if it doesn't have a binding applied, apply one
-		if ($(this).attr('data-bind') === undefined) {
-			this.thumbName = $(this).find('.username').text();
-			applyBindingsToProfileThumb($(this),'#'+this.id);
-			doSortByEnemy = !!JSON.parse(localStorage.okcp).settings.sortByEnemy; // doSortByEnemy = true if the setting is enabled
-		}
-	});
-	if (doSortByEnemy) OKCP.sortByEnemy();
-},1000);
-
 // Bindings are applied, so remove class from body enabling hide button.
 $('.OKCP-bindings-not-yet-loaded').removeClass('OKCP-bindings-not-yet-loaded');
 
 
-// Testing new features
-(function () {
-	$('.question').prepend('<div class="okcp-add-question new-feature">Add Question</div>');
-	$('.okcp-add-question').click(function() {
-		var question = $(this).parent();
-		var qid = question.attr('id').split('question_')[1];
-		var qtext = $('#qtext_' + qid).text();
-		var answers = [];
-		$('#answer_'+qid+' .their_answer').each(function() {
-			answers.push( $(this).parent().text() );
-		});
-		var category = prompt("What category does this question fall under?");
-		category = category.toLowerCase();
-		$('<div class="copy-this"></div>').appendTo('body').text('{\n\tqid:"' + qid + '", //' + qtext + '\n\tcategory: "' + category + '",\n\twrongAnswers:["' + answers.join(",") + '"]\n\t},');
-	});
-})();

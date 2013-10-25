@@ -1,3 +1,6 @@
+## Bugs
+increase accuracy is broken (question parsing)
+
 ## For Next Version:
  
 * Refactor: questions into JSON, customizable path to pull from?
