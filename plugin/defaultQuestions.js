@@ -67,7 +67,7 @@ $.getJSON('questions/questions-poly-bi.json', function(data) {
 */
 
 var questions ={
-	"questionsVersionNum" : "1.3.0",
+	"questionsVersionNum" : "1.5.0",
 	"questionsList":
 	[
 	]
@@ -100,6 +100,7 @@ for(xx in _OKCP.fileQuestions) {
 		}
 	}
 }
+_OKCP.fileQuestions = fullQuestionsList;
 
 //loop through all questions
 for (xx in fullQuestionsList) {
