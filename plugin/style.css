@@ -1,5 +1,4 @@
-#logo:after {
-     content: "(enhanced)";
+#logo .okcp-enhanced-link {
      position: absolute;
      top: 45px;
      left: 31px;
@@ -7,6 +6,11 @@
      font-style: italic;
      font-size: 12px;
      letter-spacing: -0.2px;
+}
+#logo .okcp-enhanced-link:hover {
+     color:#ABC;
+     width: 50px;
+     cursor: pointer;
 }
 
 /* UI - Buttons */

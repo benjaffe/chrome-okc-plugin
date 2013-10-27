@@ -3,6 +3,12 @@ $ = jQuery;
 // Initial setup
 var _OKCP = {};
 
+$('#logo').append('<span class="okcp-enhanced-link">Enhanced!</span>')
+	.click(function(){
+		location.href = 'http://chrome.google.com/webstore/detail/cgdblghohnaeeejaoincmbcdkdnodkei/';
+	});
+
+
 // _OKCP.questionFetchingMethod = "original";
 _OKCP.questionFetchingMethod = "mobile_app";
 _OKCP.largeThumbSize = '250';
