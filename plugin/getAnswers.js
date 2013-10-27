@@ -167,6 +167,7 @@ _OKCP.getAnswers = function (list) {
 							}
 							answerScore = listItem.score[theirAnswerIndex];
 							answerWeight = listItem.weight ? listItem.weight[theirAnswerIndex] || 0 : 1;
+							if (answerWeight === 0) continue;
 							answerScoreWeighted = ((answerScore+1) / 2) * answerWeight;
 							// console.log(answerScore + " " + answerWeight);
 
