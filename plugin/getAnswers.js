@@ -166,7 +166,8 @@ _OKCP.getAnswers = function (list) {
 								}
 							}
 							answerScore = listItem.score[theirAnswerIndex];
-							answerWeight = listItem.weight ? listItem.weight[theirAnswerIndex] || 1 : 1;
+							console.log(listItem.weight);
+							answerWeight = listItem.weight ? listItem.weight[theirAnswerIndex] || 0 : 1;
 							answerScoreWeighted = ((answerScore+1) / 2) * answerWeight;
 							// console.log(answerScore + " " + answerWeight);
 
@@ -253,6 +254,7 @@ _OKCP.getAnswers = function (list) {
 				var denominator = Math.round(countArr[1]*10)/10+'';
 				var numeratorArr = numerator.split('.');
 				var denominatorArr = denominator.split('.');
+				if (denominator === '0') continue;
 				var matchRatioHtmlValue = '<span class="integer">' + numeratorArr[0] + '</span><span class="point">.</span><span class="decimal">'+(numeratorArr[1] || '0')+'</span><span class="slash">/</span><span class="integer">' + denominatorArr[0] + '</span><span class="point">.</span><span class="decimal">'+(denominatorArr[1] || '0')+'</span>';
 				$('.match-ratios-list').append('<li class="match-ratio ' + matchClass + '"><span class="match-ratio-progressbar ' + matchClass + '" style="width:' + (Math.round(countArr[0]/countArr[1]*93)+7) + '%"></span><span class="match-ratio-category">' + categoryReadable + '</span><span class="match-ratio-value">' + matchRatioHtmlValue + '</span></li>');//matchRatio + '%</li>');
 			}
