@@ -52,7 +52,8 @@
 #okcp .match-ratio.match-3 .match-ratio-value {background: #797;}
 #okcp .match-ratio.match-4 .match-ratio-value {background: #8A8;}
 #okcp .match-ratio.match-5 .match-ratio-value {background: #8C8;}
-*/#okcp .match-ratio.one-data-point-match .match-ratio-progressbar {background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAJ0lEQVQIW2NkwASSICFGNHGwIBA8R5aACyLrQBGESWAIIks8R7cLADoBBTkr0a5oAAAAAElFTkSuQmCC);}
+*/#okcp .match-ratio.one-data-point-match .match-ratio-progressbar {background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAJ0lEQVQIW2NkwASSICFGNHGwIBA8R5aACyLrQBGESWAIIks8R7cLADoBBTkr0a5oAAAAAElFTkSuQmCC), url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAJ0lEQVQIW2NkwASSICFGNHGwIBA8R5aACyLrQBGESWAIIks8R7cLADoBBTkr0a5oAAAAAElFTkSuQmCC);
+background-position:0 0, -1px -5px;}
 #okcp .match-ratio.more-than-10 .match-ratio-value {font-size: 0.8em;letter-spacing:-1px;}
 #okcp .match-ratio-category {display:inline-block;width:70%;margin-right:5%;text-align:right;}
 
