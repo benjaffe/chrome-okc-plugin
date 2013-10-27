@@ -1,5 +1,5 @@
 //question search words: bisexual, sex, homosexual, gay, lesbian, gender
-fileQuestions.sexuality_gender =
+_OKCP.fileQuestions.sexuality_gender =
 	{
 		"bi-open": [
 			{

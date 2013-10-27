@@ -1,4 +1,4 @@
-fileQuestions.other =
+_OKCP.fileQuestions.other =
 	{
 		"artist": [
 			{

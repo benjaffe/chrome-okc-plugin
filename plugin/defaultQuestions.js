@@ -88,15 +88,15 @@ for(xx in localStorage.fileQuestions) {
 }
 */
 
-var xx;
+var xx, yy;
 var fullQuestionsList = {};
 var filteredQuestionsList = {};
 var desiredCategories = JSON.parse(localStorage.okcp).questionCategories;
 
-for(xx in fileQuestions) {
-	for (yy in fileQuestions[xx]) {
-		if (fileQuestions[xx].hasOwnProperty(yy)) {
-			fullQuestionsList[yy] = fileQuestions[xx][yy];
+for(xx in _OKCP.fileQuestions) {
+	for (yy in _OKCP.fileQuestions[xx]) {
+		if (_OKCP.fileQuestions[xx].hasOwnProperty(yy)) {
+			fullQuestionsList[yy] = _OKCP.fileQuestions[xx][yy];
 		}
 	}
 }
@@ -110,7 +110,7 @@ for (xx in fullQuestionsList) {
 			filteredQuestionsList[xx] = fullQuestionsList[xx];
 		}
 		
-	};
+	}
 }
 
 questions.questionsList = filteredQuestionsList;

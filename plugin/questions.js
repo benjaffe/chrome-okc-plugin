@@ -1,1 +1,1 @@
-var fileQuestions ={};
+_OKCP.fileQuestions = {};

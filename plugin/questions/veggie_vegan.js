@@ -1,5 +1,5 @@
 //question search words: vegetarian, vegan
-fileQuestions.veg =
+_OKCP.fileQuestions.veg =
 	{
 		"veg": [
 			{

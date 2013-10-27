@@ -1,5 +1,5 @@
 //question search words: smoke, smokes, cigarette, cigarettes, cigar, cigars, tobacco, marijuana, weed, pot, drug, drugs
-fileQuestions.drugs_smokes =
+_OKCP.fileQuestions.drugs_smokes =
 	{
 		"non_smoker": [
 			{

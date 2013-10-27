@@ -1,4 +1,4 @@
-fileQuestions.discrimination =
+_OKCP.fileQuestions.discrimination =
 	{
 		"race_nondiscriminating": [
 			{
