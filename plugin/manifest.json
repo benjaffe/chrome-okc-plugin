@@ -19,7 +19,7 @@
     {
       "matches": ["http://*.okcupid.com/*"],
       "css": ["style.css"],
-      "js": ["knockout-2.2.0.js","jquery.min.js",
+      "js": ["lib/knockout-2.2.0.js","lib/jquery.min.js",
         "init.js",
         "questions.js",
         "questions/demeanor.js",
