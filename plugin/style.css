@@ -107,6 +107,18 @@ background-position:0 0, -1px -5px;}
 .question-detail .match:hover .explanation:after {display:none;}
 
 
+/* UI - Change Categories */
+.categories-lists-wrapper:before {content:"";position:fixed;top:0;bottom:0;left:0;right:0;background-color: rgba(0,0,0,0.5);z-index:1701;}
+.categories-lists {position:absolute;z-index:2000;top:40px;left:50%;width:600px;margin-left:-350px;padding:50px;background: #CCC;border-radius: 10px;box-shadow: 0px 1px 20px rgba(0,0,0,0.7);}
+.categories-lists:before {content:"Click and drag the categories between the lists to add or remove them";text-align:center;display:block;margin-bottom:10px;font-size:1.2em;}
+.categories-list {width:40%;margin-left:20%;}
+.categories-list:first-child {margin-left:0;}
+.active-categories:before {content:"Currently-selected Categories:";font-weight: bold;color:#222;}
+.active-categories {float:left;color:#000;}
+.available-categories:before {content:"Available Categories:";font-weight: bold;color:#222;}
+.available-categories {float:right;color:#333;}
+.categories-list input {float:left;}
+.categories-list .ui-sortable-helper {text-shadow:1px 1px 0 white;}
 
 /* UI - Thumbnail Viewer */
 .largeThumbViewer {display:none;position:fixed;width:250px;top:10px;left:50%;margin-left: -125px;z-index:74656;padding:10px;border:solid 2px #333;border-radius:6px;pointer-events:none;}

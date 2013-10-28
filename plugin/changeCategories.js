@@ -1,33 +1,79 @@
 _OKCP.changeCategories = function(){
+	
 	var storage = JSON.parse(localStorage.okcp);
-	var currCategoriesStr = JSON.stringify(storage.questionCategories);
-	var newCategoriesArr = prompt('Edit your list of categories in the input below.\n\nBe aware -- the spacing is important. Don\'t erase the brackets, and make sure each category name is in quotes and separated by a comma. The list of currently valid categories is below.\n\nAlternatively, if you want to reset your category list to the default, type "default".\n\nValid Categories:\n* '+_OKCP.categoryList.join('\n* '), currCategoriesStr);
-	var newQuestionCategories;
-	try {
-		if (newCategoriesArr.toLowerCase() === "default") {
-			storage.questionCategories = ["not_volatile","generally_happy","non-monogamous","communicative","not_possessive","cuddling","sex-positive"];
-			localStorage.okcp = JSON.stringify(storage);
-			alert('Success! Categories reset to default. Refresh the page to see the new categories');
-			_OKCP.clearCachedQuestionData();
-			return true;
-		}
-		
-		//the following will fail on improper input, putting us in the catch block
-		newQuestionCategories = JSON.parse(newCategoriesArr);
-		
-		if ($.isArray(newQuestionCategories)) {
-			storage.questionCategories = newQuestionCategories;
-			localStorage.okcp = JSON.stringify(storage);
-			alert('Success! Refresh the page to see the new categories');
-			_OKCP.clearCachedQuestionData();
-			return true;
-		}
+	var currCategories = storage.questionCategories;
+	
+	showCategorySorter();
 
-	} catch(e) {
-		console.log(e);
+	function showCategorySorter () {
+		$('body').append('<div class="categories-lists-wrapper"><div class="categories-lists"><ul class="active-categories categories-list"></ul><ul class="available-categories categories-list"></ul><input id="save-category-changes" type="button" value="Save Changes"><input id="cancel-category-changes" type="button" value="Cancel"><input id="reset-categories" type="button" value="Reset Categories"></div></div>');
+		$.each(_OKCP.categoryList, function(i, value){
+			var valueReadable = value.split('_').join(' ');
+			if ($.inArray(value,currCategories) >= 0) {
+				$('.active-categories').append('<li>' + valueReadable + '</li>');
+			} else {
+				$('.available-categories').append('<li>' + valueReadable + '</li>');
+			}
+		});
+		$( ".categories-list" ).sortable({
+			connectWith: ".categories-list"
+		}).disableSelection();
+		$('#save-category-changes').click(function(){
+			saveCategoryChanges();
+		});
+		$('#cancel-category-changes').click(function(){
+			hideCategorySorter();
+		});
+		$('#reset-categories').click(function(){
+			resetCategories();
+		});
+		
 	}
-	console.log(newQuestionCategories);
-	if (newCategoriesArr !== null) {
-		alert("CATEGORY CHANGE FAILED!\n\nMaybe you're missing a quote or a comma. Maybe you spelled something wrong. Whatever the reason, your changes were not saved. More information is logged in the console.\n\nIn case you want to save what you entered, here it is:\n\n"+newCategoriesArr+"\n\n");
+
+	function hideCategorySorter() {
+		$('.categories-lists-wrapper').remove();
 	}
+
+	function saveCategoryChanges(){
+		// var newCategoriesArr = prompt('Edit your list of categories in the input below.\n\nBe aware -- the spacing is important. Don\'t erase the brackets, and make sure each category name is in quotes and separated by a comma. The list of currently valid categories is below.\n\nAlternatively, if you want to reset your category list to the default, type "default".\n\nValid Categories:\n* '+_OKCP.categoryList.join('\n* '), currCategoriesStr);
+		var newCategoriesArr = [];
+		$('.active-categories').each(function(){
+			newCategoriesArr.push(this.value);
+		});
+		var newQuestionCategories = [];
+		try {
+			
+			$('.active-categories li').each(function(i, value){
+				newQuestionCategories.push($(value).text().split(' ').join('_'));
+			});
+
+			console.log(storage);
+			storage.questionCategories = newQuestionCategories;
+			console.log(storage);
+			localStorage.okcp = JSON.stringify(storage);
+			console.log(newQuestionCategories);
+			_OKCP.clearCachedQuestionData();
+			hideCategorySorter();
+			alert("Success! All open OkCupid pages need to be refreshed to show the new category preferences.\n\nThe current page will now refresh.");
+			location.reload();
+			return true;
+		
+		} catch(e) {
+			console.log(e);
+		}
+		console.log(newQuestionCategories);
+		if (newCategoriesArr !== null) {
+			alert("CATEGORY CHANGE FAILED!\n\nPlease let the developer know :)");
+		}
+	}
+
+	function resetCategories(){
+		storage.questionCategories = ["not_volatile","generally_happy","non-monogamous","communicative","not_possessive","cuddling","sex-positive"];
+		localStorage.okcp = JSON.stringify(storage);
+		alert('Success! Categories reset to default. Refresh the page to see the new categories');
+		_OKCP.clearCachedQuestionData();
+		hideCategorySorter();
+		location.reload();
+	}
+
 };
