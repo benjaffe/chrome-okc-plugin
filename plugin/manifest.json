@@ -1,10 +1,10 @@
 {
-  "name": "OkCupid (for Non-Mainstream Users)",
-  "short_name": "OkC Alt Ext",
-  "version": "2.2.2",
+  "name": "OkCupid (for the Non-Mainstream User)",
+  "short_name": "OkC Alt",
+  "version": "2.3.1",
   "manifest_version": 2,
-  "description": "Are you using OkCupid? Are you *not* a white monogamous straight male? You should definitely be using this extension.",
-  "homepage_url": "https://github.com/benjaffe/chrome-okc-plugin",
+  "description": "Are you using OkCupid? You should definitely be using this extension.",
+  "homepage_url": "http://cleverdeveloper.com/projects/okcupid-enhanced/",
   "browser_action": {
     "default_icon": {
       "19": "images/icon19.png"
@@ -13,14 +13,14 @@
     "default_popup": "options.html"
   },
   "permissions": [
-    "http://*.okcupid.com/*", "https://*.okcupid.com/*", "clipboardWrite", "tabs"
+    "http://*.okcupid.com/*", "https://*.okcupid.com/*"
   ],
   "content_scripts": [
     {
       "matches": ["http://*.okcupid.com/*"],
       "css": ["style.css"],
       "js": ["lib/knockout-2.2.0.js","lib/jquery.min.js",
-        "init.js",
+        "setup.js",
         "questions.js",
         "questions/demeanor.js",
         "questions/discrimination.js",
@@ -35,9 +35,11 @@
         "devTools.js",
         "fixAndAugmentUI.js",
         "thumbViewer.js",
+        "changeCategories.js",
         "increaseAccuracy.js",
         "getAnswers.js",
-        "ViewModels.js"],
+        "ViewModels.js",
+        "init.js"],
       "run_at": "document_end"
     }
   ],
