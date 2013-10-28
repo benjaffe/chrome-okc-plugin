@@ -224,7 +224,7 @@ _OKCP.getAnswers = function (list) {
 
 	// if we're done, it hides the spinner and adds the UI, then sorts the categories
 	function areWeDone(fromCached) {
-		console.log('from cache '+fromCached);
+		// console.log('from cache '+fromCached);
 		if (fromCached || numRequestsFinished === numRequestsMade) {
 			// console.log(questionList);
 			// put this data into localStorage
@@ -260,24 +260,27 @@ _OKCP.getAnswers = function (list) {
 				var denominator = Math.round(countArr[1]*10)/10+'';
 				var numeratorArr = numerator.split('.');
 				var denominatorArr = denominator.split('.');
-				if (denominator === '0') continue;
+				if (denominator*1 <= 0.5) continue;
 				var matchRatioHtmlValue = '<span class="integer">' + numeratorArr[0] + '</span><span class="point">.</span><span class="decimal">'+(numeratorArr[1] || '0')+'</span><span class="slash">/</span><span class="integer">' + denominatorArr[0] + '</span><span class="point">.</span><span class="decimal">'+(denominatorArr[1] || '0')+'</span>';
 				$('.match-ratios-list').append('<li class="match-ratio ' + matchClass + '"><span class="match-ratio-progressbar ' + matchClass + '" style="width:' + (Math.round(countArr[0]/countArr[1]*93)+7) + '%"></span><span class="match-ratio-category">' + categoryReadable + '</span><span class="match-ratio-value">' + matchRatioHtmlValue + '</span></li>');//matchRatio + '%</li>');
-			}
+			
 
-			for (var i = 0; i < questionList.length; i++) {
-				var question = questionList[i];
-				if ($('.question-detail-'+question.category).length === 0) {
-					$('.question-detail').append('<ul class="question-detail-'+question.category+'"></ul>');
-				}
-				var matchClass = 'match-' + (Math.floor(question.answerScore*5));
-				$('.question-detail-'+question.category).append('<li class="match ' + matchClass + '"><ul>'+
-					'<li class="question qid-'+question.qid+'">' + question.question + '</li>'+
-					'<li class="answer">' + question.theirAnswer + '</li>'+
-					'<li class="explanation">' + question.theirNote + '</li>'+
-					'</ul></li>');
-				if ($('.question-detail-'+question.category+' .match').length === 1) {
-					$('.question-detail-'+question.category).prepend('<li class="category-header category-header-'+question.category+'">'+question.categoryReadable+'</li>');
+				for (var i = 0; i < questionList.length; i++) {
+					var question = questionList[i];
+					if (question.category === category) {
+						if ($('.question-detail-'+question.category).length === 0) {
+							$('.question-detail').append('<ul class="question-detail-'+question.category+'"></ul>');
+						}
+						var matchClass = 'match-' + (Math.floor(question.answerScore*5));
+						$('.question-detail-'+question.category).append('<li class="match ' + matchClass + '"><ul>'+
+							'<li class="question qid-'+question.qid+'">' + question.question + '</li>'+
+							'<li class="answer">' + question.theirAnswer + '</li>'+
+							'<li class="explanation">' + question.theirNote + '</li>'+
+							'</ul></li>');
+						if ($('.question-detail-'+question.category+' .match').length === 1) {
+							$('.question-detail-'+question.category).prepend('<li class="category-header category-header-'+question.category+'">'+question.categoryReadable+'</li>');
+						}
+					}
 				}
 			}
 
