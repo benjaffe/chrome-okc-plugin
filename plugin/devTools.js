@@ -2,6 +2,7 @@
 if (!!localStorage.devMode && JSON.parse(localStorage.devMode) === true) {
 
 	_OKCP.cacheEnabled = false;
+	console.log('dev mode enabled');
 
 
 	$('html').addClass('devmode');

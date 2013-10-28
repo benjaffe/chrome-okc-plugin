@@ -1,4 +1,4 @@
-#logo .okcp-enhanced-link {
+#logo .okcp-improved-link {
      position: absolute;
      top: 45px;
      left: 31px;
@@ -7,7 +7,7 @@
      font-size: 12px;
      letter-spacing: -0.2px;
 }
-#logo .okcp-enhanced-link:hover {
+#logo .okcp-improved-link:hover {
      color:#ABC;
      width: 50px;
      cursor: pointer;
@@ -27,13 +27,13 @@
 .match-ratios-wrapper-outer {position:absolute;right: 170px;top: 11px;height:195px;width:240px;} /* Yes, a table... for complicated layout, vertical aligning to the bottom while scrolling when there are too many */
 #okcp .match-ratios-list {box-shadow: none;margin:0;padding:0;max-height: 210px;overflow-y: scroll;overflow-x:hidden;}
 #okcp .match-ratios-list::-webkit-scrollbar {-webkit-appearance: none;width: 7px;}
-#okcp .match-ratios-list::-webkit-scrollbar-thumb {border-radius: 4px;background-color: rgba(0,0,0,.5);-webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);}
+#okcp .match-ratios-list::-webkit-scrollbar-thumb {border-radius: 4px;background-color: rgba(0,0,0,.5);box-shadow: 0 0 1px rgba(255,255,255,.5);}
 #okcp .match-ratios {vertical-align: bottom;}
 #okcp .match-ratio {position:relative;margin-bottom:2px;height:20px;}
 
 #okcp .match-ratio .match-ratio-progressbar {position:absolute;top:0;bottom:0;right:0;width:0%;border-radius: 15px;opacity:1;}
 #okcp .match-ratio .match-ratio-value {display:none;position:absolute;right:0;width:23%;margin-right:2%;background:transparent;color:black;text-align: center;border-radius: 10px;text-shadow:1px 1px 2px rgba(255,255,255,0.5);}
-#okcp .match-ratio .match-ratio-category {position:absolute;right:-3px;text-shadow:0 0 0 rgba(0,0,0,0.4), 0 0 3px #FFF;color:#000;z-index:5;}
+#okcp .match-ratio .match-ratio-category {position:absolute;right:-3px;text-shadow:0 0 0 rgba(0,0,0,0.4), 0 0 3px #FFF;color:#000;z-index:5;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
 
 #okcp .match-ratio.not-a-match .match-ratio-category {right:8px;}
 #okcp .match-ratio.not-a-match .match-ratio-category,
@@ -70,9 +70,10 @@ background-position:0 0, -1px -5px;}
      background: #d5e1ed;background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#e3ebf3),color-stop(100%,#d5e1ed));background: -webkit-linear-gradient(top,#e3ebf3 0%,#d5e1ed 100%);background: -o-linear-gradient(top,#e3ebf3 0%,#d5e1ed 100%);background: -ms-linear-gradient(top,#e3ebf3 0%,#d5e1ed 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e3ebf3',endColorstr='#d5e1ed',GradientType=0);-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e3ebf3',endColorstr='#d5e1ed',GradientType=0);background: linear-gradient(top,#e3ebf3 0%,#d5e1ed 100%);}
 .questions-in-common-many {}
 .questions-in-common-few {}
-.improve-accuracy {font-size:0.8em;padding-left:5px;}
-.improve-accuracy:before {content:"...";margin-right:5px;color:#2855A2;}
-.improve-accuracy.disabled {display:none;}
+.question-feature-link {font-size:0.8em;padding-left:5px;}
+.question-feature-link:before {content:"...";margin-right:5px;color:#2855A2;}
+.question-feature-link:first-child:before {display:none;}
+.question-feature-link.disabled {display:none;}
 .photos + .question-detail {display:none;right: -191px;}
 .question-detail>* {box-shadow:0 3px 4px rgba(0,0,0,0.3);}
 .question-detail ul {margin:0;}

@@ -9,10 +9,7 @@ _OKCP.getLargeThumbUrl = function(url) {
 };
 
 $(document).mousemove(function(e){
-	// console.log(e.pageX > document.body.clientWidth/2-390);
-	// if (largeThumbViewerElem.filter(':hidden').size() > 0){
 	if (e.pageX < document.body.clientWidth/2-390) $('html').addClass('mouseOnLeft').removeClass('mouseOnRight');
 	else if (e.pageX > document.body.clientWidth/2+395) $('html').addClass('mouseOnRight').removeClass('mouseOnLeft');
 	else $('html').removeClass('mouseOnLeft mouseOnRight');
-	// }
 });
