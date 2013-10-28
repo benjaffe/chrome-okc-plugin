@@ -18,8 +18,8 @@
   "content_scripts": [
     {
       "matches": ["http://*.okcupid.com/*"],
-      "css": ["style.css"],
-      "js": ["lib/knockout-2.2.0.js","lib/jquery.min.js",
+      "css": ["lib/ui-lightness/jquery-ui-1.10.3.custom.css","style.css"],
+      "js": ["lib/knockout-2.2.0.js","lib/jquery-1.9.1.js","lib/jquery-ui-1.10.3.custom.js",
         "setup.js",
         "questions.js",
         "questions/demeanor.js",
