@@ -113,7 +113,11 @@ _OKCP.getAnswers = function (list) {
 				//TODO: on the first page load, get meta info (number of questions in common)
 
 				//add page results, parse the page
-				$('<div id="page-results-' + questionPageNum + '"></div>').appendTo(pageResultsDiv).load(questionPath + ' [class$="questions"]', function() {
+				$('<div id="page-results-' + questionPageNum + '"></div>').appendTo(pageResultsDiv).load(questionPath + ' [class$="questions"]', function(response, status) {
+					if ( status === "error" ) {
+						numRequestsFinished++;
+						return false;
+					}
 					numRequestsFinished++;
 					// console.log(this);
 
@@ -220,14 +224,17 @@ _OKCP.getAnswers = function (list) {
 
 	// if we're done, it hides the spinner and adds the UI, then sorts the categories
 	function areWeDone(fromCached) {
+		console.log('from cache '+fromCached);
 		if (fromCached || numRequestsFinished === numRequestsMade) {
 			// console.log(questionList);
 			// put this data into localStorage
+			// console.log('done');
 			recentProfiles[_OKCP.profileName] = {
 				expires: new Date().getTime() + 600000, // temporarily-cached data expires 10 minutes from being set
 				questionList: questionList,
 				responseCount: responseCount
 			};
+
 			for (var profile in recentProfiles) {
 				if (profile === "_ATTENTION") continue;
 				if (new Date().getTime() - recentProfiles[profile].expires > 0) {
@@ -235,7 +242,6 @@ _OKCP.getAnswers = function (list) {
 				}
 			}
 			localStorage.okcpRecentProfiles = JSON.stringify(recentProfiles);
-
 			$('.spinner').hide();
 			for (var category in responseCount) {
 				var countArr = responseCount[category];
@@ -264,8 +270,7 @@ _OKCP.getAnswers = function (list) {
 				if ($('.question-detail-'+question.category).length === 0) {
 					$('.question-detail').append('<ul class="question-detail-'+question.category+'"></ul>');
 				}
-				var matchClass = 'match-' + (Math.floor(question.answerScoreWeighted*5));
-				// console.log(matchClass + ' ' + question.answerScoreWeighted);
+				var matchClass = 'match-' + (Math.floor(question.answerScore*5));
 				$('.question-detail-'+question.category).append('<li class="match ' + matchClass + '"><ul>'+
 					'<li class="question qid-'+question.qid+'">' + question.question + '</li>'+
 					'<li class="answer">' + question.theirAnswer + '</li>'+
@@ -275,7 +280,6 @@ _OKCP.getAnswers = function (list) {
 					$('.question-detail-'+question.category).prepend('<li class="category-header category-header-'+question.category+'">'+question.categoryReadable+'</li>');
 				}
 			}
-
 
 
 			if ($('.question-detail > ul').length === 0) {
@@ -308,4 +312,13 @@ _OKCP.getAnswers = function (list) {
 		}
 	}
 };
-_OKCP.getAnswers();
+
+_OKCP.clearCachedQuestionData = function() {
+	console.log("cleared cached question data");
+	var recentProfiles = JSON.parse(localStorage.okcpRecentProfiles);
+	for (var profile in recentProfiles) {
+		if (profile === "_ATTENTION") continue;
+		delete recentProfiles[profile]; // remove not-recently visited profiles
+	}
+	localStorage.okcpRecentProfiles = JSON.stringify(recentProfiles);
+};

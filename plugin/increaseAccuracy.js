@@ -62,16 +62,5 @@ _OKCP.showUnansweredQuestions = function(data) {
 				});
 			});
 		};
-		
-
-		// $('<div class="unanswered-questions-' + i + '"></div>').load('http://www.okcupid.com/questions?rqid=' + qid + ' #new_question', function() {
-		//	if ($(this).find('.notice:contains(already answered this question)').length) {
-		//		$(this).remove();
-		//	} else {
-				
-				
-		//	}
-			
-		// });
 	}
 };
