@@ -26,11 +26,14 @@ if (_OKCP.profilePath !== '') {
 	$('#right_column').before('<div class="question-detail"></div>');
 	var questionsInCommonElem = $('<div class="questions-in-common"></div>').prependTo('.question-detail');
 	if (JSON.parse(localStorage.okcp).accuracyImprovedAsOfVersionNum != JSON.parse(localStorage.okcpDefaultQuestions).questionsVersionNum) {
-		$('<a href="#" class="improve-accuracy" id="improve-accuracy">Improve Accuracy</a>').appendTo(questionsInCommonElem).click(function(){
+		$('<a href="#" class="question-feature-link improve-accuracy" id="improve-accuracy">Improve Accuracy</a>').appendTo(questionsInCommonElem).click(function(){
 			_OKCP.showUnansweredQuestions();
 		});
-
 	}
+
+	$('<a href="#" class="question-feature-link change-categories" id="change-categories">Change Categories</a>').appendTo(questionsInCommonElem).click(function(){
+		_OKCP.changeCategories();
+	});
 
 }
 
@@ -151,16 +154,6 @@ function OKCP() {
 
 	this.alertLocalStorageChange = function() {
 		_dummyObservable.notifySubscribers(); //force the computed value to fetch the new updated local storage by pretending we updated something else in the computed function.
-	};
-
-	this.clearCachedQuestionData = function() {
-		console.log("cleared cached question data");
-		var recentProfiles = JSON.parse(localStorage.okcpRecentProfiles);
-		for (var profile in recentProfiles) {
-			if (profile === "_ATTENTION") continue;
-			delete recentProfiles[profile]; // remove not-recently visited profiles
-		}
-		localStorage.okcpRecentProfiles = JSON.stringify(recentProfiles);
 	};
 
 }
