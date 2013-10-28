@@ -144,7 +144,7 @@ _OKCP.fileQuestions.sex =
 				"text":"Do you know what a 'safeword' is, in a sexual context?",
 				"answerText": ["Yes", "No"],
 				"score": [1, -1],
-				"weight": [1, 1]
+				"weight": [0.1, 1]
 			}
 		],
 
@@ -162,7 +162,7 @@ _OKCP.fileQuestions.sex =
 				"text":"Do you know what a 'safeword' is, in a sexual context?",
 				"answerText": ["Yes", "No"],
 				"score": [1, -1],
-				"weight": [1, 1]
+				"weight": [0.1, 1]
 			}
 		],
 
@@ -186,7 +186,7 @@ _OKCP.fileQuestions.sex =
 				"text":"Do you know what a 'safeword' is, in a sexual context?",
 				"answerText": ["Yes", "No"],
 				"score": [1, -1],
-				"weight": [1, 1]
+				"weight": [0.1, 1]
 			}
 		],
 
@@ -278,7 +278,7 @@ _OKCP.fileQuestions.sex =
 				"text":"Do you know what a 'safeword' is, in a sexual context?",
 				"answerText": ["Yes", "No"],
 				"score": [1, -1],
-				"weight": [1, 1]
+				"weight": [0.1, 1]
 			}
 		],
 
@@ -304,7 +304,7 @@ _OKCP.fileQuestions.sex =
 				"text":"Do you know what a 'safeword' is, in a sexual context?",
 				"answerText": ["Yes", "No"],
 				"score": [1, -1],
-				"weight": [1, 1]
+				"weight": [0.1, 1]
 			}
 		],
 
