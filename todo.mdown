@@ -17,6 +17,9 @@ increase accuracy is broken (question parsing)
 
 * Refactor: split up source
 
+* Hover Zoom type Improvements
+* Option for disabling my hoverzoom
+
 * Make a build script (grunt?)
 * Do something with last viewed. When did the user last view this profile?
 
