@@ -13,6 +13,8 @@
      cursor: pointer;
 }
 
+.btn {cursor:pointer;}
+
 /* UI - Buttons */
 .okcp-btns {position:absolute;top:79px;right:29px;text-align:right;font-size:1.3em;}
 .okcp-btns .divider {border-bottom:1px solid #89B;margin:7px 0 3px;}
@@ -204,9 +206,28 @@ background-position:0 0, -1px -5px;}
 
 
 
+
+
+
+
+
 /* New Unreleased Features */
 .new-feature {display:none;}
 .devmode .new-feature {display:block;} /* If you want to see the new features, add a class of "devmode" to the html element */
+
+
+.not_answered .okcp-suggest-question {display:none;}
+.copy-this {width:800px;margin:20px auto 50px;background:rgba(255,255,255,0.2);padding:20px;}
+.copy-this h2 {color:white;font-size:15px;text-align: center;font-weight: normal;text-shadow:1px 1px 3px rgba(0,0,0,0.5);}
+.copy-this-text {white-space: pre-wrap;padding:20px;background:#DDD;color: black;}
+
+
+
+
+
+
+
+
 
 
 /* Pagination */
