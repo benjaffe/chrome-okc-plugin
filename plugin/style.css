@@ -209,6 +209,11 @@ background-position:0 0, -1px -5px;}
 .devmode .new-feature {display:block;} /* If you want to see the new features, add a class of "devmode" to the html element */
 
 
+/* Pagination */
+#questions .pagination {position: absolute;top: 48px;left: 0;width: 410px;border:none;}
+#questions .pagination .num {padding:0 5px;border:none;border-right:solid 1px #CCC;margin-bottom:3px;float:left;height:15px;line-height:16px;text-align:center;}
+#questions .pagination .num:last-child {border:none;}
+#questions .pagination .num:hover {background: #ddd;}
 
 /* UI Tweaks and Fixes */
 .image a {display:block;} /* makes the a tags encase the imgs so the text is at the top */

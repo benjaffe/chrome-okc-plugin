@@ -34,6 +34,7 @@
         "defaultQuestions.js", 
         "devTools.js",
         "fixAndAugmentUI.js",
+        "readdPagination.js",
         "thumbViewer.js",
         "changeCategories.js",
         "increaseAccuracy.js",
