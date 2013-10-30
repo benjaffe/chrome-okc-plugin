@@ -1386,7 +1386,7 @@
 							"pyflakes_ignore_import_*": true,
 							"sublime_auto_complete": true,
 							"sublimelinter": true,
-							"sublimelinter_delay": 0.5,
+							"sublimelinter_delay": 2.0,
 							"sublimelinter_disable":
 							[
 							],
@@ -1396,7 +1396,7 @@
 							"sublimelinter_fill_outlines": false,
 							"sublimelinter_gutter_marks": true,
 							"sublimelinter_gutter_marks_theme": "simple",
-							"sublimelinter_mark_style": "outline",
+							"sublimelinter_mark_style": "none",
 							"sublimelinter_notes": false,
 							"sublimelinter_objj_check_ascii": false,
 							"sublimelinter_popup_errors_on_save": false,
@@ -1676,7 +1676,7 @@
 							"pyflakes_ignore_import_*": true,
 							"sublime_auto_complete": true,
 							"sublimelinter": true,
-							"sublimelinter_delay": 0.5,
+							"sublimelinter_delay": 2.0,
 							"sublimelinter_disable":
 							[
 							],
@@ -1686,7 +1686,7 @@
 							"sublimelinter_fill_outlines": false,
 							"sublimelinter_gutter_marks": true,
 							"sublimelinter_gutter_marks_theme": "simple",
-							"sublimelinter_mark_style": "outline",
+							"sublimelinter_mark_style": "none",
 							"sublimelinter_notes": false,
 							"sublimelinter_objj_check_ascii": false,
 							"sublimelinter_popup_errors_on_save": false,
@@ -2567,7 +2567,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 192.0,
-						"translation.y": 1738.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -2807,7 +2807,7 @@
 							"pyflakes_ignore_import_*": true,
 							"sublime_auto_complete": true,
 							"sublimelinter": true,
-							"sublimelinter_delay": 0.5,
+							"sublimelinter_delay": 2.0,
 							"sublimelinter_disable":
 							[
 							],
@@ -2817,7 +2817,7 @@
 							"sublimelinter_fill_outlines": false,
 							"sublimelinter_gutter_marks": true,
 							"sublimelinter_gutter_marks_theme": "simple",
-							"sublimelinter_mark_style": "outline",
+							"sublimelinter_mark_style": "none",
 							"sublimelinter_notes": false,
 							"sublimelinter_objj_check_ascii": false,
 							"sublimelinter_popup_errors_on_save": false,
@@ -3072,7 +3072,7 @@
 							"pyflakes_ignore_import_*": true,
 							"sublime_auto_complete": true,
 							"sublimelinter": true,
-							"sublimelinter_delay": 0.5,
+							"sublimelinter_delay": 2.0,
 							"sublimelinter_disable":
 							[
 							],
@@ -3082,7 +3082,7 @@
 							"sublimelinter_fill_outlines": false,
 							"sublimelinter_gutter_marks": true,
 							"sublimelinter_gutter_marks_theme": "simple",
-							"sublimelinter_mark_style": "outline",
+							"sublimelinter_mark_style": "none",
 							"sublimelinter_notes": false,
 							"sublimelinter_objj_check_ascii": false,
 							"sublimelinter_popup_errors_on_save": false,
