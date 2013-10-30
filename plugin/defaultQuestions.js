@@ -37,10 +37,15 @@ for(xx in _OKCP.fileQuestions) {
 }
 _OKCP.fileQuestions = fullQuestionsList;
 _OKCP.categoryList = [];
+_OKCP.fullQuestionsList = []
 //loop through all questions
 for (xx in fullQuestionsList) {
 	//push category name into the category list.
 	_OKCP.categoryList.push(xx);
+	//push category questions into fullQuestionsList
+	for (yy in fullQuestionsList[xx]) {
+		_OKCP.fullQuestionsList.push(fullQuestionsList[xx][yy]);
+	}
 	//loop through desired categories
 	for (var i = desiredCategories.length - 1; i >= 0; i--) {
 		//if the current questions matches, use it
