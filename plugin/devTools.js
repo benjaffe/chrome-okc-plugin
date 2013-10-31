@@ -32,7 +32,7 @@ if (_OKCP.debugTimerEnabled) {_OKCP.debugTimer = new Date();}
 	var fullQuestionsList = _OKCP.fullQuestionsList;
 	_OKCP.questionsToSuggest = {};
 	
-	$('<div class="copy-this" style="display:none;"><h2>To submit your questions, highlight the following text and email it to <a href="mailto: okcp.suggestions@gmail.com" style="color:#DDD;"> okcp.suggestions@gmail.com</a></h2><div class="copy-this-text"></div></div>').appendTo('body');
+	$('<div class="copy-this" style="display:none;"><h2>To submit your questions, carefully copy the following text and email it to <a href="mailto: okcp.suggestions@gmail.com" style="color:#DDD;"> okcp.suggestions@gmail.com</a></h2><div class="copy-this-text"></div></div>').appendTo('body');
 
 	$('.question').filter(function(){
 			var qid = this.id.split('question_')[1];
