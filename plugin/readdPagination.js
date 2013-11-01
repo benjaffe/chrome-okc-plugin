@@ -1,4 +1,3 @@
-// setTimeout(function(){
 _OKCP.initReaddPagination = function() {
 	var lastPageElem,
 		numPages,
