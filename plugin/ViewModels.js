@@ -289,6 +289,23 @@ _OKCP.conversationThumbs.each(function() {
 });
 applyBindingsToProfileThumb(_OKCP.conversationThumbs,'#conversations', false, true);
 
+setInterval(function() {
+	var doSortByEnemy = false;
+
+	// Match Search Page
+	_OKCP.matchresultsThumbs = $('#match_results .match_row');
+	_OKCP.matchresultsThumbs.each(function() {
+		//if it doesn't have a binding applied, apply one
+		if ($(this).attr('data-bind') === undefined) {
+			this.thumbName = $(this).find('.username').text().trim();
+			applyBindingsToProfileThumb($(this), '#'+this.id, false, true);
+			// doSortByEnemy = !!JSON.parse(localStorage.okcp).settings.sortByEnemy; // doSortByEnemy = true if the setting is enabled
+		}
+	});
+	
+	if (doSortByEnemy) OKCP.sortByEnemy();
+},1000);
+
 // Bindings are applied, so remove class from body enabling hide button.
 $('.OKCP-bindings-not-yet-loaded').removeClass('OKCP-bindings-not-yet-loaded');
 
