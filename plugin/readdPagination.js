@@ -1,5 +1,5 @@
 // setTimeout(function(){
-(function() {
+_OKCP.initReaddPagination = function() {
 	var lastPageElem,
 		numPages,
 		itemsPerPage,
@@ -25,4 +25,4 @@
 			.attr('class','num');
 		paginationElem.append(newElem);
 	}
-})();
+};

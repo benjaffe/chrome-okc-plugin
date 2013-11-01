@@ -37,7 +37,7 @@ for(xx in _OKCP.fileQuestions) {
 }
 _OKCP.fileQuestions = fullQuestionsList;
 _OKCP.categoryList = [];
-_OKCP.fullQuestionsList = []
+_OKCP.fullQuestionsList = [];
 //loop through all questions
 for (xx in fullQuestionsList) {
 	//push category name into the category list.
