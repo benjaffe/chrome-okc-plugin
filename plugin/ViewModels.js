@@ -101,10 +101,10 @@ function OKCP() {
 		// 	// console.log(data);
 		// 	$('.largeThumbViewerCaption').html(data.username + ' / ' + data.age + ' / ' + data.sex + ' / ' + data.location.split(', ')[0] + ', ' + stateAbbr[data.location.split(', ')[1]] + ' (' + data.distance + data.units + ')');
 		// });
-    };
-    this.swapSmallThumb = function(vm,e) {
-       $('.largeThumbViewer').hide();
-    };
+	};
+	this.swapSmallThumb = function(vm,e) {
+	   $('.largeThumbViewer').hide();
+	};
 
 	this.calculateHiddenProfile = function() {
 		this.alertLocalStorageChange();

@@ -175,10 +175,9 @@ _OKCP.getAnswers = function (list) {
 							answerScoreWeighted = ((answerScore+1) / 2) * answerWeight;
 							// console.log(answerScore + " " + answerWeight);
 
-							// Ask Chuck
-							if (!responseCount[category]) { //ensure there's an entry for the category count
-								responseCount[category] = [0,0];
-							}
+							//ensure there's an entry for the category count
+							if (!responseCount[category]) responseCount[category] = [0,0];
+
 							responseCount[category][0] += answerScoreWeighted;
 							responseCount[category][1] += answerWeight;
 							// console.log(num + " - " + questionText);

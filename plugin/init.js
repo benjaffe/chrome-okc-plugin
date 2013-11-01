@@ -4,6 +4,7 @@ $(function(){
 	var pageMailbox = $('#p_mailbox').length > 0;
 	var pageProfile = true;
 
+	if (_OKCP.devmode) _OKCP.initDevMode();
 	
 	// get answers
 	_OKCP.getAnswers();
