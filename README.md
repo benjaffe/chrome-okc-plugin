@@ -33,4 +33,5 @@ Just added poly-hide persistence across tabs, so things should stay in sync, and
 Thanks, and I look forward to the feedback. Happy browsing, and happy 2013!
 
 Ben
- 
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/benjaffe/chrome-okc-plugin/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
