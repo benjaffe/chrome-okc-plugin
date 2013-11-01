@@ -15,7 +15,8 @@ increase accuracy is broken (question parsing)
 ## Ideas for the future:
 ### (sorted by rough priority)
 
-* Refactor: split up source
+
+* sorting
 
 * Hover Zoom type Improvements
 * Option for disabling my hoverzoom
