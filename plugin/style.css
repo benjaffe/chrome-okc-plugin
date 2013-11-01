@@ -231,12 +231,19 @@ background-position:0 0, -1px -5px;}
 
 
 /* Pagination */
-#questions .pagination {position: absolute;top: 48px;left: 0;width: 410px;border:none;}
-#questions .pagination .num {padding:0 5px;border:none;border-right:solid 1px #CCC;margin-bottom:3px;float:left;height:15px;line-height:16px;text-align:center;}
-#questions .pagination .num:last-child {border:none;}
-#questions .pagination .num:hover {background: #ddd;}
+#okcp .pagination {position: absolute;top: 48px;left: 0;width: 410px;border:none;}
+#okcp .messages_bottom .pagination {width: 338px;}
+#okcp #questions .pagination {width: 443px;}
+#okcp .pagination .num {padding:0 5px;border:none;border-right:solid 1px #CCC;margin-bottom:3px;float:left;height:15px;line-height:16px;text-align:center;}
+#okcp .pagination .num:last-child {border:none;}
+#okcp .pagination .num:hover {background: #ddd;}
 
 /* UI Tweaks and Fixes */
+.messages_bottom .actions_wrapper {width: 190px;} /* messages page, buttons on bottom */
+     #delete_threads {float:left;}
+     #select_all_threads {clear:none;}
+     #delete_threads a,
+     #select_all_threads a {padding: 0 10px;}
 .image a {display:block;} /* makes the a tags encase the imgs so the text is at the top */
 #online_now {z-index: 10;} /* prevent online_now indicator from getting hidden behind the image */
 .guilt {display:none;}
