@@ -15,7 +15,7 @@ if (_OKCP.profilePath !== '') {
 		'<div class="divider"></div>'+
 		'<a class="okcp-btn hide-btn uninterested-hide-btn" data-bind="click: toggleHideUninterested, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].u == true : false}">Not For Me</a>'+
 		'<a class="okcp-btn hide-btn nodata-hide-btn" data-bind="click: toggleHideNoData, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].d == true : false}">No Answers</a>'+
-	'</div>').append('<div class="spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>');
+	'</div>').append('<div class="spinner"></div>');
 	
 	// UI: Category match percentages (#social exists on your own profile page, #actions is on others')
 	$('#actions, #social').append('<table class="match-ratios-wrapper-outer"><tr><td class="match-ratios">'+

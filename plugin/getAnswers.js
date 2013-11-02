@@ -241,76 +241,80 @@ _OKCP.getAnswers = function (list) {
 				}
 			}
 			localStorage.okcpRecentProfiles = JSON.stringify(recentProfiles);
-			$('.spinner').hide();
-			for (var category in responseCount) {
-				var countArr = responseCount[category];
-				var matchClass = 'match-' + Math.floor(countArr[0]/countArr[1]*5);
-				var categoryReadable = category.split('_').join(' ');
-				if (countArr[1]<=1) {
-					matchClass += ' one-data-point-match';
-				}
-				if (countArr[1] >= 10) {
-					matchClass += ' more-than-10';
-				}
-				if (countArr[0]/countArr[1] <= 0.1) {
-					matchClass += ' not-a-match';
-				}
-				var numerator = Math.round(countArr[0]*10)/10+'';
-				var denominator = Math.round(countArr[1]*10)/10+'';
-				var numeratorArr = numerator.split('.');
-				var denominatorArr = denominator.split('.');
-				if (denominator*1 <= 0.5) continue;
-				var matchRatioHtmlValue = '<span class="integer">' + numeratorArr[0] + '</span><span class="point">.</span><span class="decimal">'+(numeratorArr[1] || '0')+'</span><span class="slash">/</span><span class="integer">' + denominatorArr[0] + '</span><span class="point">.</span><span class="decimal">'+(denominatorArr[1] || '0')+'</span>';
-				$('.match-ratios-list').append('<li class="match-ratio ' + matchClass + '"><span class="match-ratio-progressbar ' + matchClass + '" style="width:' + (Math.round(countArr[0]/countArr[1]*93)+7) + '%"></span><span class="match-ratio-category">' + categoryReadable + '</span><span class="match-ratio-value">' + matchRatioHtmlValue + '</span></li>');//matchRatio + '%</li>');
-			
 
-				for (var i = 0; i < questionList.length; i++) {
-					var question = questionList[i];
-					if (question.category === category) {
-						if ($('.question-detail-'+question.category).length === 0) {
-							$('.question-detail').append('<ul class="question-detail-'+question.category+'"></ul>');
-						}
-						var matchClass = 'match-' + (Math.floor(question.answerScore*5));
-						$('.question-detail-'+question.category).append('<li class="match ' + matchClass + '"><ul>'+
-							'<li class="question qid-'+question.qid+'">' + question.question + '</li>'+
-							'<li class="answer">' + question.theirAnswer + '</li>'+
-							'<li class="explanation">' + question.theirNote + '</li>'+
-							'</ul></li>');
-						if ($('.question-detail-'+question.category+' .match').length === 1) {
-							$('.question-detail-'+question.category).prepend('<li class="category-header category-header-'+question.category+'">'+question.categoryReadable+'</li>');
-						}
+			$('.spinner').fadeOut(300);
+		}
+		
+		$('.match-ratios-list').html('');
+		$('.question-detail').html('');
+		for (var category in responseCount) {
+			var countArr = responseCount[category];
+			var matchClass = 'match-' + Math.floor(countArr[0]/countArr[1]*5);
+			var categoryReadable = category.split('_').join(' ');
+			if (countArr[1]<=1) {
+				matchClass += ' one-data-point-match';
+			}
+			if (countArr[1] >= 10) {
+				matchClass += ' more-than-10';
+			}
+			if (countArr[0]/countArr[1] <= 0.1) {
+				matchClass += ' not-a-match';
+			}
+			var numerator = Math.round(countArr[0]*10)/10+'';
+			var denominator = Math.round(countArr[1]*10)/10+'';
+			var numeratorArr = numerator.split('.');
+			var denominatorArr = denominator.split('.');
+			if (denominator*1 <= 0.5) continue;
+			var matchRatioHtmlValue = '<span class="integer">' + numeratorArr[0] + '</span><span class="point">.</span><span class="decimal">'+(numeratorArr[1] || '0')+'</span><span class="slash">/</span><span class="integer">' + denominatorArr[0] + '</span><span class="point">.</span><span class="decimal">'+(denominatorArr[1] || '0')+'</span>';
+			$('.match-ratios-list').append('<li class="match-ratio ' + matchClass + '"><span class="match-ratio-progressbar ' + matchClass + '" style="width:' + (Math.round(countArr[0]/countArr[1]*93)+7) + '%"></span><span class="match-ratio-category">' + categoryReadable + '</span><span class="match-ratio-value">' + matchRatioHtmlValue + '</span></li>');//matchRatio + '%</li>');
+		
+
+			for (var i = 0; i < questionList.length; i++) {
+				var question = questionList[i];
+				if (question.category === category) {
+					if ($('.question-detail-'+question.category).length === 0) {
+						$('.question-detail').append('<ul class="question-detail-'+question.category+'"></ul>');
+					}
+					var matchClass = 'match-' + (Math.floor(question.answerScore*5));
+					$('.question-detail-'+question.category).append('<li class="match ' + matchClass + '"><ul>'+
+						'<li class="question qid-'+question.qid+'">' + question.question + '</li>'+
+						'<li class="answer">' + question.theirAnswer + '</li>'+
+						'<li class="explanation">' + question.theirNote + '</li>'+
+						'</ul></li>');
+					if ($('.question-detail-'+question.category+' .match').length === 1) {
+						$('.question-detail-'+question.category).prepend('<li class="category-header category-header-'+question.category+'">'+question.categoryReadable+'</li>');
 					}
 				}
 			}
+		}
 
 
-			if ($('.question-detail > ul').length === 0) {
-				$('.question-detail').append('<ul><li class="match match-nomatches"><ul>'+
-					'<li class="noresults">' + 'No Results' + '</li>'+
-					'<li class="note">' + 'To improve the plugin\'s accuracy, answer more questions publicly and rank them as "Very Important" or "Mandatory". You can also click the "Improve Accuracy" link at the top of this panel to help out.' + '</li>'+
-					'</ul></li></ul>');
-				return false;
-			}
+		if ($('.question-detail > ul').length === 0) {
+			$('.question-detail').append('<ul><li class="match match-nomatches"><ul>'+
+				'<li class="noresults">' + 'No Results' + '</li>'+
+				'<li class="note">' + 'To improve the plugin\'s accuracy, answer more questions publicly and rank them as "Very Important" or "Mandatory". You can also click the "Improve Accuracy" link at the top of this panel to help out.' + '</li>'+
+				'</ul></li></ul>');
+			return false;
+		}
 
-			// sort categories
-			$('.match-ratios-list .match-ratio').sort(function(a,b) {
-				if ($(b).find('.match-ratio-category').text() === "poly:") return true;
-				if ($(a).find('.match-ratio-category').text() === "poly:") return false;
-				return ( $(a).find('.match-ratio-category').text() > $(b).find('.match-ratio-category').text() );
-			}).appendTo('.match-ratios-list');
+		// sort categories
+		$('.match-ratios-list .match-ratio').sort(function(a,b) {
+			if ($(b).find('.match-ratio-category').text() === "poly:") return true;
+			if ($(a).find('.match-ratio-category').text() === "poly:") return false;
+			return ( $(a).find('.match-ratio-category').text() > $(b).find('.match-ratio-category').text() );
+		}).appendTo('.match-ratios-list');
 
-			$('.question-detail > ul').sort(function(a,b) {
-				if ($(b).find('.category-header').text() === "poly") return true;
-				if ($(a).find('.category-header').text() === "poly") return false;
-				return ( $(a).find('.category-header').text() > $(b).find('.category-header').text() );
-			}).appendTo('.question-detail');
+		$('.question-detail > ul').sort(function(a,b) {
+			if ($(b).find('.category-header').text() === "poly") return true;
+			if ($(a).find('.category-header').text() === "poly") return false;
+			return ( $(a).find('.category-header').text() > $(b).find('.category-header').text() );
+		}).appendTo('.question-detail');
 
-			if (_OKCP.debugTimerEnabled) {
-				console.log('Fetching the questions took ' + (new Date().getTime() - _OKCP.debugTimer.getTime()) + ' ms');
-				var timeList = JSON.parse(localStorage.timeList);
-				timeList.push(1*(new Date().getTime() - _OKCP.debugTimer.getTime()));
-				localStorage.timeList = JSON.stringify(timeList);
-			}
+		if (_OKCP.debugTimerEnabled) {
+			console.log('Fetching the questions took ' + (new Date().getTime() - _OKCP.debugTimer.getTime()) + ' ms');
+			var timeList = JSON.parse(localStorage.timeList);
+			timeList.push(1*(new Date().getTime() - _OKCP.debugTimer.getTime()));
+			localStorage.timeList = JSON.stringify(timeList);
 		}
 	}
 };
