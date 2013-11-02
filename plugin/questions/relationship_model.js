@@ -128,7 +128,7 @@ _OKCP.fileQuestions.relationship_model =
 				"text":"Would you consider having an open relationship (i.e., one where you can see other people)?",
 				"answerText": ["Yes", "No"],
 				"score": [1, -1],
-				"weight": [0.6, 0.6]
+				"weight": [0.6, 1]
 			},
 			{
 				"qid":"99709",
@@ -149,7 +149,7 @@ _OKCP.fileQuestions.relationship_model =
 				"text":"Would you consider connecting with someone whose relationship status is 'seeing someone' or 'married'?",
 				"answerText": ["Yes to both", "No to both", "Yes to 'seeing someone' only", "Yes to 'married' only"],
 				"score": [1, -1, 1, 1],
-				"weight": [0.6, 0.6, 0.6, 0.6]
+				"weight": [0.6, 1, 0.6, 0.6]
 			},
 			{
 				"qid":"1128",
@@ -162,7 +162,7 @@ _OKCP.fileQuestions.relationship_model =
 				"qid":"16371",
 				"text":"Someone in an open relationship asks you out on a date. You:",
 				"answerText": ["Refuse / Aren't interested in open relationships.", "Are hesitant, but would consider it.", "Accept / Are open to non-monogamous relationships."],
-				"score": [-1, 0.5, 1],
+				"score": [-1, 0, 1],
 				"weight": [1, 1, 1]
 			},
 			{
