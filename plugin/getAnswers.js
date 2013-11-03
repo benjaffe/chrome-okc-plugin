@@ -246,7 +246,7 @@ _OKCP.getAnswers = function (list) {
 		}
 		
 		$('.match-ratios-list').html('');
-		$('.question-detail').html('');
+		$('.question-detail > ul').remove();
 		for (var category in responseCount) {
 			var countArr = responseCount[category];
 			var matchClass = 'match-' + Math.floor(countArr[0]/countArr[1]*5);
