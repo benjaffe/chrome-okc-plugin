@@ -35,6 +35,7 @@ _OKCP.initSuggestQuestionsFeature = function () {
 		}
 		category = category.toLowerCase();
 		prevCat = category;
+		category = category.split(' ').join('_');
 
 		scoreWeightPlaceholder = [];
 		for (var i = 0; i < answers.length; i++) {

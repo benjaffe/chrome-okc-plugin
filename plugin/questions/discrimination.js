@@ -56,7 +56,22 @@ _OKCP.fileQuestions.discrimination =
 		],
 
 
-		//mental_health_nondiscriminating
+		"mental_health_nondiscriminating": [
+			{
+				"qid": "455",
+				"text": "Would the world be a better place if people with low IQs were not allowed to reproduce?",
+				"answerText": ["Yes","No"],
+				"score": [1, -1],
+				"weight": [1, 0.5]
+			},
+			{
+				"qid": "137",
+				"text": "Would you terminate a pregnancy if the baby was going to be mentally disabled?",
+				"answerText": ["Yes", "No", "It depends on the severity"],
+				"score": [-1, 1, 0],
+				"weight": [0.4, 0.7, 0]
+			}
+		],
 
 
 		//disability_nondiscriminating
