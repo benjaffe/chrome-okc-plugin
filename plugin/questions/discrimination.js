@@ -61,7 +61,7 @@ _OKCP.fileQuestions.discrimination =
 				"qid": "455",
 				"text": "Would the world be a better place if people with low IQs were not allowed to reproduce?",
 				"answerText": ["Yes","No"],
-				"score": [1, -1],
+				"score": [-1, 1],
 				"weight": [1, 0.5]
 			},
 			{

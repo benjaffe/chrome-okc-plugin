@@ -322,7 +322,7 @@ _OKCP.fileQuestions.sex =
 				"text":"People who like RECEIVING anal sex are...",
 				"answerText": ["Exploring their sexuality to the full", "Perverts", "Beyond my comprehension"],
 				"score": [1, -1, -1],
-				"weight": [1, 1, 1]
+				"weight": [0.3, 1, 1]
 			},
 			{
 				"qid":"64476",
