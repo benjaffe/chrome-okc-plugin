@@ -59,6 +59,43 @@ _OKCP.fileQuestions.sex =
 				"answerText": ["I love it and want it very much", "I try to avoid it", "I like to just let it happen", "I'm indifferent / not sure"],
 				"score": [1, -1, 1, 0],
 				"weight": [1, 1, 0.5, 1]
+			},
+			{
+				"qid": "21",
+				"text": "Do you enjoy meaningless sex?",
+				"answerText": ["Yes", "No"],
+				"score": [-1, 1]
+			}
+		],
+
+		"casual_sex": [
+			{
+				"qid":"35",
+				"text":"Regardless of future plans, what's more interesting to you right now?",
+				"answerText": ["Sex", "Love"],
+				"score": [1, 0],
+				"weight": [1, 0]
+			},
+			{
+				"qid":"14913",
+				"text":"Did you join OkCupid just so you could find people to have sex with?",
+				"answerText": ["Yes", "No"],
+				"score": [1, 0],
+				"weight": [1, 0]
+			},
+			{
+				"qid":"41953",
+				"text":"About how long do you want your next relationship to last?",
+				"answerText": ["One night", "A few months to a year", "Several years", "The rest of my life"],
+				"score": [1, 0, 0, 0],
+				"weight": [1, 0, 0, 0]
+			},
+			{
+				"qid": "21",
+				"text": "Do you enjoy meaningless sex?",
+				"answerText": ["Yes", "No"],
+				"score": [1, -1],
+				"weight": [1, 0.5]
 			}
 		],
 
@@ -305,6 +342,13 @@ _OKCP.fileQuestions.sex =
 				"answerText": ["Yes", "No"],
 				"score": [1, -1],
 				"weight": [0.1, 1]
+			},
+			{
+				"qid": "18",
+				"text": "Do you have experience being in a slave/master relationship?",
+				"answerText": ["Yes", "No"],
+				"score": [1, -1],
+				"weight": [0.7, 1]
 			}
 		],
 

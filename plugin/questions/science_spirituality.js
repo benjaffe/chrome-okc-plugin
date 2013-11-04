@@ -109,6 +109,13 @@ _OKCP.fileQuestions.science_spirituality =
 				"weight": [1, 0]
 			},
 			{
+				"qid": "193",
+				"text": "Do you say grace before meals?",
+				"answerText": ["Yes", "No"],
+				"score": [1, -1],
+				"weight": [0.6, 0]
+			},
+			{
 				"qid":"763",
 				"text":"Do you believe in karma?",
 				"answerText": ["Yes", "No"],
@@ -148,6 +155,13 @@ _OKCP.fileQuestions.science_spirituality =
 				"answerText": ["Yes", "No"],
 				"score": [1, -1],
 				"weight": [1, 0.5]
+			},
+			{
+				"qid": "193",
+				"text": "Do you say grace before meals?",
+				"answerText": ["Yes", "No"],
+				"score": [1, -1],
+				"weight": [1, 0.3]
 			},
 			{
 				"qid":"156913",

@@ -99,6 +99,12 @@ _OKCP.fileQuestions.drugs_smokes =
 				"text":"Could you live the rest of your life without drinking alcohol?",
 				"answerText": ["Yes.", "No."],
 				"score": [1, -1]
+			},
+			{
+				"qid": "78",
+				"text": "Generally, do you enjoy being drunk?",
+				"answerText": ["Yes", "No", "I don't know, because I've never been drunk."],
+				"score": [-1, 1, 1]
 			}
 		],
 
@@ -126,6 +132,12 @@ _OKCP.fileQuestions.drugs_smokes =
 				"text":"Could you live the rest of your life without drinking alcohol?",
 				"answerText": ["Yes.", "No."],
 				"score": [-1, 1]
+			},
+			{
+				"qid": "78",
+				"text": "Generally, do you enjoy being drunk?",
+				"answerText": ["Yes", "No", "I don't know, because I've never been drunk."],
+				"score": [1, -1, -1]
 			}
 		],
 
@@ -157,6 +169,12 @@ _OKCP.fileQuestions.drugs_smokes =
 				"text":"Do you like coffee?",
 				"answerText": ["Yes.  I need it to function.", "Yes, but I can do without it.", "No."],
 				"score": [1, 1, -1]
+			},
+			{
+				"qid": "90809",
+				"text": "How do you take your coffee?",
+				"answerText": ["Black", "With cream and/or sugar", "A venti caramel soy macchiato ...", "Put that coffee down! Coffee is for closers only."],
+				"score": [1, 1, 1, -1]
 			}
 		],
 
@@ -166,6 +184,12 @@ _OKCP.fileQuestions.drugs_smokes =
 				"text":"Do you like coffee?",
 				"answerText": ["Yes.  I need it to function.", "Yes, but I can do without it.", "No."],
 				"score": [-1, 0, 1]
+			},
+			{
+				"qid": "90809",
+				"text": "How do you take your coffee?",
+				"answerText": ["Black", "With cream and/or sugar", "A venti caramel soy macchiato ...", "Put that coffee down! Coffee is for closers only."],
+				"score": [-1, -1, -1, 1]
 			}
 		],
 
