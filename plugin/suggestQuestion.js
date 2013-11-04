@@ -19,6 +19,7 @@ _OKCP.initSuggestQuestionsFeature = function () {
 		var qid = question.attr('id').split('question_')[1];
 		var qtext = $('#qtext_' + qid).text();
 		var answers = [];
+		var obj, category;
 		if (firstClick) {
 			firstClick = false;
 			alert('OkC Plugin:\nThis feature allows you to suggest questions for the developer to include in the plugin!');
@@ -26,7 +27,7 @@ _OKCP.initSuggestQuestionsFeature = function () {
 		$('#answer_'+qid+' .their_answer').each(function() {
 			answers.push( $(this).parent().text() );
 		});
-		var category = prompt("What category does this question fall under?",prevCat);
+		category = prompt("What category does this question fall under?",prevCat);
 		if (category === '') {
 			alert('Category name cannot be empty');
 			return false;
@@ -39,21 +40,57 @@ _OKCP.initSuggestQuestionsFeature = function () {
 
 		scoreWeightPlaceholder = [];
 		for (var i = 0; i < answers.length; i++) {
-			scoreWeightPlaceholder.push(0);
+			scoreWeightPlaceholder.push(1);
 		}
 
-		_OKCP.questionsToSuggest[category] = _OKCP.questionsToSuggest[category] || [];
-		_OKCP.questionsToSuggest[category].push({
+		obj = {
 			"qid": qid,
 			"text": qtext,
 			"answerText": answers,
 			"score": scoreWeightPlaceholder,
 			"weight": scoreWeightPlaceholder
-		});
+		}
+
+		_OKCP.questionsToSuggest[category] = _OKCP.questionsToSuggest[category] || [];
+		_OKCP.questionsToSuggest[category].push(obj);
 
 		$('.copy-this').show();
 		$('.copy-this-text').text(JSON.stringify(_OKCP.questionsToSuggest));
 		alert('Your question(s) have NOT been suggested YET. When you are ready to sumbit, scroll to the very bottom of the page and follow the instructions.');
 		$(this).remove();
 	});
-}
+
+	if (location.href.split('rqid=')[1] !== undefined && _OKCP.devmode) {
+		//duplicated code, but works for devs in dev mode
+		var question = $('.question:first');
+		var qid = question.attr('id').split('question_')[1];
+		var qtext = $('#qtext_' + qid).text();
+		var answers = [];
+		var obj, category;
+		$('#answer_'+qid+' .their_answer').each(function() {
+			answers.push( $(this).parent().text() );
+		});
+
+		scoreWeightPlaceholder = [];
+		for (var i = 0; i < answers.length; i++) {
+			scoreWeightPlaceholder.push(1);
+		}
+
+		obj = {
+			"qid": qid,
+			"text": qtext,
+			"answerText": answers,
+			"score": scoreWeightPlaceholder,
+			"weight": scoreWeightPlaceholder
+		};
+
+		// log out pretty version
+		var objStr = JSON.stringify(obj);
+		objStr = '{\n\t' + objStr.split('{')[1];
+		objStr = objStr.split('}')[0]+'\n}';
+		objStr = objStr.split('"text"').join('\n\t"text"').split('"answerText"').join('\n\t"answerText"').split('"score"').join('\n\t"score"').split('"weight"').join('\n\t"weight"');
+		console.log(objStr);
+	}
+
+	
+};

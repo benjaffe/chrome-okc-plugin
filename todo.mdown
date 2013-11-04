@@ -15,6 +15,7 @@ increase accuracy is broken (question parsing)
 ## Ideas for the future:
 ### (sorted by rough priority)
 
+* default click opens in new tab?
 
 * sorting
 
