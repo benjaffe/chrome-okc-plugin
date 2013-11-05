@@ -106,6 +106,106 @@ _OKCP.fileQuestions.sexuality_gender =
 				"answerText": ["1-2 dates", "3-5 dates", "6 or more dates", "Only after the wedding"],
 				"score": [1, 1, 1, -1],
 				"weight": [0, 0, 0, 1]
-			}
+			},
+			{//Added by RAA
+				"qid":"64429",
+				"text":"Are you ashamed of any of your sexual desires?",
+				"answerText": ["Yes.", "No."],
+				"score": [0,0],
+				"weight": [1, 1]
+			},
+			{//Added by RAA
+				"qid":"61133",
+				"text":"Would you be comfortable masturbating in front of a partner?",
+				"answerText": ["Yes.", "No.","I don't masturbate."],
+				"score": [1,-1,-1],
+				"weight": [1, 1,1]
+			},
+			{//Added by RAA
+				"qid":"62889",
+				"text":"For people who are in exclusive relationships, is masturbation a form of infidelity?",
+				"answerText": ["Yes.", "No."],
+				"score": [-1,1],
+				"weight": [1,1]
+			},
+			{ // Added by RAA
+				"qid":"321556",
+				"text":"How often do you masturbate?",
+				"answerText": ["Once a day or more", "A few times a week","A few times a month","A few times a year or less"],
+				"score": [1, 1,0,-1],
+				"weight": [1, 1,1,1]
+			},
+			{ // Added by RAA
+				"qid":"27341",
+				"text":"How does the thought of someone masturbating with you in mind make you feel?",
+				"answerText": ["Shocked", "Disgusted","Flattered","Aroused"],
+				"score": [-1,-1,1,1],
+				"weight": [1, 1,1,1]
+			}/*,
+
+			{//Added by RAA
+				"qid":"28",
+				"text":"Would you dump someone simply because they weren't good at sex?",
+				"answerText": ["Yes", "No"],
+				"score": [-1, 1],
+				"weight": [1, 1]
+			},
+			{//Added by RAA
+				"qid":"1387",
+				"text":"Would you ever engage in a sexual activity you didn't enjoy, just because your partner did?",
+				"answerText": ["Yes", "No"],
+				"score": [1,-1],
+				"weight": [1, 1]
+			},
+			{//Added by RAA
+				"qid":"22706",
+				"text":"Are you totally comfortable being naked around your lover, not just during sex?",
+				"answerText": ["Yes", "No"],
+				"score": [1,-1],
+				"weight": [1, 1]
+			},
+			{//Added by RAA
+				"qid":"1439",
+				"text":"Do you enjoy being naked?",
+				"answerText": ["Yes", "No"],
+				"score": [1,-1],
+				"weight": [1, 1]
+			},
+			
+			{ // Added by RAA
+				"qid":"18759",
+				"text":"How often do you wear underwear?",
+				"answerText": ["Always", "Usually","Rarely","Never"],
+				"score": [-1,0,1,1],
+				"weight": [1, 1,1,1]
+			},
+			{ // Added by RAA
+				"qid":"20106",
+				"text":"The first time you have stayed over with a new Lover, how would you like them to wake you up?",
+				"answerText": ["With tea and toast", "With a Champagne  cocktail","With words","With oral sex"],
+				"score": [0, 1,0,1],
+				"weight": [.2, .2,.2,.2]
+			},
+			{//Added by RAA
+				"qid":"82263",
+				"text":"Would being in the same room with a couple of friends who are having sex bother you?",
+				"answerText": ["Yes.", "No."],
+				"score": [-1, 1],
+				"weight": [1, 1]
+			},
+			{//Added by RAA
+				"qid":"82826",
+				"text":"Would you consider dating someone who suffers from some sort of sexual dysfunction, but who still enjoys other sorts of sexual activity using hands/mouth/whatever?",
+				"answerText": ["Yes.", "No.","Possibly, depending on the specifics."],
+				"score": [1,-1,0],
+				"weight": [1,1,1]
+			},
+			{ // Added by RAA
+				"qid":"46817",
+				"text":"Is the idea of spending the day at a nude beach appealing to you?",
+				"answerText": ["Yes.", "No."],
+				"score": [1, -1],
+				"weight": [1, 1]
+			}*/
 		]
 	};

@@ -48,6 +48,13 @@ _OKCP.fileQuestions.children =
 				"text":"How do you feel about kids?",
 				"answerText":["Kids are precious - they love me and I love them!","They're okay, but keep the unruly ones at bay.","God, how revolting. *shudder*","I'm indifferent."],
 				"score":[1,0.4,-1,0]
+			},
+			{ //Added by RAA
+				"qid":"1815",
+				"text":"Could you date someone who already has children from a previous relationship?",
+				"answerText": ["Yes", "No"],
+				"score": [1,-1],
+				"weight": [1, 1]
 			}
 		],
 		"wants_children": [
@@ -90,6 +97,13 @@ _OKCP.fileQuestions.children =
 				"answerText":["Kids are precious - they love me and I love them!","They're okay, but keep the unruly ones at bay.","God, how revolting. *shudder*","I'm indifferent."],
 				"score":[1,0,-1,-1],
 				"weight":[0.2,0,1,0.5]
+			},
+			{ //Added by RAA
+				"qid":"65066",
+				"text":"Are you sexually fertile?",
+				"answerText": ["Yes.", "No.","I'm not sure."],
+				"score": [1, -1, 0],
+				"weight": [0, 1, 0]
 			}
 		],
 		"does_not_want_children": [
@@ -175,6 +189,13 @@ _OKCP.fileQuestions.children =
 				"answerText":["Kids are precious - they love me and I love them!","They're okay, but keep the unruly ones at bay.","God, how revolting. *shudder*","I'm indifferent."],
 				"score":[1,0.5,-1,0],
 				"weight":[0.8,0.4,1,0.5]
+			},
+			{ //Added by RAA
+				"qid":"1815",
+				"text":"Could you date someone who already has children from a previous relationship?",
+				"answerText": ["Yes", "No"],
+				"score": [1,-1],
+				"weight": [1, 1]
 			}
 		]
 	};

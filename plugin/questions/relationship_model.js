@@ -119,6 +119,20 @@ _OKCP.fileQuestions.relationship_model =
 				"answerText": ["Yes", "No"],
 				"score": [1, -1],
 				"weight": [1, 1]
+			},
+			{ //Added by RAA
+				"qid":"89901",
+				"text":"Are you poly or poly friendly?",
+				"answerText": ["Yes I'm poly/ poly friendly.", "Yes I'm poly friendly.","I'm Not Sure","No."],
+				"score": [1, 1,0,-1],
+				"weight": [1, 1,1,1]
+			},
+			{ //Added by RAA
+				"qid":"89470",
+				"text":"How do you feel about polyamory?",
+				"answerText": ["Polyamory rocks!  I wish more people were poly.", "I might consider it under certain circumstances.","I wouldn't consider it.  Monogamy rules!","WTF is polyamory?"],
+				"score": [1, 1,-1,-1],
+				"weight": [1, 1,1,1]
 			}
 		],
 
@@ -128,7 +142,7 @@ _OKCP.fileQuestions.relationship_model =
 				"text":"Would you consider having an open relationship (i.e., one where you can see other people)?",
 				"answerText": ["Yes", "No"],
 				"score": [1, -1],
-				"weight": [0.6, 1]
+				"weight": [0.6, 0.6]
 			},
 			{
 				"qid":"99709",
@@ -149,7 +163,7 @@ _OKCP.fileQuestions.relationship_model =
 				"text":"Would you consider connecting with someone whose relationship status is 'seeing someone' or 'married'?",
 				"answerText": ["Yes to both", "No to both", "Yes to 'seeing someone' only", "Yes to 'married' only"],
 				"score": [1, -1, 1, 1],
-				"weight": [0.6, 1, 0.6, 0.6]
+				"weight": [0.6, 0.6, 0.6, 0.6]
 			},
 			{
 				"qid":"1128",
@@ -162,7 +176,7 @@ _OKCP.fileQuestions.relationship_model =
 				"qid":"16371",
 				"text":"Someone in an open relationship asks you out on a date. You:",
 				"answerText": ["Refuse / Aren't interested in open relationships.", "Are hesitant, but would consider it.", "Accept / Are open to non-monogamous relationships."],
-				"score": [-1, 0, 1],
+				"score": [-1, 0.5, 1],
 				"weight": [1, 1, 1]
 			},
 			{
@@ -227,6 +241,20 @@ _OKCP.fileQuestions.relationship_model =
 				"answerText": ["Yes, and they both knew.", "Yes, and I didn't tell at least one of them.", "No."],
 				"score": [1, 1, 0],
 				"weight": [1, 1, 0.5]
+			},
+			{ //Added by RAA
+				"qid":"21807",
+				"text":"Would you be willing to date a married couple?",
+				"answerText": ["Sure", "Maybe", "No"],
+				"score": [1, 1, -1],
+				"weight": [1, 0.5, 1]
+			},
+			{ //Added by RAA
+				"qid":"89470",
+				"text":"How do you feel about polyamory?",
+				"answerText": ["Polyamory rocks!  I wish more people were poly.", "I might consider it under certain circumstances.","I wouldn't consider it.  Monogamy rules!","WTF is polyamory?"],
+				"score": [1, 1,-1,-1],
+				"weight": [1, 1,1,1]
 			}
 		],
 
@@ -346,7 +374,7 @@ _OKCP.fileQuestions.relationship_model =
 		],
 
 
-		"communicative": [
+		"communicative": [ //I probably will change the name of this category soon
 			{
 				"qid":"1121",
 				"text":"Have you ever had multiple romantic partners during the same time period?",
@@ -360,7 +388,49 @@ _OKCP.fileQuestions.relationship_model =
 				"answerText": ["Yes, even in secret.", "Yes, but only if everybody knew.", "No, but I don't think it's inherently wrong.", "No, it's wrong."],
 				"score": [-1, 1, 1, 1],
 				"weight": [1, 1, 0, 0]
-			}
+			}/*,
+			{ //Added by RAA
+				"qid":"358014",
+				"text":"Could you date someone who was really quiet?",
+				"answerText": ["Yes", "No"],
+				"score": [1,-1],
+				"weight": [.5, .5]
+			},
+			{ //Added by RAA
+				"qid":"35276",
+				"text":"How much communication is ideal during sex?",
+				"answerText": ["A lot!  It's all about the talk.", "Just enough to get things right.","None.  Shut up so I can concentrate."],
+				"score": [1,0,-1],
+				"weight": [1,1,1]
+			},
+			{ //Added by RAA
+				"qid":"76899",
+				"text":"I general how long into a relationship before you indulge your kinky side?",
+				"answerText": ["from first meet/always kinky /  have no kinky side", "before vanilla relationship activity starts.","after establishing vanilla compatibility","later / when we both are ready/trust / no pattern"],
+				"score": [1,0,-1,-1],
+				"weight": [1,1,.5,.5]
+			},
+			{ //Added by RAA
+				"qid":"67658",
+				"text":"How would you react if someone IM'd you and quickly started talking about sex?",
+				"answerText": ["Positively.", "Negatively.","Indifferently."],
+				"score": [1,-1,0],
+				"weight": [1,1,1]
+			},
+			{ //Added by RAA
+				"qid":"46566",
+				"text":"If you and a partner lived alone together, how much time would you spend naked while in your home?",
+				"answerText": ["All of the time.", "More than half of the time.","Less than half of the time.","Never."],
+				"score": [1,1,0,-1],
+				"weight": [1,1,1,1]
+			},
+			{ 
+				"qid":"44255",
+				"text":"Would you consider dating a law enforcement officer?",
+				"answerText": ["Yes.", "No."],
+				"score": [1,-1],
+				"weight": [1,1]
+			}*/
 		],
 		
 
@@ -413,24 +483,6 @@ _OKCP.fileQuestions.relationship_model =
 				"answerText": ["Yes.", "No."],
 				"score": [-1, 1],
 				"weight": [0.8, 0.8]
-			}
-		],
-
-		"wanting_children": [
-			{
-				"qid":"80041", //Are you looking for a partner to have children with?
-				"answerText": ["Yes", "No"],
-				"score": [1, -1],
-				"weight": [1, 1]
-			}
-		],
-
-		"not_wanting_children": [
-			{
-				"qid":"80041", //Are you looking for a partner to have children with?
-				"answerText": ["Yes", "No"],
-				"score": [-1, 1],
-				"weight": [1, 1]
 			}
 		]
 

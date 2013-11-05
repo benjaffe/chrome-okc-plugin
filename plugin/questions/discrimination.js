@@ -1,3 +1,5 @@
+//all categories will change names to *_nondiscriminatory once I write a converter, so people don't lose the categories. The categories are about users not being discriminatory toward others, not having no preference (not discriminating)
+
 _OKCP.fileQuestions.discrimination =
 	{
 		"race_nondiscriminating": [
@@ -77,12 +79,52 @@ _OKCP.fileQuestions.discrimination =
 		//disability_nondiscriminating
 
 
-		"weight_nondiscriminating": [
+		"weight_nondiscriminating": [ //will change to weight_nondiscriminatory
 			{
 				"qid":"52682",
 				"text":"If one of your potential matches were overweight, would that be a dealbreaker?",
 				"answerText": ["Yes, even if they were slightly overweight.", "Yes, but only if they were obese.", "No.", "No, in fact I prefer overweight people."],
 				"score": [-1, -1, 1, 1]
+			},
+			{//Added by RAA
+				"qid":"26525",
+				"text":"Can overweight people still be sexy?",
+				"answerText": ["Always", "Yes", "No"],
+				"score": [1,1,-1,]
+			},
+			{//Added by RAA
+				"qid":"26292",
+				"text":"Would you date someone that is a little overweight but has a beautiful face?",
+				"answerText": ["I'm Not Sure", "Yes", "No"],
+				"score": [0,1,-1,],
+				"weight": [0, 1, 1]
+			},
+			{//Added by RAA
+				"qid":"391",
+				"text":"Are you disgusted by the extremely obese?",
+				"answerText": ["Yes", "No"],
+				"score": [-1,1]
+			},
+			{//Added by RAA
+				"qid":"18136",
+				"text":"Is it possible for full-figured (not fat) women to be equally attractive as thinner women?",
+				"answerText": ["Yes", "No"],
+				"score": [1,-1],
+				"weight": [0.5, 0.5]
+			},
+			{ //Added by RAA
+				"qid":"22125",
+				"text":"Do you prefer?",
+				"answerText": ["Slim Men/Women", "Average Men/Women", "Fuller Figured Men/Women", "I Don't Care/Not Fussy."],
+				"score": [-1, -1, 1, 1],
+				"weight": [0, 0, 1, 1]
+			},
+			{//Added by RAA
+				"qid":"84391",
+				"text":"Are Curves on a woman sexy?",
+				"answerText": ["As long as they are curves and not corners.", "Yes, women's bodies are beautful.", "No, i prefer women to be 2 dimensional.", "Mmm... * thinking about my hands on hips..."],
+				"score": [1, 1, -1, 1],
+				"weight": [1, 1, 1, 1]
 			}
 		]
 	};

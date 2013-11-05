@@ -123,6 +123,216 @@ _OKCP.fileQuestions.sex =
 				"answerText": ["Bring out the toys!", "Never tried it, but I'm open-minded.", "Not sure/don't know what they really are.", "Ew!"],
 				"score": [1, 1, 0, -1],
 				"weight": [1, 1, 1, 1]
+			},
+			{//Added by RAA
+				"qid":"40441",
+				"text":"If you were to die, would whoever goes through your personal belongings be shocked by what they find?",
+				"answerText": ["Yes.", "No.", "Maybe a little bit."],
+				"score": [1, -1, 0],
+				"weight": [0.5, 0.2, 0.2,]
+			},
+			{//Added by RAA
+				"qid":"61958",
+				"text":"Imagine you become involved in a relationship with a someone who has a specific sexual fetish, without which they cannot be satisfied. If the fetish is harmless, but does nothing for you, how enthusiastic would you be about it?",
+				"answerText": ["Very enthusiastic.", "Somewhat enthusiastic.", "Not at all enthusiastic."],
+				"score": [1, 1, -1],
+				"weight": [1, 1, 1,]
+			},
+			{//Added by RAA
+				"qid":"26469",
+				"text":"Have you ever tasted your own sexual fluids?",
+				"answerText": ["Yes", "No, and I would never", "No, but I would"],
+				"score": [1, -1, 0],
+				"weight": [1, 1, 0]
+			},
+			// { // Added by RAA
+			//	"qid":"38423",
+			//	"text":"What do you usually wear when you sleep?",
+			//	"answerText": ["Pajamas.", "Underwear.", "Nothing.", "Something else."],
+			//	"score": [-1, 0, 1, 0],
+			//	"weight": [1, 1, 1, 1]
+			// },
+			{ // Added by RAA
+				"qid":"61823",
+				"text":"As long as you both agreed that nobody else would ever see the video, would you let a partner film the two of you having sex?",
+				"answerText": ["Yes.", "No.", "Maybe, depending upon the partner."],
+				"score": [1, -1, 0],
+				"weight": [1, 1, 1]
+			},
+			{ // Added by RAA
+				"qid":"29384",
+				"text":"Would you allow your partner to kiss you after performing oral sex on you?",
+				"answerText": ["Allow? I enjoy it.", "Yes.", "No.", "It depends."],
+				"score": [1, 1, -1, 0],
+				"weight": [1, 1, 1, 1]
+			},
+			{ // Added by RAA
+				"qid":"49652",
+				"text":"What do you think of voyeurism?",
+				"answerText": ["It turns me on.", "It turns me off.", "It is perverted.", "I don't care."],
+				"score": [1, -1, -1, 0],
+				"weight": [1, 1, 1, 1]
+			},
+			{ // Added by RAA
+				"qid":"71994",
+				"text":"What do you consider kinky",
+				"answerText": ["Whip Cream", "Lube", "Handcuffs", "Floggers"],
+				"score": [0, -1, 1, 1],
+				"weight": [1, 1, 1, 1]
+			},
+			{ // Added by RAA
+				"qid":"77669",
+				"text":"I am kinky and proud of it.",
+				"answerText": ["Damn straight", "Well, I'm kinky, but not exactly proud", "Ewwww, kinky! Give me more missionary sex please.", "Huh?"],
+				"score": [1,1,-1,0],
+				"weight": [1, 1, 1, 1]
+			},
+			{ // Added by RAA
+				"qid":"74018",
+				"text":"How do you feel about fisting? Fisting is where one inserts their entire hand into their partner's vagina (or anus).",
+				"answerText": ["I think it's disgusting / impossible", "I simply don't find it interesting", "I'd try it, but I'll need some practice first", "I already enjoy it / really want to try it"],
+				"score": [-1,0,1,1],
+				"weight": [1, 1, 1, 1]
+			},
+			{ // Added by RAA
+				"qid":"124568",
+				"text":"How far, sexually, are you willing to go with someone you've been dating for only a short time?",
+				"answerText": ["Not far at all, I'd keep it simple.", "I might try something new, just nothing kinky.", "I might trying something kinky", "Teach me something new! I'll do anything!"],
+				"score": [-1,0,1,1],
+				"weight": [1, 1, 1, 1]
+			},
+			{ // Added by RAA
+				"qid":"35355",
+				"text":"How open are you to trying new things in bed?",
+				"answerText": ["Very open. I'll try anything once.", "I'm open, but I don't get too crazy.", "Hesitant, but it might happen.", "Not at all."],
+				"score": [1, 1, -1, -1],
+				"weight": [1, .5, .5, 1]
+			},
+			{ // Added by RAA
+				"qid":"26",
+				"text":"Have you ever owned sex toys?",
+				"answerText": ["Yes", "No"],
+				"score": [1, -1],
+				"weight": [1, 1]
+			},
+			{ // Added by RAA
+				"qid":"57731",
+				"text":"Would you consider dating someone who is much kinkier than you are?",
+				"answerText": ["Yes.", "No."],
+				"score": [1, -1],
+				"weight": [1, 0.5]
+			},
+			{ // Added by RAA
+				"qid":"1408",
+				"text":"Would you wear your partner's underclothing if they wanted you to?",
+				"answerText": ["Yes", "No"],
+				"score": [1, -1],
+				"weight": [1, 1]
+			},
+			{ // Added by RAA
+				"qid":"54517",
+				"text":"Are you sexually attracted to any inanimate objects?",
+				"answerText": ["Yes.", "No."],
+				"score": [1, -1],
+				"weight": [1, 0.3]
+			},
+			{ // Added by RAA
+				"qid":"30169",
+				"text":"Do you enjoy giving oral sex?",
+				"answerText": ["Love it!", "It's okay.","Not so much.","Gross!"],
+				"score": [1,1,0,-1],
+				"weight": [1,1,1,1]
+			},
+			{ // Added by RAA
+				"qid":"9462",
+				"text":"Are tears arousing?",
+				"answerText": ["Yes", "No"],
+				"score": [1, -1],
+				"weight": [0.2, 0.1]
+			},
+			// { // Added by RAA
+			//	"qid":"85318",
+			//	"text":"Do you have any deep dark fantasies that you would not share with anyone, even a trusted partner?",
+			//	"answerText": ["Yes.", "No."],
+			//	"score": [0, 0],
+			//	"weight": [1, 1]
+			// },
+			{ // Added by RAA
+				"qid":"19892",
+				"text":"Foot fetish?",
+				"answerText": ["Yes, I have a foot fetish!", "No, I don't have a foot fetish"],
+				"score": [1, -1],
+				"weight": [1, 1]
+			},
+			{ // Added by RAA
+				"qid":"18639",
+				"text":"If your partner had a foot fetish, would you include it in your sex life?",
+				"answerText": ["Yes, for their sake", "Yes, because I like it, too","No"],
+				"score": [1, 1,-1],
+				"weight": [1, 1,1]
+			},
+			{ // Added by RAA
+				"qid":"26367",
+				"text":"Is there at least one nude photo of you on the Net?",
+				"answerText": ["Yes", "No","Yes, but my face isn't visible","Not sure"],
+				"score": [1, 0,0.5,0],
+				"weight": [1, 0,1,0]
+			},
+			{ // Added by RAA
+				"qid":"36970",
+				"text":"Would you be willing to dress up as a member of the opposite sex if it would turn your partner on?",
+				"answerText": ["If it excites them, I'd even do it in public.", "Yes, but only in private.","No.","I do it already!"],
+				"score": [1, 1,-1,1],
+				"weight": [1, 1,1,1]
+			},
+			{ // Added by RAA
+				"qid":"61278",
+				"text":"How would you react if a partner bought you an outfit to be worn during sex?",
+				"answerText": ["Positively.", "Negatively.","Indifferently.","It would depend upon the outfit."],
+				"score": [1,-1,0,0],
+				"weight": [1, 1,1,1]
+			},
+			{ // Added by RAA
+				"qid":"50178",
+				"text":"Do you enjoy it when someone uses refrigerated items or ice cubes on you during sex?",
+				"answerText": ["Yes.", "No.","I don't know."],
+				"score": [1, -1,0],
+				"weight": [1, 1,1]
+			},
+			{ // Added by RAA
+				"qid":"70508",
+				"text":"Would you have sex with someone, if you were blindfolded and would never know who it was, only that it would be someone you had never met before?",
+				"answerText": ["Yes.", "No."],
+				"score": [1, -1],
+				"weight": [1, 0.5]
+			},
+			{ // Added by RAA
+				"qid":"1132",
+				"text":"Would you ever consider cutting a partner (who asked for it) in sexual play?",
+				"answerText": ["Yes", "No","Maybe"],
+				"score": [1, -1,0.5],
+				"weight": [1, 1,1]
+			},
+			{ // Added by RAA
+				"qid":"20062",
+				"text":"While in the middle of the best lovemaking of your life, if your lover asked you to squeal like a dolphin, would you?",
+				"answerText": ["Absolutely.", "No way.","The best?  Maybe. . ."],
+				"score": [1, -1,0],
+				"weight": [1, 1,1]
+			},
+			{ // Added by RAA
+				"qid":"37339",
+				"text":"Someone you're very attracted to admits to having a tickling fetish. Would you let them tickle you?",
+				"answerText": ["Yes! That turns me on/could turn me on!", "Maybe, I think I'd enjoy if limits are respected.","Only to please them - I don't think I'd like it.","No way!"],
+				"score": [1,1,1,-1],
+				"weight": [1, 1,1,1]
+			},
+			{ // Added by RAA
+				"qid":"64334",
+				"text":"Imagine that your partner does not enjoy performing oral sex and refuses to ever perform it on you. How disappointed would you be?",
+				"answerText": ["Extremely disappointed.", "Somewhat disappointed.","Slightly disappointed.","Not at all disappointed."],
+				"score": [1, 1,0,-1],
+				"weight": [0.5, 0.5, 0.5, 0.5]
 			}
 		],
 
@@ -194,6 +404,13 @@ _OKCP.fileQuestions.sex =
 				"score": [1, -1],
 				"weight": [1, 1]
 			},
+			{//Added by RAA
+				"qid":"18",
+				"text":"Do you have experience being in a slave/master relationship?",
+				"answerText": ["Yes", "No"],
+				"score": [1, -1],
+				"weight": [1, 1]
+			},
 			{
 				"qid":"1011",
 				"text":"Do you know what a 'safeword' is, in a sexual context?",
@@ -249,6 +466,13 @@ _OKCP.fileQuestions.sex =
 				"answerText": ["Yes, as the master only.", "Yes, as the slave only.", "Yes, as the master or the slave.", "No."],
 				"score": [1, -1, 1, -1],
 				"weight": [1, 1, 0.7, 1]
+			},
+			{//Added by RAA
+				"qid":"87450",
+				"text":"How would you prefer your lover in bed?",
+				"answerText": ["Very dominant", "Somewhat dominant", "Neutral or willing to take turns", "Submissive"],
+				"score": [-1, -1,0,1],
+				"weight": [1, .7, 0.7, 1]
 			}
 		],
 		
@@ -316,6 +540,13 @@ _OKCP.fileQuestions.sex =
 				"answerText": ["Yes", "No"],
 				"score": [1, -1],
 				"weight": [0.1, 1]
+			},
+			{//Added by RAA
+				"qid":"87450",
+				"text":"How would you prefer your lover in bed?",
+				"answerText": ["Very dominant", "Somewhat dominant", "Neutral or willing to take turns", "Submissive"],
+				"score": [1, 1,0,-1],
+				"weight": [1, .7, 0.7, 1]
 			}
 		],
 
@@ -374,6 +605,27 @@ _OKCP.fileQuestions.sex =
 				"answerText": ["Yes.", "No."],
 				"score": [1, -1],
 				"weight": [1, 1]
+			},
+			{ //Added by RAA
+				"qid":"81254",
+				"text":"Anal sex. Do you...",
+				"answerText": ["Like to give", "Live to receive", "Like it both ways!","Hate it! / Never tried it"],
+				"score": [1, 1, 1, 0],
+				"weight": [1, 1, 1,1]
+			},
+			{ //Added by RAA
+				"qid":"49345",
+				"text":"Would you consider performing anilingus on a partner who asked you to?",
+				"answerText": ["Yes.","No."],
+				"score": [1, -1],
+				"weight": [1, 1]
+			},
+			{ //Added by RAA
+				"qid":"64476",
+				"text":"Under the right circumstances, would you allow a partner to lick your anus?",
+				"answerText": ["Yes.","No."],
+				"score": [1, -1],
+				"weight": [1, 1]
 			}
 		],
 
@@ -384,6 +636,55 @@ _OKCP.fileQuestions.sex =
 				"answerText": ["Yes.", "No."],
 				"score": [1, -1],
 				"weight": [1, 1]
+			},
+			{ //Added by RAA
+				"qid":"134",
+				"text":"Do you think women have an obligation to keep their legs shaved?",
+				"answerText": ["Yes","No"],
+				"score": [1,-1],
+				"weight": [1,.5]
+			},
+			{ //Added by RAA
+				"qid":"39714",
+				"text":"Do you find the idea of shaving a partner's pubic hair exciting?",
+				"answerText": ["Yes.","No."],
+				"score": [1,-1],
+				"weight": [1,1]
+			},
+			{ //Added by RAA
+				"qid":"712",
+				"text":"Do you think a girl with hairy underarms is necessarily unattractive?",
+				"answerText": ["Yes","No"],
+				"score": [1,-1],
+				"weight": [1,0.5]
+			},
+			{ //Added by RAA
+				"qid":"7079",
+				"text":"Could you date someone with abnormal amounts of body hair?",
+				"answerText": ["Yes","No","I don't know"],
+				"score": [-1,1,0],
+				"weight": [1,1,1]
+			},
+			{ //Added by RAA
+				"qid":"1572",
+				"text":"Would you shave something you usually don't because your boyfriend/girlfriend asked you to?",
+				"answerText": ["Yes","No"],
+				"score": [1,-1],
+				"weight": [1,1]
+			},
+			{ //Added by RAA
+				"qid":"83480",
+				"text":"Which pubic hair style do you prefer for a partner?",
+				"answerText": ["Natural.","Neatly trimmed.","Completely shaven.","It doesn't matter."],
+				"score": [-1,0,1,0],
+				"weight": [1,1,1,1]
+			},
+			{ //Added by RAA
+				"qid":"32855",
+				"text":"Underarms can be a hairy subject. How do you maintain your pits?",
+				"answerText": ["I let it grow, wild & free!","Occasionally I'll trim.","I shave consistently.","Whatever I feel like at the time."],
+				"score": [-1,-1,1,-1],
+				"weight": [1,1,1,1]
 			}
 		],
 
@@ -394,6 +695,41 @@ _OKCP.fileQuestions.sex =
 				"answerText": ["Yes.", "No."],
 				"score": [-1, 1],
 				"weight": [0.5, 1]
+			},
+			{ //Added by RAA
+				"qid":"134",
+				"text":"Do you think women have an obligation to keep their legs shaved?",
+				"answerText": ["Yes","No"],
+				"score": [-1,1],
+				"weight": [.5,1]
+			},
+			{ //Added by RAA
+				"qid":"712",
+				"text":"Do you think a girl with hairy underarms is necessarily unattractive?",
+				"answerText": ["Yes","No"],
+				"score": [-1,1],
+				"weight": [.5,1]
+			},
+			{ //Added by RAA
+				"qid":"7079",
+				"text":"Could you date someone with abnormal amounts of body hair?",
+				"answerText": ["Yes","No","I don't know"],
+				"score": [1,-1,0],
+				"weight": [1,1,1]
+			},
+			{ //Added by RAA
+				"qid":"83480",
+				"text":"Which pubic hair style do you prefer for a partner?",
+				"answerText": ["Natural.","Neatly trimmed.","Completely shaven.","It doesn't matter."],
+				"score": [1,0,-1,0],
+				"weight": [1,1,1,1]
+			},
+			{ //Added by RAA
+				"qid":"32855",
+				"text":"Underarms can be a hairy subject. How do you maintain your pits?",
+				"answerText": ["I let it grow, wild & free!","Occasionally I'll trim.","I shave consistently.","Whatever I feel like at the time."],
+				"score": [1,0,-1,0],
+				"weight": [1,1,1,1]
 			}
 		]
 
