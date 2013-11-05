@@ -92,16 +92,16 @@ function OKCP() {
 
 	this.swapLargeThumb = function(vm,e) {
 		var t = e.target;
-		if (t.localName !== 'img') return false
+		if (t.localName !== 'img') return false;
 		var profileName = t.parentElement.href.split('profile/')[1].split('?')[0];
 		var largeThumbPath = _OKCP.getLargeThumbUrl(t.src);
 		$('.largeThumbViewerImage').attr('src',chrome.extension.getURL('images/ajax-loader.gif')).attr('src',largeThumbPath);
-		// $('.largeThumbViewerCaption').text('...');
 		$('.largeThumbViewer').show();
-		// $.getJSON('http://www.okcupid.com/profile/'+profileName+'?json=2',function(data){
-		// 	// console.log(data);
-		// 	$('.largeThumbViewerCaption').html(data.username + ' / ' + data.age + ' / ' + data.sex + ' / ' + data.location.split(', ')[0] + ', ' + stateAbbr[data.location.split(', ')[1]] + ' (' + data.distance + data.units + ')');
-		// });
+		/* // This gets JSON data for a profile
+		$.getJSON('http://www.okcupid.com/profile/'+profileName+'?json=2',function(data){
+			// console.log(data);
+			$('.largeThumbViewerCaption').html(data.username + ' / ' + data.age + ' / ' + data.sex + ' / ' + data.location.split(', ')[0] + ', ' + stateAbbr[data.location.split(', ')[1]] + ' (' + data.distance + data.units + ')');
+		}); */
 	};
 	this.swapSmallThumb = function(vm,e) {
 	   $('.largeThumbViewer').hide();

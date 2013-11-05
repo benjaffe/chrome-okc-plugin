@@ -147,7 +147,7 @@ _OKCP.fileQuestions.children =
 				"weight":[0,0,1,0.5]
 			}
 		],
-		"ok_with_your_child(ren)": [
+		"ok_with_your_child": [
 			{
 				"qid": "18789",
 				"text": "Would you prefer a daughter or a son?",
