@@ -58,11 +58,12 @@ _OKCP.initSuggestQuestionsFeature = function () {
 		$('.copy-this-text').text(JSON.stringify(_OKCP.questionsToSuggest));
 		alert('Your question(s) have NOT been suggested YET. When you are ready to sumbit, scroll to the very bottom of the page and follow the instructions.');
 		$(this).remove();
+		logCurrQuestionData(question);
 	});
-
-	if (location.href.split('rqid=')[1] !== undefined && _OKCP.devmode) {
-		//duplicated code, but works for devs in dev mode
-		var question = $('.question:first');
+	
+	function logCurrQuestionData(elem) {
+		//duplicated code, but works for now
+		var question = elem || $('.question:first');
 		var qid = question.attr('id').split('question_')[1];
 		var qtext = $('#qtext_' + qid).text();
 		var answers = [];
@@ -90,6 +91,9 @@ _OKCP.initSuggestQuestionsFeature = function () {
 		objStr = objStr.split('}')[0]+'\n}';
 		objStr = objStr.split('"text"').join('\n\t"text"').split('"answerText"').join('\n\t"answerText"').split('"score"').join('\n\t"score"').split('"weight"').join('\n\t"weight"');
 		console.log(objStr);
+	}
+	if (location.href.split('rqid=')[1] !== undefined && _OKCP.devmode) {
+		logCurrQuestionData();
 	}
 
 	
