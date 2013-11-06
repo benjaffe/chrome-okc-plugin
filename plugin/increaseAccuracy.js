@@ -3,47 +3,44 @@ _OKCP.showUnansweredQuestions = function(data) {
 		alert('Try this feature in a month or two, and it will be a bit more polished. For now, just go answer a bunch of questions; the more questions you answer publically, the more accurate the plugin will be.');
 		return false;
 	}
-	var questions = JSON.parse(localStorage.okcpDefaultQuestions).questionsList;
+	var questions = _OKCP.filteredQuestionsList || JSON.parse(localStorage.okcpDefaultQuestions).questionsList;
 	//console.log(questions);
 	var unansweredQuestionsDiv = $('<div class="unanswered-questions"><h1 class="unanswered-questions-loadingtext" style="margin-bottom:8px;text-align:center;font-weight:normal;font-style:italic;">...loading...</h1></div>').appendTo('body');
 	var numUnansweredQuestionsNotYetLoaded = objLength(questions);
 	// console.log(questions);
 	// console.log(numUnansweredQuestionsNotYetLoaded);
+	var num = 0;
+	var iframeArr = [];
+	var iframeNum = 0;
 	for (var cat in questions) {
 		var questionsList = questions[cat];
 		// unansweredQuestionsDiv.append('<p>'+cat+'</p>');
-		for (var i = 0; i < questionsList.length && i < 50; i++) {
+		for (var i = 0; i < questionsList.length; i++) {
 			var question = questionsList[i];
 			console.log(question);
 			var qid = question.qid;
-			var iframe = $('<iframe class="unanswered-questions-iframe" src="http://www.okcupid.com/questions?rqid=' + qid + '" style="width:100%;height:1px;" qid="' + qid + '">');
+			var iframe = $('<iframe qid='+qid+' class="unanswered-questions-iframe" src="http://www.okcupid.com/questions?rqid=' + qid + '" style="width:100%;height:1px;" qid="' + qid + '">');
 			// console.log(iframe);
-			unansweredQuestionsDiv.append(iframe);
-
 			iframe.load(function() {
+				$(this).attr('loaded','true');
+
 				numUnansweredQuestionsNotYetLoaded--;
 				if (numUnansweredQuestionsNotYetLoaded <= 0) {
 					$(".unanswered-questions-loadingtext").remove();
 				}
 				$(this).css({'height':'300px'});
 				var iFrameContent = $(this.contentDocument);
-				// console.log(iFrameContent);
-				// console.log(iFrameContent.find(".notice p:not(.btn)").text().indexOf('already answered this question') === -1);
-				// console.log(iFrameContent.find(".notice.pink p").not(':hidden'));
+				var questionStuff = iFrameContent.find('#new_question');
+				
 				if (iFrameContent.find(".notice p:not(.btn)").text().indexOf('already answered this question') !== -1 ||
 						iFrameContent.find(".notice.pink p:eq(1)").not(':hidden').size() > 0) {
-					// console.log('not doing ' + $(this).attr('qid'));
 					$(this).remove();
-					if($('.unanswered-questions').children().length === 1) {
-						$('.improve-accuracy').hide();
-						$('.unanswered-questions').html('<h1>You have answered all the questions that this plugin currently checks. Congratulations!</h1>').delay(5000).hide(500);
-						var storage = JSON.parse(localStorage.okcp);
-						storage.accuracyImprovedAsOfVersionNum = JSON.parse(localStorage.okcpDefaultQuestions).questionsVersionNum;
-						localStorage.okcp = JSON.stringify(storage);
-					}
+					addiFrame();
 					return false;
 				}
-				var questionStuff = iFrameContent.find('#new_question');
+				
+				
+				// hide and reorganize everything
 				iFrameContent.find('body > *').hide();
 				iFrameContent.find('body').append(('<div class="big_dig" style="padding:0;"><div class="questions" id="addQuestionStuffHere" style="width:auto;margin:0;"></div></div>'));
 				iFrameContent.find('#addQuestionStuffHere').html( questionStuff );
@@ -51,16 +48,54 @@ _OKCP.showUnansweredQuestions = function(data) {
 				iFrameContent.find('.submit_btn').click(function(){
 					iFrameContent.find('#new_question').hide();
 				});
+				
 				$('<a class="iframe-close-btn">X</a>').insertBefore(this).click(function() {
-					$(this).next().add(this).hide(400,function() {
-						$(this).remove();
-						if($('.unanswered-questions').children().length === 0) {
-							$('.unanswered-questions').fadeOut(200,function(){$(this).remove();});
-							$(this).animate({'height':'158px'},800);
-						}
-					});
+					removeiFrame($(this).next());
+					addiFrame();
 				});
 			});
+			iframeArr.push(iframe);
+			num++;
 		};
+	}
+	var checkForAnsweredLoop = setInterval(function(){
+		var iframes = unansweredQuestionsDiv.find('iframe');
+
+		// have any questions been answered since we last checked?
+		iframes.each(function(){
+			if ($(this).attr('loaded') && $(this.contentDocument).find('#new_question #question_'+$(this).attr('qid')).length === 0) {
+				removeiFrame(this);
+				addiFrame();
+			}
+		});
+
+		// are there enough questions on the screen?
+		if (iframes.length < 3) {
+			addiFrame();
+		}
+
+		// are we out of questions?
+		if (iframeNum === iframeArr.length && iframes.length === 0) {
+			clearInterval(checkForAnsweredLoop);
+			$('.unanswered-questions').fadeOut(200,function(){
+				$(this).remove();
+				alert("You've gone through all the questions for your chosen categories. Refresh the page to see those questions in your results.");
+			});
+
+		}
+	},500);
+
+	function removeiFrame(elem) {
+		$(elem).prev().remove();
+		$(elem).slideUp().remove();
+		return true;
+	}
+	function addiFrame() {
+		if (iframeNum === iframeArr.length) {
+			return false;
+		}
+		unansweredQuestionsDiv.append(iframeArr[iframeNum]);
+		iframeNum++;
+		return true;
 	}
 };
