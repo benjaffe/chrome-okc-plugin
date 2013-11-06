@@ -199,7 +199,9 @@ background-position:0 0, -1px -5px;}
 
 /* UI - Unanswered Questions */
 .unanswered-questions {position: absolute;z-index:3000;top: 200px;left: 50%;width: 530px;margin-left: -270px;background: #DDD;padding: 20px;box-shadow: 0 0 20px rgba(0,0,0,0.4);}
-.unanswered-questions iframe {margin-bottom:10px;border:solid 1px #888;}
+.unanswered-questions:after {content: "(Answer these questions like you normally would on the questions page)";position: absolute;top: 5px;text-align: center;left: 50px;right: 50px;z-index: 10;color: #555;z-index: 10;}
+.unanswered-questions iframe {margin-top:10px;border:solid 1px #888;}
+.unanswered-questions iframe:first-child {margin-top:0;}
 .qtext, .answer_area p {color: #2855A2;font-size:13px;font-weight: bold;line-height: 18px;margin:10px 0 5px;}
 .answer_area label {display:block;}
 .iframe-close-btn {position:absolute;right:15px;margin-top:-9px;background:#666;border-radius:20px;width:25px;height:22px;padding-top:3px;text-align:center;color:white;font-weight:bold;cursor:pointer;}

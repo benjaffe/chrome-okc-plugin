@@ -96,7 +96,6 @@ var stateAbbr = {"Alaska" : "AK", "Alabama" : "AL", "Arkansas" : "AR", "American
 var objLength = function(obj){
 	var len = 0;
 	$.each(obj, function (i) {
-		console.log(obj[i]);
 		len++;
 	});
 	return len;
