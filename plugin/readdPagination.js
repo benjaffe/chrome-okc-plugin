@@ -14,7 +14,7 @@ _OKCP.initReaddPagination = function() {
 	}
 
 	numPages = lastPageElem.text()*1;
-	paginationElem = $('<div class="pagination"></div>').insertAfter(lastPageElem);
+	paginationElem = $('<div class="okcp-pagination"></div>').insertAfter(lastPageElem);
 	for (var i = 0, newElem, href; i < numPages; i++) {
 		newElem = lastPageElem.clone();
 		href = newElem.attr('href');
