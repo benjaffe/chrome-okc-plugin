@@ -99,7 +99,6 @@ var objLength = function(obj){
 		console.log(obj[i]);
 		len++;
 	});
-	console.log(len);
 	return len;
 };
 

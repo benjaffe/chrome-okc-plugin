@@ -25,7 +25,7 @@ for(xx in localStorage.fileQuestions) {
 
 var xx, yy;
 var fullQuestionsList = {};
-var filteredQuestionsList = {};
+_OKCP.filteredQuestionsList = {};
 var desiredCategories = JSON.parse(localStorage.okcp).questionCategories;
 
 for(xx in _OKCP.fileQuestions) {
@@ -50,11 +50,11 @@ for (xx in fullQuestionsList) {
 	for (var i = desiredCategories.length - 1; i >= 0; i--) {
 		//if the current questions matches, use it
 		if (xx === desiredCategories[i]) {
-			filteredQuestionsList[xx] = fullQuestionsList[xx];
+			_OKCP.filteredQuestionsList[xx] = fullQuestionsList[xx];
 		}
 		
 	}
 }
 
-questions.questionsList = filteredQuestionsList;
+questions.questionsList = _OKCP.filteredQuestionsList;
 localStorage.okcpDefaultQuestions = JSON.stringify(questions);

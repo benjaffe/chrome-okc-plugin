@@ -25,11 +25,11 @@ if (_OKCP.profilePath !== '') {
 	// UI: Question Detail
 	$('#right_column').before('<div class="question-detail"></div>');
 	var questionsInCommonElem = $('<div class="questions-in-common"></div>').prependTo('.question-detail');
-	if (JSON.parse(localStorage.okcp).accuracyImprovedAsOfVersionNum != JSON.parse(localStorage.okcpDefaultQuestions).questionsVersionNum) {
+	// if (JSON.parse(localStorage.okcp).accuracyImprovedAsOfVersionNum != JSON.parse(localStorage.okcpDefaultQuestions).questionsVersionNum) {
 		$('<a href="#" class="question-feature-link improve-accuracy" id="improve-accuracy">Improve Accuracy</a>').appendTo(questionsInCommonElem).click(function(){
 			_OKCP.showUnansweredQuestions();
 		});
-	}
+	// }
 
 	$('<a href="#" class="question-feature-link change-categories" id="change-categories">Change Categories</a>').appendTo(questionsInCommonElem).click(function(){
 		_OKCP.changeCategories();
