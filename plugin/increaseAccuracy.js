@@ -74,15 +74,19 @@ _OKCP.showUnansweredQuestions = function(data) {
 		}
 
 		if (iframes.filter('[loaded]').length === 0) {
-			$('.spinner').fadeIn(200);
+			$('.spinner').fadeIn(200).addClass('spinner-note-patient');
 		} else {
-			$('.spinner').fadeOut(200);
+			$('.spinner').fadeOut(200, function(){
+				$(this).removeClass('spinner-note-patient');
+			});
 		}
 
 		// are we out of questions?
 		if (iframeNum === iframeArr.length && iframes.length === 0) {
 			clearInterval(checkForAnsweredLoop);
-			$('.spinner').fadeOut(200);
+			$('.spinner').fadeOut(200, function(){
+				$(this).removeClass('spinner-note-patient');
+			});
 			$('.unanswered-questions').fadeOut(200,function(){
 				$(this).remove();
 				alert("You've gone through all the questions for your chosen categories. Refresh the page to see those questions in your results.");
