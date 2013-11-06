@@ -20,3 +20,23 @@ Thanks everyone!
 
 
 Note for Geeks: If you want to make custom categories, you'll have to do some data file hacking. I'm sorry I can't provide support for those of you who try, but I can say if you do, make a backup of your changes. Every time I update the plugin, it will overwrite your modifications.
+
+----
+
+Instructions for suggesting questions, as of Nov 5
+
+K, open up the Console (right-click on an okc page anywhere, click inspect element, then choose the console tab).
+
+Enter the following:
+
+localStorage.devMode = "true"
+
+Hit return, and you'll now see a suggest question button on every question that isn't already in the plugin. This is a feature that's not refined, so it's hidden behind "dev mode". It adds a few other dev tools too, but don't mind them. If you want to reverse it, enter the same line, but with "false" instead.
+
+BTW, feel special -- You're the fourth person in the entire world who has dev mode enabled!
+
+Now, go to your profile, click on questions, and start searching away for key terms. Click on the "suggest question" button and follow the instructions.
+
+I reallllllly appreciate the help, thank you! And let me know if you have any other questions!
+
+Ben
