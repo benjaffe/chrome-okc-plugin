@@ -93,6 +93,7 @@ function OKCP() {
 	this.swapLargeThumb = function(vm,e) {
 		var t = e.target;
 		if (t.localName !== 'img') return false;
+		if ($(t).hasClass('largeThumbDisabled')) return false;
 		var profileName = t.parentElement.href.split('profile/')[1].split('?')[0];
 		var largeThumbPath = _OKCP.getLargeThumbUrl(t.src);
 		$('.largeThumbViewerImage').attr('src',chrome.extension.getURL('images/ajax-loader.gif')).attr('src',largeThumbPath);
