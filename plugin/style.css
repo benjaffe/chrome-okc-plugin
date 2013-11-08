@@ -16,7 +16,7 @@
 .btn {cursor:pointer;}
 
 /* UI - Buttons */
-.okcp-btns {position:absolute;top:79px;right:29px;text-align:right;font-size:1.3em;}
+.okcp-btns {position:absolute;top:80px;right:15px;text-align:right;font-size:1.3em;}
 .okcp-btns .divider {border-bottom:1px solid #89B;margin:7px 0 3px;}
 .okcp-btn {cursor:pointer;display:block;color:#89B;}
 .okcp-btn:after {content:"\2610";font-size:1.35em;margin-left:2px;}
@@ -284,11 +284,7 @@ background-position:0 0, -1px -5px;}
 
 /* Readd notes feature */
 #okcp #inline_notes {width:300px;}
-.UI-change-button {
-background: #CCC;
-padding: 2px 10px;
-border-radius: 5px;
-border: 1px solid #AAA;}
+.UI-change-btn {background: #CCC;padding: 2px 10px;border-radius: 5px;border: 1px solid #AAA;position:relative;z-index:1000;}
 
 
 .UI-change-button:hover {background: #BBB;color:#2855A2;border-color:#999;}
