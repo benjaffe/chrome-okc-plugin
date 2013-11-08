@@ -226,8 +226,27 @@ background-position:0 0, -1px -5px;}
 
 
 
+#okcp .okcp-img-grid #page #match_sidebar {display:none;}
+#okcp .okcp-img-grid #page #match_results {width:100%;font-size:0;}
+#okcp .okcp-img-grid #page .match_row {width:185px;height:185px;overflow:hidden;display:inline-block;margin:0 -1px;margin-bottom:-12px;}
+#okcp .okcp-img-grid #page #big_images .match_row {width:246px;height:246px;}
+#okcp .okcp-img-grid #page .match_row .wrap {margin:0;padding:0;width:100%;}
+#okcp .okcp-img-grid #page #match_results .match_row .user_info {padding: 0;width: 100%;}
+     #okcp .okcp-img-grid #page .user_image {position:absolute;top:0;left:0;width:100%;height:100%;margin:0;z-index:10;}
+     #okcp .okcp-img-grid #page .user_image img {width:100%;height:100%;}
+     #okcp .okcp-img-grid #page .location {}
+     #okcp .okcp-img-grid #page .activity {}
+     #okcp .okcp-img-grid #page .aso {position:absolute;bottom:0;left:0;padding:4px;z-index:20;background-color: rgba(255,255,255,0.6);text-shadow:1px 1px 2px white,-1px -1px 2px white;border-top-right-radius: 6px}
+#okcp .okcp-img-grid #page .match_row_screenname {display:none;position:absolute;top:0;left:0;z-index:20;}
+#okcp .okcp-img-grid #page .essay {display:none;}
+#okcp .okcp-img-grid #page .percentages {display:none;position:absolute;top:auto;bottom:0;right:-57px;z-index:20;width:auto;padding:4px;background-color: rgba(255,255,255,0.6);text-shadow:1px 1px 2px white,-1px -1px 2px white;border-top-left-radius: 6px}
+#okcp .okcp-img-grid #page .percentages .friend {display:none;}
+#okcp .okcp-img-grid #page .percentages p {font-size:16px;line-height: 18px;text-align: right;}
+#okcp .okcp-img-grid #page .match_row:hover .match_row_screenname {display:block;padding:4px;background-color: rgba(255,255,255,0.4);text-shadow:1px 1px 2px white;}
+#okcp .okcp-img-grid #page .match_row .percentages {display:block;}
+#okcp .okcp-img-grid #page .match_row:hover .percentages .friend {display:block;}
 
-
+#okcp .okcp-img-grid #page .actions {display:none;}
 
 
 
@@ -253,7 +272,7 @@ background-position:0 0, -1px -5px;}
 
 /* Readd notes feature */
 #okcp #inline_notes {width:300px;}
-.note-link {position: relative;z-index: 1000;}
+.UI-change-link {position: relative;z-index: 1000;}
 
 
 

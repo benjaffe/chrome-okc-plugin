@@ -17,4 +17,5 @@ $(function(){
 	_OKCP.initThumbViewer();
 
 	_OKCP.readdNotes();
+	_OKCP.changeUI();
 });
