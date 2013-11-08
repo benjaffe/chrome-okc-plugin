@@ -3,10 +3,11 @@ _OKCP.initThumbViewer = function() {
 
 	var largeThumbViewerElem = $('<div class="largeThumbViewer"><img src="" class="largeThumbViewerImage" /><p class="largeThumbViewerCaption"></p></div>').appendTo('#wrapper').attr('style','background:white url('+chrome.extension.getURL('images/ajax-loader.gif')+') no-repeat center center');
 
-	_OKCP.getLargeThumbUrl = function(url) {
+	_OKCP.getLargeThumbUrl = function(url, size) {
 		var arr1 = url.split('/images/');
-		arr2 = arr1[1].split('/');
-		newURL = arr1[0] + '/images/'+_OKCP.largeThumbSize+'x'+_OKCP.largeThumbSize+'/160x160/' + arr2.splice(2).join('/');
+		var arr2 = arr1[1].split('/');
+		size = size || _OKCP.largeThumbSize;
+		newURL = arr1[0] + '/images/'+size+'x'+size+'/160x160/' + arr2.splice(2).join('/');
 		return(newURL);
 	};
 

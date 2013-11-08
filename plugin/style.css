@@ -239,7 +239,7 @@ background-position:0 0, -1px -5px;}
      #okcp .okcp-img-grid #page .location {position:absolute;bottom:15px;left:4px;}
      #okcp .okcp-img-grid #page .activity {position:absolute;top:192px;right:4px;margin:0;padding:0;border:none;font-size:0;}
      #okcp .okcp-img-grid #page .activity .icon {position:absolute;right:0;top:0;}
-     #okcp .okcp-img-grid #page .aso {position:absolute;bottom:31px;left:4px;z-index:20;overflow:hidden;white-space: pre;}
+     #okcp .okcp-img-grid #page .aso {position:absolute;bottom:31px;left:4px;z-index:20;overflow:hidden;white-space: no-wrap;}
 #okcp .okcp-img-grid #page .match_row_screenname {display:none;position:absolute;top:161px;left:0;z-index:20;padding:2px 0 6px;width:185px;text-align:center;background-color: rgba(255,255,255,0.4);text-shadow:1px 1px 2px white;}
 #okcp .okcp-img-grid #page .essay {display:none;}
 #okcp .okcp-img-grid #page .percentages {display:none;position:static;margin-top:185px;top:auto;bottom:25px;left:0px;z-index:20;width:auto;padding:4px;}
