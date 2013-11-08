@@ -38,6 +38,7 @@
         "fixAndAugmentUI.js",
         "suggestQuestion.js",
         "readdPagination.js",
+        "readdNotes.js",
         "thumbViewer.js",
         "changeCategories.js",
         "increaseAccuracy.js",

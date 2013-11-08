@@ -251,6 +251,11 @@ background-position:0 0, -1px -5px;}
 #online_now {z-index: 10;} /* prevent online_now indicator from getting hidden behind the image */
 .guilt {display:none;}
 
+/* Readd notes feature */
+#okcp #inline_notes {width:300px;}
+.note-link {position: relative;z-index: 1000;}
+
+
 
 /* Overrides (My god, some of these selectors are awful. Just for the record, they are copied and pasted from OkC's code. They are NOT mine!!) */
 #wrapper {position:relative;}

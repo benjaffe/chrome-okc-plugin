@@ -15,4 +15,6 @@ $(function(){
 
 	// large thumbnail viewer
 	_OKCP.initThumbViewer();
+
+	_OKCP.readdNotes();
 });
