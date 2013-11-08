@@ -31,6 +31,11 @@ if (_OKCP.profilePath === '') {
 
 // check to see if any database upgrades or localStorage cleanups are necessary
 (function () {
+	// create a settings object if there isn't one
+	if (!localStorage.okcpSettings) {
+		localStorage.okcpSettings = JSON.stringify({});
+	}
+
 	// create a database if there isn't one
 	if (localStorage.okcp === undefined) {
 		localStorage.okcp = JSON.stringify({
