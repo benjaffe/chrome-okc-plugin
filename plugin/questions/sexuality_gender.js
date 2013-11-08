@@ -129,13 +129,6 @@ _OKCP.fileQuestions.sexuality_gender =
 				"weight": [1,1]
 			},
 			{ // Added by RAA
-				"qid":"321556",
-				"text":"How often do you masturbate?",
-				"answerText": ["Once a day or more", "A few times a week","A few times a month","A few times a year or less"],
-				"score": [1, 1,0,-1],
-				"weight": [1, 1,1,1]
-			},
-			{ // Added by RAA
 				"qid":"27341",
 				"text":"How does the thought of someone masturbating with you in mind make you feel?",
 				"answerText": ["Shocked", "Disgusted","Flattered","Aroused"],

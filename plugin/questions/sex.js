@@ -64,7 +64,8 @@ _OKCP.fileQuestions.sex =
 				"qid": "21",
 				"text": "Do you enjoy meaningless sex?",
 				"answerText": ["Yes", "No"],
-				"score": [-1, 1]
+				"score": [-1, 1],
+				"weight": [0.8, 0.3]
 			}
 		],
 
@@ -123,13 +124,6 @@ _OKCP.fileQuestions.sex =
 				"answerText": ["Bring out the toys!", "Never tried it, but I'm open-minded.", "Not sure/don't know what they really are.", "Ew!"],
 				"score": [1, 1, 0, -1],
 				"weight": [1, 1, 1, 1]
-			},
-			{//Added by RAA
-				"qid":"40441",
-				"text":"If you were to die, would whoever goes through your personal belongings be shocked by what they find?",
-				"answerText": ["Yes.", "No.", "Maybe a little bit."],
-				"score": [1, -1, 0],
-				"weight": [0.5, 0.2, 0.2,]
 			},
 			{//Added by RAA
 				"qid":"61958",
@@ -343,6 +337,13 @@ _OKCP.fileQuestions.sex =
 				"answerText": ["Yes", "No", "Not possible"],
 				"score": [1, -1, 1],
 				"weight": [1, 1, 1]
+			},
+			{//Added by RAA
+				"qid":"40441",
+				"text":"If you were to die, would whoever goes through your personal belongings be shocked by what they find?",
+				"answerText": ["Yes.", "No.", "Maybe a little bit."],
+				"score": [1, -1, 0],
+				"weight": [0.5, 0.2, 0.2,]
 			},
 			{
 				"qid":"1028",
@@ -616,13 +617,6 @@ _OKCP.fileQuestions.sex =
 			{ //Added by RAA
 				"qid":"49345",
 				"text":"Would you consider performing anilingus on a partner who asked you to?",
-				"answerText": ["Yes.","No."],
-				"score": [1, -1],
-				"weight": [1, 1]
-			},
-			{ //Added by RAA
-				"qid":"64476",
-				"text":"Under the right circumstances, would you allow a partner to lick your anus?",
 				"answerText": ["Yes.","No."],
 				"score": [1, -1],
 				"weight": [1, 1]
