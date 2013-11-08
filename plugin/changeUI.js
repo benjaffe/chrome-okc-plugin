@@ -2,48 +2,53 @@ _OKCP.changeUI = function(){
 
 	if (!document.getElementById('p_match')) return false;
 
-	_OKCP.imgGridMode = false;
-	_OKCP.imgGridWidth = 4;
 	var btn;
 	var btn2;
 	var body = $('body');
 	var imageSizeChecker;
+	var newWidth;
 	
 	$('<a class="UI-change-button UI-change-button-okcp-img-grid UI-change-button-okcp-img-grid-width" href="javascript:void(0)">4 Wide</a>').prependTo('.monolith').hide().click(function(){
-		if (_OKCP.imgGridWidth === 4) {
-			$(this).text('3 Wide');
-			_OKCP.imgGridWidth =  3;
-			$('body').addClass('okcp-img-grid-3-wide').removeClass('okcp-img-grid-4-wide');
+		if (_OKCP.settings('matchesPageGridWidth') === '4') {
+			newWidth = 3;
 		} else {
-			$(this).text('4 Wide');
-			_OKCP.imgGridWidth =  4;
-			$('body').addClass('okcp-img-grid-4-wide').removeClass('okcp-img-grid-3-wide');
+			newWidth = 4;
 		}
+		$(this).text(newWidth+' Wide');
+		_OKCP.settings('matchesPageGridWidth',newWidth+'');
+		$('body').removeClass('okcp-img-grid-3-wide okcp-img-grid-4-wide').addClass('okcp-img-grid-'+newWidth+'-wide');
 	});
 	$('<a class="UI-change-button UI-change-button-okcp-img-grid UI-change-button-okcp-img-grid-toggle" href="javascript:void(0)">Normal Mode</a>').prependTo('.monolith').click(function(){
 		_OKCP.imgGridMode = !_OKCP.imgGridMode;
 		
 		if (_OKCP.imgGridMode) {
 			body.addClass('okcp-img-grid');
-			btn.text('Pictures Mode');
-			// largeThumbViewer.addClass('disabled');
+			btnUIMode.text('Pictures Mode');
 			upgradeImageSizes();
 			$('#match_results .user_image img').addClass('largeThumbDisabled');
 			imageSizeChecker = setInterval(upgradeImageSizes, 1000);
-			btn2.show();
+			btnGridWidth.show();
+
+			_OKCP.settings('matchesPageUISetting','pictureGrid');
+
 		} else {
 			body.removeClass('okcp-img-grid');
-			btn.text('Normal Mode');
+			btnUIMode.text('Normal Mode');
 			$('#match_results .user_image img').removeClass('largeThumbDisabled');
-			// largeThumbViewer.removeClass('disabled');
 			clearInterval(imageSizeChecker);
-			btn2.hide();
+			btnGridWidth.hide();
+
+			_OKCP.settings('matchesPageUISetting','normal');
+
 		}
 		
 	});
 
-	btn = $('.UI-change-button-okcp-img-grid:first');
-	btn2 = $('.UI-change-button-okcp-img-grid-width');
+	btnUIMode = $('.UI-change-button-okcp-img-grid:first');
+	btnGridWidth = $('.UI-change-button-okcp-img-grid-width');
+
+	if (_OKCP.settings('matchesPageUISetting') === 'pictureGrid') btnUIMode.click();
+	if (_OKCP.settings('matchesPageGridWidth') === '3') btnGridWidth.click();
 
 	function upgradeImageSizes() {
 		$('#match_results .user_image img:not(.large-img)').each(function(){
