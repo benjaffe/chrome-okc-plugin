@@ -14,6 +14,9 @@ increase accuracy is broken (question parsing)
 
 ## Ideas for the future:
 ### (sorted by rough priority)
+* Inspiration: 
+** http://www.reddit.com/r/OkCupid/wiki/hacks
+** http://www.reddit.com/r/OkCupid/comments/qi8iw/understanding_okc_url_manipulation/
 
 * Categories:
     * likes exercise
@@ -21,6 +24,8 @@ increase accuracy is broken (question parsing)
 * default click opens in new tab?
 
 * sorting
+
+* Add Google Maps popup for locations
 
 * Hover Zoom type Improvements
 * Option for disabling my hoverzoom
