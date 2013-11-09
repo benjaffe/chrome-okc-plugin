@@ -40,7 +40,7 @@
         "suggestQuestion.js",
         "readdPagination.js",
         "readdNotes.js",
-        "changeUI.js",
+        "pictureTile.js",
         "thumbViewer.js",
         "changeCategories.js",
         "increaseAccuracy.js",

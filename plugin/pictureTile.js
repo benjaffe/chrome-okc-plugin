@@ -1,6 +1,4 @@
-_OKCP.changeUI = function(){
-
-	if (!document.getElementById('p_match')) return false;
+_OKCP.initPictureTile = function(){
 
 	var btn;
 	var btn2;
