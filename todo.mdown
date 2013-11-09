@@ -1,55 +1,48 @@
-## Bugs
-increase accuracy is broken (question parsing)
 
 ## For Next Version:
- 
-* Refactor: questions into JSON, customizable path to pull from?
-* A way to enable/disable the plugin
+
 
 ## For Next Next Version:
+
+* proper sorting
+
+* Settings: enable/disable the plugin
+* Settings: enable/disable the largeThumbViewer
+* Settings: profile click opens in new tab by default
+
+* Do something with last viewed. When did the user last view this profile?
+
+* SortByEnemy on match page (needs better UI to ship, but already implemented)
+* Do you fall into their age range? Do they fall into your age range?
+
+* Add Google Maps popup for locations
 
 * Questions customization stage 1
     * For or against kids, poly, etc
     * Let user suggest questions, (submit to Google Forms?) (currently working on it -B)
 
+* Settings: questions into JSON, customizable path to pull from?
+
 ## Ideas for the future:
 ### (sorted by rough priority)
-* Inspiration: 
-** http://www.reddit.com/r/OkCupid/wiki/hacks
-** http://www.reddit.com/r/OkCupid/comments/qi8iw/understanding_okc_url_manipulation/
-
 * Categories:
     * likes exercise
 
-* default click opens in new tab?
-
-* sorting
-
-* Add Google Maps popup for locations
-
 * Hover Zoom type Improvements
-* Option for disabling my hoverzoom
 
-* Make a build script (grunt?)
-* Do something with last viewed. When did the user last view this profile?
-
-* Questions customization stage 2
-    * De-binary-ize the questions!
 * Questions customization stage 3
-    * 1. Let people add questions and categories.
-    * 2. Let people suggest questions and categories, and we moderate.
+    * 1. Let people suggest questions and categories, and we moderate.
+    * 2. Let people add questions and categories.
 * Make plugin configures itself based on user's answers.
 * Firefox Plugin
-* SortByEnemy on match page (needs better UI to ship, but already implemented)
-* Do you fall into their age range? Do they fall into your age range?
- 
- 
-## Things I might want to store:
- 
-* Last Viewed Date
-* Keywords
-* Questions Answered
+
+
+
+## Inspiration:
+* http://www.reddit.com/r/OkCupid/wiki/hacks
+* http://www.reddit.com/r/OkCupid/comments/qi8iw/understanding_okc_url_manipulation/
+
 
 ## Notes:
+* URL by question ID: http://www.okcupid.com/questions?rqid=256
 
-URL by question ID: http://www.okcupid.com/questions?rqid=256
