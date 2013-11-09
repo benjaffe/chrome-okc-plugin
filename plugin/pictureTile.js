@@ -1,12 +1,12 @@
 _OKCP.initPictureTile = function(){
 
-	var btn;
-	var btn2;
+	var btnUIMode = $('<a class="UI-change-button UI-change-button-okcp-img-grid UI-change-button-okcp-img-grid-toggle" href="javascript:void(0)">Normal Mode</a>');
+	var btnGridWidth = $('<a class="UI-change-button UI-change-button-okcp-img-grid UI-change-button-okcp-img-grid-width" href="javascript:void(0)">4 Wide</a>');
 	var body = $('body');
 	var imageSizeChecker;
 	var newWidth;
 	
-	$('<a class="UI-change-button UI-change-button-okcp-img-grid UI-change-button-okcp-img-grid-width" href="javascript:void(0)">4 Wide</a>').prependTo('.monolith').hide().click(function(){
+	btnGridWidth.prependTo('.monolith').hide().click(function(){
 		if (_OKCP.settings('matchesPageGridWidth') === '4') {
 			newWidth = 3;
 		} else {
@@ -16,7 +16,7 @@ _OKCP.initPictureTile = function(){
 		_OKCP.settings('matchesPageGridWidth',newWidth+'');
 		$('body').removeClass('okcp-img-grid-3-wide okcp-img-grid-4-wide').addClass('okcp-img-grid-'+newWidth+'-wide');
 	});
-	$('<a class="UI-change-button UI-change-button-okcp-img-grid UI-change-button-okcp-img-grid-toggle" href="javascript:void(0)">Normal Mode</a>').prependTo('.monolith').click(function(){
+	btnUIMode.prependTo('.monolith').click(function(){
 		_OKCP.imgGridMode = !_OKCP.imgGridMode;
 		
 		if (_OKCP.imgGridMode) {
