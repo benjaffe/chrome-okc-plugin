@@ -97,7 +97,14 @@ _OKCP.fileQuestions.sex =
 				"answerText": ["Yes", "No"],
 				"score": [1, -1],
 				"weight": [1, 0.5]
-			}
+			},
+			{
+		        "qid": "19446",
+		        "text": "Have you ever made a booty call (invited over or visited someone you were not actively in a relationship with, just for sexual activity)?",
+		        "answerText": ["Yes, and I still do.", "Yes, I have done it, but don't any more.", "No, and I never will.", "No, but I suppose I might."],
+		        "score": [1, -0.6, -1, 0.5],
+		        "weight": [1, 1, 1, 0.5]
+		    }
 		],
 
 		"group_sex": [
@@ -551,6 +558,23 @@ _OKCP.fileQuestions.sex =
 			}
 		],
 
+
+		"switch": [
+			{
+		        "qid": "158263",
+		        "text": "Do you prefer to be the more submissive or dominant partner in the relationship?",
+		        "answerText": ["Submissive", "Dominant", "I'm a switch(I can go either way or change)", "I don't like to think of relationships in this way"],
+		        "score": [-0.5, -0.5, 1, -0.5],
+		        "weight": [1, 1, 1, 1]
+		    },
+		    {
+		        "qid": "134693",
+		        "text": "Top or bottom?",
+		        "answerText": ["Top", "Bottom", "Both"],
+		        "score": [-0.5, -0.5, 1],
+		        "weight": [1, 1, 1]
+		    }
+	    ]
 
 
 		"bondage": [
