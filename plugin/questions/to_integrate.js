@@ -38,15 +38,6 @@ _OKCP.fileQuestions.toIntegrate =
 				"weight": [0, 0]
 			}
 		],
-		"morning_friendly": [
-			{
-				"qid": "33170",
-				"text": "If/when you have NO pressing obligations (employment, schooling, children, errands, bedtime, or other factors aside), at what time do you prefer to get up in the morning?",
-				"answerText": ["Early bird gets the worm!  I'm up before the sun!", "Pretty Early (6:00ish - 9:30ish AM)", "I like to sleep in a bit. (9:30ish AM - Noonish)", "Morning? Curse that AM light! (afternoon or dark)"],
-				"score": [0, 0, 0, 0],
-				"weight": [0, 0, 0, 0]
-			}
-		],
 		"politically_informed": [
 			{
 				"qid": "18282",
@@ -97,22 +88,6 @@ _OKCP.fileQuestions.toIntegrate =
 				"qid": "1212",
 				"text": "Do you like dogs?  Would you consider owning a dog as a pet?",
 				"answerText": ["Yes, I would love (or do own) a dog.", "I'm not too into them, but I wouldn't mind one.", "No, I dislike dogs.", "I like them, but I'm allergic."],
-				"score": [0, 0, 0, 0],
-				"weight": [0, 0, 0, 0]
-			}
-		],
-		"high_sex_drive": [
-			{
-				"qid": "63114",
-				"text": "How do you think your sex drive compares to what is typical for other people of your age and gender?",
-				"answerText": ["My sex drive is higher than average.", "My sex drive is about average.", "My sex drive is below average.", "I'm insatiable."],
-				"score": [0, 0, 0, 0],
-				"weight": [0, 0, 0, 0]
-			},
-			{
-				"qid": "12605",
-				"text": "Once you're intimate, how often would you and your significant other have sex?",
-				"answerText": ["Every day", "About every other day", "Once or twice a week", "A few times a month or less"],
 				"score": [0, 0, 0, 0],
 				"weight": [0, 0, 0, 0]
 			}
