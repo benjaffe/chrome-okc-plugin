@@ -647,6 +647,25 @@ _OKCP.fileQuestions.sex =
 			}
 		],
 
+		
+		"high_sex_drive": [
+			{
+				"qid": "63114",
+				"text": "How do you think your sex drive compares to what is typical for other people of your age and gender?",
+				"answerText": ["My sex drive is higher than average.", "My sex drive is about average.", "My sex drive is below average.", "I'm insatiable."],
+				"score": [0, 0, 0, 0],
+				"weight": [0, 0, 0, 0]
+			},
+			{
+				"qid": "12605",
+				"text": "Once you're intimate, how often would you and your significant other have sex?",
+				"answerText": ["Every day", "About every other day", "Once or twice a week", "A few times a month or less"],
+				"score": [0, 0, 0, 0],
+				"weight": [0, 0, 0, 0]
+			}
+		],
+
+
 		"shaven": [
 			{
 				"qid":"58829",
@@ -705,6 +724,7 @@ _OKCP.fileQuestions.sex =
 				"weight": [1,1,1,1]
 			}
 		],
+
 
 		"unshaven": [
 			{

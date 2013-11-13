@@ -54,6 +54,28 @@ _OKCP.fileQuestions.other =
 			}
 		],
 
+
+
+		"morning-friendly": [
+			{
+				"qid": "33170",
+				"text": "If/when you have NO pressing obligations (employment, schooling, children, errands, bedtime, or other factors aside), at what time do you prefer to get up in the morning?",
+				"answerText": ["Early bird gets the worm!  I'm up before the sun!", "Pretty Early (6:00ish - 9:30ish AM)", "I like to sleep in a bit. (9:30ish AM - Noonish)", "Morning? Curse that AM light! (afternoon or dark)"],
+				"score": [1, 0.5, -0.5, -1]
+			}
+		],
+
+
+		"late-night-friendly": [
+			{
+				"qid": "33170",
+				"text": "If/when you have NO pressing obligations (employment, schooling, children, errands, bedtime, or other factors aside), at what time do you prefer to get up in the morning?",
+				"answerText": ["Early bird gets the worm!  I'm up before the sun!", "Pretty Early (6:00ish - 9:30ish AM)", "I like to sleep in a bit. (9:30ish AM - Noonish)", "Morning? Curse that AM light! (afternoon or dark)"],
+				"score": [-1, -0.5, 0.5, 1]
+			}
+		],
+
+
 		"sports": [
 			{
 				"qid": "6722",
