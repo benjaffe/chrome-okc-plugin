@@ -10,7 +10,8 @@ _OKCP.getAnswers = function (list) {
 	var requestFailed = false;
 	var recentProfiles = localStorage.okcpRecentProfiles ? JSON.parse(localStorage.okcpRecentProfiles) : {"_ATTENTION":"This is just temporary caching to avoid hitting the server a million times. Notice there's an expires time built in for each key."};
 
-	if ($('.message_text').length === 0) { //on own profile
+	if ($('.message_button_contact_bar').length === 0) { //on own profile
+		// console.log('on own profile');
 		$('.spinner').hide();
 		return false;
 	}
@@ -18,15 +19,18 @@ _OKCP.getAnswers = function (list) {
 	// get list of questions and categories to compare to
 	if (list === undefined) {
 		list = localStorage.okcpDefaultQuestions ? JSON.parse(localStorage.okcpDefaultQuestions).questionsList : {};
+		// console.log(list);
 	}
 
 	// check for cached question data
 	if (!!recentProfiles[_OKCP.profileName] && _OKCP.cacheEnabled && new Date().getTime() - recentProfiles[_OKCP.profileName].expires < 0) {
+		// console.log('cached');
 		recentProfiles[_OKCP.profileName].expires = new Date().getTime() + 300000; //reset expires
 		questionList = recentProfiles[_OKCP.profileName].questionList;
 		responseCount = recentProfiles[_OKCP.profileName].responseCount;
 		areWeDone(true);
 	} else {
+		// console.log('not cached');
 		loadProfileAnswers();
 	}
 

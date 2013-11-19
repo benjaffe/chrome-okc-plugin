@@ -8,15 +8,15 @@ $(function(){
 	if (_OKCP.devmode) _OKCP.initDevMode();
 	
 	// Questions Pages
-	if (pageQuestions) 
+	if (pageQuestions)
 		_OKCP.initSuggestQuestionsFeature(); // question suggestion feature
 	
 	// Pages with pagination missing
-	if (pageQuestions || pageMailbox) 
+	if (pageQuestions || pageMailbox)
 		_OKCP.initReaddPagination(); // re-adding pagination on questions and mailbox pages
 	
 	// Matches Page
-	if (pageMatches) 
+	if (pageMatches)
 		_OKCP.initPictureTile(); // enable picture tile layout on matches page
 	
 	// Profile Pages
@@ -27,5 +27,4 @@ $(function(){
 
 	// initialize large thumbnail viewer
 	_OKCP.initThumbViewer();
-
 });

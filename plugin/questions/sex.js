@@ -574,7 +574,7 @@ _OKCP.fileQuestions.sex =
 		        "score": [-0.5, -0.5, 1],
 		        "weight": [1, 1, 1]
 		    }
-	    ]
+	    ],
 
 
 		"bondage": [
