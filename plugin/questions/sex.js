@@ -345,6 +345,13 @@ _OKCP.fileQuestions.sex =
 				"score": [1, -1, 1],
 				"weight": [1, 1, 1]
 			},
+			{ // Added by RAA
+				"qid":"57731",
+				"text":"Would you consider dating someone who is much kinkier than you are?",
+				"answerText": ["Yes.", "No."],
+				"score": [1, -1],
+				"weight": [1, 0.5]
+			},
 			{//Added by RAA
 				"qid":"40441",
 				"text":"If you were to die, would whoever goes through your personal belongings be shocked by what they find?",
@@ -393,6 +400,13 @@ _OKCP.fileQuestions.sex =
 				"answerText": ["Yes.", "No."],
 				"score": [1, -1],
 				"weight": [1, 0.3]
+			},
+			{//Added by RAA
+				"qid":"18",
+				"text":"Do you have experience being in a slave/master relationship?",
+				"answerText": ["Yes", "No"],
+				"score": [1, -1],
+				"weight": [0.5, 0.5]
 			},
 			{
 				"qid":"1011",
@@ -583,28 +597,21 @@ _OKCP.fileQuestions.sex =
 				"text":"Would you rather...",
 				"answerText": ["be tied up during sex", "do the tying", "avoid bondage all together"],
 				"score": [1, 1, -1],
-				"weight": [1, 1, 1]
+				"weight": [0.8, 1, 1]
 			},
 			{
 				"qid":"1134",
 				"text":"Do you have a desire (even if it's secret) to take part in sexual activities involving bondage?",
 				"answerText": ["Yes", "No", "Absolutely not."],
-				"score": [1, 0, -1],
-				"weight": [1, 0.5, 1]
+				"score": [1, -0.5, -1],
+				"weight": [1, 1, 1]
 			},
 			{
 				"qid":"1011",
 				"text":"Do you know what a 'safeword' is, in a sexual context?",
 				"answerText": ["Yes", "No"],
 				"score": [1, -1],
-				"weight": [0.1, 1]
-			},
-			{
-				"qid": "18",
-				"text": "Do you have experience being in a slave/master relationship?",
-				"answerText": ["Yes", "No"],
-				"score": [1, -1],
-				"weight": [0.7, 1]
+				"weight": [0.1, 0.5]
 			}
 		],
 
