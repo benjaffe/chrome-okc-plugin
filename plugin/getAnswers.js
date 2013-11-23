@@ -10,8 +10,8 @@ _OKCP.getAnswers = function (list) {
 	var requestFailed = false;
 	var recentProfiles = localStorage.okcpRecentProfiles ? JSON.parse(localStorage.okcpRecentProfiles) : {"_ATTENTION":"This is just temporary caching to avoid hitting the server a million times. Notice there's an expires time built in for each key."};
 
-	if ($('.message_button_contact_bar').length === 0) { //on own profile
-		// console.log('on own profile');
+	if ($('.message_text').length === 0 && $('.message_button_contact_bar').length === 0) { //on own profile
+		log.info('on own profile');
 		$('.spinner').hide();
 		return false;
 	}
