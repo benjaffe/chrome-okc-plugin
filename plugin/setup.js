@@ -14,14 +14,19 @@ _OKCP.questionFetchingMethod = "mobile_app";
 _OKCP.largeThumbSize = '250';
 _OKCP.numQuestionPages =20;		//how many pages to search through to match question answers (10 questions per page, sorted by 'i_care' so mandatory and very important answers will show up first - later questions after this limit will NOT be searched/matched at all!! So make sure to make this number big enough and that users mark their questions as very important to ensure they get matched! Note: bigger numbers mean slower loading of results.)
 
-_OKCP.urlSansParameters = location.href.split('?')[0];
-_OKCP.profilePath = _OKCP.urlSansParameters.split("/profile/")[1] || '';
-_OKCP.profileName = _OKCP.profilePath.split("/")[0];
-_OKCP.clientProfileName = $('#user_header .username').text();
-
 _OKCP.cacheEnabled = true;
 _OKCP.debugTimerEnabled = false; //for timing how long question requests take
 _OKCP.debugTimer = null;
+
+_OKCP.urlSansParameters = location.href.split('?')[0];
+_OKCP.profilePath = _OKCP.urlSansParameters.split("/profile/")[1] || '';
+
+_OKCP.profileName = _OKCP.profilePath.split("/")[0];
+_OKCP.clientProfileName = $('#user_header .username').text();
+_OKCP.onOwnProfile = false;
+_OKCP.bodyID = $('body').attr('id');
+_OKCP.pageType = _OKCP.bodyID.split('p_')[1];
+// profile, match, mailbox, stalkers, quickmatch / votes / likes
 
 // If we're our own profile
 if (_OKCP.profilePath === '') {
