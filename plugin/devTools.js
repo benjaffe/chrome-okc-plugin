@@ -6,9 +6,10 @@ if (!!localStorage.devMode && JSON.parse(localStorage.devMode) === true)
 if (_OKCP.debugTimerEnabled) {_OKCP.debugTimer = new Date();}
 
 _OKCP.initDevMode = function(){
+	log.enableAll();
 	$('html').addClass('devmode');
 	_OKCP.cacheEnabled = false;
-	console.log('dev mode enabled, cache disabled');
+	log.info('dev mode enabled, cache disabled');
 
 	//Chuck dev tools
 	var actions = {
@@ -130,6 +131,11 @@ _OKCP.initDevMode = function(){
 		}
 	};
 	cons.init();
+
+
+
+
+
 };
 
 // Space for testing new features
