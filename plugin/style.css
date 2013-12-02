@@ -227,43 +227,6 @@ background-position:0 0, -1px -5px;}
 
 
 
-#okcp .okcp-img-grid #page #match_sidebar {display:none;}
-#okcp .okcp-img-grid #page #match_results {width:100%;font-size:0;}
-#okcp .okcp-img-grid #page .match_row {width:185px;height:255px;overflow:hidden;display:inline-block;margin:0 -1px;margin-bottom:-12px;}
-#okcp .okcp-img-grid #page #big_images .match_row {width:246px;height:246px;}
-#okcp .okcp-img-grid #page .match_row .wrap {margin:0;padding:0;width:100%;}
-#okcp .okcp-img-grid #page #match_results .match_row .user_info {padding: 0;width: 100%;height:0;}
-     #okcp .okcp-img-grid #page .user_image {position:absolute;top:0;left:0;width:100%;height:100%;margin:0;z-index:10;}
-     #okcp .okcp-img-grid #page .user_image img {width:185px;height:185px;}
-     #okcp .okcp-img-grid #page .user_image .online-now-notice {bottom:70px;}
-     #okcp .okcp-img-grid #page .location {position:absolute;bottom:15px;left:4px;}
-     #okcp .okcp-img-grid #page .activity {position:absolute;top:192px;right:4px;margin:0;padding:0;border:none;font-size:0;}
-     #okcp .okcp-img-grid #page .activity .icon {position:absolute;right:0;top:0;}
-     #okcp .okcp-img-grid #page .aso {position:absolute;bottom:31px;left:4px;z-index:20;overflow:hidden;white-space:nowrap;}
-#okcp .okcp-img-grid #page .match_row_screenname {display:none;position:absolute;top:159px;left:0;z-index:20;padding:4px 0 6px;width:185px;text-align:center;background-color: rgba(255,255,255,0.7);text-shadow:1px 1px 2px white;}
-#okcp .okcp-img-grid #page .essay {display:none;}
-#okcp .okcp-img-grid #page .percentages {display:none;position:static;margin-top:185px;top:auto;bottom:25px;left:0px;z-index:20;width:auto;padding:4px;}
-#okcp .okcp-img-grid #page .percentages .match {position:absolute;top:0;left:0;z-index:15;}
-#okcp .okcp-img-grid #page .percentages .match {font-size:0;}
-#okcp .okcp-img-grid #page .percentages .match .percentage {font-size:16px;background-color: rgba(150,150,150,0.6);border-bottom-right-radius: 5px;padding:4px;text-shadow: 0px 0px 3px rgba(0,0,0,0.8), 1px 1px 3px rgba(0,0,0,0.6);color:rgb(255, 113, 178);}
-#okcp .okcp-img-grid #page .percentages p {display:inline-block;padding:0;font-size:12px;}
-#okcp .okcp-img-grid #page .percentages p:last-child {padding-left:6px;}
-#okcp .okcp-img-grid #page .match_row:hover .match_row_screenname {display:block;}
-#okcp .okcp-img-grid #page .match_row:hover .user_image .online-now-notice {display:none;}
-#okcp .okcp-img-grid #page .match_row .percentages {display:block;}
-#okcp .okcp-img-grid #page .actions {display:none;}
-#okcp #p_match.ajax_load.has_sidebar #mal_response > div {width:100%;position:static!important;}
-#okcp #p_match.ajax_load.has_sidebar #mal_response {height:auto!important;}
-
-#okcp .okcp-img-grid.okcp-img-grid-3-wide #page .match_row {width:246px;height:316px;}
-#okcp .okcp-img-grid.okcp-img-grid-3-wide #page .user_image img {width:246px;height:246px;}
-#okcp .okcp-img-grid.okcp-img-grid-3-wide #page .percentages {margin-top:246px;}
-#okcp .okcp-img-grid.okcp-img-grid-3-wide #page .match_row_screenname {top:222px;width:246px;}
-
-.UI-change-button-okcp-img-grid {position: absolute;z-index: 1000;top: 23px;left: 112px;}
-.UI-change-button-okcp-img-grid-width {left:220px;}
-
-
 /* Pagination */
 #okcp .okcp-pagination {position: absolute;top: 48px;left: 0;width: 410px;border:none;}
 #okcp .messages_bottom .okcp-pagination {width: 338px;}
