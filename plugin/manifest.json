@@ -36,6 +36,7 @@
         "questions/veggie_vegan.js",
         "questions/to_integrate.js",
         "defaultQuestions.js", 
+        "collectInfo.js",
         "fixAndAugmentUI.js",
         "suggestQuestion.js",
         "readdPagination.js",
