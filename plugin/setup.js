@@ -26,7 +26,7 @@ _OKCP.clientProfileName = $('#user_header .username').text();
 _OKCP.onOwnProfile = false;
 _OKCP.bodyID = $('body').attr('id');
 _OKCP.pageType = _OKCP.bodyID.split('p_')[1];
-// profile, match, mailbox, stalkers, quickmatch / votes / likes
+// profile, match, mailbox, stalkers, quickmatch / votes / likes, favorites
 
 // If we're our own profile
 if (_OKCP.profilePath === '') {

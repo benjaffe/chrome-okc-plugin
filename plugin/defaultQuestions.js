@@ -1,27 +1,8 @@
-// $ = jQuery;
 
-
-var questions ={
-	"questionsVersionNum" : "1.5.0",
-	"questionsList":
-	[
-	]
+var questions = {
+	"questionsVersionNum": "1.5.0",
+	"questionsList": []
 };
-// var questionFiles =['poly.js'];
-// var ii, curQuestions;
-// for(ii =0; ii<.length; ii++) {
-	// curQuestions =chrome.extension.getURL('questions/'+questionFiles[ii]);
-	// console.log('curQuestions: '+JSON.stringify(curQuestions));
-	// questions.questionsList.push(curQuestions.questionsList);
-// }
-
-/*
-var xx;
-for(xx in localStorage.fileQuestions) {
-	console.log(localStorage.fileQuestions[xx]);
-	questions.questionsList.push(localStorage.fileQuestions[xx]);
-}
-*/
 
 var xx, yy;
 var fullQuestionsList = {};
