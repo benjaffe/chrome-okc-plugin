@@ -229,6 +229,16 @@ _OKCP.fileQuestions.science_spirituality =
 				"score": [-1, 0],
 				"weight": [1, 0]
 			}
+		],
+
+		"jewish": [
+			{
+				"qid":"156914",
+				"text":"Are you Jewish?",
+				"answerText":["Yes","No"],
+				"score":[1,1],
+				"weight":[1,-1]
+			}
 		]
 
 

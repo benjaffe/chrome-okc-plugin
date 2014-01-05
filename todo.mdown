@@ -1,6 +1,8 @@
 
 ## For Next Version:
-"One feature that I think people would really like (particularly women) is if you could add a "not interested" button in the messaging section that would automatically send a canned response along the lines of "<username> has indicated that s/he is not interested. Thank you for your interest, and good luck. All future messaging has been disabled" and add that person to your block list. I'm not a programmer, so I don't know how tough that would be, but it seems like a super-useful feature if it's doable. One other suggestion - add an option in the search page to filter out matches that you've messaged and/or rated before.""
+"not interested" button in the messaging section that would automatically send a canned response along the lines of "<username> has indicated that s/he is not interested. Thank you for your interest, and good luck. All future messaging has been disabled" and add that person to your block list. I'm not a programmer, so I don't know how tough that would be, but it seems like a super-useful feature if it's doable."
+
+One other suggestion - add an option in the search page to filter out matches that you've messaged and/or rated before."
 
 ## For Next Next Version:
 
