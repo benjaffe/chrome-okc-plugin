@@ -101,29 +101,6 @@ _OKCP.fileQuestions.toIntegrate =
 				"weight": [0, 0, 0, 0]
 			}
 		],
-		"outdoor_friendly": [
-			{
-				"qid": "42282",
-				"text": "Some friends invite you to go camping where there are no showers, no toilets, and no services.  The only luxuries would be those you could carry in a pack on your back. Do you go?",
-				"answerText": ["Yes.", "No."],
-				"score": [0, 0],
-				"weight": [0, 0]
-			},
-			{
-				"qid": "36208",
-				"text": "Would you consider going 'off grid' to live with someone who only had solar power, a wood stove, an outhouse, etc?",
-				"answerText": ["Yes.", "No."],
-				"score": [0, 0],
-				"weight": [0, 0]
-			},
-			{
-				"qid": "50379",
-				"text": "Imagine being all alone in the great outdoors, miles from anyone, with no communication device.  Nobody knows where you are.",
-				"answerText": ["This is something I would like.", "This is something I would avoid."],
-				"score": [0, 0],
-				"weight": [0, 0]
-			}
-		],
 		"eco-friendly": [
 			{
 				"qid": "33602",
@@ -136,3 +113,12 @@ _OKCP.fileQuestions.toIntegrate =
 	}
 
 }
+
+
+
+/*
+Hm weird I don't see a category for women_nondiscriminating on mine. I looked through my questions and I'll include the IDs below. I also noticed a bunch of questions that I wanted represented but weren't necessarily about feminism but would make more sense as as separate category called "consent-aware" or something along those lines (like the "no means no" question, etc.) I don't know if you already have those included under sex-positive, but I also recorded the numbers for those. Here are the ones I found:
+feminist 68746 27164 134 51998 395 13 19458 16584 38767
+consent-aware 20781 17140 18087 21527 19162
+By the way, do you need any help with implementing stuff? I have a degree in CS but I don't have a ton of experience working on my own projects so it might be useful for me to get some extra practice.
+*/

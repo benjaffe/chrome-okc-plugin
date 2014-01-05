@@ -93,6 +93,29 @@ _OKCP.fileQuestions.other =
 				"score": [-1, -1, 0, 1]
 			}
 		],
+		"outdoor_friendly": [
+			{
+				"qid": "42282",
+				"text": "Some friends invite you to go camping where there are no showers, no toilets, and no services.  The only luxuries would be those you could carry in a pack on your back. Do you go?",
+				"answerText": ["Yes.", "No."],
+				"score": [1, -0.5],
+				"weight": [1, 0.5]
+			},
+			{
+				"qid": "36208",
+				"text": "Would you consider going 'off grid' to live with someone who only had solar power, a wood stove, an outhouse, etc?",
+				"answerText": ["Yes.", "No."],
+				"score": [1, -0.5],
+				"weight": [1, 0.5]
+			},
+			{
+				"qid": "50379",
+				"text": "Imagine being all alone in the great outdoors, miles from anyone, with no communication device.  Nobody knows where you are.",
+				"answerText": ["This is something I would like.", "This is something I would avoid."],
+				"score": [1, -0.5],
+				"weight": [1, 0.5]
+			}
+		],
 		"non_materialistic": [
 			{
 				"qid": "6903",
