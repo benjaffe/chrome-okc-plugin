@@ -280,12 +280,15 @@ html div#loveisblindday div.inner {background-color: rgb(0,15,45);margin-top: 27
 #p_profile #profile_details,
 #p_profile #similar_users_list {background:white;}
 #p_profile #right_column {position: absolute;top: 235px;right: -183px;width: 171px;z-index:1;}
+#p_profile #right_column .section_title {display:block;background:white;margin-bottom:0;padding:5px;text-align:center;}
 #p_profile #right_column #visit_button {margin-top: 0px;}
 #p_profile #right_column #visit_button.moved {margin-top: 20px;}
 #p_profile #right_column #visit_button .btn {width:auto;}
+#p_profile #right_column #profile_details {padding:0 5px;}
 #p_profile #right_column #profile_details dl dd {padding-left: 20px; text-indent: 65px;text-align: right}
 #p_profile #right_column #similar_users_list .info {min-height: 50px;height: auto;}
-#p_profile #right_column #similar_users_list .info .user a {background: white;padding-right: 3px;border-radius: 3px;}
+#p_profile #right_column #similar_users_list .info .user a,
+#p_profile #right_column #similar_users_list .username a {background: white;padding-right: 3px;padding-top: 0;border-radius: 3px;}
 #p_profile #right_column #similar_users_list .info .axis {padding-top: 0px;}
 
 #ajax_location {display:block;}
