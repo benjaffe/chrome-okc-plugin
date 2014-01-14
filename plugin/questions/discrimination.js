@@ -23,7 +23,68 @@ _OKCP.fileQuestions.discrimination =
 			}
 		],
 
-		//women_nondiscriminating
+
+		"feminist": [
+			{
+				"qid":"68746",
+				"text":"If someone identifies as a feminist, does that raise or lower your opinion of them?",
+				"answerText":["It raises my opinion.","It lowers my opinion.","It has no effect on my opinion."],
+				"score":[1,-1,-0.5],
+				"weight":[1,1,1]
+			},
+			{
+				"qid":"27164",
+				"text":"Do you believe that men should be the heads of their households?",
+				"answerText":["Yes","No"],
+				"score":[-1,1],
+				"weight":[1,1]
+			},
+			{
+				"qid":"134",
+				"text":"Do you think women have an obligation to keep their legs shaved?",
+				"answerText":["Yes","No"],
+				"score":[-1,1],
+				"weight":[1,1]
+			},
+			{
+				"qid":"51998",
+				"text":"Overall, do you think feminism has had a positive or negative impact on human civilization?",
+				"answerText":["Positive.","Negative.","Neither."],
+				"score":[1,-1,0],
+				"weight":[1,1,0.5]
+			},
+			{
+				"qid":"395",
+				"text":"Is it okay for a girl to talk openly about her sexual exploits?",
+				"answerText":["Yes","No"],
+				"score":[1,-1],
+				"weight":[0.5,0.5]
+			},
+			{
+				"qid":"13",
+				"text":"Is a girl who's slept with 100 guys a bad person?",
+				"answerText":["Yes","No"],
+				"score":[-1,1],
+				"weight":[0.5,0.5]
+			},
+			{
+				"qid":"19458",
+				"text":"Is it ok for a girl to ask a guy out on a date?",
+				"answerText":["Yes, it's perfectly ok","Yes, but it comes across as desperate","No"],
+				"score":[1,-0.5,-1],
+				"weight":[1,1,1]
+			},
+			{
+		        "qid": "109124",
+		        "text": "In regards to rape against women:",
+		        "answerText": ["She had it coming by wearing that outfit.", "A short skirt is not an invitation."],
+		        "score": [-1, 1],
+		        "weight": [1, 0]
+		    }
+		],
+
+
+		// "women_nondiscriminating": []
 
 
 		"LGBT_nondiscriminating": [

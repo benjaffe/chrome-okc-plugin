@@ -115,10 +115,20 @@ _OKCP.fileQuestions.toIntegrate =
 }
 
 
-
 /*
-Hm weird I don't see a category for women_nondiscriminating on mine. I looked through my questions and I'll include the IDs below. I also noticed a bunch of questions that I wanted represented but weren't necessarily about feminism but would make more sense as as separate category called "consent-aware" or something along those lines (like the "no means no" question, etc.) I don't know if you already have those included under sex-positive, but I also recorded the numbers for those. Here are the ones I found:
-feminist 68746 27164 134 51998 395 13 19458 16584 38767
-consent-aware 20781 17140 18087 21527 19162
-By the way, do you need any help with implementing stuff? I have a degree in CS but I don't have a ton of experience working on my own projects so it might be useful for me to get some extra practice.
+{
+	"qid":"16584",
+	"text":"Is it *really* ok for men to cry?",
+	"answerText":["Yes","No"],
+	"score":[1,1],
+	"weight":[1,1]
+},
+{
+	"qid":"38767",
+	"text":"Is it okay for men to wear makeup?",
+	"answerText":["Yes","No"],
+	"score":[1,1],
+	"weight":[1,1]
+}
+
 */
