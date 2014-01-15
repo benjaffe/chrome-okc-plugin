@@ -293,6 +293,10 @@ html div#loveisblindday div.inner {background-color: rgb(0,15,45);margin-top: 27
 
 #ajax_location {display:block;}
 
+#p_profile div#main_column {position: relative;left: -54px;width: 400px;margin-top:20px;}
+#p_profile div#main_column.tests,
+#p_profile div#main_column.personality {position: relative;left: 0;width: 420px;}
+
 
 
 /* Hide features until they're ready */
