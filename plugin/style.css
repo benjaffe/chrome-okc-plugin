@@ -67,7 +67,7 @@ background-position:0 0, -1px -5px;}
 
 
 /* UI - Question Detail */
-.question-detail {position:absolute;z-index:512;right:12px;top:260px;padding:0 8px 8px;max-width:300px;margin:0 0 10px;border-radius:4px;min-width: 260px;-webkit-transition: all 0.5s ease-in-out;}
+.question-detail {position:absolute;z-index:50;left:772px;top:247px;padding:0 8px 8px;max-width:300px;margin:0 0 10px;border-radius:4px;min-width: 260px;-webkit-transition: all 0.5s ease-in-out;}
 #p_profile .photos .question-detail {left: -34px;min-width: 200px;}
 .questions-in-common {text-align:center;color:#2855A2;height: 30px;padding:0;font-size: 12px;font-weight: bold;line-height: 31px;text-shadow: 0px 1px 0px #fff;border: 1px solid #d5e1ed;border-top: 1px solid #fff;border-bottom: 1px solid #b8cadd;
      background: #d5e1ed;background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#e3ebf3),color-stop(100%,#d5e1ed));background: -webkit-linear-gradient(top,#e3ebf3 0%,#d5e1ed 100%);background: -o-linear-gradient(top,#e3ebf3 0%,#d5e1ed 100%);background: -ms-linear-gradient(top,#e3ebf3 0%,#d5e1ed 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e3ebf3',endColorstr='#d5e1ed',GradientType=0);-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e3ebf3',endColorstr='#d5e1ed',GradientType=0);background: linear-gradient(top,#e3ebf3 0%,#d5e1ed 100%);}
@@ -78,12 +78,12 @@ background-position:0 0, -1px -5px;}
 .question-feature-link:first-child:before {display:none;}
 .question-feature-link.disabled {display:none;}
 .photos + .question-detail {display:none;right: -191px;}
-.question-detail>* {box-shadow:0 3px 4px rgba(0,0,0,0.3);}
+/*.question-detail>* {box-shadow:0 3px 4px rgba(0,0,0,0.3);}*/
 .question-detail ul {margin:0;}
 .question-detail>ul:last-child {border-bottom:none;}
 .question-detail li ul li:nth-child(2) {font-size:1.2em;text-align:left;}
-.category-header {text-align:center;text-transform:uppercase;font-weight:bold;background-color:gray;color:white;margin:0 -7px;box-shadow:0 1px 2px rgba(0,0,0,0.2);position:relative;border-bottom:solid 1px #555;border-top:solid 1px #555;}
-.question-detail .match {position:relative;padding: 5px;padding-bottom:10px;border-bottom:solid 1px #DDD;background: white;color: black;}
+.category-header {text-align:center;text-transform:uppercase;font-weight:bold;background-color:gray;color:white;margin:0 -7px;position:relative;border-bottom:solid 1px #555;border-top:solid 1px #555;}
+.question-detail .match {position:relative;padding: 5px;padding-bottom:10px;border-bottom:solid 1px #DDD;box-shadow:inset 2px 0 1px rgba(0,0,0,0.1);background: #F6F6F6;color: black;}
 .question-detail .match .answer {padding-right: 20px;padding-left: 18px;}
 .question-detail .match .answer:after {position:absolute;right:10px;margin-top:6px;content:"";width:10px;height:10px;border-radius:5px;background:#777;} /*{background: #F55; color:#700;}*/
 .question-detail .match-0 .answer:after {background:#F44;}
@@ -277,7 +277,7 @@ html div#loveisblindday div.inner {background-color: rgb(0,15,45);margin-top: 27
 #p_profile #actions .btn.hideflag {float: right;width: 100px;}
 #p_profile #actions .btn.hideflag a {width: 45px;}
 
-#p_profile #profile_details,
+/*#p_profile #profile_details,
 #p_profile #similar_users_list {background:white;}
 #p_profile #right_column {position: absolute;top: 235px;right: -183px;width: 171px;z-index:1;}
 #p_profile #right_column .section_title {display:block;background:white;margin-bottom:0;padding:5px;text-align:center;}
@@ -290,14 +290,14 @@ html div#loveisblindday div.inner {background-color: rgb(0,15,45);margin-top: 27
 #p_profile #right_column #similar_users_list .info .user a,
 #p_profile #right_column #similar_users_list .username a {background: white;padding-right: 3px;padding-top: 0;border-radius: 3px;}
 #p_profile #right_column #similar_users_list .info .axis {padding-top: 0px;}
-
+*/
 #ajax_location {display:block;}
 
-#p_profile div#main_column {position: relative;left: -54px;width: 400px;margin-top:20px;}
+/*#p_profile div#main_column {position: relative;left: -54px;width: 400px;margin-top:20px;}
 #p_profile div#main_column.tests,
 #p_profile div#main_column.personality {position: relative;left: 0;width: 420px;}
-
-
+*/
+#user_pane .pane {z-index:100;}
 
 /* Hide features until they're ready */
 .OKCP-bindings-not-yet-loaded #logo:after,
