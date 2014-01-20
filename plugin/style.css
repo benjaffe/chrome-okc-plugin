@@ -67,7 +67,7 @@ background-position:0 0, -1px -5px;}
 
 
 /* UI - Question Detail */
-.question-detail {position:absolute;z-index:50;left:772px;top:247px;padding:0 8px 8px;max-width:300px;margin:0 0 10px;border-radius:4px;min-width: 260px;-webkit-transition: all 0.5s ease-in-out;}
+.question-detail {position:absolute;z-index: 110;left:772px;top:247px;padding:0 8px 8px;max-width:300px;margin:0 0 10px;border-radius:4px;min-width: 260px;-webkit-transition: all 0.5s ease-in-out;}
 #p_profile .photos .question-detail {left: -34px;min-width: 200px;}
 .questions-in-common {text-align:center;color:#2855A2;height: 30px;padding:0;font-size: 12px;font-weight: bold;line-height: 31px;text-shadow: 0px 1px 0px #fff;border: 1px solid #d5e1ed;border-top: 1px solid #fff;border-bottom: 1px solid #b8cadd;
      background: #d5e1ed;background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#e3ebf3),color-stop(100%,#d5e1ed));background: -webkit-linear-gradient(top,#e3ebf3 0%,#d5e1ed 100%);background: -o-linear-gradient(top,#e3ebf3 0%,#d5e1ed 100%);background: -ms-linear-gradient(top,#e3ebf3 0%,#d5e1ed 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e3ebf3',endColorstr='#d5e1ed',GradientType=0);-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e3ebf3',endColorstr='#d5e1ed',GradientType=0);background: linear-gradient(top,#e3ebf3 0%,#d5e1ed 100%);}
@@ -300,6 +300,12 @@ html div#loveisblindday div.inner {background-color: rgb(0,15,45);margin-top: 27
 */
 #user_pane .pane {z-index:100;}
 
+
+/* Media Queries */
+@media only screen and (max-width: 1332px) {
+     div#right_column {width:230px!important;margin-right:70px;}
+     .question-detail {left: 694px;}
+}
 /* Hide features until they're ready */
 .OKCP-bindings-not-yet-loaded #logo:after,
 .OKCP-bindings-not-yet-loaded .match-ratios-wrapper-outer,
