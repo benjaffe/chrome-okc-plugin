@@ -275,7 +275,16 @@ _OKCP.getAnswers = function (list) {
 			var denominatorArr = denominator.split('.');
 			if (denominator*1 <= 0.5) continue;
 			var matchRatioHtmlValue = '<span class="integer">' + numeratorArr[0] + '</span><span class="point">.</span><span class="decimal">'+(numeratorArr[1] || '0')+'</span><span class="slash">/</span><span class="integer">' + denominatorArr[0] + '</span><span class="point">.</span><span class="decimal">'+(denominatorArr[1] || '0')+'</span>';
-			$('.match-ratios-list').append('<li class="match-ratio ' + matchClass + '"><span class="match-ratio-progressbar ' + matchClass + '" style="width:' + (Math.round(countArr[0]/countArr[1]*93)+7) + '%"></span><span class="match-ratio-category">' + categoryReadable + '</span><span class="match-ratio-value">' + matchRatioHtmlValue + '</span></li>');//matchRatio + '%</li>');
+			$('<li class="match-ratio ' + matchClass + '" category="'+category+'"><span class="match-ratio-progressbar ' + matchClass + '" style="width:' + (Math.round(countArr[0]/countArr[1]*93)+7) + '%"></span><span class="match-ratio-category">' + categoryReadable + '</span><span class="match-ratio-value">' + matchRatioHtmlValue + '</span></li>')
+				.appendTo('.match-ratios-list')
+				.hover(function(e){
+					var target = e.target.tagName === 'LI' ? $(e.target) : $(e.target).parent('li');
+					var category = target.attr('category');
+					if ($('.question-detail-hover-view.question-detail-'+category).length > 0) $('.question-detail-'+category).show();
+					else $('.question-detail-'+category).clone().appendTo('.match-ratios').addClass('question-detail-hover-view question-detail');
+				}, function() {
+					$('.question-detail-hover-view').hide();
+				});
 		
 
 			for (var i = 0; i < questionList.length; i++) {

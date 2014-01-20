@@ -109,6 +109,19 @@ background-position:0 0, -1px -5px;}
 .question-detail .match .explanation:after {content:"exp...";position:absolute;bottom:8px;left:4px;height:10px;color:#666;font-size:.9em;}
 .question-detail .match:hover .explanation:after {display:none;}
 
+/* Question Detail Hover View */
+.question-detail.question-detail-hover-view {position:absolute;left:-266px;top:10px;padding:0;background: white;width:220px;z-index:100;border:1px solid #ccc;box-shadow:2px 2px 5px rgba(0,0,0,0.2);}
+     .question-detail-hover-view .category-header {display:none;}
+     .question-detail-hover-view .match {padding:5px;border-top:1px solid #ccc;}
+     .question-detail-hover-view .match:first-child {border-top:none;}
+     .question-detail-hover-view .match ul {margin:0;}
+     .question-detail.question-detail-hover-view .match .question {height: auto;overflow: hidden;color:#578;}
+     .question-detail.question-detail-hover-view .match .question:after {display:none;}
+     .question-detail.question-detail-hover-view .match .answer {font-size:1.1em;}
+     .question-detail.question-detail-hover-view .match .explanation {height:auto;padding:5px;font-style: italic;color:#666;}
+     .question-detail.question-detail-hover-view .match .explanation:after {display:none;}
+
+
 
 /* UI - Change Categories */
 .categories-lists-wrapper:before {content:"";position:fixed;top:0;bottom:0;left:0;right:0;background-color: rgba(0,0,0,0.5);z-index:1701;}
