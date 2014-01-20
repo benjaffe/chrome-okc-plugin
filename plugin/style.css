@@ -16,7 +16,7 @@
 .btn {cursor:pointer;}
 
 /* UI - Buttons */
-.okcp-btns {position:absolute;top:80px;right:15px;text-align:right;font-size:1.3em;}
+.okcp-btns {position:absolute;top:120px;right:15px;text-align:right;font-size:1.1em;line-height:1em;}
 .okcp-btns .divider {border-bottom:1px solid #89B;margin:7px 0 3px;}
 .okcp-btn {cursor:pointer;display:block;color:#89B;}
 .okcp-btn:after {content:"\2610";font-size:1.35em;margin-left:2px;}
@@ -26,7 +26,7 @@
 
 
 /* UI - Match Ratios */
-.match-ratios-wrapper-outer {position:absolute;right: 170px;top: 11px;height:195px;width:240px;} /* Yes, a table... for complicated layout, vertical aligning to the bottom while scrolling when there are too many */
+.match-ratios-wrapper-outer {position:absolute;right: 181px;top: 11px;height: 224px;width: 225px;} /* Yes, a table... for complicated layout, vertical aligning to the bottom while scrolling when there are too many */
 #okcp .match-ratios-list {box-shadow: none;margin:0;padding:0;max-height: 210px;overflow-y: scroll;overflow-x:hidden;border-bottom: 1px solid #BBB;border-top: 1px solid #BBB;width: 100%;}
 #okcp .match-ratios-list::-webkit-scrollbar {-webkit-appearance: none;width: 7px;}
 #okcp .match-ratios-list::-webkit-scrollbar-thumb {border-radius: 4px;background-color: rgba(0,0,0,.5);box-shadow: 0 0 1px rgba(255,255,255,.5);}
@@ -247,7 +247,7 @@ background-position:0 0, -1px -5px;}
 
 /* Readd notes feature */
 #okcp #inline_notes {width:300px;}
-.UI-change-btn {background: #CCC;padding: 2px 10px;border-radius: 5px;border: 1px solid #AAA;position:relative;z-index:1000;}
+.UI-change-btn {display:block;float: left;background: #f7f7f7;height:25px;width:60px;border: 1px solid #ddd;color:#555;text-align:center;padding:0 0px;font-family:verdana,sans-serif;font-weight:bold;font-size:10px;line-height:25px;position:relative;z-index:1000;cursor:pointer;}
 
 
 .UI-change-button:hover {background: #BBB;color:#2855A2;border-color:#999;}
@@ -269,13 +269,14 @@ html div#loveisblindday div.inner {background-color: rgb(0,15,45);margin-top: 27
 #p_profile #percentages {padding:20px 3px 40px;border-radius: 0 0 4px 4px;}
 #p_profile #upgrade_form {display:none;}
 #p_profile #actions {margin-bottom:-11px;height:220px;padding:10px 10px 0 10px;}
-#p_profile #actions .wide-buttons-that-are-now-not-wide {width:50px;float:left;border-radius:0;}
-#p_profile #actions .wide-buttons-that-are-now-not-wide #save_unsave {width:50px;padding:0;/*border-radius:0!important;*/}
+#p_profile #wrapper #actions .action_options {padding-top:0;}
+#p_profile #actions .action_options .wide-buttons-that-are-now-not-wide.btn.small {width:62px;margin-bottom:0;float:left;border-radius:0;}
+#p_profile #actions .wide-buttons-that-are-now-not-wide #save_unsave {padding:0;/*border-radius:0!important;*/}
 #p_profile #actions .wide-buttons-that-are-now-not-wide #hide_btn,
 #p_profile #actions .wide-buttons-that-are-now-not-wide #unhide_btn,
 #p_profile #actions .wide-buttons-that-are-now-not-wide .flag {width:39px;padding:0;/*border-radius:0!important;*/}
-#p_profile #actions .btn.hideflag {float: right;width: 100px;}
-#p_profile #actions .btn.hideflag a {width: 45px;}
+#p_profile #wrapper .tabbed_heading #actions .btn.hideflag.white {float: right;width: 108px;margin-bottom:0;}
+#p_profile #wrapper .tabbed_heading #actions .btn.hideflag.white a {width: 49px;border-radius:0!important;border-left:0!important;}
 
 /*#p_profile #profile_details,
 #p_profile #similar_users_list {background:white;}
