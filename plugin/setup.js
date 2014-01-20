@@ -5,7 +5,7 @@ var _OKCP = {};
 
 $('#logo').append('<span class="okcp-improved-link">Improved!</span>')
 	.click(function(){
-		location.href = 'http://chrome.google.com/webstore/detail/cgdblghohnaeeejaoincmbcdkdnodkei/';
+		window.open('http://chrome.google.com/webstore/detail/cgdblghohnaeeejaoincmbcdkdnodkei/','_blank');
 	});
 
 
