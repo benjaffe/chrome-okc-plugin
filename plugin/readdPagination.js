@@ -18,7 +18,7 @@ _OKCP.initReaddPagination = function() {
 	for (var i = 0, newElem, href; i < numPages; i++) {
 		newElem = lastPageElem.clone();
 		href = newElem.attr('href');
-		href = href.split('low=')[0]+'low=' + (i*itemsPerPage+1) + '&' + href.split('&')[1];
+		href = href.split('low=')[0]+'low=' + (i*itemsPerPage+1) + '&' + href.substring(href.indexOf('&')+1);
 		newElem.text(i+1)
 			.attr('href',href)
 			.attr('class','num');
