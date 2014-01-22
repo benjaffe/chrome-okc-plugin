@@ -3,7 +3,7 @@ $ = jQuery;
 // Initial setup
 var _OKCP = {};
 
-$('#logo').append('<span class="okcp-improved-link">Improved!</span>')
+$('<span class="okcp-improved-link">Improved!</span>').appendTo('#logo')
 	.click(function(){
 		window.open('http://chrome.google.com/webstore/detail/cgdblghohnaeeejaoincmbcdkdnodkei/','_blank');
 	});
