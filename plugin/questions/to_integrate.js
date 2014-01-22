@@ -132,3 +132,72 @@ _OKCP.fileQuestions.toIntegrate =
 }
 
 */
+
+/* Not sure if I agree...
+
+
+{
+    "sex_positive": [{
+        "qid": "55169",
+        "text": "Do you think boys should be circumcised?",
+        "answerText": ["Yes.", "No.", "I'm
+
+not sure."],
+        "score": [1, 1, 1],
+        "weight": [1, 1, 1]
+    }]
+}
+
+{
+    "casual_sex": [{
+        "qid": "1112",
+        "text": "Do you like the taste of beer?",
+        "answerText": ["Yes", "No"],
+        "score":
+
+        [1, 1],
+        "weight": [1, 1]
+    }]
+}
+
+{
+    "casual_sex": [{
+        "qid": "154",
+        "text": "In a certain light, wouldn't nuclear war be exciting?",
+        "answerText": ["Yes, it
+
+would.", "No, it wouldn't."],
+        "score": [1, 1],
+        "weight": [1, 1]
+    }]
+}
+
+{
+    "casual_sex": [{
+        "qid": "51502",
+        "text": "Assuming you were in the position to do so and asked to make the final
+
+decision, would you launch nuclear weapons under any circumstance?",
+        "answerText": ["Yes.", "No."],
+        "score":
+
+        [1, 1],
+        "weight": [1, 1]
+    }]
+}
+
+{
+    "casual_sex": [{
+        "qid": "191",
+        "text": "Could you imagine yourself killing someone?",
+        "answerText": ["Yes", "No"],
+        "score":
+
+        [1, 1],
+        "weight": [1, 1]
+    }]
+}
+
+"The last four questions correlate highly with answering this question with 'yes': Would you sleep with somebody on the first date ?" -another user
+
+*/

@@ -35,6 +35,7 @@ One other suggestion - add an option in the search page to filter out matches th
     * likes exercise
 
 * Hover Zoom type Improvements
+* Something like http://www.reddit.com/r/OkCupid/comments/1nr0wj/ever_wanted_to_bring_users_you_hadnt_rated_to_the/ ??
 
 * Questions customization stage 3
     * 1. Let people suggest questions and categories, and we moderate.
@@ -52,3 +53,12 @@ One other suggestion - add an option in the search page to filter out matches th
 ## Notes:
 * URL by question ID: http://www.okcupid.com/questions?rqid=256
 
+----
+
+To get set up to suggest questions, turn on developer mode. Right-click on any OkCupid page somewhere, click Inspect Element, click the Console tab, then type the following
+
+localStorage.devMode = "true";
+
+Now, after you refresh the page, all the questions that you HAVE answered that ARE NOT in the plugin will have a "Suggest Question" link above them. If you click that, it'll prompt you for a category, and make a JSON string at the bottom that you can email to me! But beware, if you change pages, the stuff at the bottom will disappear, so you'll have to submit a bunch of JSON strings for each page of questions. It's not perfect, but gets the job done for now.
+
+Thanks so much for your willingness to help! You can see all the categories on the github page here.
