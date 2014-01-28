@@ -53,12 +53,25 @@ One other suggestion - add an option in the search page to filter out matches th
 ## Notes:
 * URL by question ID: http://www.okcupid.com/questions?rqid=256
 
-----
 
-To get set up to suggest questions, turn on developer mode. Right-click on any OkCupid page somewhere, click Inspect Element, click the Console tab, then type the following
+
+---- Question Suggestions ----
+
+Thanks so much for the email. I'm glad you're getting a lot out of the plugin. I think those questions and categories would be wonderful additions. 
+
+I've added info below about how to format the question info for inclusion in the plugin. If you're up for helping out, and you send me the applicable questions, I'll roll them into the app and ship them out to all 5000 users! Would you be willing to help?
+
+Thanks again for the positive feedback, and have a great week!
+Ben
+
+--
+
+To get set up to suggest questions, turn on developer mode (only a few people know how, ha!). 
+
+Open the Console (right-click on any OkCupid page somewhere, click Inspect Element, click the Console tab -- or press Cmd-Opt-J (Mac) or Ctrl-Shift-J (Win)). In the console, type the following and press return.
 
 localStorage.devMode = "true";
 
-Now, after you refresh the page, all the questions that you HAVE answered that ARE NOT in the plugin will have a "Suggest Question" link above them. If you click that, it'll prompt you for a category, and make a JSON string at the bottom that you can email to me! But beware, if you change pages, the stuff at the bottom will disappear, so you'll have to submit a bunch of JSON strings for each page of questions. It's not perfect, but gets the job done for now.
+Now, after you refresh the page, all the questions that you HAVE answered that ARE NOT in the plugin will have a "Suggest Question" link above them. If you click the "Suggest Question" button, it'll prompt you for a category, and make a JSON string at the bottom that you can email to me! But beware, if you navigate to another page, the stuff at the bottom will disappear, so you'll have to submit a bunch of JSON strings for each page of questions. It's not perfect, but gets the job done for now. Also, sometimes you may want to use a question that's already in the plugin again, maybe in a different category. In that situation, you can copy the code from the plugin questions pages (below).
 
-Thanks so much for your willingness to help! You can see all the categories on the github page here.
+Thanks so much for your willingness to help! You can see all the categories and questions on the github page here: https://github.com/benjaffe/chrome-okc-plugin/tree/master/plugin/questions

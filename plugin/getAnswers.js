@@ -252,6 +252,7 @@ _OKCP.getAnswers = function (list) {
 			localStorage.okcpRecentProfiles = JSON.stringify(recentProfiles);
 
 			$('.spinner').fadeOut(300);
+			_OKCP.getAnswersFinished = true;
 		}
 		
 		$('.match-ratios-list').html('');
@@ -278,6 +279,7 @@ _OKCP.getAnswers = function (list) {
 			$('<li class="match-ratio ' + matchClass + '" category="'+category+'"><span class="match-ratio-progressbar ' + matchClass + '" style="width:' + (Math.round(countArr[0]/countArr[1]*93)+7) + '%"></span><span class="match-ratio-category">' + categoryReadable + '</span><span class="match-ratio-value">' + matchRatioHtmlValue + '</span></li>')
 				.appendTo('.match-ratios-list')
 				.hover(function(e){
+					if (!_OKCP.getAnswersFinished) return false; //only show these when the questions have finished loading
 					var target = e.target.tagName === 'LI' ? $(e.target) : $(e.target).parent('li');
 					var category = target.attr('category');
 					if ($('.question-detail-hover-view.question-detail-'+category).length > 0) $('.question-detail-'+category).show();

@@ -10,12 +10,15 @@ if (_OKCP.profilePath !== '') {
 		'<a class="okcp-btn toggleIsPoly" data-bind="click: toggleIsPoly, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].ip == true : false}">Poly</a>'+
 		'<a class="okcp-btn hide-btn poly-hide-btn" data-bind="click: toggleHideNotPoly, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].p == true : false}">Not Poly</a>'+
 		'<div class="divider"></div>'+
-		'<a class="okcp-btn" data-bind="click: toggleWantToMessage, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].wm == true : false}">To Message</a>'+
+		'<a class="okcp-btn" data-bind="click: toggleWantToMessage, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].wm == true : false}">Message</a>'+
 		'<a class="okcp-btn" data-bind="click: toggleMaybeInterested, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].m == true : false}">Maybe</a>'+
 		'<div class="divider"></div>'+
 		'<a class="okcp-btn hide-btn uninterested-hide-btn" data-bind="click: toggleHideUninterested, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].u == true : false}">Not For Me</a>'+
-		'<a class="okcp-btn hide-btn nodata-hide-btn" data-bind="click: toggleHideNoData, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].d == true : false}">No Answers</a>'+
+		'<a class="okcp-btn hide-btn nodata-hide-btn" data-bind="click: toggleHideNoData, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].d == true : false}">N/A</a>'+
+		'<div class="divider"></div>'+
+		'<a class="okcp-review-btn">Review Saved Profiles</a>'+
 	'</div>').append('<div class="spinner"></div>');
+	$('.okcp-review-btn').click(_OKCP.reviewProfiles);
 	
 	// UI: Category match percentages (#social exists on your own profile page, #actions is on others')
 	$('#actions, #social').append('<table class="match-ratios-wrapper-outer"><tr><td class="match-ratios">'+
@@ -119,6 +122,7 @@ function OKCP() {
 	};
 
 	this.profileList("lv",Math.round(new Date().getTime()/1000)); //update last viewed time
+	this.profileList("location",$('#ajax_location').text());
 
 	this.toggleHideNotPoly = function(data) {		console.log('toggleHideNotPoly run');
 		this.profileList("p",!this.profileList()[_OKCP.profileName].p); //update storage
