@@ -155,8 +155,9 @@ background-position:0 0, -1px -5px;}
 .categories-list .ui-sortable-helper {text-shadow:1px 1px 0 white;}
 
 .rp-wrapper {position:absolute;z-index: 15000;top:40px;left:40px;right:40px;overflow-y:scroll;background-color:#DDD;border-radius: 10px;box-shadow: 0 1px 20px rgba(0,0,0,0.7);padding:20px;}
-.rp-list {width:900px;margin:20px auto 0;}
-.rp-list-item {display:inline-block;vertical-align: top;width:300px;}
+.rp-list {margin:20px 0 0 5%;}
+.rp-list-item {display:inline-block;vertical-align: top;width:30%;margin-left:5%;}
+.rp-list-item:first-child {margin-left: 0;}
 
 /* UI - Thumbnail Viewer */
 .largeThumbViewer {display:none;position:fixed;width:250px;top:10px;left:50%;margin-left: -125px;z-index:74656;padding:10px;border:solid 2px #333;border-radius:6px;pointer-events:none;}
