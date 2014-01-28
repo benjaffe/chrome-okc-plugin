@@ -175,9 +175,15 @@ $(window).bind('storage', function(e) {
 
 // if no entry for current profile exists, make one!
 var storage = JSON.parse(localStorage.okcp);
+
 if (!storage.profileList[_OKCP.profileName]) {
 	storage.profileList[_OKCP.profileName] = {};
 }
+
+if (_OKCP.pageType === 'inactive') {
+	delete storage.profileList[_OKCP.profileName]; //remove profiles that no longer exist
+}
+
 localStorage.okcp = JSON.stringify(storage);
 
 // apply bindings for everything except thumbs (as of 1/10, that's only the "hide" button)
