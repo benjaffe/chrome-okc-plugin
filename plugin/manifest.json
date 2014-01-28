@@ -44,6 +44,7 @@
         "thumbViewer.js",
         "changeCategories.js",
         "increaseAccuracy.js",
+        "reviewProfiles.js",
         "getAnswers.js",
         "ViewModels.js",
         "init.js"],

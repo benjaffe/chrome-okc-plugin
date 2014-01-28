@@ -35,7 +35,6 @@ _OKCP.changeCategories = function(){
 	}
 
 	function saveCategoryChanges(){
-		// var newCategoriesArr = prompt('Edit your list of categories in the input below.\n\nBe aware -- the spacing is important. Don\'t erase the brackets, and make sure each category name is in quotes and separated by a comma. The list of currently valid categories is below.\n\nAlternatively, if you want to reset your category list to the default, type "default".\n\nValid Categories:\n* '+_OKCP.categoryList.join('\n* '), currCategoriesStr);
 		var newCategoriesArr = [];
 		$('.active-categories').each(function(){
 			newCategoriesArr.push(this.value);
