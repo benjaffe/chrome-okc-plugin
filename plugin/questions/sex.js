@@ -99,12 +99,12 @@ _OKCP.fileQuestions.sex =
 				"weight": [1, 0.5]
 			},
 			{
-		        "qid": "19446",
-		        "text": "Have you ever made a booty call (invited over or visited someone you were not actively in a relationship with, just for sexual activity)?",
-		        "answerText": ["Yes, and I still do.", "Yes, I have done it, but don't any more.", "No, and I never will.", "No, but I suppose I might."],
-		        "score": [1, -0.6, -1, 0.5],
-		        "weight": [1, 1, 1, 0.5]
-		    }
+				"qid": "19446",
+				"text": "Have you ever made a booty call (invited over or visited someone you were not actively in a relationship with, just for sexual activity)?",
+				"answerText": ["Yes, and I still do.", "Yes, I have done it, but don't any more.", "No, and I never will.", "No, but I suppose I might."],
+				"score": [1, -0.6, -1, 0.5],
+				"weight": [1, 1, 1, 0.5]
+			}
 		],
 
 		"group_sex": [
@@ -169,11 +169,11 @@ _OKCP.fileQuestions.sex =
 				"weight": [1, 1, 0]
 			},
 			// { // Added by RAA
-			//	"qid":"38423",
-			//	"text":"What do you usually wear when you sleep?",
-			//	"answerText": ["Pajamas.", "Underwear.", "Nothing.", "Something else."],
-			//	"score": [-1, 0, 1, 0],
-			//	"weight": [1, 1, 1, 1]
+			//  "qid":"38423",
+			//  "text":"What do you usually wear when you sleep?",
+			//  "answerText": ["Pajamas.", "Underwear.", "Nothing.", "Something else."],
+			//  "score": [-1, 0, 1, 0],
+			//  "weight": [1, 1, 1, 1]
 			// },
 			{ // Added by RAA
 				"qid":"61823",
@@ -229,7 +229,7 @@ _OKCP.fileQuestions.sex =
 				"text":"How open are you to trying new things in bed?",
 				"answerText": ["Very open. I'll try anything once.", "I'm open, but I don't get too crazy.", "Hesitant, but it might happen.", "Not at all."],
 				"score": [1, 1, -1, -1],
-				"weight": [1, .5, .5, 1]
+				"weight": [1, 0.5, 0.5, 1]
 			},
 			{ // Added by RAA
 				"qid":"26",
@@ -274,11 +274,11 @@ _OKCP.fileQuestions.sex =
 				"weight": [0.2, 0.1]
 			},
 			// { // Added by RAA
-			//	"qid":"85318",
-			//	"text":"Do you have any deep dark fantasies that you would not share with anyone, even a trusted partner?",
-			//	"answerText": ["Yes.", "No."],
-			//	"score": [0, 0],
-			//	"weight": [1, 1]
+			//  "qid":"85318",
+			//  "text":"Do you have any deep dark fantasies that you would not share with anyone, even a trusted partner?",
+			//  "answerText": ["Yes.", "No."],
+			//  "score": [0, 0],
+			//  "weight": [1, 1]
 			// },
 			{ // Added by RAA
 				"qid":"19892",
@@ -563,7 +563,7 @@ _OKCP.fileQuestions.sex =
 				"text":"How would you prefer your lover in bed?",
 				"answerText": ["Very dominant", "Somewhat dominant", "Neutral or willing to take turns", "Submissive"],
 				"score": [-1, -1,0,1],
-				"weight": [1, .7, 0.7, 1]
+				"weight": [1, 0.7, 0.7, 1]
 			}
 		],
 		
@@ -644,20 +644,20 @@ _OKCP.fileQuestions.sex =
 
 		"switch": [
 			{
-		        "qid": "158263",
-		        "text": "Do you prefer to be the more submissive or dominant partner in the relationship?",
-		        "answerText": ["Submissive", "Dominant", "I'm a switch(I can go either way or change)", "I don't like to think of relationships in this way"],
-		        "score": [-0.5, -0.5, 1, -0.5],
-		        "weight": [1, 1, 1, 1]
-		    },
-		    {
-		        "qid": "134693",
-		        "text": "Top or bottom?",
-		        "answerText": ["Top", "Bottom", "Both"],
-		        "score": [-0.5, -0.5, 1],
-		        "weight": [1, 1, 1]
-		    }
-	    ],
+				"qid": "158263",
+				"text": "Do you prefer to be the more submissive or dominant partner in the relationship?",
+				"answerText": ["Submissive", "Dominant", "I'm a switch(I can go either way or change)", "I don't like to think of relationships in this way"],
+				"score": [-0.5, -0.5, 1, -0.5],
+				"weight": [1, 1, 1, 1]
+			},
+			{
+				"qid": "134693",
+				"text": "Top or bottom?",
+				"answerText": ["Top", "Bottom", "Both"],
+				"score": [-0.5, -0.5, 1],
+				"weight": [1, 1, 1]
+			}
+		],
 
 
 		"bondage": [

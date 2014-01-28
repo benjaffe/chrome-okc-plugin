@@ -75,13 +75,13 @@ _OKCP.fileQuestions.discrimination =
 				"weight":[1,1,1]
 			},
 			{
-		        "qid": "109124",
-		        "text": "In regards to rape against women:",
-		        "answerText": ["She had it coming by wearing that outfit.", "A short skirt is not an invitation."],
-		        "score": [-1, 1],
-		        "weight": [1, 0]
-		    }
-		],
+                "qid": "109124",
+                "text": "In regards to rape against women:",
+                "answerText": ["She had it coming by wearing that outfit.", "A short skirt is not an invitation."],
+                "score": [-1, 1],
+                "weight": [1, 0]
+            }
+        ],
 
 
 		// "women_nondiscriminating": []
