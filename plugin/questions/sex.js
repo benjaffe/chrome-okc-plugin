@@ -117,6 +117,28 @@ _OKCP.fileQuestions.sex =
 			}
 		],
 
+		"oral_sex": [
+			{
+				"qid": "453644",
+				"text": "How much do you enjoy performing oral sex on your partner?",
+				"answerText": ["I am passionate, and enjoy it as much as they do!", "I enjoy it as long as they recipricate.", "I would rarely and reluctantly perform oral sex.", "The idea of oral sex disgusts me!"],
+				"score": [1, 0.75, -0.75, -1],
+				"weight": [1, 1, 1, 1]
+			}, {
+				"qid": "453695",
+				"text": "You are performing oral sex on your lover and they cum in your mouth. What is your reaction?",
+				"answerText": ["Swallow/Lap it up - Yum!", "Take it all, but spit it out afterwards.", "Get angry that they didn't warn you.", "I wouldn't do it. Oral sex is disgusting!"],
+				"score": [1, 0.5, 1, -1],
+				"weight": [1, 1, 0, 1]
+			}, {
+				"qid": "27",
+				"text": "Which is a bigger deal for you?",
+				"answerText": ["Telling someone you really care", "Oral sex"],
+				"score": [1, -1],
+				"weight": [0, 1]
+			}
+		],
+
 		"fetish": [
 			{
 				"qid":"67511",
@@ -417,6 +439,46 @@ _OKCP.fileQuestions.sex =
 			}
 		],
 
+		"sex_dress_up": [
+			{
+				"qid": "28757",
+				"text": "Do you like to wear sexy underwear?",
+				"answerText": ["Yes", "No"],
+				"score": [1, -1],
+				"weight": [1, 1]
+			}, {
+				"qid": "1850",
+				"text": "What do you think of the prospect of having sexual intercourse while wearing some type of costume(fur-suit, sci-fi costume, clown suit, whatever).",
+				"answerText": ["Yes way", "No way"],
+				"score": [1, -1],
+				"weight": [1, 1]
+			}, {
+				"qid": "31374",
+				"text": "Have you ever tried any sexual roleplaying, such as student/teacher or patient/nurse?",
+				"answerText": ["All the time. It really turns me on!", "Yes, on occasion. I have to be in the mood.", "No, but it sounds interesting.", "No, and it isn't going to happen. Ever."],
+				"score": [1, 0.75, 0.5, -1],
+				"weight": [1, 1, 0.5, 1]
+			}, {
+				"qid": "454087",
+				"text": "(For Women) How would you feel about dressing up as a sexy schoolgirl, teacher, secretary, nurse, librarian for your lover? (For Men) How excited would you be to have your lover dress like this for you?",
+				"answerText": ["I would love it - it turns me on too!", "It's okay, but does nothing for me.", "I've never experienced it, but want to try.", "Not interested. Wouldn't like it."],
+				"score": [1, 0, 1, -1],
+				"weight": [1, 1, 0.5, 1]
+			}, {
+				"qid": "455973",
+				"text": "If your partner asked you to dress up in a sexy costume, or wear a special wig for sex, how would you feel?",
+				"answerText": ["I have an extensive sex wardrobe ready to go!", "I would be more than willing to try it!", "I would not be too enthusiastic about it.", "No way!"],
+				"score": [1, 0.5, -0.5, -1],
+				"weight": [1, 1, 1, 1]
+			}, {
+				"qid": "453645",
+				"text": "For women, how do you feel about wearing sexy stockings, shoes, boots, lingerie, etc.? For men, how do you feel about wearing leather or other male-appropriate clothing for sex?",
+				"answerText": ["Turned on! I have an extensive wardrobe ready", "I am certainly willing to give it a chance!", "I would do it, but only every once in awhile.", "No way, that's just too weird!"],
+				"score": [1, 0.5, 0, -1],
+				"weight": [1, 0.5, 0.5, 1]
+			}
+		],
+
 
 		"BDSM": [
 			{
@@ -439,6 +501,13 @@ _OKCP.fileQuestions.sex =
 				"answerText": ["Yes", "No"],
 				"score": [1, -1],
 				"weight": [0.1, 1]
+			},
+			{
+				"qid": "456008",
+				"text": "Your partner suggests a night out at a closed private BDSM club, where you are allowed to use all of the special sex furnishings, such as saw horses, racks, bondage posts, and engage in sex with your partner in front of onlookers. What do you say?",
+				"answerText": ["Let's go!", "I might go to watch, but not participate.", "Uh, what does BDSM stand for?", "Absolutely not! Huge turn off!"],
+				"score": [1, 0.5, -1, -1],
+				"weight": [1, 1, 0.3, 1]
 			}
 		],
 
@@ -612,6 +681,25 @@ _OKCP.fileQuestions.sex =
 				"answerText": ["Yes", "No"],
 				"score": [1, -1],
 				"weight": [0.1, 0.5]
+			},
+			{
+				"qid": "455986",
+				"text": "How do you feel about wearing gags (ball, ring, spider or dental) during sex?",
+				"answerText": ["Awesome, bring it on!", "I would be willing to do it occassionally, sure.", "I never have, but the idea excites me!", "Say what? Not or me!"],
+				"score": [1, 0.5, 1, -1],
+				"weight": [1, 1, 0.5, 1]
+			}, {
+				"qid": "455994",
+				"text": "How do you feel about being restrained during sex with your partner?",
+				"answerText": ["Tie me up, tie me down baby! I'm wet already!", "I would be willing to do it for variety, sure!", "I've never done it, but the idea excites me!", "Definitely not! Next question."],
+				"score": [1, 0.5, 1, -1],
+				"weight": [1, 1, 0.5, 1]
+			}, {
+				"qid": "456008",
+				"text": "Your partner suggests a night out at a closed private BDSM club, where you are allowed to use all of the special sex furnishings, such as saw horses, racks, bondage posts, and engage in sex with your partner in front of onlookers. What do you say?",
+				"answerText": ["Let's go!", "I might go to watch, but not participate.", "Uh, what does BDSM stand for?", "Absolutely not! Huge turn off!"],
+				"score": [1, 0.5, -1, -1],
+				"weight": [1, 1, 0.3, 1]
 			}
 		],
 

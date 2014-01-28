@@ -433,6 +433,33 @@ _OKCP.fileQuestions.relationship_model =
 			}*/
 		],
 		
+        "age_gap": [
+            {
+                "qid": "453643",
+                "text": "What is the maximum difference in age you would accept in your own romantic relationship with an older person? (Assuming you are both adults)",
+                "answerText": ["Age differences are irrelevant in love.", "Up to 20 years difference is fine.", "Up to 15 years difference is fine.", "I would not date anyone more that 10 years older."],
+                "score": [1, 0.75, 0.5, -1],
+                "weight": [1, 1, 1, 1]
+            }, {
+                "qid": "453678",
+                "text": "What do you think about a man dating a woman who is 15-20 years younger? (Assuming the woman is an adult of course)",
+                "answerText": ["As long as they love each other, who cares?", "I have been in that kind of relationship. So what?", "It's morally wrong.", "It's disgusting!"],
+                "score": [1, 1, -1, -1],
+                "weight": [1, 1, 1, 1]
+            }, {
+                "qid": "31920",
+                "text": "How do you feel about age differences in relationships?",
+                "answerText": ["I prefer someone close to my own age", "I prefer someone older", "I prefer someone younger", "Doesn't matter to me"],
+                "score": [-1, 1, 1, 1],
+                "weight": [1, 0.5, 0.5, 0.5]
+            }, {
+                "qid": "15550",
+                "text": "What is too big of an age gap between you and a partner?",
+                "answerText": ["5 years", "10 years", "15 years", "Age is just a number"],
+                "score": [-1, 0, 0.5, 1],
+                "weight": [1, 1, 1, 1]
+            }
+        ],
 
 		"consent-aware": [
 			{
