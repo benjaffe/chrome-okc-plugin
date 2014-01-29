@@ -263,7 +263,7 @@ background-position:0 0, -1px -5px;}
 
 
 /* Pagination */
-#okcp .okcp-pagination {position: absolute;top: 48px;left: 0;width: 410px;border:none;}
+#okcp .okcp-pagination {position: absolute;top: 48px;left: 0;width: 410px;border:none;max-height: 58px;overflow-y: scroll;}
 #okcp .messages_bottom .okcp-pagination {width: 338px;}
 #okcp #questions .okcp-pagination {width: 443px;}
 #okcp .okcp-pagination .num {padding:0 5px;border:none;border-right:solid 1px #CCC;margin-bottom:3px;float:left;height:15px;line-height:16px;text-align:center;}
@@ -365,6 +365,17 @@ html div#loveisblindday div.inner {background-color: rgb(0,15,45);margin-top: 27
 #page-results .qtext {font-size: 1.2em;margin-bottom:8px;}
 #page-results .note {display:block;}
 
+
+/* Scrollbars always available */
+.okcp-pagination::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+.okcp-pagination::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
 
 
 /* Spinner */
