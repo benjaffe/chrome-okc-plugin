@@ -24,7 +24,8 @@ _OKCP.reviewProfiles = function() {
 		var profileObj = profiles[profile];
 		for (var key in profileObj) {
 			if (key === 'ip' || key === 'p' || key === 'wm' || key === 'm' || key === 'u' || key === 'd')
-				profilesCategorized[key][profile] = profileObj; //add profile to the appropriate object
+				if (profileObj[key]) //if key is set to true
+					profilesCategorized[key][profile] = profileObj; //add profile to the appropriate object
 		}
 	}
 	console.log(profilesCategorized);
