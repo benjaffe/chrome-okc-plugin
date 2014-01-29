@@ -104,6 +104,13 @@ _OKCP.fileQuestions.sex =
 				"answerText": ["Yes, and I still do.", "Yes, I have done it, but don't any more.", "No, and I never will.", "No, but I suppose I might."],
 				"score": [1, -0.6, -1, 0.5],
 				"weight": [1, 1, 1, 0.5]
+			},
+			{
+				"qid": "17",
+				"text": "Would you date someone just for the sex?",
+				"answerText": ["Yes", "No"],
+				"score": [1, -1],
+				"weight": [1, 1]
 			}
 		],
 
@@ -361,6 +368,13 @@ _OKCP.fileQuestions.sex =
 
 		"rough_kinky": [
 			{
+				"qid": "102970",
+				"text": "When you think of a Master and slave relationship, you think...",
+				"answerText": ["Abuse!", "Cool for some people, but not for me", "Sounds interesting. Tell me more", "I think of my own M/s relationship "],
+				"score": [-1, -1, 0.5, 1],
+				"weight": [1, 1, 1, 1]
+			},
+			{
 				"qid":"18530",
 				"text":"Do you want your partner to be kinkier than you?",
 				"answerText": ["Yes", "No", "Not possible"],
@@ -482,6 +496,20 @@ _OKCP.fileQuestions.sex =
 
 		"BDSM": [
 			{
+				"qid": "103035",
+				"text": "Do you preffer a \"vanilla\" or a \"BDSM-related\" relationship? ",
+				"answerText": ["Vanilla Relationship", "BDSM-Related"],
+				"score": [-1, 1],
+				"weight": [0.5, 1]
+			},
+			{
+				"qid": "152638",
+				"text": "Are you interested in BDSM?",
+				"answerText": ["Yes", "No", "A little bit"],
+				"score": [1, -1, 0.25],
+				"weight": [1, 1, 1]
+			},
+			{
 				"qid":"20",
 				"text":"BDSM: Without looking it up, do you know exactly what it stands for?",
 				"answerText": ["Yes", "No"],
@@ -537,6 +565,13 @@ _OKCP.fileQuestions.sex =
 
 		"dominant": [
 			{
+				"qid": "97920",
+				"text": "When it comes to bdsm...",
+				"answerText": ["I'd rather be the dominant person", "I'd rather be the submissive person", "It depends, I can go either way", "I'm not into it / don't know what it is"],
+				"score": [1, 0, 1, -1],
+				"weight": [1, 0.5, 0.5, 1]
+			},
+			{
 				"qid":"61733",
 				"text":"Would you be pleased if a partner expressed the desire to be sexually humiliated by you?",
 				"answerText": ["Yes.", "No."],
@@ -569,6 +604,13 @@ _OKCP.fileQuestions.sex =
 		
 
 		"submissive": [
+			{
+				"qid": "97920",
+				"text": "When it comes to bdsm...",
+				"answerText": ["I'd rather be the dominant person", "I'd rather be the submissive person", "It depends, I can go either way", "I'm not into it / don't know what it is"],
+				"score": [0, 1, 1, -1],
+				"weight": [0.5, 1, 0.5, 1]
+			},
 			{
 				"qid":"463",
 				"text":"In your ideal sexual encounter, do you take control, or do they?",
@@ -637,12 +679,26 @@ _OKCP.fileQuestions.sex =
 				"text":"How would you prefer your lover in bed?",
 				"answerText": ["Very dominant", "Somewhat dominant", "Neutral or willing to take turns", "Submissive"],
 				"score": [1, 1,0,-1],
-				"weight": [1, .7, 0.7, 1]
+				"weight": [1, 0.7, 0.7, 1]
+			},
+			{
+				"qid":"93463",
+				"text":"Would you ever consent to being a total submissive to another human being?",
+				"answerText":["I would wear their collar at all times.","I would be submissive in the bed room.","I am willing to play along, occasionally.","I am a dominant person, and could never submit."],
+				"score":[1,0.75,0.5,-1],
+				"weight":[1,1,1,1]
 			}
 		],
 
 
 		"switch": [
+			{
+				"qid": "97920",
+				"text": "When it comes to bdsm...",
+				"answerText": ["I'd rather be the dominant person", "I'd rather be the submissive person", "It depends, I can go either way", "I'm not into it / don't know what it is"],
+				"score": [0, 0, 1, -1],
+				"weight": [0.5, 0.5, 1, 1]
+			},
 			{
 				"qid": "158263",
 				"text": "Do you prefer to be the more submissive or dominant partner in the relationship?",

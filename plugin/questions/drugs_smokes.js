@@ -20,6 +20,13 @@ _OKCP.fileQuestions.drugs_smokes =
 				"text":"How often do you smoke cigars?",
 				"answerText": ["Frequently.", "Occasionally.", "Never."],
 				"score": [-1, -1, 1]
+			},
+			{
+				"qid": "13054",
+				"text": "What do you think of laws that make smoking illegal in bars and restaurants?",
+				"answerText": ["I support the laws", "I oppose the laws"],
+				"score": [1, 1],
+				"weight": [1, 0]
 			}
 		],
 		
@@ -42,6 +49,13 @@ _OKCP.fileQuestions.drugs_smokes =
 				"text":"How often do you smoke cigars?",
 				"answerText": ["Frequently.", "Occasionally.", "Never."],
 				"score": [1, 1, -1]
+			},
+			{
+				"qid": "13054",
+				"text": "What do you think of laws that make smoking illegal in bars and restaurants?",
+				"answerText": ["I support the laws", "I oppose the laws"],
+				"score": [-1, 1],
+				"weight": [1, 0]
 			}
 		],
 

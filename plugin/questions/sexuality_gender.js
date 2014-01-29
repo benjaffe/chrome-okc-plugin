@@ -134,6 +134,20 @@ _OKCP.fileQuestions.sexuality_gender =
 				"answerText": ["Shocked", "Disgusted","Flattered","Aroused"],
 				"score": [-1,-1,1,1],
 				"weight": [1, 1,1,1]
+			},
+			{
+				"qid": "60852",
+				"text": "Do you believe that regular sex is necessary in maintaining a healthy relationship?",
+				"answerText": ["Yes.", "No."],
+				"score": [1, 0],
+				"weight": [1, 0.5]
+			},
+			{
+				"qid": "18682",
+				"text": "Do you think physical love is necessary for happiness in life?\n",
+				"answerText": ["Yes", "No"],
+				"score": [1, 0],
+				"weight": [1, 0.5]
 			}/*,
 
 			{//Added by RAA
