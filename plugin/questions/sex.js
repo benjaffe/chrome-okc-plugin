@@ -368,6 +368,20 @@ _OKCP.fileQuestions.sex =
 
 		"rough_kinky": [
 			{
+				"qid": "72894",
+				"text": "Could you date someone with many extreme sex fantasies,who wanted you to try some,but would never push you deeper than you were comfortable into any of them?",
+				"answerText": ["Good imagination and careful experiments?YES!", "No,if even THINKS weird stuff it's dangerous", "We'd talk and I'd see", "I'd rather be pushed deeper!"],
+				"score": [1, -1, 0, 1],
+				"weight": [1, 1, 1, 1]
+			},
+			{
+				"qid": "19482",
+				"text": "Teasing:",
+				"answerText": ["Fantastic, make me a sexual martyr", "Good in moderation, only if something comes of it", "Not so fun", "Horrible, the work of evildoers"],
+				"score": [1, 0.5, -0.5, -1],
+				"weight": [1, 1, 1, 1]
+			},
+			{
 				"qid": "102970",
 				"text": "When you think of a Master and slave relationship, you think...",
 				"answerText": ["Abuse!", "Cool for some people, but not for me", "Sounds interesting. Tell me more", "I think of my own M/s relationship "],
@@ -565,6 +579,20 @@ _OKCP.fileQuestions.sex =
 
 		"dominant": [
 			{
+				"qid": "156211",
+				"text": "Top or bottom?",
+				"answerText": ["Top", "Bottom.", "It depends."],
+				"score": [1, -1, -1],
+				"weight": [1, 0.5, 0.5]
+			},
+			{
+				"qid": "80304",
+				"text": "What is your BDSM orientation, or are you not kinky?",
+				"answerText": ["Prefer to be the Dom or Top", "Prefer to be the sub or bottom", "I really like to switch.", "Not kinky or just too new to know my preference."],
+				"score": [1, 0, 0, -1],
+				"weight": [1, 1, 1, 0.5]
+			},
+			{
 				"qid": "97920",
 				"text": "When it comes to bdsm...",
 				"answerText": ["I'd rather be the dominant person", "I'd rather be the submissive person", "It depends, I can go either way", "I'm not into it / don't know what it is"],
@@ -604,6 +632,34 @@ _OKCP.fileQuestions.sex =
 		
 
 		"submissive": [
+			{
+				"qid": "156211",
+				"text": "Top or bottom?",
+				"answerText": ["Top", "Bottom.", "It depends."],
+				"score": [-1, 1, -1],
+				"weight": [0.5, 1, 0.5]
+			},
+			{
+				"qid": "60756",
+				"text": "If your partner wanted you to say a specific phrase during sex, would you?",
+				"answerText": ["Yes, I'd say anything they want me to.", "No, I wouldn't.", "Maybe, it would depend upon the phrase."],
+				"score": [1, -1, -1],
+				"weight": [1, 1, 0.5]
+			},
+			{
+				"qid": "150317",
+				"text": "Have you ever become sexually aroused as a result of being spanked?\n",
+				"answerText": ["Yes", "No"],
+				"score": [1, 0],
+				"weight": [1, 0.5]
+			},
+			{
+				"qid": "80304",
+				"text": "What is your BDSM orientation, or are you not kinky?",
+				"answerText": ["Prefer to be the Dom or Top", "Prefer to be the sub or bottom", "I really like to switch.", "Not kinky or just too new to know my preference."],
+				"score": [0, 1, 0, -1],
+				"weight": [1, 1, 1, 0.5]
+			},
 			{
 				"qid": "97920",
 				"text": "When it comes to bdsm...",
@@ -692,6 +748,20 @@ _OKCP.fileQuestions.sex =
 
 
 		"switch": [
+			{
+				"qid": "156211",
+				"text": "Top or bottom?",
+				"answerText": ["Top", "Bottom.", "It depends."],
+				"score": [-1, -1, 1],
+				"weight": [0.5, 0.5, 1]
+			},
+			{
+				"qid": "80304",
+				"text": "What is your BDSM orientation, or are you not kinky?",
+				"answerText": ["Prefer to be the Dom or Top", "Prefer to be the sub or bottom", "I really like to switch.", "Not kinky or just too new to know my preference."],
+				"score": [0, 0, 1, -1],
+				"weight": [0.5, 0.5, 1, 0.5]
+			},
 			{
 				"qid": "97920",
 				"text": "When it comes to bdsm...",
@@ -824,13 +894,6 @@ _OKCP.fileQuestions.sex =
 				"answerText": ["Yes.", "No."],
 				"score": [1, -1],
 				"weight": [1, 1]
-			},
-			{ //Added by RAA
-				"qid":"134",
-				"text":"Do you think women have an obligation to keep their legs shaved?",
-				"answerText": ["Yes","No"],
-				"score": [1,-1],
-				"weight": [1,.5]
 			},
 			{ //Added by RAA
 				"qid":"39714",

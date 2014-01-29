@@ -45,6 +45,13 @@ _OKCP.fileQuestions.sexuality_gender =
 
 		"sex-positive": [
 			{
+				"qid": "38578",
+				"text": "If you had to choose one of the following, which best describes the role of sex in your life?",
+				"answerText": ["Sex is one of my favorite activities.", "Sex is something I enjoy on occasion.", "Sex is for procreation.", "Sex is a means to getting things that I want."],
+				"score": [1, 0, -1, -1],
+				"weight": [1, 0.5, 1, 1]
+			},
+			{
 				"qid":"12964",
 				"text":"Would you need to sleep with someone before you considered marrying them?",
 				"answerText": ["Yes", "No"],
