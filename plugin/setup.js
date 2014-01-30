@@ -3,11 +3,13 @@ $ = jQuery;
 // Initial setup
 var _OKCP = {};
 
+
 $('<span class="okcp-improved-link">Improved!</span>').appendTo('#logo')
 	.click(function(){
 		window.open('http://chrome.google.com/webstore/detail/cgdblghohnaeeejaoincmbcdkdnodkei/','_blank');
 	});
 
+_OKCP.fileQuestions = {};
 
 _OKCP.questionFetchingMethod = "mobile_app"; //alt value is "original", but that code is almost certainly broken. (currently it's commented out)
 _OKCP.largeThumbSize = '250';
@@ -98,6 +100,35 @@ if (_OKCP.profilePath === '') {
 	localStorage.okcp = JSON.stringify(storage);
 
 	console.log(upgradeMessage.join('\n'));
+})();
+
+//fix and augment UI, and add class to hide features until they're ready
+(function() {
+	// Basic CSS Helpers
+	$('html').attr('id','okcp') //an ID to use to override OkC's sad CSS specificity madness
+		.addClass('OKCP-bindings-not-yet-loaded'); //, and a class to hide everything until it is set up
+
+	// Fixing OkC UI Issues
+	$('#save_unsave')
+		.parent().addClass('wide-buttons-that-are-now-not-wide left')
+		.next().addClass('wide-buttons-that-are-now-not-wide right');
+
+	// Change OkCupid's UI
+	if ($('#visit_button a:contains(Enable invisible browsing)').size() > 0) {
+		$('#visit_button').addClass('moved').insertAfter($('#similar_users_list'));
+	}
+	$('#profile_ad').hide();
+
+	// Give the guilt banner a class so we can hide it
+	var counter = 0;
+	var guiltBannerHiderTimer = setInterval(function() {
+		counter++;
+		var guiltBanner = $('.quickbuybox').prev('div:not("#main_content")');
+		if (counter >= 5000 || guiltBanner.size() > 0) {
+			guiltBanner.addClass('guilt');
+			clearInterval(guiltBannerHiderTimer);
+		}
+	}, 1);
 })();
 
 var stateAbbr = {"Alaska" : "AK", "Alabama" : "AL", "Arkansas" : "AR", "American Samoa" : "AS", "Arizona" : "AZ", "California" : "CA", "Colorado" : "CO", "Connecticut" : "CT", "District of Columbia" : "DC", "Delaware" : "DE", "Florida" : "FL", "Georgia" : "GA", "Guam" : "GU", "Hawaii" : "HI", "Iowa" : "IA", "Idaho" : "ID", "Illinois" : "IL", "Indiana" : "IN", "Kansas" : "KS", "Kentucky" : "KY", "Louisiana" : "LA", "Massachusetts" : "MA", "Maryland" : "MD", "Maine" : "ME", "Michigan" : "MI", "Minnesota" : "MN", "Missouri" : "MO", "Mississippi" : "MS", "Montana" : "MT", "North Carolina" : "NC", "North Dakota" : "ND", "Nebraska" : "NE", "New Hampshire" : "NH", "New Jersey" : "NJ", "New Mexico" : "NM", "Nevada" : "NV", "New York" : "NY", "Ohio" : "OH", "Oklahoma" : "OK", "Oregon" : "OR", "Pennsylvania" : "PA", "Puerto Rico" : "PR", "Rhode Island" : "RI", "South Carolina" : "SC", "South Dakota" : "SD", "Tennessee" : "TN", "Texas" : "TX", "Utah" : "UT", "Virginia" : "VA", "Virgin Islands" : "VI", "Vermont" : "VT", "Washington" : "WA", "Wisconsin" : "WI", "West Virginia" : "WV", "Wyoming" : "WY"};
