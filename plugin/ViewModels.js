@@ -43,17 +43,7 @@ if (_OKCP.profilePath !== '') {
 
 	// UI: Question Detail
 	$('#right_column').before('<div class="question-detail"></div>');
-	// var questionsInCommonElem = $('<div class="questions-in-common"></div>').prependTo('.question-detail');
-	// if (JSON.parse(localStorage.okcp).accuracyImprovedAsOfVersionNum != JSON.parse(localStorage.okcpDefaultQuestions).questionsVersionNum) {
-	// 	$('<a href="#" class="question-feature-link improve-accuracy" id="improve-accuracy">Improve Accuracy</a>').appendTo(questionsInCommonElem).click(function(){
-	// 		_OKCP.showUnansweredQuestions();
-	// 	});
-	// // }
-
-	// $('<a href="#" class="question-feature-link change-categories" id="change-categories">Change Categories</a>').appendTo(questionsInCommonElem).click(function(){
-	// 	_OKCP.changeCategories();
-	// });
-
+	
 }
 
 
@@ -99,9 +89,6 @@ function OKCP() {
 			}
 			storage.profileList[_OKCP.profileName][property] = value;
 			localStorage.okcp = JSON.stringify(storage);
-			// console.log("writing to localStorage (profileList modified)");
-			// console.log(localStorage.okcp);
-			// console.log('-----');
 		}
 	});
 	this.profileListData = ko.observable(this.profileList());
@@ -117,14 +104,14 @@ function OKCP() {
 		var largeThumbPath = _OKCP.getLargeThumbUrl(t.src);
 		$('.largeThumbViewerImage').attr('src',chrome.extension.getURL('images/ajax-loader.gif')).attr('src',largeThumbPath);
 		$('.largeThumbViewer').show();
-		/* // This gets JSON data for a profile
+		/* // This gets JSON data for a profile, but I can't really use it because OkC throttles those requests
 		$.getJSON('http://www.okcupid.com/profile/'+profileName+'?json=2',function(data){
 			// console.log(data);
 			$('.largeThumbViewerCaption').html(data.username + ' / ' + data.age + ' / ' + data.sex + ' / ' + data.location.split(', ')[0] + ', ' + stateAbbr[data.location.split(', ')[1]] + ' (' + data.distance + data.units + ')');
 		}); */
 	};
 	this.swapSmallThumb = function(vm,e) {
-	   $('.largeThumbViewer').hide();
+		$('.largeThumbViewer').hide();
 	};
 
 	this.calculateHiddenProfile = function() {

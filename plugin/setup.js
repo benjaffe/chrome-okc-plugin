@@ -9,8 +9,7 @@ $('<span class="okcp-improved-link">Improved!</span>').appendTo('#logo')
 	});
 
 
-// _OKCP.questionFetchingMethod = "original";
-_OKCP.questionFetchingMethod = "mobile_app";
+_OKCP.questionFetchingMethod = "mobile_app"; //alt value is "original", but that code is almost certainly broken. (currently it's commented out)
 _OKCP.largeThumbSize = '250';
 _OKCP.numQuestionPages =20;		//how many pages to search through to match question answers (10 questions per page, sorted by 'i_care' so mandatory and very important answers will show up first - later questions after this limit will NOT be searched/matched at all!! So make sure to make this number big enough and that users mark their questions as very important to ensure they get matched! Note: bigger numbers mean slower loading of results.)
 
@@ -25,8 +24,7 @@ _OKCP.profileName = _OKCP.profilePath.split("/")[0];
 _OKCP.clientProfileName = $('#user_header .username').text();
 _OKCP.onOwnProfile = false;
 _OKCP.bodyID = $('body').attr('id');
-_OKCP.pageType = _OKCP.bodyID.split('p_')[1];
-// profile, match, mailbox, stalkers, quickmatch / votes / likes, favorites
+_OKCP.pageType = _OKCP.bodyID.split('p_')[1]; //known types are profile, match, mailbox, stalkers, quickmatch / votes / likes, favorites, inactive
 
 // If we're our own profile
 if (_OKCP.profilePath === '') {
