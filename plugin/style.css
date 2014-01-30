@@ -23,20 +23,52 @@
 .okcp-btn:after {content:"\2610";font-size:1.35em;margin-left:2px;}
 .okcp-btn.checked {opacity:1;color:#356;}
 .okcp-btn.checked:after {content:"\2611";}
-.okcp-review-btn {
+.okcp-features-btn,
+.okcp-feature-btn {
+     position:relative;
      font-size: 0.9em;
      text-align: center;
      display: block;
-     border-bottom: 1px solid rgb(136, 153, 187);
      padding-bottom: 3px;
      background: rgba(255,255,255,0.5);
-     margin-top: -3px;
      padding-top: 3px;
+     color:#679;
+}
+.okcp-features-btn {
+     margin-top:-3px;
+     border-bottom: 1px solid rgb(136, 153, 187);
      color:#89B;
 }
-.okcp-review-btn:hover {
+.okcp-feature {background: #eee;}
+.okcp-feature-btn {
+     padding:10px 5px;
+     border-top: 1px solid rgb(136, 153, 187);
+}
+.okcp-feature-details {
+     opacity:0.8;
+     font-size: 0.7em;
+     padding-top: 8px;
+     line-height: 1.3em;
+     color: #236;
+}
+#okcp .okcp-feature-list {
+     background: #eee;
+     position:absolute;
+     z-index: 10000;
+     margin-top: 0;
+     top: 19px;
+     right:0;
+     font-size: 1.4em;
+     width: 250px;
+     box-shadow: rgba(0, 0, 0, 0.498039) 0px 3px 5px;
+}
+.okcp-features-btn:hover,
+.okcp-feature-btn:hover {
      background: rgba(255,255,255,0.9);
 }
+
+.okcp-feature-list {display:none;}
+.okcp-features-btn:hover .okcp-feature-list {display:block;}
 
 
 
@@ -85,10 +117,10 @@ background-position:0 0, -1px -5px;}
 /* UI - Question Detail */
 .question-detail {position:absolute;z-index: 110;left:772px;top:247px;padding:0 8px 8px;max-width:300px;margin:0 0 10px;border-radius:4px;min-width: 260px;-webkit-transition: all 0.5s ease-in-out;}
 #p_profile .photos .question-detail {left: -34px;min-width: 200px;}
-.questions-in-common {text-align:center;color:#2855A2;height: 30px;padding:0;font-size: 12px;font-weight: bold;line-height: 31px;text-shadow: 0px 1px 0px #fff;border: 1px solid #d5e1ed;border-top: 1px solid #fff;border-bottom: 1px solid #b8cadd;
-     background: #d5e1ed;background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#e3ebf3),color-stop(100%,#d5e1ed));background: -webkit-linear-gradient(top,#e3ebf3 0%,#d5e1ed 100%);background: -o-linear-gradient(top,#e3ebf3 0%,#d5e1ed 100%);background: -ms-linear-gradient(top,#e3ebf3 0%,#d5e1ed 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e3ebf3',endColorstr='#d5e1ed',GradientType=0);-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e3ebf3',endColorstr='#d5e1ed',GradientType=0);background: linear-gradient(top,#e3ebf3 0%,#d5e1ed 100%);}
-.questions-in-common-many {}
-.questions-in-common-few {}
+/*.questions-in-common {text-align:center;color:#2855A2;height: 30px;padding:0;font-size: 12px;font-weight: bold;line-height: 31px;text-shadow: 0px 1px 0px #fff;border: 1px solid #d5e1ed;border-top: 1px solid #fff;border-bottom: 1px solid #b8cadd;*/
+     /*background: #d5e1ed;background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#e3ebf3),color-stop(100%,#d5e1ed));background: -webkit-linear-gradient(top,#e3ebf3 0%,#d5e1ed 100%);background: -o-linear-gradient(top,#e3ebf3 0%,#d5e1ed 100%);background: -ms-linear-gradient(top,#e3ebf3 0%,#d5e1ed 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e3ebf3',endColorstr='#d5e1ed',GradientType=0);-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e3ebf3',endColorstr='#d5e1ed',GradientType=0);background: linear-gradient(top,#e3ebf3 0%,#d5e1ed 100%);}*/
+/*.questions-in-common-many {}*/
+/*.questions-in-common-few {}*/
 .question-feature-link {font-size:0.8em;padding-left:5px;}
 .question-feature-link:before {content:"...";margin-right:5px;color:#2855A2;}
 .question-feature-link:first-child:before {display:none;}
@@ -188,7 +220,7 @@ background-position:0 0, -1px -5px;}
 
 .okcp-poly::before,
 .okcp-to-message::before,
-.okcp-maybe::before {position:absolute;top:0px;left:0px;z-index:10000;padding:4px 2px;font-size:28px;color:white;white-space:pre-wrap;text-shadow:0 0 3px black;opacity:0.8;pointer-events:none;}
+.okcp-maybe::before {position:absolute;top:0px;left:0px;z-index:5000;padding:4px 2px;font-size:28px;color:white;white-space:pre-wrap;text-shadow:0 0 3px black;opacity:0.8;pointer-events:none;}
 
 .okcp-poly:hover::before,
 .okcp-to-message:hover::before,
@@ -234,7 +266,7 @@ background-position:0 0, -1px -5px;}
 
 
 /* UI - Unanswered Questions */
-.unanswered-questions {position: absolute;z-index:3000;top: 200px;left: 50%;width: 530px;margin-left: -270px;background: #DDD;padding: 20px;box-shadow: 0 0 20px rgba(0,0,0,0.4);}
+.unanswered-questions {position: absolute;z-index:10000;top: 200px;left: 50%;width: 530px;margin-left: -270px;background: #DDD;padding: 20px;box-shadow: 0 0 20px rgba(0,0,0,0.4);}
 .unanswered-questions:after {content: "(Answer the questions *publically* or you won't increase the plugin's accuracy)";position: absolute;top: 5px;text-align: center;left: 40px;right: 40px;z-index: 10;color: #555;z-index: 10;}
 .unanswered-questions iframe {margin-top:10px;border:solid 1px #888;}
 .unanswered-questions iframe:first-child {margin-top:0;}

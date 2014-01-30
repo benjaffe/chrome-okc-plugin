@@ -16,9 +16,25 @@ if (_OKCP.profilePath !== '') {
 		'<a class="okcp-btn hide-btn uninterested-hide-btn" data-bind="click: toggleHideUninterested, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].u == true : false}">Not For Me</a>'+
 		'<a class="okcp-btn hide-btn nodata-hide-btn" data-bind="click: toggleHideNoData, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].d == true : false}">N/A</a>'+
 		'<div class="divider"></div>'+
-		'<a class="okcp-review-btn">Review Saved Profiles</a>'+
+		'<a class="okcp-features-btn">More Plugin Features</a>'+
 	'</div>').append('<div class="spinner"></div>');
-	$('.okcp-review-btn').click(_OKCP.reviewProfiles);
+	$('.okcp-features-btn').append('<ul class="okcp-feature-list">'+
+		'<li class="okcp-feature">'+
+			'<a href="#" class="okcp-feature-btn review-saved-profile" id="review-saved-profile">Review Saved Profiles'+
+			'<div class="okcp-feature-details">This feature allows you to review profiles you\'ve previously marked as "Poly", "Message", and "Maybe". (Keep in mind that this data gets cleared if you clear your browser\'s cache.)</div></a>'+
+		'</li>'+
+		'<li class="okcp-feature">'+
+			'<a href="#" class="okcp-feature-btn change-categories" id="change-categories">Change Categories'+
+			'<div class="okcp-feature-details">This feature allows you to choose which categories you care about. Drag categories from the right to the left to enable them, and vice-versa to diable them.</div></a>'+
+		'</li>'+
+		'<li class="okcp-feature">'+
+			'<a href="#" class="okcp-feature-btn improve-accuracy" id="improve-accuracy"">Improve Plugin Accuracy'+
+			'<div class="okcp-feature-details">This feature shows you questions that:<br><br>1. apply to the selected categories<br>2. you and the current user have in common<br>3. that you haven\'t answered<br><br>The more of these questions you answer, the more accurate the plugin will be able to compare you and the user you\'re visiting.</div></a>'+
+		'</li></ul>');
+	$('#review-saved-profile').click(_OKCP.reviewProfiles);
+	$('#change-categories').click(_OKCP.changeCategories);
+	$('#improve-accuracy').click(_OKCP.showUnansweredQuestions);
+	
 	
 	// UI: Category match percentages (#social exists on your own profile page, #actions is on others')
 	$('#actions, #social').append('<table class="match-ratios-wrapper-outer"><tr><td class="match-ratios">'+
@@ -27,16 +43,16 @@ if (_OKCP.profilePath !== '') {
 
 	// UI: Question Detail
 	$('#right_column').before('<div class="question-detail"></div>');
-	var questionsInCommonElem = $('<div class="questions-in-common"></div>').prependTo('.question-detail');
+	// var questionsInCommonElem = $('<div class="questions-in-common"></div>').prependTo('.question-detail');
 	// if (JSON.parse(localStorage.okcp).accuracyImprovedAsOfVersionNum != JSON.parse(localStorage.okcpDefaultQuestions).questionsVersionNum) {
-		$('<a href="#" class="question-feature-link improve-accuracy" id="improve-accuracy">Improve Accuracy</a>').appendTo(questionsInCommonElem).click(function(){
-			_OKCP.showUnansweredQuestions();
-		});
-	// }
+	// 	$('<a href="#" class="question-feature-link improve-accuracy" id="improve-accuracy">Improve Accuracy</a>').appendTo(questionsInCommonElem).click(function(){
+	// 		_OKCP.showUnansweredQuestions();
+	// 	});
+	// // }
 
-	$('<a href="#" class="question-feature-link change-categories" id="change-categories">Change Categories</a>').appendTo(questionsInCommonElem).click(function(){
-		_OKCP.changeCategories();
-	});
+	// $('<a href="#" class="question-feature-link change-categories" id="change-categories">Change Categories</a>').appendTo(questionsInCommonElem).click(function(){
+	// 	_OKCP.changeCategories();
+	// });
 
 }
 
