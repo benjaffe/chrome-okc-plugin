@@ -1,0 +1,25 @@
+{
+	"folders":
+	[
+		{
+			"path": "/Users/ben/Sites/chrome-okc-plugin/plugin"
+		}
+	],
+	"ternjs": 
+	{
+        "include":
+        [
+        	"plugin/*.js"
+        ],
+        "exclude": 
+        [
+        	"plugin/lib/**"
+        ],
+        "libs":
+        [
+        	"browser",
+        	"jquery"
+        ]
+        
+    }
+}
