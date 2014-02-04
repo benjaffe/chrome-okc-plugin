@@ -111,7 +111,7 @@ background-position:0 0, -1px -5px;}
 
 
 /* UI - Question Detail */
-.question-detail {position:absolute;z-index: 110;left:772px;top:247px;padding:0 8px 8px;max-width:300px;margin:0 0 10px;border-radius:4px;min-width: 260px;-webkit-transition: all 0.5s ease-in-out;}
+.question-detail {position:absolute;z-index: 110;left:772px;top:247px;padding:0 8px 18px;max-width:300px;margin:0 0 10px;border-radius:4px;min-width: 260px;-webkit-transition: all 0.5s ease-in-out;}
 #p_profile .photos .question-detail {left: -34px;min-width: 200px;}
 .question-feature-link {font-size:0.8em;padding-left:5px;}
 .question-feature-link:before {content:"...";margin-right:5px;color:#2855A2;}
