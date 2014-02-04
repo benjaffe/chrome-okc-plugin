@@ -25,7 +25,7 @@ if (_OKCP.profilePath !== '') {
 		'</li>'+
 		'<li class="okcp-feature">'+
 			'<a href="#" class="okcp-feature-btn change-categories" id="change-categories">Change Categories'+
-			'<div class="okcp-feature-details">This feature allows you to choose which categories you care about. Drag categories from the right to the left to enable them, and vice-versa to diable them.</div></a>'+
+			'<div class="okcp-feature-details">This feature allows you to choose which categories you care about. Drag categories from the right to the left to enable them, and vice-versa to disable them.</div></a>'+
 		'</li>'+
 		'<li class="okcp-feature">'+
 			'<a href="#" class="okcp-feature-btn improve-accuracy" id="improve-accuracy"">Improve Plugin Accuracy'+
