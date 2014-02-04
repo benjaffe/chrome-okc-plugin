@@ -49,7 +49,7 @@ _OKCP.initSuggestQuestionsFeature = function () {
 			"answerText": answers,
 			"score": scoreWeightPlaceholder,
 			"weight": scoreWeightPlaceholder
-		}
+		};
 
 		_OKCP.questionsToSuggest[category] = _OKCP.questionsToSuggest[category] || [];
 		_OKCP.questionsToSuggest[category].push(obj);

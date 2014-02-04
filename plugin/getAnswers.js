@@ -287,7 +287,7 @@ _OKCP.getAnswers = function (list) {
 					if ($('.question-detail-'+question.category).length === 0) {
 						$('.question-detail').append('<ul class="question-detail-'+question.category+'"></ul>');
 					}
-					var matchClass = 'match-' + (Math.floor((question.answerScore+1)/2*5));
+					matchClass = 'match-' + (Math.floor((question.answerScore+1)/2*5));
 					$('.question-detail-'+question.category).append('<li class="match ' + matchClass + '"><ul>'+
 						'<li class="question qid-'+question.qid+'">' + question.question + '</li>'+
 						'<li class="answer">' + question.theirAnswer + '</li>'+

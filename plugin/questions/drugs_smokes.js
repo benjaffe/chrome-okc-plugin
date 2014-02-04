@@ -223,11 +223,11 @@ _OKCP.fileQuestions.drugs_smokes =
 				"weight": [1, 1, 0.5]
 			},
 			// { //it's ambiguous what kinds of drugs this is talking about... skipping it for now
-			// 	"qid":"25228",
-			// 	"text":"Do you think drug use with your partner can be a romantic activity?",
-			// 	"answerText": ["Yes", "No"],
-			// 	"score": [-1, 1],
-			// 	"weight": [0.5, 0.5]
+			//	"qid":"25228",
+			//	"text":"Do you think drug use with your partner can be a romantic activity?",
+			//	"answerText": ["Yes", "No"],
+			//	"score": [-1, 1],
+			//	"weight": [0.5, 0.5]
 			// },
 			{
 				"qid":"15414",

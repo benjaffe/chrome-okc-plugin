@@ -110,7 +110,7 @@ _OKCP.fileQuestions.toIntegrate =
 				"weight": [0, 0, 0, 0]
 			}
 		]
-	}
+	};
 
 }
 

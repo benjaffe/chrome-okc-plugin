@@ -7,6 +7,6 @@ _OKCP.settings = function(setting, value) {
 		return value;
 	}
 	else {
-		return settingsObj[setting]
+		return settingsObj[setting];
 	}
-}
+};

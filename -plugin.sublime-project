@@ -5,13 +5,13 @@
 			"path": "/Users/ben/Sites/chrome-okc-plugin/plugin"
 		}
 	],
-	"ternjs": 
+	"ternjs":
 	{
         "include":
         [
         	"plugin/*.js"
         ],
-        "exclude": 
+        "exclude":
         [
         	"plugin/lib/**"
         ],
@@ -20,6 +20,5 @@
         	"browser",
         	"jquery"
         ]
-        
     }
 }

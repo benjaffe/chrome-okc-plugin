@@ -257,10 +257,10 @@ _OKCP.fileQuestions.science_spirituality =
 
 
 		// {
-		// 	"qid":"44",
-		// 	"text":"Some religions are more correct than others.",
-		// 	"score": [1, 1],
-		// 	"weight": [1, 1]
+		//	"qid":"44",
+		//	"text":"Some religions are more correct than others.",
+		//	"score": [1, 1],
+		//	"weight": [1, 1]
 		// },
 
 

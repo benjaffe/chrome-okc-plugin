@@ -33,7 +33,7 @@ _OKCP.initDevMode = function(){
 			return curr;
 		},
 		run: function(funcAsString) {
-			return (eval('('+funcAsString+')'))();
+			return (eval('('+funcAsString+')'))(); //eval not for evil... this is just devMode
 		},
 		eval: function(str) {
 			return eval(str);

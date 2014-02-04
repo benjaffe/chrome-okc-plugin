@@ -953,14 +953,14 @@ _OKCP.fileQuestions.sex =
 				"text":"Do you think women have an obligation to keep their legs shaved?",
 				"answerText": ["Yes","No"],
 				"score": [-1,1],
-				"weight": [.5,1]
+				"weight": [0.5,1]
 			},
 			{ //Added by RAA
 				"qid":"712",
 				"text":"Do you think a girl with hairy underarms is necessarily unattractive?",
 				"answerText": ["Yes","No"],
 				"score": [-1,1],
-				"weight": [.5,1]
+				"weight": [0.5,1]
 			},
 			{ //Added by RAA
 				"qid":"7079",
