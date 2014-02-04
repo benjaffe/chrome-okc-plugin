@@ -38,6 +38,8 @@
      margin-top:-3px;
      border-bottom: 1px solid rgb(136, 153, 187);
      color:#89B;
+     font-size: 1.1em;
+     padding: 5px 0;
 }
 .okcp-feature {background: #eee;}
 .okcp-feature-btn {
@@ -56,10 +58,10 @@
      position:absolute;
      z-index: 10000;
      margin-top: 0;
-     top: 19px;
+     top: 23px;
      right:0;
      font-size: 1.4em;
-     width: 250px;
+     width: 300px;
      box-shadow: rgba(0, 0, 0, 0.498039) 0px 3px 5px;
 }
 .okcp-features-btn:hover,
@@ -74,8 +76,8 @@
 
 
 /* UI - Match Ratios */
-.match-ratios-wrapper-outer {position:absolute;right: 181px;top: 11px;height: 224px;width: 225px;} /* Yes, a table... for complicated layout, vertical aligning to the bottom while scrolling when there are too many */
-#okcp .match-ratios-list {box-shadow: none;margin:0;padding:0;max-height: 210px;overflow-y: scroll;overflow-x:hidden;border-bottom: 1px solid #BBB;border-top: 1px solid #BBB;width: 100%;}
+.match-ratios-wrapper-outer {position:absolute;right: 181px;top: 7px;height: 224px;width: 225px;} /* Yes, a table... for complicated layout, vertical aligning to the bottom while scrolling when there are too many */
+#okcp .match-ratios-list {box-shadow: none;margin:0;padding:0;max-height: 235px;overflow-y: scroll;overflow-x:hidden;border-bottom: 1px solid #BBB;border-top: 1px solid #BBB;width: 100%;}
 #okcp .match-ratios-list::-webkit-scrollbar {-webkit-appearance: none;width: 7px;}
 #okcp .match-ratios-list::-webkit-scrollbar-thumb {border-radius: 4px;background-color: rgba(0,0,0,.5);box-shadow: 0 0 1px rgba(255,255,255,.5);}
 #okcp .match-ratios {vertical-align: bottom;}
@@ -163,7 +165,7 @@ background-position:0 0, -1px -5px;}
 /* UI - Change Categories and Review Profiles */
 .categories-lists-wrapper:before,
 .rp-outer-wrapper:before {content:"";position:fixed;top:0;bottom:0;left:0;right:0;background-color: rgba(0,0,0,0.5);z-index:1701;}
-.categories-lists {position:absolute;z-index:5000;top:40px;left:50%;width:600px;margin-left:-350px;padding:50px;background: #CCC;border-radius: 10px;box-shadow: 0px 1px 20px rgba(0,0,0,0.7);}
+.categories-lists {position:absolute;z-index:15000;top:40px;left:50%;width:600px;margin-left:-350px;padding:50px;background: #CCC;border-radius: 10px;box-shadow: 0px 1px 20px rgba(0,0,0,0.7);}
 .categories-lists:before {content:"Click and drag the categories between the lists to add or remove them";text-align:center;display:block;margin-bottom:10px;font-size:1.2em;}
 .categories-list {width:40%;margin-left:20%;}
 .categories-list:first-child {margin-left:0;}

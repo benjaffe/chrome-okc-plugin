@@ -16,7 +16,7 @@ if (_OKCP.profilePath !== '') {
 		'<a class="okcp-btn hide-btn uninterested-hide-btn" data-bind="click: toggleHideUninterested, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].u == true : false}">Not For Me</a>'+
 		'<a class="okcp-btn hide-btn nodata-hide-btn" data-bind="click: toggleHideNoData, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].d == true : false}">N/A</a>'+
 		'<div class="divider"></div>'+
-		'<a class="okcp-features-btn">More Plugin Features</a>'+
+		'<a class="okcp-features-btn">Plugin Menu</a>'+
 	'</div>').append('<div class="spinner"></div>');
 	$('.okcp-features-btn').append('<ul class="okcp-feature-list">'+
 		'<li class="okcp-feature">'+
@@ -29,7 +29,7 @@ if (_OKCP.profilePath !== '') {
 		'</li>'+
 		'<li class="okcp-feature">'+
 			'<a href="#" class="okcp-feature-btn improve-accuracy" id="improve-accuracy"">Improve Plugin Accuracy'+
-			'<div class="okcp-feature-details">This feature shows you questions that:<br><br>1. apply to the selected categories<br>2. you and the current user have in common<br>3. that you haven\'t answered<br><br>The more of these questions you answer, the more accurate the plugin will be able to compare you and the user you\'re visiting.</div></a>'+
+			'<div class="okcp-feature-details">This feature shows you questions that:<br><br>1. apply to the selected categories<br>2. that you haven\'t answered<br><br>The more of these questions you answer, the more accurate the plugin will be able to compare you and the user you\'re visiting.</div></a>'+
 		'</li></ul>');
 	$('#review-saved-profile').click(_OKCP.reviewProfiles);
 	$('#change-categories').click(_OKCP.changeCategories);
