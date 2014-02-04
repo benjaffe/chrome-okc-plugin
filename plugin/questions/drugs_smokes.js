@@ -6,7 +6,7 @@ _OKCP.fileQuestions.drugs_smokes =
 				"qid":"501",
 				"text":"Have you smoked a cigarette in the last 6 months?",
 				"answerText": ["Yes", "No"],
-				"score": [-1, 1]
+				"score": [-0.5, 0.8]
 			},
 			{
 				"qid":"13006",
