@@ -1,8 +1,8 @@
 _OKCP.changeCategories = function(){
-	
+
 	var storage = JSON.parse(localStorage.okcp);
 	var currCategories = storage.questionCategories;
-	
+
 	showCategorySorter();
 
 	function showCategorySorter () {
@@ -27,7 +27,7 @@ _OKCP.changeCategories = function(){
 		$('#reset-categories').click(function(){
 			resetCategories();
 		});
-		
+
 	}
 
 	function hideCategorySorter() {
@@ -41,7 +41,7 @@ _OKCP.changeCategories = function(){
 		});
 		var newQuestionCategories = [];
 		try {
-			
+
 			$('.active-categories li').each(function(i, value){
 				newQuestionCategories.push($(value).text().split(' ').join('_'));
 			});
@@ -56,7 +56,7 @@ _OKCP.changeCategories = function(){
 			alert("Success! All open OkCupid pages need to be refreshed to show the new category preferences.\n\nThe current page will now refresh.");
 			location.reload();
 			return true;
-		
+
 		} catch(e) {
 			console.log(e);
 		}

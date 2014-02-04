@@ -39,7 +39,7 @@ _OKCP.getAnswers = function (list) {
 		//loop through every question page
 		var pageResultsDiv = $('<div id="page-results"></div>').appendTo('body');
 		$('#footer').append('<a class="page-results-link" href="#page-results">Show question results</a>');
-		
+
 
 
 		while (!requestFailed && numRequestsMade < _OKCP.numQuestionPages) {
@@ -143,19 +143,19 @@ _OKCP.getAnswers = function (list) {
 						for (var i = 0; i < categoryQuestionList.length; i++) {
 							var listItem = categoryQuestionList[i]
 							var theirAnswer, theirAnswerIndex, theirNote, yourAnswer, yourNote, answerScore, answerWeight, answerScoreWeighted;
-							
+
 							var num = listItem.qid;
 							var possibleAnswers = listItem.answerText;
 							// var questionElem = $('#question_' + num + '[public]');		//misses some
 							var questionElem = $(this).find('#question_' + num);
-							
+
 							// if question isn't present on page, continue
 							if (questionElem.length === 0) {continue;}
-							
+
 							// get question information
 							var questionText = questionElem.find('h4').text().trim();
 							if (questionText === "") continue;
-							
+
 							if (_OKCP.onOwnProfile) {
 								theirAnswer = questionElem.find("#self_answers_"+num+" .match.mine").text().trim();
 								theirNote = questionElem.find("#explanation_"+num).text().trim();
@@ -246,7 +246,7 @@ _OKCP.getAnswers = function (list) {
 			$('.spinner').fadeOut(300);
 			_OKCP.getAnswersFinished = true;
 		}
-		
+
 		$('.match-ratios-list').html('');
 		$('.question-detail > ul').remove();
 		for (var category in responseCount) {
@@ -279,7 +279,7 @@ _OKCP.getAnswers = function (list) {
 				}, function() {
 					$('.question-detail-hover-view').hide();
 				});
-		
+
 
 			for (var i = 0; i < questionList.length; i++) {
 				var question = questionList[i];

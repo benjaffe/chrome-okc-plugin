@@ -5,7 +5,7 @@ function save_options() {
   localStorage["okcpDefaultQuestions"] = questions;
   console.log('after');
   console.log(localStorage["okcpDefaultQuestions"]);
-  
+
   var statusOutput = document.getElementById("statusOutput");
   statusOutput.innerHTML =localStorage["okcpDefaultQuestions"];
 

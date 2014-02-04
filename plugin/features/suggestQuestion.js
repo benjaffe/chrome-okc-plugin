@@ -3,7 +3,7 @@ _OKCP.initSuggestQuestionsFeature = function () {
 	var fullQuestionsList = _OKCP.fullQuestionsList;
 	var firstClick = true;
 	_OKCP.questionsToSuggest = {};
-	
+
 	$('<div class="copy-this" style="display:none;"><h2>To submit your questions, carefully copy the following text and email it to <a href="mailto: okcp.suggestions@gmail.com" style="color:#DDD;"> okcp.suggestions@gmail.com</a></h2><div class="copy-this-text"></div></div>').appendTo('body');
 
 	$('.question').filter(function(){
@@ -13,7 +13,7 @@ _OKCP.initSuggestQuestionsFeature = function () {
 			}
 			return true;
 		}).prepend('<div class="okcp-suggest-question btn new-feature">Suggest Question</div>');
-	
+
 	$('.okcp-suggest-question').click(function() {
 		var question = $(this).parent();
 		var qid = question.attr('id').split('question_')[1];
@@ -60,7 +60,7 @@ _OKCP.initSuggestQuestionsFeature = function () {
 		$(this).remove();
 		logCurrQuestionData(question);
 	});
-	
+
 	function logCurrQuestionData(elem) {
 		//duplicated code, but works for now
 		var question = elem || $('.question:first');
@@ -96,5 +96,5 @@ _OKCP.initSuggestQuestionsFeature = function () {
 		logCurrQuestionData();
 	}
 
-	
+
 };

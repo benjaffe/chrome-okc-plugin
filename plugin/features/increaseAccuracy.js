@@ -21,15 +21,15 @@ _OKCP.showUnansweredQuestions = function(data) {
 				$(this).css({'height':'400px'});
 				var iFrameContent = $(this.contentDocument);
 				var questionStuff = iFrameContent.find('#new_question');
-				
+
 				if (iFrameContent.find(".notice p:not(.btn)").text().indexOf('already answered this question') !== -1 ||
 						iFrameContent.find(".notice.pink p:eq(1)").not(':hidden').size() > 0) {
 					$(this).remove();
 					addiFrame();
 					return false;
 				}
-				
-				
+
+
 				// hide and reorganize everything
 				iFrameContent.find('body > *').hide();
 				iFrameContent.find('body').append(('<div class="big_dig" style="padding:0;"><div class="questions" id="addQuestionStuffHere" style="width:auto;margin:0;"></div></div>'));
@@ -38,7 +38,7 @@ _OKCP.showUnansweredQuestions = function(data) {
 				iFrameContent.find('.submit_btn').click(function(){
 					iFrameContent.find('#new_question').hide();
 				});
-				
+
 				$('<a class="iframe-close-btn">X</a>').insertBefore(this).click(function() {
 					removeiFrame($(this).next());
 					addiFrame();

@@ -4,7 +4,7 @@
 
 // if we're on a profile page
 if (_OKCP.profilePath !== '') {
-	
+
 	// UI: link-buttons and spinner)
 	$('#main_content .tabbed_heading').append('<div class="okcp-btns">'+
 		'<a class="okcp-btn toggleIsPoly" data-bind="click: toggleIsPoly, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].ip == true : false}">Poly</a>'+
@@ -34,8 +34,8 @@ if (_OKCP.profilePath !== '') {
 	$('#review-saved-profile').click(_OKCP.reviewProfiles);
 	$('#change-categories').click(_OKCP.changeCategories);
 	$('#improve-accuracy').click(_OKCP.showUnansweredQuestions);
-	
-	
+
+
 	// UI: Category match percentages (#social exists on your own profile page, #actions is on others')
 	$('#actions, #social').append('<table class="match-ratios-wrapper-outer"><tr><td class="match-ratios">'+
 		'<ul class="match-ratios-list"></ul>'+
@@ -43,7 +43,7 @@ if (_OKCP.profilePath !== '') {
 
 	// UI: Question Detail
 	$('#right_column').before('<div class="question-detail"></div>');
-	
+
 }
 
 
@@ -317,7 +317,7 @@ setInterval(function() {
 			// doSortByEnemy = !!JSON.parse(localStorage.okcp).settings.sortByEnemy; // doSortByEnemy = true if the setting is enabled
 		}
 	});
-	
+
 	if (doSortByEnemy) OKCP.sortByEnemy();
 },1000);
 

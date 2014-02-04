@@ -14,7 +14,7 @@ _OKCP.fileQuestions.science_spirituality =
 				"weight": [1, 1]
 			}
 		],
-		
+
 		"science-friendly": [
 			{
 				"qid":"612",

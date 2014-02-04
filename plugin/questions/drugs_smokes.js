@@ -29,7 +29,7 @@ _OKCP.fileQuestions.drugs_smokes =
 				"weight": [1, 0]
 			}
 		],
-		
+
 		"smoker": [
 			{
 				"qid":"501",
@@ -73,7 +73,7 @@ _OKCP.fileQuestions.drugs_smokes =
 				"score": [-1, 1]
 			}
 		],
-		
+
 		"420_friendly": [
 			{
 				"qid":"79",

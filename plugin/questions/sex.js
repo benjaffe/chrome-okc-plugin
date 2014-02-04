@@ -605,7 +605,7 @@ _OKCP.fileQuestions.sex =
 				"answerText": ["Yes.", "No."],
 				"score": [1, -1],
 				"weight": [1, 1]
-				
+
 			},
 			{
 				"qid":"463",
@@ -629,7 +629,7 @@ _OKCP.fileQuestions.sex =
 				"weight": [1, 0.7, 0.7, 1]
 			}
 		],
-		
+
 
 		"submissive": [
 			{
@@ -868,7 +868,7 @@ _OKCP.fileQuestions.sex =
 			}
 		],
 
-		
+
 		"high_sex_drive": [
 			{
 				"qid": "63114",

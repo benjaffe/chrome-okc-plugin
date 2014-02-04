@@ -453,7 +453,7 @@ _OKCP.fileQuestions.relationship_model =
                 "score": [1,1,0,-1],
                 "weight": [1,1,1,1]
             },
-            { 
+            {
                 "qid":"44255",
                 "text":"Would you consider dating a law enforcement officer?",
                 "answerText": ["Yes.", "No."],
@@ -461,7 +461,7 @@ _OKCP.fileQuestions.relationship_model =
                 "weight": [1,1]
             }*/
         ],
-        
+
 
         "consent-aware": [
             {

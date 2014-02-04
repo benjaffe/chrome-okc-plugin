@@ -1,13 +1,13 @@
 _OKCP.reviewProfiles = function() {
 	var storage = JSON.parse(localStorage.okcp);
 	var profiles = storage.profileList;
-	
+
 	// although accessing objects is slower, I'm choosing to use this method because it makes the code so pretty!
 	var profilesCategorized = {
 		'ip' : {}, //is poly
 		'p' : {},  //is not poly
 		'wm' : {}, //want to message
-		'm' : {},  //maybe 
+		'm' : {},  //maybe
 		'u' : {},  //not for me
 		'd' : {}  //no answers
 	};
@@ -50,7 +50,7 @@ _OKCP.reviewProfiles = function() {
 				profileElem.append('<a href="http://www.okcupid.com/profile/'+profile+'" target="_blank">'+profile+'</a><span class="location">'+locationStr+'</span>');
 				sublist.append(profileElem);
 			}
-			
+
 		}
 	}
 	function hideProfileReviewer () {

@@ -1,3 +1,4 @@
+
 _OKCP.sortByEnemy = function() {
 	var matchResultsArr = $("#match_results .match_row"); //get array of elements
 	// sort based on enemy percentage
