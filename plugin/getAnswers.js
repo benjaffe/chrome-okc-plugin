@@ -33,14 +33,97 @@ _OKCP.getAnswers = function (list) {
 		loadProfileAnswers();
 	}
 
+	function loadData(response, status) {
+		if ( status === "error" ) {
+			numRequestsFinished++;
+			console.log("Request failed on number " + numRequestsMade);
+			requestFailed = true;
+			return false;
+		}
+		numRequestsFinished++;
+
+		//fix the illegal ids that break jQuery
+		$(this).find('[id]').each(function(){
+			var elem = $(this);
+			var oldID = elem.attr('id');
+			var idArr = oldID.split('\\\"');
+			if (idArr.length > 2) {
+				$(this).attr('id',idArr[1]);
+			}
+		});
+
+		for (var category in list) {
+			var categoryQuestionList = list[category];
+			for (var i = 0; i < categoryQuestionList.length; i++) {
+				var listItem = categoryQuestionList[i];
+				var theirAnswer, theirAnswerIndex, theirNote, yourAnswer, yourNote, answerScore, answerWeight, answerScoreWeighted;
+
+				var num = listItem.qid;
+				var possibleAnswers = listItem.answerText;
+				// var questionElem = $('#question_' + num + '[public]');		//misses some
+				var questionElem = $(this).find('#question_' + num);
+
+				// if question isn't present on page, continue
+				if (questionElem.length === 0) {continue;}
+
+				// get question information
+				var questionText = questionElem.find('h4').text().trim();
+				if (questionText === "") continue;
+
+				if (_OKCP.onOwnProfile) {
+					theirAnswer = questionElem.find("#self_answers_"+num+" .match.mine").text().trim();
+					theirNote = questionElem.find("#explanation_"+num).text().trim();
+				} else {
+					theirAnswer = questionElem.find('#answer_target_'+num).text().trim();
+					if (theirAnswer === '') continue; //if the answer elem doesn't exist, continue
+					theirNote   = questionElem.find('#note_target_'+num).text().trim();
+					yourAnswer  = questionElem.find('#answer_viewer_'+num).text().trim();
+					yourNote    = questionElem.find('#note_viewer_'+num).text().trim();
+				}
+				for (var j = 0; j < possibleAnswers.length; j++) {
+					// console.log(questionText + "  " + theirAnswer + " | " + wrongAnswers[j]);
+					if (possibleAnswers[j] === theirAnswer) {
+						theirAnswerIndex = j;
+						break;
+					}
+				}
+				answerScore = listItem.score[theirAnswerIndex];
+				answerWeight = listItem.weight ? listItem.weight[theirAnswerIndex] || 0 : 1;
+				if (answerWeight === 0) continue;
+				answerScoreWeighted = ((answerScore+1) / 2) * answerWeight;
+				// console.log(answerScore + " " + answerWeight);
+
+				//ensure there's an entry for the category count
+				if (!responseCount[category]) responseCount[category] = [0,0];
+
+				responseCount[category][0] += answerScoreWeighted;
+				responseCount[category][1] += answerWeight;
+				// console.log(num + " - " + questionText);
+				questionList.push({
+					question: questionText,
+					qid: num,
+					theirAnswer: theirAnswer,
+					theirNote: theirNote,
+					yourAnswer: yourAnswer,
+					yourNote: yourNote,
+					answerScore: answerScore,
+					answerWeight: answerWeight,
+					answerScoreWeighted: answerScoreWeighted,
+					category: category,
+					categoryReadable: category.split('_').join(' ')
+				});
+				listItem.qid = listItem.qid+"-used";
+			}
+		}
+		// console.log(questionList);
+		areWeDone(false);
+	}
 
 	function loadProfileAnswers() {
 		if (location.href.split('/profile/')[1] === undefined) return false;
 		//loop through every question page
 		var pageResultsDiv = $('<div id="page-results"></div>').appendTo('body');
 		$('#footer').append('<a class="page-results-link" href="#page-results">Show question results</a>');
-
-
 
 		while (!requestFailed && numRequestsMade < _OKCP.numQuestionPages) {
 			updateQuestionPath();
@@ -120,93 +203,11 @@ _OKCP.getAnswers = function (list) {
 			} else if (_OKCP.questionFetchingMethod === "mobile_app") {
 				//TODO: on the first page load, get meta info (number of questions in common)
 
+
 				//add page results, parse the page
-				$('<div id="page-results-' + questionPageNum + '"></div>').appendTo(pageResultsDiv).load(questionPath + ' [class$="questions"]', function(response, status) {
-					if ( status === "error" ) {
-						numRequestsFinished++;
-						return false;
-					}
-					numRequestsFinished++;
-
-					//fix the illegal ids that break jQuery
-					$(this).find('[id]').each(function(){
-						var elem = $(this);
-						var oldID = elem.attr('id');
-						var idArr = oldID.split('\\\"');
-						if (idArr.length > 2) {
-							$(this).attr('id',idArr[1]);
-						}
-					});
-
-					for (var category in list) {
-						var categoryQuestionList = list[category];
-						for (var i = 0; i < categoryQuestionList.length; i++) {
-							var listItem = categoryQuestionList[i]
-							var theirAnswer, theirAnswerIndex, theirNote, yourAnswer, yourNote, answerScore, answerWeight, answerScoreWeighted;
-
-							var num = listItem.qid;
-							var possibleAnswers = listItem.answerText;
-							// var questionElem = $('#question_' + num + '[public]');		//misses some
-							var questionElem = $(this).find('#question_' + num);
-
-							// if question isn't present on page, continue
-							if (questionElem.length === 0) {continue;}
-
-							// get question information
-							var questionText = questionElem.find('h4').text().trim();
-							if (questionText === "") continue;
-
-							if (_OKCP.onOwnProfile) {
-								theirAnswer = questionElem.find("#self_answers_"+num+" .match.mine").text().trim();
-								theirNote = questionElem.find("#explanation_"+num).text().trim();
-							} else {
-								theirAnswer = questionElem.find('#answer_target_'+num).text().trim();
-								if (theirAnswer === '') continue; //if the answer elem doesn't exist, continue
-								theirNote   = questionElem.find('#note_target_'+num).text().trim();
-								yourAnswer  = questionElem.find('#answer_viewer_'+num).text().trim();
-								yourNote    = questionElem.find('#note_viewer_'+num).text().trim();
-							}
-							for (var j = 0; j < possibleAnswers.length; j++) {
-								// console.log(questionText + "  " + theirAnswer + " | " + wrongAnswers[j]);
-								if (possibleAnswers[j] === theirAnswer) {
-									theirAnswerIndex = j;
-									break;
-								}
-							}
-							answerScore = listItem.score[theirAnswerIndex];
-							answerWeight = listItem.weight ? listItem.weight[theirAnswerIndex] || 0 : 1;
-							if (answerWeight === 0) continue;
-							answerScoreWeighted = ((answerScore+1) / 2) * answerWeight;
-							// console.log(answerScore + " " + answerWeight);
-
-							//ensure there's an entry for the category count
-							if (!responseCount[category]) responseCount[category] = [0,0];
-
-							responseCount[category][0] += answerScoreWeighted;
-							responseCount[category][1] += answerWeight;
-							// console.log(num + " - " + questionText);
-							questionList.push({
-								question: questionText,
-								qid: num,
-								theirAnswer: theirAnswer,
-								theirNote: theirNote,
-								yourAnswer: yourAnswer,
-								yourNote: yourNote,
-								answerScore: answerScore,
-								answerWeight: answerWeight,
-								answerScoreWeighted: answerScoreWeighted,
-								category: category,
-								categoryReadable: category.split('_').join(' ')
-							});
-							listItem.qid = listItem.qid+"-used";
-						}
-					}
-					// console.log(questionList);
-					areWeDone(false);
-				}).error(function(){
-					console.log("Request failed on number " + numRequestsMade);
-					requestFailed = true;
-				});
+				$('<div id="page-results-' + questionPageNum + '"></div>')
+					.appendTo(pageResultsDiv)
+					.load(questionPath + ' [class$="questions"]', loadData);
 			}
 		}
 	}
