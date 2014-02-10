@@ -55,6 +55,56 @@ _OKCP.fileQuestions.other =
 		],
 
 
+		"no_tattoos": [
+			{
+				"qid": "128",
+				"text": "Do you have any tattoos?",
+				"answerText": ["I have 1 or more BIG tattoos", "I have 1 or more LITTLE tattoos", "I have no tattoos"],
+				"score": [-1, -0.5, 1],
+				"weight": [1, 1, 1]
+			},
+			{
+				"qid": "34255",
+				"text": "How do you feel about women openly displaying tattoos?",
+				"answerText": ["I Like It", "I Don't Mind", "I Dislike It"],
+				"score": [-1, 0, 1],
+				"weight": [0.5, 0, 1]
+			},
+			{
+				"qid": "44595",
+				"text": "Tattoos on a woman's lower back are...",
+				"answerText": ["Sexy.", "Ok.", "Tramp stamps.", "Something I have no opinion on."],
+				"score": [-1, 0, 1, 1],
+				"weight": [0.5, 0.5, 1, 0]
+			}
+		],
+
+
+		"tattoos": [
+			{
+				"qid": "128",
+				"text": "Do you have any tattoos?",
+				"answerText": ["I have 1 or more BIG tattoos", "I have 1 or more LITTLE tattoos", "I have no tattoos"],
+				"score": [1, 1, 0],
+				"weight": [1, 0.8, 0.5]
+			},
+			{
+				"qid": "34255",
+				"text": "How do you feel about women openly displaying tattoos?",
+				"answerText": ["I Like It", "I Don't Mind", "I Dislike It"],
+				"score": [1, 0, -1],
+				"weight": [1, 0.5, 1]
+			},
+			{
+				"qid": "44595",
+				"text": "Tattoos on a woman's lower back are...",
+				"answerText": ["Sexy.", "Ok.", "Tramp stamps.", "Something I have no opinion on."],
+				"score": [1, 0.2, -1, 0],
+				"weight": [1, 1, 1, 0.5]
+			}
+		],
+
+
 
 		"morning-friendly": [
 			{
