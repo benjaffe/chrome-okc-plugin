@@ -320,7 +320,7 @@ if ( $('#p_match').length !== 0 ) { //if we're on the matches page, enable the t
 				if (this.img.length === 0) return false;
 
 				this.thumbName = this.img.attr('alt').split('Picture of ')[1];
-				this.id = this.thumbName + '-thumb-link';
+				this.id = 'okcp-' + this.thumbName + '-thumb-link';
 				applyBindingsToProfileThumb($(this), '#'+this.id, false, true);
 				// doSortByEnemy = !!JSON.parse(localStorage.okcp).settings.sortByEnemy; // doSortByEnemy = true if the setting is enabled
 			}
