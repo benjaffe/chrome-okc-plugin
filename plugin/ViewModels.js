@@ -304,22 +304,31 @@ _OKCP.conversationThumbs.each(function() {
 });
 applyBindingsToProfileThumb(_OKCP.conversationThumbs,'#conversations', false, true);
 
-setInterval(function() {
-	var doSortByEnemy = false;
 
-	// Match Search Page
-	_OKCP.matchresultsThumbs = $('#match_results .match_row');
-	_OKCP.matchresultsThumbs.each(function() {
-		//if it doesn't have a binding applied, apply one
-		if ($(this).attr('data-bind') === undefined) {
-			this.thumbName = $(this).find('.username').text().trim();
-			applyBindingsToProfileThumb($(this), '#'+this.id, false, true);
-			// doSortByEnemy = !!JSON.parse(localStorage.okcp).settings.sortByEnemy; // doSortByEnemy = true if the setting is enabled
-		}
-	});
+if ( $('#p_match').length !== 0 ) { //if we're on the matches page, enable the timer
+	setInterval(function() {
+		var doSortByEnemy = false;
 
-	if (doSortByEnemy) OKCP.sortByEnemy();
-},1000);
+		// Match Search Page
+		_OKCP.matchresultsThumbs = $('#match_results .image_wrapper');
+		_OKCP.matchresultsThumbs.each(function() {
+			//if it doesn't have a binding applied, apply one
+			if ($(this).attr('data-bind') === undefined) {
+				this.img = $(this).find('img');
+
+				//OkC puts the elements below, but doesn't load the images, so we have to confirm that the images exist
+				if (this.img.length === 0) return false;
+
+				this.thumbName = this.img.attr('alt').split('Picture of ')[1];
+				this.id = this.thumbName + '-thumb-link';
+				applyBindingsToProfileThumb($(this), '#'+this.id, false, true);
+				// doSortByEnemy = !!JSON.parse(localStorage.okcp).settings.sortByEnemy; // doSortByEnemy = true if the setting is enabled
+			}
+		});
+
+		if (doSortByEnemy) OKCP.sortByEnemy();
+	},500);
+}
 
 // Bindings are applied, so remove class from body enabling hide button.
 $('.OKCP-bindings-not-yet-loaded').removeClass('OKCP-bindings-not-yet-loaded');
