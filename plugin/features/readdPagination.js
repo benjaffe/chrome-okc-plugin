@@ -1,23 +1,23 @@
 _OKCP.initReaddPagination = function() {
-	var lastPageElem,
+	var lastPageElemLink,
 		numPages,
 		itemsPerPage,
 		paginationElem,
 		urls;
 	if (document.getElementById('questions')) {
-		lastPageElem = $('#questions .count .last');
+		lastPageElemLink = $('#questions .count .last');
 		itemsPerPage = 10;
 	} else if (document.getElementById('p_mailbox')) {
-		lastPageElem = $('#p_mailbox .count .last');
+		lastPageElemLink = $('#p_mailbox .count .last');
 		itemsPerPage = 30;
 	} else {
 		return false;
 	}
-	urls = _OKCP.getPaginationUrls(lastPageElem, itemsPerPage);
+	urls = _OKCP.getPaginationUrls(lastPageElemLink, itemsPerPage);
 
-	paginationElem = $('<div class="okcp-pagination"></div>').insertAfter(lastPageElem);
+	paginationElem = $('<div class="okcp-pagination"></div>').insertAfter(lastPageElemLink);
 	for (var i = 0, newElem, href, length = urls.length; i < length; i++) {
-		newElem = lastPageElem.clone();
+		newElem = lastPageElemLink.clone();
 		href = urls[i];
 		newElem.text(i+1)
 			.attr('href',href)
@@ -26,11 +26,11 @@ _OKCP.initReaddPagination = function() {
 	}
 };
 
-_OKCP.getPaginationUrls = function(lastPageElem, itemsPerPage) {
+_OKCP.getPaginationUrls = function(lastPageElemLink, itemsPerPage) {
 	var urls = [];
-	numPages = lastPageElem.text()*1;
+	numPages = lastPageElemLink.text()*1;
 	for (var i = 0, url; i < numPages; i++) {
-		url = lastPageElem.attr('href');
+		url = lastPageElemLink.attr('href');
 		url = url.split('low=')[0]+'low=' + (i*itemsPerPage+1) + '&' + url.substring(url.indexOf('&')+1);
 		urls.push(url);
 	}
