@@ -38,7 +38,7 @@ _OKCP.clearMessages = function() {
 };
 
 _OKCP.loadUrlsIntoElem = function(urls, selector, callback) {
-    var pageResultsDiv = $('<div id="page-results"></div>').appendTo('body').show();
+    var pageResultsDiv = $('<div id="page-results"></div>').appendTo('body');
     var numCompleteRequests = 0;
     for (var i = 0; i < urls.length; i++) {
         $('<div id="page-results-' + i + '"></div>')

@@ -5,4 +5,5 @@ _OKCP.storage = function(key, value) {
     var storage = JSON.parse(localStorage.okcp);
     storage[key] = value;
     localStorage.okcp = JSON.stringify(storage);
+    return value;
 };
