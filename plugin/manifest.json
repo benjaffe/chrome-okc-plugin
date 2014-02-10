@@ -42,6 +42,7 @@
         "features/changeCategories.js",
         "features/increaseAccuracy.js",
         "features/reviewProfiles.js",
+        "features/messageSearch.js",
         "getAnswers.js",
         "ViewModels.js",
         "init.js"],
