@@ -1,7 +1,7 @@
 {
   "name": "OkCupid (for the Non-Mainstream User)",
   "short_name": "OkC Alt",
-  "version": "2.7.0",
+  "version": "2.7.1",
   "manifest_version": 2,
   "description": "Are you using OkCupid? You should definitely be using this extension.",
   "homepage_url": "http://cleverdeveloper.com/projects/okcupid-enhanced/",
