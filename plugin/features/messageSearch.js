@@ -50,9 +50,11 @@ _OKCP.addMessageLinkUI = function() {
     for (var i = 0; i < messages.length; i++) {
         if (messages[i].u === $('#basic_info_sn').text()) {
             var message = messages[i];
+            var date = new Date(message.d);
+            var readableDate = (date.getMonth()+1) + '/' + date.getDay() + '/' + date.getFullYear();
             // console.log(message);
             //alert username - date, linking to the message
-            list.append('<li class="thread"><a href="' + message.l + '">' + message.u + ' - ' + message.d + '</a></li>');
+            list.append('<li class="thread"><a href="' + message.l + '">' + message.u + ' - ' + readableDate + '</a></li>');
             messageLinkUI.show();
         }
     }
