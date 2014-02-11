@@ -1,25 +1,31 @@
 _OKCP.messageSearch = function() {
-    var indexMessagesNow = (_OKCP.storage('messagesIndexed') + (1000*60*60*24*14)) < new Date().getTime(); //reindex every two weeks
+    var twoWeeksInMilliseconds = (1000*60*60*24*14);
+    var messages = _OKCP.storage('messages');
+    var indexMessagesNow = (_OKCP.storage('messagesIndexed') + twoWeeksInMilliseconds) < new Date().getTime(); //reindex every two weeks
     var pageMailbox = $('#p_mailbox').length > 0;
     var hasNeverMessaged = $('#actions .tooltip_text .fancydate').length === 0;
+
     if (hasNeverMessaged) {
         return false;
     }
 
-    if (indexMessagesNow) {
-        console.log('Indexing messages');
-        if (pageMailbox) {
-            _OKCP.indexMessages();
-        } else {
-            $('<iframe src="http://www.okcupid.com/messages"></iframe>').appendTo('body').load(function(){
-                _OKCP.indexMessages($(this.contentDocument));
-            });
-            $('<iframe src="http://www.okcupid.com/messages?folder=2"></iframe>').appendTo('body').load(function(){
-                _OKCP.indexMessages($(this.contentDocument));
-            });
-        }
+    if (!messages) {
+        indexMessagesNow = true;
     } else {
-        _OKCP.addMessageLinkUI();
+        _OKCP.addMessageLinkUI(); //add UI if messages exists
+    }
+
+    if (indexMessagesNow) {
+        //set the messagesIndexed date to two weeks before, plus 5 minutes. That way, if the indexing fails or gets cut short, it'll try again 5 mins from now
+        _OKCP.storage('messagesIndexed', new Date().getTime()-twoWeeksInMilliseconds+60*5);
+
+        console.log('Indexing messages');
+        $('<iframe src="http://www.okcupid.com/messages"></iframe>').appendTo('body').load(function(){
+            _OKCP.indexMessages($(this.contentDocument));
+        });
+        $('<iframe src="http://www.okcupid.com/messages?folder=2"></iframe>').appendTo('body').load(function(){
+            _OKCP.indexMessages($(this.contentDocument));
+        });
     }
 };
 
