@@ -268,10 +268,8 @@
 
 
 /* Previous Messages UI */
-.btn-previous-messages {text-align: center;background: #ccc;padding: 2px 0;margin-bottom: -8px;font-size: 0.8em;}
-.btn-previous-messages .thread-list {display:none;margin:0;}
+.btn-previous-messages {display:block;text-align: center;background: #ccc;padding: 2px 0;margin-bottom: -8px;font-size: 0.8em;}
 .btn-previous-messages:hover {background: #aaa;}
-.btn-previous-messages:hover .thread-list {display: block;}
 .btn-previous-messages-previous-sibling-needs-a-nudge-up {margin-top:-18px}
 
 /* New Unreleased Features */

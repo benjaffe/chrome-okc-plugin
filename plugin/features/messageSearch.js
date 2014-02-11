@@ -31,30 +31,27 @@ _OKCP.messageSearch = function() {
 
 _OKCP.addMessageLinkUI = function() {
     // don't run this if a match has already been found
-    if ($('.thread-list').find('.thread').length !== 0) {
-        return false;
-    }
     var messages = _OKCP.storage('messages');
     var messageLinkUI = $('.btn-previous-messages');
-
-    if (messageLinkUI.length === 0) {
-        messageLinkUI = $('<div class="btn-previous-messages">Previous Messages<ul class="thread-list"></ul></div>').hide();
-        $('.trigger_action_options_wrapper')
-            .before(messageLinkUI) //add the new UI element
-            .prevAll('.large_black') //get the message-user button
-            .addClass('btn-previous-messages-previous-sibling-needs-a-nudge-up');
+    if (messageLinkUI.length !== 0) {
+        return false;
     }
 
-    var list = messageLinkUI.find('.thread-list');
+    messageLinkUI = $('<a href="#" class="btn-previous-messages">View Previous Messages</a>').hide();
+    $('.trigger_action_options_wrapper')
+        .before(messageLinkUI) //add the new UI element
+        .prevAll('.large_black') //get the message-user button
+        .addClass('btn-previous-messages-previous-sibling-needs-a-nudge-up');
+
+
     //loop through messages to find a match
     for (var i = 0; i < messages.length; i++) {
         if (messages[i].u === $('#basic_info_sn').text()) {
             var message = messages[i];
             var date = new Date(message.d);
             var readableDate = (date.getMonth()+1) + '/' + date.getDay() + '/' + date.getFullYear();
-            // console.log(message);
-            //alert username - date, linking to the message
-            list.append('<li class="thread"><a href="' + message.l + '">' + message.u + ' - ' + readableDate + '</a></li>');
+
+            messageLinkUI.attr('href', message.l);
             messageLinkUI.show();
         }
     }
