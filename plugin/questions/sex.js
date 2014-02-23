@@ -627,6 +627,13 @@ _OKCP.fileQuestions.sex =
 				"answerText": ["Very dominant", "Somewhat dominant", "Neutral or willing to take turns", "Submissive"],
 				"score": [-1, -1,0,1],
 				"weight": [1, 0.7, 0.7, 1]
+			},
+			{//Added by EJC
+				"qid":"9668",
+				"text":"Not as in whips and chains, but in general, do you prefer your partner to be...",
+				"answerText": ["Dominant", "Submissive", "Balanced"],
+				"score": [-1, 1, 0],
+				"weight": [1, 0, 0.7]
 			}
 		],
 
@@ -743,6 +750,13 @@ _OKCP.fileQuestions.sex =
 				"answerText":["I would wear their collar at all times.","I would be submissive in the bed room.","I am willing to play along, occasionally.","I am a dominant person, and could never submit."],
 				"score":[1,0.75,0.5,-1],
 				"weight":[1,1,1,1]
+			},
+			{//Added by EJC
+				"qid":"9668",
+				"text":"Not as in whips and chains, but in general, do you prefer your partner to be...",
+				"answerText": ["Dominant", "Submissive", "Balanced"],
+				"score": [1, -1, 0],
+				"weight": [1, 0, 0.7]
 			}
 		],
 
