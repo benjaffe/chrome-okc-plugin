@@ -578,6 +578,13 @@ _OKCP.fileQuestions.sex =
 		],
 
 		"dominant": [
+			{//ADDED BY EJC
+				"qid":"29",
+				"text":"Would you rather...",
+				"answerText": ["be tied up during sex", "do the tying", "avoid bondage all together"],
+				"score": [-1, 1, 0],
+				"weight": [1, 1, 1]
+			},
 			{
 				"qid": "156211",
 				"text": "Top or bottom?",
@@ -633,12 +640,19 @@ _OKCP.fileQuestions.sex =
 				"text":"Not as in whips and chains, but in general, do you prefer your partner to be...",
 				"answerText": ["Dominant", "Submissive", "Balanced"],
 				"score": [-1, 1, 0],
-				"weight": [1, 0, 0.7]
+				"weight": [1, 1, 1]
 			}
 		],
 
 
 		"submissive": [
+			{//ADDED BY EJC
+				"qid":"29",
+				"text":"Would you rather...",
+				"answerText": ["be tied up during sex", "do the tying", "avoid bondage all together"],
+				"score": [1, -1, 0],
+				"weight": [1, 1, 1]
+			},
 			{
 				"qid": "156211",
 				"text": "Top or bottom?",
@@ -756,7 +770,7 @@ _OKCP.fileQuestions.sex =
 				"text":"Not as in whips and chains, but in general, do you prefer your partner to be...",
 				"answerText": ["Dominant", "Submissive", "Balanced"],
 				"score": [1, -1, 0],
-				"weight": [1, 0, 0.7]
+				"weight": [1, 1, 1]
 			}
 		],
 
