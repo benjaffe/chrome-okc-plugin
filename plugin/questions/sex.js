@@ -579,6 +579,13 @@ _OKCP.fileQuestions.sex =
 
 		"dominant": [
 			{//ADDED BY EJC
+				"qid":"344180",
+				"text":"Preferred position: are you a top or a bottom?",
+				"answerText": ["Top", "Bottom", "Versatile"],
+				"score": [1, -1, 1],
+				"weight": [1, 1, 0.5]
+			},
+			{//ADDED BY EJC
 				"qid":"29",
 				"text":"Would you rather...",
 				"answerText": ["be tied up during sex", "do the tying", "avoid bondage all together"],
@@ -646,6 +653,13 @@ _OKCP.fileQuestions.sex =
 
 
 		"submissive": [
+			{//ADDED BY EJC
+				"qid":"344180",
+				"text":"Preferred position: are you a top or a bottom?",
+				"answerText": ["Top", "Bottom", "Versatile"],
+				"score": [-1, 1, 1],
+				"weight": [1, 1, 0.5]
+			},
 			{//ADDED BY EJC
 				"qid":"29",
 				"text":"Would you rather...",
