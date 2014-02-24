@@ -16,13 +16,10 @@
 .btn {cursor:pointer;}
 
 /* UI - Buttons */
-.okcp-btns {position:absolute;top:135px;right:15px;text-align:right;font-size:1.1em;line-height:1em;}
-.okcp-btns .divider {border-bottom:1px solid #89B;margin:7px 0 3px;}
-.okcp-btn {cursor:pointer;display:inline-block;color:#89B;}
-.okcp-btn + .okcp-btn {margin-left:10px;}
-.okcp-btn:after {content:"\2610";font-size:1.35em;margin-left:2px;}
+.okcp-btn:before {content:"\2610\00a0\00a0"; }
 .okcp-btn.checked {opacity:1;color:#356;}
-.okcp-btn.checked:after {content:"\2611";}
+.okcp-btn.checked:before {content:"\2611\00a0\00a0" }
+.okcp-btn { font-size:.9em; padding-left:5em }
 
 .section.navigation { width:184px }
 
@@ -358,3 +355,22 @@ background-image: url(data:image/gif;base64,R0lGODlhIAAgAPMAAP///wAAAMbGxoSEhLa2
 
 .spinner-note-patient {margin-right:70px;}
 .spinner-note-patient:after {content:"Searching for questions... This could take a while!";position:relative;left:33px;top:-10px;display:block;width:165px;padding:7px 0 7px 10px;background: white;border-radius:0 10px 10px 0;box-shadow:2px 1px 4px rgba(0,0,0,0.5);z-index:1000;color:black;}
+
+
+#okcp-pagetab ul.user_links {
+	display:none;
+	position:absolute;
+	top:-3px;
+}
+#okcp-pagetab ul li { float :left }
+#okcp-pagetab:hover > * {
+	display:block !important;
+	list-style:inline;
+	z-index:1;
+	float:left;
+	background:#f6f6f6;
+	opacity:1;
+}
+
+
+

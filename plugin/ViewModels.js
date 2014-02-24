@@ -1,8 +1,3 @@
-
-
-/*=== UI ===*/
-
-
 // if we're on a profile page
 if (_OKCP.profilePath !== '') {
 
@@ -10,7 +5,7 @@ if (_OKCP.profilePath !== '') {
 		$('<div>', {id:'section_navigation', 'class':'section navigation'}).append(
 			$('<ul>').append(
 				$('<li>', {'class': 'okcp-features-btn'}).append(
-					$('<a>',{text:'Plugin Menu'}),
+					$('<a>',{'text':'Plugin Menu'}),
 					$('<ul>',{'class':'okcp-feature-list'}).append(
 
 						$('<li>', {'class':'okcp-feature'}).append(
@@ -64,18 +59,38 @@ if (_OKCP.profilePath !== '') {
 		)
 	);
 
+	var $divider = $('<div></div>', {'class':'divider'});
+
+	$('.page_tabs').append(
+		$('<li>', {'id':'okcp-pagetab','class':'section navgiation'}).append(
+			$('<a>', {'text':'Plugin Features', 'href':'#'}),
+			$('<ul>', {'class':'user_links'}).append(
+				$('<li>').append(
+					'<a class="okcp-btn toggleIsPoly" data-bind="click: toggleIsPoly, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].ip == true : false}">Poly</a>'
+				)
+				, $('<li>').append(
+					'<a class="okcp-btn hide-btn poly-hide-btn" data-bind="click: toggleHideNotPoly, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].p == true : false}">Not Poly</a>'
+				)
+				, $('<li>').append(
+					'<a class="okcp-btn" data-bind="click: toggleWantToMessage, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].wm == true : false}">Message</a>'
+				)
+				, $('<li>').append(
+					'<a class="okcp-btn" data-bind="click: toggleMaybeInterested, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].m == true : false}">Maybe</a>'
+				)
+				, $('<li>').append(
+					'<a class="okcp-btn hide-btn uninterested-hide-btn" data-bind="click: toggleHideUninterested, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].u == true : false}">Not For Me</a>'
+				)
+				, $('<li>').append(
+					'<a class="okcp-btn hide-btn nodata-hide-btn" data-bind="click: toggleHideNoData, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].d == true : false}">N/A</a>'
+				)
+			)
+		)
+	);
+
 	// UI: link-buttons and spinner)
-	$('#main_content .tabbed_heading').append('<div class="okcp-btns">'+
-		'<a class="okcp-btn toggleIsPoly" data-bind="click: toggleIsPoly, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].ip == true : false}">Poly</a>'+
-		'<a class="okcp-btn hide-btn poly-hide-btn" data-bind="click: toggleHideNotPoly, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].p == true : false}">Not Poly</a>'+
-		'<div class="divider"></div>'+
-		'<a class="okcp-btn" data-bind="click: toggleWantToMessage, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].wm == true : false}">Message</a>'+
-		'<a class="okcp-btn" data-bind="click: toggleMaybeInterested, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].m == true : false}">Maybe</a>'+
-		'<div class="divider"></div>'+
-		'<a class="okcp-btn hide-btn uninterested-hide-btn" data-bind="click: toggleHideUninterested, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].u == true : false}">Not For Me</a>'+
-		'<a class="okcp-btn hide-btn nodata-hide-btn" data-bind="click: toggleHideNoData, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].d == true : false}">N/A</a>'+
-		'<div class="divider"></div>'+
-	'</div>').append('<div class="spinner"></div>');
+	$('#main_content .tabbed_heading').append(
+		$('<div>', {'class':"okcp-btns"}).append($('</div>', {'class':'spinner'}))
+	);
 	$('#review-saved-profile').click(_OKCP.reviewProfiles);
 	$('#change-categories').click(_OKCP.changeCategories);
 	$('#improve-accuracy').click(_OKCP.showUnansweredQuestions);
@@ -370,3 +385,11 @@ setInterval(function() {
 $('.OKCP-bindings-not-yet-loaded').removeClass('OKCP-bindings-not-yet-loaded');
 
 
+
+function __generate_okcp_pagetab_event( e, t, e2 ) {
+	return $('<a>', {
+		'class':'okcp-btn hide-btn ' + e + ' ' + e2
+		, 'data-bind': 'click: ' + e + ', css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].wm == true : false}'
+		, 'text': t
+	} )
+}
