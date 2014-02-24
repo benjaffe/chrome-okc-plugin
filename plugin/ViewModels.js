@@ -11,19 +11,54 @@ if (_OKCP.profilePath !== '') {
 			$('<ul>').append(
 				$('<li>', {'class': 'okcp-features-btn'}).append(
 					$('<a>',{text:'Plugin Menu'}),
-					'<ul class="okcp-feature-list">'+
-					'<li class="okcp-feature">'+
-						'<a href="#" class="okcp-feature-btn review-saved-profile" id="review-saved-profile">Review Saved Profiles'+
-						'<div class="okcp-feature-details">This feature allows you to review profiles you\'ve previously marked as "Poly", "Message", and "Maybe". (Keep in mind that this data gets cleared if you clear your browser\'s cache.)</div></a>'+
-					'</li>'+
-					'<li class="okcp-feature">'+
-						'<a href="#" class="okcp-feature-btn change-categories" id="change-categories">Change Categories'+
-						'<div class="okcp-feature-details">This feature allows you to choose which categories you care about. Drag categories from the right to the left to enable them, and vice-versa to disable them.</div></a>'+
-					'</li>'+
-					'<li class="okcp-feature">'+
-						'<a href="#" class="okcp-feature-btn improve-accuracy" id="improve-accuracy"">Improve Plugin Accuracy'+
-						'<div class="okcp-feature-details">This feature shows you questions that:<br><br>1. apply to the selected categories<br>2. that you haven\'t answered<br><br>The more of these questions you answer, the more accurate the plugin will be able to compare you and the user you\'re visiting.</div></a>'+
-					'</li></ul>'
+					$('<ul>',{'class':'okcp-feature-list'}).append(
+
+						$('<li>', {'class':'okcp-feature'}).append(
+							$('<a>', {
+								'href':'#'
+								, 'class':'okcp-feature-btn review_saved_profile'
+								, 'review-saved-profile':true
+								, 'id':'review-saved-profile'
+								, 'text':'Review Saved Profiles'
+							}).append(
+								$('<div>', {
+									'class':'okcp-feature-details'
+									, 'text':'This feature allows you to review profiles you\'ve previously marked as "Poly", "Message", and "Maybe". (Keep in mind that this data gets cleared if you clear your browser\'s cache.)'
+								})
+							)
+						),
+
+						$('<li>', {'class':'okcp-feature'}).append(
+							$('<a>', {
+								'href':'#'
+								, 'class':'okcp-feature-btn change_categories'
+								, 'change-categories':true
+								, 'id':'change-categories'
+								, 'text':'Change Categories'
+							}).append(
+								$('<div>', {
+									'class':'okcp-feature-details'
+									, 'text':'This feature allows you to choose which categories you care about. Drag categories from the right to the left to enable them, and vice-versa to disable them.'
+								})
+							)
+						),
+
+						$('<li>', {'class':'okcp-feature'}).append(
+							$('<a>', {
+								'href':'#'
+								, 'class':'okcp-feature-btn improve-accuracy'
+								, 'review-saved-profile':true
+								, 'id':'improve-accuracy'
+								, 'text':'Improve Plugin Accuracy'
+							}).append(
+								$('<div>', {
+									'class':'okcp-feature-details'
+									, 'text':'This feature shows you questions that:<br><br>1. apply to the selected categories<br>2. that you haven\'t answered<br><br>The more of these questions you answer, the more accurate the plugin will be able to compare you and the user you\'re visiting.'
+								})
+							)
+						)
+
+					)
 				)
 			)
 		)
