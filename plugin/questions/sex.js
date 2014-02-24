@@ -579,6 +579,13 @@ _OKCP.fileQuestions.sex =
 
 		"dominant": [
 			{//ADDED BY EJC
+				"qid":"123695",
+				"text":"As a kinky submissive what type of role would you prefer?",
+				"answerText": ["slave, kajira(-us), toy, etc.", "servant, geisha, maid, secretary, etc.", "pain slut, scene bottom, etc.", "I don't know, am a Dom/me, or am not this kinky"],
+				"score": [-1, -1, -1, 1],
+				"weight": [1, 1, 1, 1]
+			},
+			{//ADDED BY EJC
 				"qid":"34333",
 				"text":"Which do you prefer in a significant other, generally speaking?",
 				"answerText": ["Dominance/Aggression", "Submission/Shyness", "A little of both, depending on the situation"],
@@ -674,6 +681,13 @@ _OKCP.fileQuestions.sex =
 
 
 		"submissive": [
+			{//ADDED BY EJC
+				"qid":"123695",
+				"text":"As a kinky submissive what type of role would you prefer?",
+				"answerText": ["slave, kajira(-us), toy, etc.", "servant, geisha, maid, secretary, etc.", "pain slut, scene bottom, etc.", "I don't know, am a Dom/me, or am not this kinky"],
+				"score": [1, 1, 1, -1],
+				"weight": [1, 1, 1, 1]
+			},
 			{//ADDED BY EJC
 				"qid":"34333",
 				"text":"Which do you prefer in a significant other, generally speaking?",
