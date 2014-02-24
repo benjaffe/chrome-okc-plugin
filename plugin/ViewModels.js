@@ -2,8 +2,32 @@
 
 /*=== UI ===*/
 
+
 // if we're on a profile page
 if (_OKCP.profilePath !== '') {
+
+	$('#sidebar_main').append(
+		$('<div>', {id:'section_navigation', 'class':'section navigation'}).append(
+			$('<ul>').append(
+				$('<li>', {'class': 'okcp-features-btn'}).append(
+					$('<a>',{text:'Plugin Menu'}),
+					'<ul class="okcp-feature-list">'+
+					'<li class="okcp-feature">'+
+						'<a href="#" class="okcp-feature-btn review-saved-profile" id="review-saved-profile">Review Saved Profiles'+
+						'<div class="okcp-feature-details">This feature allows you to review profiles you\'ve previously marked as "Poly", "Message", and "Maybe". (Keep in mind that this data gets cleared if you clear your browser\'s cache.)</div></a>'+
+					'</li>'+
+					'<li class="okcp-feature">'+
+						'<a href="#" class="okcp-feature-btn change-categories" id="change-categories">Change Categories'+
+						'<div class="okcp-feature-details">This feature allows you to choose which categories you care about. Drag categories from the right to the left to enable them, and vice-versa to disable them.</div></a>'+
+					'</li>'+
+					'<li class="okcp-feature">'+
+						'<a href="#" class="okcp-feature-btn improve-accuracy" id="improve-accuracy"">Improve Plugin Accuracy'+
+						'<div class="okcp-feature-details">This feature shows you questions that:<br><br>1. apply to the selected categories<br>2. that you haven\'t answered<br><br>The more of these questions you answer, the more accurate the plugin will be able to compare you and the user you\'re visiting.</div></a>'+
+					'</li></ul>'
+				)
+			)
+		)
+	);
 
 	// UI: link-buttons and spinner)
 	$('#main_content .tabbed_heading').append('<div class="okcp-btns">'+
@@ -16,21 +40,7 @@ if (_OKCP.profilePath !== '') {
 		'<a class="okcp-btn hide-btn uninterested-hide-btn" data-bind="click: toggleHideUninterested, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].u == true : false}">Not For Me</a>'+
 		'<a class="okcp-btn hide-btn nodata-hide-btn" data-bind="click: toggleHideNoData, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].d == true : false}">N/A</a>'+
 		'<div class="divider"></div>'+
-		'<a class="okcp-features-btn">Plugin Menu</a>'+
 	'</div>').append('<div class="spinner"></div>');
-	$('.okcp-features-btn').append('<ul class="okcp-feature-list">'+
-		'<li class="okcp-feature">'+
-			'<a href="#" class="okcp-feature-btn review-saved-profile" id="review-saved-profile">Review Saved Profiles'+
-			'<div class="okcp-feature-details">This feature allows you to review profiles you\'ve previously marked as "Poly", "Message", and "Maybe". (Keep in mind that this data gets cleared if you clear your browser\'s cache.)</div></a>'+
-		'</li>'+
-		'<li class="okcp-feature">'+
-			'<a href="#" class="okcp-feature-btn change-categories" id="change-categories">Change Categories'+
-			'<div class="okcp-feature-details">This feature allows you to choose which categories you care about. Drag categories from the right to the left to enable them, and vice-versa to disable them.</div></a>'+
-		'</li>'+
-		'<li class="okcp-feature">'+
-			'<a href="#" class="okcp-feature-btn improve-accuracy" id="improve-accuracy"">Improve Plugin Accuracy'+
-			'<div class="okcp-feature-details">This feature shows you questions that:<br><br>1. apply to the selected categories<br>2. that you haven\'t answered<br><br>The more of these questions you answer, the more accurate the plugin will be able to compare you and the user you\'re visiting.</div></a>'+
-		'</li></ul>');
 	$('#review-saved-profile').click(_OKCP.reviewProfiles);
 	$('#change-categories').click(_OKCP.changeCategories);
 	$('#improve-accuracy').click(_OKCP.showUnansweredQuestions);
