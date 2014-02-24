@@ -582,7 +582,7 @@ _OKCP.fileQuestions.sex =
 				"qid":"34333",
 				"text":"Which do you prefer in a significant other, generally speaking?",
 				"answerText": ["Dominance/Aggression", "Submission/Shyness", "A little of both, depending on the situation"],
-				"score": [1, -1, 0],
+				"score": [-1, 1, 0],
 				"weight": [1, 1, 1]
 			},
 			{//ADDED BY EJC
@@ -678,7 +678,7 @@ _OKCP.fileQuestions.sex =
 				"qid":"34333",
 				"text":"Which do you prefer in a significant other, generally speaking?",
 				"answerText": ["Dominance/Aggression", "Submission/Shyness", "A little of both, depending on the situation"],
-				"score": [-1, 1, 0],
+				"score": [1, -1, 0],
 				"weight": [1, 1, 1]
 			},
 			{//ADDED BY EJC
