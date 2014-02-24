@@ -582,15 +582,15 @@ _OKCP.fileQuestions.sex =
 				"qid":"78754",
 				"text":"Would you allow your partner to decide what you wear to bed?",
 				"answerText": ["Yes, always.", "Yes, sometimes.", "No, never."],
-				"score": [-1, 0, -1],
-				"weight": [1, 0, 1]
+				"score": [-1, 0, 1],
+				"weight": [1, 1, 1]
 			},
 			{//ADDED BY EJC
 				"qid":"61666",
 				"text":"In a relationship, how important is it for you to be in control?",
 				"answerText": ["Very important.", "Somewhat important.", "Not at all important."],
-				"score": [1, 1, -1],
-				"weight": [1, 0.2, 1]
+				"score": [1, 0, -1],
+				"weight": [1, 1, 1]
 			},
 			{//ADDED BY EJC
 				"qid":"344180",
@@ -672,14 +672,14 @@ _OKCP.fileQuestions.sex =
 				"text":"Would you allow your partner to decide what you wear to bed?",
 				"answerText": ["Yes, always.", "Yes, sometimes.", "No, never."],
 				"score": [1, 0, -1],
-				"weight": [1, 0, 1]
+				"weight": [1, 1, 1]
 			},
 			{//ADDED BY EJC
 				"qid":"61666",
 				"text":"In a relationship, how important is it for you to be in control?",
 				"answerText": ["Very important.", "Somewhat important.", "Not at all important."],
-				"score": [-1, 1, 1],
-				"weight": [1, 0.8, 1]
+				"score": [-1, 0, 1],
+				"weight": [1, 1, 1]
 			},
 			{//ADDED BY EJC
 				"qid":"344180",
