@@ -579,6 +579,13 @@ _OKCP.fileQuestions.sex =
 
 		"dominant": [
 			{//ADDED BY EJC
+				"qid":"76595",
+				"text":"When it comes to oral sex which do you prefer?",
+				"answerText": ["Give", "Receive", "To both give and get", "Don't like it at all"],
+				"score": [-1, 1, 0, 0],
+				"weight": [1, 1, 1, 0]
+			},
+			{//ADDED BY EJC
 				"qid":"123695",
 				"text":"As a kinky submissive what type of role would you prefer?",
 				"answerText": ["slave, kajira(-us), toy, etc.", "servant, geisha, maid, secretary, etc.", "pain slut, scene bottom, etc.", "I don't know, am a Dom/me, or am not this kinky"],
@@ -681,6 +688,13 @@ _OKCP.fileQuestions.sex =
 
 
 		"submissive": [
+			{//ADDED BY EJC
+				"qid":"76595",
+				"text":"When it comes to oral sex which do you prefer?",
+				"answerText": ["Give", "Receive", "To both give and get", "Don't like it at all"],
+				"score": [1, -1, 0, 0],
+				"weight": [1, 1, 1, 0]
+			},
 			{//ADDED BY EJC
 				"qid":"123695",
 				"text":"As a kinky submissive what type of role would you prefer?",
