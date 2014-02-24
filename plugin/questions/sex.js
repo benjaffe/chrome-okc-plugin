@@ -579,6 +579,13 @@ _OKCP.fileQuestions.sex =
 
 		"dominant": [
 			{//ADDED BY EJC
+				"qid":"34333",
+				"text":"Which do you prefer in a significant other, generally speaking?",
+				"answerText": ["Dominance/Aggression", "Submission/Shyness", "A little of both, depending on the situation"],
+				"score": [1, -1, 0],
+				"weight": [1, 1, 1]
+			},
+			{//ADDED BY EJC
 				"qid":"78754",
 				"text":"Would you allow your partner to decide what you wear to bed?",
 				"answerText": ["Yes, always.", "Yes, sometimes.", "No, never."],
@@ -667,6 +674,13 @@ _OKCP.fileQuestions.sex =
 
 
 		"submissive": [
+			{//ADDED BY EJC
+				"qid":"34333",
+				"text":"Which do you prefer in a significant other, generally speaking?",
+				"answerText": ["Dominance/Aggression", "Submission/Shyness", "A little of both, depending on the situation"],
+				"score": [-1, 1, 0],
+				"weight": [1, 1, 1]
+			},
 			{//ADDED BY EJC
 				"qid":"78754",
 				"text":"Would you allow your partner to decide what you wear to bed?",
