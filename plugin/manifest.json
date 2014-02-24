@@ -52,5 +52,8 @@
       "run_at": "document_end"
     }
   ],
-  "web_accessible_resources":  ["images/ajax-loader.gif"]
+  "web_accessible_resources":  [
+		"images/ajax-loader.gif",
+		"images/icon-128.png"
+	]
 }

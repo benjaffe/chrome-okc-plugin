@@ -26,10 +26,20 @@
 
 .section.navigation { width:184px }
 
-.okcp-features-btn a { color:red !important; font-weight:bold }
+.okcp-features-btn a {
+	color:white !important;
+	text-decoration: underline
+}
 .okcp-features-btn:hover > * {display:block;}
 .okcp-feature-list { display:none }
-.okcp-features-btn a { background: none !important; }
+.okcp-features-btn a {
+	background: url('chrome-extension://__MSG_@@extension_id__/images/icon-128.png') !important;
+	background-size:30px 30px !important;
+	background-repeat:no-repeat !important;
+	background-position: left !important;
+	//background: transparent !important;
+	//background-color:white !important;
+}
 
 /* UI - Match Ratios */
 .match-ratios-wrapper-outer {position:absolute;right: 181px;top: 2px;height: 224px;width: 225px;} /* Yes, a table... for complicated layout, vertical aligning to the bottom while scrolling when there are too many */
