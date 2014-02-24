@@ -579,6 +579,13 @@ _OKCP.fileQuestions.sex =
 
 		"dominant": [
 			{//ADDED BY EJC
+				"qid":"62",
+				"text":"When in charge of others, how do you tend to be?",
+				"answerText": ["Firm and Demanding", "Helpful and Understanding"],
+				"score": [1, 0],
+				"weight": [1, 0]
+			},
+			{//ADDED BY EJC
 				"qid":"76595",
 				"text":"When it comes to oral sex which do you prefer?",
 				"answerText": ["Give", "Receive", "To both give and get", "Don't like it at all"],
@@ -688,6 +695,13 @@ _OKCP.fileQuestions.sex =
 
 
 		"submissive": [
+			{//ADDED BY EJC
+				"qid":"62",
+				"text":"When in charge of others, how do you tend to be?",
+				"answerText": ["Firm and Demanding", "Helpful and Understanding"],
+				"score": [-1, 0],
+				"weight": [1, 0]
+			},
 			{//ADDED BY EJC
 				"qid":"76595",
 				"text":"When it comes to oral sex which do you prefer?",
