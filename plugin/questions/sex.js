@@ -578,6 +578,41 @@ _OKCP.fileQuestions.sex =
 		],
 
 		"dominant": [
+			{//ADDED BY EJC
+				"qid":"34333",
+				"text":"Which do you prefer in a significant other, generally speaking?",
+				"answerText": ["Dominance/Aggression", "Submission/Shyness", "A little of both, depending on the situation"],
+				"score": [1, -1, 0],
+				"weight": [1, 1, 1]
+			},
+			{//ADDED BY EJC
+				"qid":"78754",
+				"text":"Would you allow your partner to decide what you wear to bed?",
+				"answerText": ["Yes, always.", "Yes, sometimes.", "No, never."],
+				"score": [-1, 0, 1],
+				"weight": [1, 1, 1]
+			},
+			{//ADDED BY EJC
+				"qid":"61666",
+				"text":"In a relationship, how important is it for you to be in control?",
+				"answerText": ["Very important.", "Somewhat important.", "Not at all important."],
+				"score": [1, 0, -1],
+				"weight": [1, 1, 1]
+			},
+			{//ADDED BY EJC
+				"qid":"344180",
+				"text":"Preferred position: are you a top or a bottom?",
+				"answerText": ["Top", "Bottom", "Versatile"],
+				"score": [1, -1, 1],
+				"weight": [1, 1, 0.5]
+			},
+			{//ADDED BY EJC
+				"qid":"29",
+				"text":"Would you rather...",
+				"answerText": ["be tied up during sex", "do the tying", "avoid bondage all together"],
+				"score": [-1, 1, 0],
+				"weight": [1, 1, 1]
+			},
 			{
 				"qid": "156211",
 				"text": "Top or bottom?",
@@ -627,11 +662,53 @@ _OKCP.fileQuestions.sex =
 				"answerText": ["Very dominant", "Somewhat dominant", "Neutral or willing to take turns", "Submissive"],
 				"score": [-1, -1,0,1],
 				"weight": [1, 0.7, 0.7, 1]
+			},
+			{//Added by EJC
+				"qid":"9668",
+				"text":"Not as in whips and chains, but in general, do you prefer your partner to be...",
+				"answerText": ["Dominant", "Submissive", "Balanced"],
+				"score": [-1, 1, 0],
+				"weight": [1, 1, 1]
 			}
 		],
 
 
 		"submissive": [
+			{//ADDED BY EJC
+				"qid":"34333",
+				"text":"Which do you prefer in a significant other, generally speaking?",
+				"answerText": ["Dominance/Aggression", "Submission/Shyness", "A little of both, depending on the situation"],
+				"score": [-1, 1, 0],
+				"weight": [1, 1, 1]
+			},
+			{//ADDED BY EJC
+				"qid":"78754",
+				"text":"Would you allow your partner to decide what you wear to bed?",
+				"answerText": ["Yes, always.", "Yes, sometimes.", "No, never."],
+				"score": [1, 0, -1],
+				"weight": [1, 1, 1]
+			},
+			{//ADDED BY EJC
+				"qid":"61666",
+				"text":"In a relationship, how important is it for you to be in control?",
+				"answerText": ["Very important.", "Somewhat important.", "Not at all important."],
+				"score": [-1, 0, 1],
+				"weight": [1, 1, 1]
+			},
+			{//ADDED BY EJC
+				"qid":"344180",
+				"text":"Preferred position: are you a top or a bottom?",
+				"answerText": ["Top", "Bottom", "Versatile"],
+				"score": [-1, 1, 1],
+				"weight": [1, 1, 0.5]
+			},
+			{//ADDED BY EJC
+				"qid":"29",
+				"text":"Would you rather...",
+				"answerText": ["be tied up during sex", "do the tying", "avoid bondage all together"],
+				"score": [1, -1, 0],
+				"weight": [1, 1, 1]
+			},
 			{
 				"qid": "156211",
 				"text": "Top or bottom?",
@@ -743,6 +820,13 @@ _OKCP.fileQuestions.sex =
 				"answerText":["I would wear their collar at all times.","I would be submissive in the bed room.","I am willing to play along, occasionally.","I am a dominant person, and could never submit."],
 				"score":[1,0.75,0.5,-1],
 				"weight":[1,1,1,1]
+			},
+			{//Added by EJC
+				"qid":"9668",
+				"text":"Not as in whips and chains, but in general, do you prefer your partner to be...",
+				"answerText": ["Dominant", "Submissive", "Balanced"],
+				"score": [1, -1, 0],
+				"weight": [1, 1, 1]
 			}
 		],
 
