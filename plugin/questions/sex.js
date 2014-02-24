@@ -579,6 +579,13 @@ _OKCP.fileQuestions.sex =
 
 		"dominant": [
 			{//ADDED BY EJC
+				"qid":"60726",
+				"text":"If a trusted partner asked you to submit to them sexually, would you? Assume that this would involve letting them collar you, command you, and have control over you during sex.",
+				"answerText": ["Yes.", "No."],
+				"score": [-1, 0],
+				"weight": [1, 0]
+			},
+			{//ADDED BY EJC
 				"qid":"62",
 				"text":"When in charge of others, how do you tend to be?",
 				"answerText": ["Firm and Demanding", "Helpful and Understanding"],
@@ -695,6 +702,13 @@ _OKCP.fileQuestions.sex =
 
 
 		"submissive": [
+			{
+				"qid":"60726",
+				"text":"If a trusted partner asked you to submit to them sexually, would you? Assume that this would involve letting them collar you, command you, and have control over you during sex.",
+				"answerText": ["Yes.", "No."],
+				"score": [1, 0],
+				"weight": [1, 0]
+			},
 			{//ADDED BY EJC
 				"qid":"62",
 				"text":"When in charge of others, how do you tend to be?",
@@ -792,13 +806,6 @@ _OKCP.fileQuestions.sex =
 				"answerText": ["I take control", "They take control"],
 				"score": [-1, 1],
 				"weight": [1, 1]
-			},
-			{
-				"qid":"60726",
-				"text":"If a trusted partner asked you to submit to them sexually, would you? Assume that this would involve letting them collar you, command you, and have control over you during sex.",
-				"answerText": ["Yes.", "No."],
-				"score": [1, -1],
-				"weight": [1, 0.5]
 			},
 			{
 				"qid":"38320",
