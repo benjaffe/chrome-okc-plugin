@@ -582,8 +582,36 @@ _OKCP.fileQuestions.sex =
 				"qid":"60726",
 				"text":"If a trusted partner asked you to submit to them sexually, would you? Assume that this would involve letting them collar you, command you, and have control over you during sex.",
 				"answerText": ["Yes.", "No."],
+				"score": [-1, 1],
+				"weight": [1, 0.2]
+			},
+			{
+				"qid":"93463",
+				"text":"Would you ever consent to being a total submissive to another human being?",
+				"answerText":["I would wear their collar at all times.","I would be submissive in the bed room.","I am willing to play along, occasionally.","I am a dominant person, and could never submit."],
+				"score":[-1,-0.75,-0.5,1],
+				"weight":[1,1,1,1]
+			},
+			{
+				"qid":"84005",
+				"text":"As an adult, have you ever worn a leash and collar in public?",
+				"answerText": ["Yes.", "No."],
 				"score": [-1, 0],
 				"weight": [1, 0]
+			},
+			{
+				"qid":"48347",
+				"text":"Do you think you could ever enjoy being humiliated as part of a sexual experience?",
+				"answerText": ["Yes.", "No."],
+				"score": [-1, 0],
+				"weight": [1, 0]
+			},
+			{
+				"qid":"61733",
+				"text":"Would you be pleased if a partner expressed the desire to be sexually humiliated by you?",
+				"answerText": ["Yes.", "No."],
+				"score": [1, -1],
+				"weight": [1, 1]
 			},
 			{//ADDED BY EJC
 				"qid":"62",
@@ -663,14 +691,6 @@ _OKCP.fileQuestions.sex =
 				"weight": [1, 0.5, 0.5, 1]
 			},
 			{
-				"qid":"61733",
-				"text":"Would you be pleased if a partner expressed the desire to be sexually humiliated by you?",
-				"answerText": ["Yes.", "No."],
-				"score": [1, -1],
-				"weight": [1, 1]
-
-			},
-			{
 				"qid":"463",
 				"text":"In your ideal sexual encounter, do you take control, or do they?",
 				"answerText": ["I take control", "They take control"],
@@ -702,9 +722,37 @@ _OKCP.fileQuestions.sex =
 
 
 		"submissive": [
-			{
+			{//ADDED BY EJC
 				"qid":"60726",
 				"text":"If a trusted partner asked you to submit to them sexually, would you? Assume that this would involve letting them collar you, command you, and have control over you during sex.",
+				"answerText": ["Yes.", "No."],
+				"score": [1, -1],
+				"weight": [1, 0.2]
+			},
+			{
+				"qid":"93463",
+				"text":"Would you ever consent to being a total submissive to another human being?",
+				"answerText":["I would wear their collar at all times.","I would be submissive in the bed room.","I am willing to play along, occasionally.","I am a dominant person, and could never submit."],
+				"score":[1,0.75,0.5,-1],
+				"weight":[1,1,1,1]
+			},
+			{
+				"qid":"84005",
+				"text":"As an adult, have you ever worn a leash and collar in public?",
+				"answerText": ["Yes.", "No."],
+				"score": [1, 0],
+				"weight": [1, 0]
+			},
+			{
+				"qid":"48347",
+				"text":"Do you think you could ever enjoy being humiliated as part of a sexual experience?",
+				"answerText": ["Yes.", "No."],
+				"score": [1, 0],
+				"weight": [1, 0]
+			},
+			{
+				"qid":"61733",
+				"text":"Would you be pleased if a partner expressed the desire to be sexually humiliated by you?",
 				"answerText": ["Yes.", "No."],
 				"score": [1, 0],
 				"weight": [1, 0]
@@ -836,20 +884,6 @@ _OKCP.fileQuestions.sex =
 				"weight": [1, 1, 0.7, 0.6]
 			},
 			{
-				"qid":"84005",
-				"text":"As an adult, have you ever worn a leash and collar in public?",
-				"answerText": ["Yes.", "No."],
-				"score": [1, -1],
-				"weight": [1, 0.2]
-			},
-			{
-				"qid":"48347",
-				"text":"Do you think you could ever enjoy being humiliated as part of a sexual experience?",
-				"answerText": ["Yes.", "No."],
-				"score": [1, -1],
-				"weight": [1, 0.6]
-			},
-			{
 				"qid":"1011",
 				"text":"Do you know what a 'safeword' is, in a sexual context?",
 				"answerText": ["Yes", "No"],
@@ -862,13 +896,6 @@ _OKCP.fileQuestions.sex =
 				"answerText": ["Very dominant", "Somewhat dominant", "Neutral or willing to take turns", "Submissive"],
 				"score": [1, 1,0,-1],
 				"weight": [1, 0.7, 0.7, 1]
-			},
-			{
-				"qid":"93463",
-				"text":"Would you ever consent to being a total submissive to another human being?",
-				"answerText":["I would wear their collar at all times.","I would be submissive in the bed room.","I am willing to play along, occasionally.","I am a dominant person, and could never submit."],
-				"score":[1,0.75,0.5,-1],
-				"weight":[1,1,1,1]
 			},
 			{//Added by EJC
 				"qid":"9668",
