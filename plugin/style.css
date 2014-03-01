@@ -358,6 +358,7 @@ background-image: url(data:image/gif;base64,R0lGODlhIAAgAPMAAP///wAAAMbGxoSEhLa2
 
 
 #okcp-pagetab ul.user_links {
+	z-index:1000;
 	display:none;
 	position:absolute;
 	top:-3px;
