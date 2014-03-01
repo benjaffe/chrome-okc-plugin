@@ -20,7 +20,6 @@
       "matches": ["http://*.okcupid.com/*"],
       "css": [
 				"lib/ui-lightness/jquery-ui-1.10.3.custom.css"
-				, "lib/bootstrap/dist/css/bootstrap.min.css"
 				, "style.css"
 			],
       "js": [
