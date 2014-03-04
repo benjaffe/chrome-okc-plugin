@@ -31,6 +31,7 @@
         "setup.js",
         "settings.js",
         "features/devTools.js",
+        "questions/domsub.js",
         "questions/children.js",
         "questions/demeanor.js",
         "questions/discrimination.js",
