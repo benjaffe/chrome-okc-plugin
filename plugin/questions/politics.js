@@ -308,6 +308,13 @@ _OKCP.fileQuestions.politics =
 				"answerText": [ "Yes, even if I have work to do." , "Yes, but only after all my work is done." , "No, it would not be worth the risk." , "No, it would wrong - I'm not being paid for this." ],
 				"score": [ 0, 0, 0, -1 ],
 				"weight": [ 0, 0, 0, 1]
+			},
+			{
+				"qid": "176",
+				"text": "When rich people die, should they be allowed to will their money to their children, or should it be redistributed back to the people?",
+				"answerText": [ "Willed to children", "Redistributed" ],
+				"score": [ -1, 1 ],
+				"weight": [ 1, 1 ]
 			}
 		]
 	};

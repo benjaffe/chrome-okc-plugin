@@ -588,6 +588,13 @@ _OKCP.fileQuestions.sex =
 
 		"switch": [
 			{
+				"qid":"75998",
+				"text":"How do you feel about erotic spanking?",
+				"answerText": [ "Not for me", "I like to spank", "I like to be spanked", "I like both" ],
+				"score": [0, 0, 0, 1],
+				"weight": [1, 1, 1, 1]
+			},
+			{
 				"qid": "156211",
 				"text": "Top or bottom?",
 				"answerText": ["Top", "Bottom.", "It depends."],
