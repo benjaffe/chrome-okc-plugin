@@ -2,6 +2,20 @@ _OKCP.fileQuestions.domsub =
 	{
 		"dominant": [
 			{//ADDED BY EJC
+				"qid":"81154",
+				"text":"Would you consent to carry a device that tracked your location in real time so that your significant other could locate your position any time they wanted?"
+				"answerText": ["Yes.", "No."],
+				"score": [-1, 0],
+				"weight": [1, 0]
+			},
+			{//ADDED BY EJC
+				"qid":"16659",
+				"text":"Do you think your partner is with you to serve you with cooking and cleaning up after you?"
+				"answerText": ["Yes", "No"],
+				"score": [1, 0],
+				"weight": [1, 1]
+			},
+			{//ADDED BY EJC
 				"qid":"60726",
 				"text":"If a trusted partner asked you to submit to them sexually, would you? Assume that this would involve letting them collar you, command you, and have control over you during sex.",
 				"answerText": ["Yes.", "No."],
@@ -145,6 +159,13 @@ _OKCP.fileQuestions.domsub =
 
 
 		"submissive": [
+			{//ADDED BY EJC
+				"qid":"81154",
+				"text":"Would you consent to carry a device that tracked your location in real time so that your significant other could locate your position any time they wanted?"
+				"answerText": ["Yes.", "No."],
+				"score": [1, 0],
+				"weight": [1, 0]
+			},
 			{//ADDED BY EJC
 				"qid":"60726",
 				"text":"If a trusted partner asked you to submit to them sexually, would you? Assume that this would involve letting them collar you, command you, and have control over you during sex.",
