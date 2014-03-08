@@ -121,11 +121,25 @@ _OKCP.fileQuestions.politics =
 				"weight": [ 1, 1 ]
 			},
 			{
-				"qid": "38492",
+				"qid": "26684",
 				"text": "Are you the type of person to tell a homeless person to get a job?",
 				"answertext": [ "Yes", "No" ],
-				"score": [ 1, 1 ],
-				"weight": [ -1, 1 ]
+				"score": [ -1, 1 ],
+				"weight": [ 1, 1 ]
+			},
+			{
+				"qid": "80571",
+				"text": "Would you rather have extreme wealth for yourself or provide every homeless person in the world a home?",
+				"answertext": [ "Insane wealth for me.", "Homes for everyone." ],
+				"score": [ -1, 1 ],
+				"weight": [ 1, 1 ]
+			},
+			{
+				"qid": "23504",
+				"text": "Many people who are homeless have jobs. Assuming a person is not a substance abuser, do you think the law should punish their employers for not providing a living wage?",
+				"answertext": [ "Yes", "No", "I'm Not Sure" ],
+				"score": [ 1, -1, 0 ],
+				"weight": [ 1, 1, 1 ]
 			},
 			{
 				"qid": "172",
@@ -149,7 +163,7 @@ _OKCP.fileQuestions.politics =
 				"weight": [ 1, 1 ]
 			},
 			{
-				"qid": "175",
+				"qid": "175", // XXX
 				"text": "Which is more offensive: book burning or flag burning?",
 				"answertext": [ "book burning", "flag burning" ],
 				"score": [ 1, -1 ],
@@ -210,6 +224,13 @@ _OKCP.fileQuestions.politics =
 				"answertext": [ "Completely.", "Somewhat.", "Not at all." ],
 				"score": [ -1, 0, 1 ],
 				"weight": [ 1, 0, 1 ]
+			},
+			{
+				"qid": "52665",
+				"text": "Which of the following is the most admirable endeavor?",
+				"answertext": [ "Working to feed the homeless." , "Working to preserve an endangered species." , "Serving one's country in the military." , "Devoting oneself to religious/spiritual pursuits." ]
+				"score": [ 1, 1, -1, -1 ],
+				"weight": [ 1, 1, 1, 1 ]
 			}
 		]
 	};
