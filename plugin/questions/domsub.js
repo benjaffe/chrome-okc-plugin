@@ -3,7 +3,7 @@ _OKCP.fileQuestions.domsub =
 		"dominant": [
 			{//ADDED BY EJC
 				"qid":"81154",
-				"text":"Would you consent to carry a device that tracked your location in real time so that your significant other could locate your position any time they wanted?"
+				"text":"Would you consent to carry a device that tracked your location in real time so that your significant other could locate your position any time they wanted?",
 				"answerText": ["Yes.", "No."],
 				"score": [-1, 0],
 				"weight": [1, 0]
