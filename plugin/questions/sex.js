@@ -148,6 +148,13 @@ _OKCP.fileQuestions.sex =
 
 		"fetish": [
 			{
+				"qid":"64476",
+				"text":"Under the right circumstances, would you allow a partner to lick your anus?",
+				"answerText": ["Yes.", "No."],
+				"score": [1, -1],
+				"weight": [1, 1]
+			},
+			{
 				"qid":"67511",
 				"text":"Suppose you\'re dating someone who seems to have long-term potential. You discover that they want to urinate on you during sex. Would you consider staying with this person?",
 				"answerText": ["Yes.", "No."],
