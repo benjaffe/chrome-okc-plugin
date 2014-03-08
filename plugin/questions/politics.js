@@ -51,7 +51,7 @@ _OKCP.fileQuestions.politics =
 				"weight": [1, 0.5, 1, 0]
 			},
 			{
-				"qid": "37314",
+				"qid": "1497",
 				"text": "Which would you rather choose: peace on Earth or loads of money?",
 				"answerText": [ "Peace on Earth", "Loads of money" ],
 				"score": [1, -1],
@@ -203,6 +203,13 @@ _OKCP.fileQuestions.politics =
 				"answertext": [ "They deserve their tips" , "They need to get a real job" , "It's a good way to start your career" , "They're so beneath me" ],
 				"score": [ 1, -1, -1, -1 ],
 				"weight": [ 1, 1, 1, 1 ]
+			},
+			{
+				"qid": "40288",
+				"text": "How trusting are you where it concerns your government?",
+				"answertext": [ "Completely.", "Somewhat.", "Not at all." ],
+				"score": [ -1, 0, 1 ],
+				"weight": [ 1, 0, 1 ]
 			}
 		]
 	};
