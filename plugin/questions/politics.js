@@ -163,7 +163,7 @@ _OKCP.fileQuestions.politics =
 				"weight": [ 1, 1 ]
 			},
 			{
-				"qid": "175", // XXX
+				"qid": "39185",
 				"text": "Which is more offensive: book burning or flag burning?",
 				"answertext": [ "book burning", "flag burning" ],
 				"score": [ 1, -1 ],
