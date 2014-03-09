@@ -2,6 +2,41 @@ _OKCP.fileQuestions.politics =
 	{
 		"class_conscious": [
 			{
+				"qid": "213",
+				"text": "Are some human lives worth more than others?",
+				"answerText": [ "Yes", "No" ],
+				"score": [1, -1],
+				"weight": [1, 1]
+			},
+			{
+				"qid": "42015",
+				"text": "If you could, would you choose to donate your organs to save another's life in the event you were to die in an accident?",
+				"answerText": [ "Yes.", "No." ],
+				"score": [1, -1],
+				"weight": [1, 1]
+			},
+			{
+				"qid": "41683",
+				"text": "Would you consider donating your body to science after you die?",
+				"answerText": [ "Yes.", "No." ],
+				"score": [1, -1],
+				"weight": [1, 1]
+			},
+			{
+				"qid": "44255",
+				"text": "Would you consider dating a law enforcement officer?",
+				"answerText": [ "Yes.", "No." ],
+				"score": [-1, 1],
+				"weight": [1, 1]
+			},
+			{
+				"qid": "27243",
+				"text": "I find myself in fights with authority figures...",
+				"answerText": [ "Yes.", "No." ],
+				"score": [1, 0],
+				"weight": [1, 1]
+			},
+			{
 				"qid": "12521",
 				"text": "If you were forced to betray one of the following, which one would you choose?",
 				"answerText": [ "Your friends" , "Your family" , "Your lover/love" , "Your Country" ],
@@ -14,6 +49,41 @@ _OKCP.fileQuestions.politics =
 				"answerText": [ "Fighting evil." , "Illegally gaining wealth." , "Secretly observing people's private lives." , "Playing practical jokes on friends." ],
 				"score": [1, 0, 0, 0],
 				"weight": [1, 1, 1, 1]
+			},
+			{
+				"qid": "62075",
+				"text": "Would you stop to assist an injured person if you were already late for an important business meeting? Assume there is no one else around to help them.",
+				"answerText": [ "Yes.", "No." ],
+				"score": [1, -1],
+				"weight": [1, 1]
+			},
+			{
+				"qid": "42010",
+				"text": "Do you make any special efforts to support small, independent businesses instead of the big chains?",
+				"answerText": [ "Yes, I support the little guys whenever I can." , "No, I prefer dealing with big business chains." , "I support whoever has superior products/services." , "This does not concern me at all." ],
+				"score": [1, -1, -1, 0],
+				"weight": [1, 1, 0.5, 1]
+			},
+			{
+				"qid": "31821",
+				"text": "Do you think the government should limit big chain stores to give small businesses a chance?",
+				"answerText": [ "Yes", "No", "Maybe", "Don't know/Don't care" ],
+				"score": [1, -1, 1, 0],
+				"weight": [1, 1, 0.25, 1]
+			},
+			{
+				"qid": "61083",
+				"text": "Would you ever picket a business that you do not approve of?",
+				"answerText": [ "Yes.", "No." ],
+				"score": [1, -1],
+				"weight": [1, 1]
+			},
+			{
+				"qid": "18834",
+				"text": "If you had to name your greatest motivation in life thus far, what would it be?",
+				"answerText": [ "Love", "Wealth", "Expression", "Knowledge" ],
+				"score": [0, -1, 0, 0],
+				"weight": [0, 1, 0, 0]
 			},
 			{
 				"qid": "39226",
@@ -42,13 +112,6 @@ _OKCP.fileQuestions.politics =
 				"answerText": [ "A fast sports car" , "An SUV" , "Something more environmentally friendly" ],
 				"score": [0, 0, 1],
 				"weight": [1, 1, 1]
-			},
-			{
-				"qid": "81174",
-				"text": "Imagine you witness a man risk his life to save a child from drowning. When you see the man up close, you recognize his face as a bank robber who just escaped from jail. Which would you do?",
-				"answerText": [ "Notify the authorities." , "Try to capture him myself." , "Disregard the fact he is an escaped convict." , "Help him evade capture." ],
-				"score": [-1, -1, 1, 1],
-				"weight": [1, 1, 0.5, 1]
 			},
 			{
 				"qid": "93350",
@@ -121,11 +184,53 @@ _OKCP.fileQuestions.politics =
 				"weight": [1, 1, 0.5, 5]
 			},
 			{
+				"qid": "81743",
+				"text": "A man steals money from a friend and is caught by the police.  The thief apologizes to his friend.  The friend forgives the thief and asks that any charges be dropped.  Should the thief still be punished by the legal system?",
+				"answerText": [ "Yes.", "No." ],
+				"score": [ -1, 1 ],
+				"weight": [ 1, 1 ]
+			},
+			{
 				"qid": "283",
 				"text": "Would you give the police significantly more power, if it would lower crime rates?",
 				"answerText": [ "Yes" , "No" ],
 				"score": [-1, 1],
 				"weight": [1, 1]
+			},
+			{
+				"qid": "72370",
+				"text": "If you were driving and suddenly noticed that the car behind you was a police car, how would you feel?",
+				"answerText": [ "Comforted." , "Uneasy." , "Indifferent." , "I don't drive." ],
+				"score": [-1, 1, 0, 0],
+				"weight": [1, 1, 1, 1]
+			},
+			{
+				"qid": "57757",
+				"text": "What do you think of corporations that give executives special parking spots and private bathrooms?",
+				"answerText": [ "I like them - This is my kind of place to work." , "I don't like them - I would not work for one." , "This would not affect my opinion either way." ],
+				"score": [ -1, 1, 0],
+				"weight": [1, 1, 1]
+			},
+			{
+				"qid": "44917",
+				"text": "Imagine you see a child playing in the tracks before an oncoming train. Without your physical intervention, it is almost certain that the child will be killed. Do you think that you would seriously risk your own life in an attempt to save the child?",
+				"answerText": [ "Yes.", "No." ],
+				"score": [1, -1],
+				"weight": [1, 1]
+			},
+			{
+				"qid": "81174",
+				"text": "Imagine you witness a man risk his life to save a child from drowning. When you see the man up close, you recognize his face as a bank robber who just escaped from jail. Which would you do?",
+				"answerText": [ "Notify the authorities." , "Try to capture him myself." , "Disregard the fact he is an escaped convict." , "Help him evade capture." ],
+				"score": [-1, -1, 1, 1],
+				"weight": [1, 1, 0.5, 1]
+			},
+			{
+				"qid": "79043",
+				"text": "You find yourself in a bank. A masked man enters, brandishes a gun, and demands money from the teller. You are in a position to hit him over the head with a heavy object. You would probably knock him out. Would you take the chance and hit him?",
+				"answerText": [ "Yes.", "No.", "I'm not sure." ],
+				"score": [-1, 1, 0],
+				"weight": [1, 1, 1]
 			},
 			{
 				"qid": "37314",
@@ -415,13 +520,6 @@ _OKCP.fileQuestions.politics =
 				"weight": [ 1, 0.75, 1 ]
 			},
 			{
-				"qid": "81743",
-				"text": "A man steals money from a friend and is caught by the police.  The thief apologizes to his friend.  The friend forgives the thief and asks that any charges be dropped.  Should the thief still be punished by the legal system?",
-				"answerText": [ "Yes.", "No." ],
-				"score": [ -1, 1 ],
-				"weight": [ 1, 1 ]
-			},
-			{
 				"qid": "64193",
 				"text": "Is owning a distinctive car important to you?",
 				"answerText": [ "Yes.", "No." ],
@@ -475,6 +573,13 @@ _OKCP.fileQuestions.politics =
 				"text": "Would you cut off your own good hand, if you knew it would magically solve poverty in the world?",
 				"answerText": [ "Yes", "No" ],
 				"score": [ 1, 0 ],
+				"weight": [ 1, 1 ]
+			},
+			{
+				"qid": "84103",
+				"text": "Suppose you were asked to solve a critical World problem. Would you take a practical approach that's easy to implement or an idealistic approach that's a challenge?",
+				"answerText": [ "Practical.", "Idealistic." ],
+				"score": [ 0, 1 ],
 				"weight": [ 1, 1 ]
 			}
 

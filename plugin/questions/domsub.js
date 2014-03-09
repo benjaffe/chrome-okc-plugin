@@ -2,6 +2,13 @@ _OKCP.fileQuestions.domsub =
 	{
 		"dominant": [
 			{
+				"qid": "34665",
+				"text": "Who will be responsible for cooking the meals and cleaning the house? Assume you both work.",
+				"answerText": [ "I will" , "S/he will" , "We will split or take turns" ],
+   			"score": [-1, 1, 0],
+				"weight": [1, 1, 1]
+			},
+			{
 				"qid": "37748",
 				"text": "Even if it isn't your personal style, would you dress accordingly to a partner's wishes, just to make them happy during an outing?",
 				"answerText": [ "Yes, without question.", "Yes. within reason.", "No." ],
@@ -240,6 +247,13 @@ _OKCP.fileQuestions.domsub =
 				"weight": [1, 1, 1]
 			},
 			{
+				"qid":"1488",
+				"text":"Would you wear your partner's underclothing if they wanted you to?",
+				"answerText": ["Yes", "No"],
+				"score": [1, -1],
+				"weight": [1, 1]
+			},
+			{
 				"qid":"61666",
 				"text":"In a relationship, how important is it for you to be in control?",
 				"answerText": ["Very important.", "Somewhat important.", "Not at all important."],
@@ -292,6 +306,13 @@ _OKCP.fileQuestions.domsub =
 
 
 		"submissive": [
+			{
+				"qid": "34665",
+				"text": "Who will be responsible for cooking the meals and cleaning the house? Assume you both work.",
+				"answerText": [ "I will" , "S/he will" , "We will split or take turns" ],
+   			"score": [1, -1, 0],
+				"weight": [1, 1, 1]
+			},
 			{
 				"qid": "37748",
 				"text": "Even if it isn't your personal style, would you dress accordingly to a partner's wishes, just to make them happy during an outing?",
