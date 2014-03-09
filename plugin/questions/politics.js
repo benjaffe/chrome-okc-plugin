@@ -2,6 +2,90 @@ _OKCP.fileQuestions.politics =
 	{
 		"class_conscious": [
 			{
+				"qid": "12521",
+				"text": "If you were forced to betray one of the following, which one would you choose?",
+				"answerText": [ "Your friends" , "Your family" , "Your lover/love" , "Your Country" ],
+				"score": [-1, -1, -1, 1],
+				"weight": [1, 1, 1, 1]
+			},
+			{
+				"qid": "45831",
+				"text": "Imagine that you find a device that makes you invisible for one hour per day. Which of the following uses of the device would be most appealing to you?",
+				"answerText": [ "Fighting evil." , "Illegally gaining wealth." , "Secretly observing people's private lives." , "Playing practical jokes on friends." ],
+				"score": [1, 0, 0, 0],
+				"weight": [1, 1, 1, 1]
+			},
+			{
+				"qid": "39226",
+				"text": "You stop to pick up a newspaper and notice that the coin-operated dispenser was not completely closed. No one is around so you have the oppurtunity to take a paper without paying. Which of the following would you do?",
+				"answerText": [ "Pay for a paper and close the dispenser." , "Steal a paper and close the dispenser." , "Steal a paper and leave the dispenser open." , "Steal all of the remaining papers." ],
+				"score": [-1, -1, 1, 1],
+				"weight": [1, 1, 0.1, 1]
+			},
+			{
+				"qid": "328",
+				"text": "If you saw someone shoplifting, would you turn them in?",
+				"answerText": [ "Yes", "No" ],
+				"score": [-1, 1],
+				"weight": [1, 1]
+			},
+			{
+				"qid": "38479",
+				"text": "Imagine a law is passed that makes one of your favorite activities illegal. Assuming you believe the activity to be harmless, would you continue pursuing it if there exists a high probability of eventually being caught?",
+				"answerText": [ "Yes.", "No." ],
+				"score": [1, -1],
+				"weight": [1, 1]
+			},
+			{
+				"qid": "369",
+				"text": "Which would you rather drive?",
+				"answerText": [ "A fast sports car" , "An SUV" , "Something more environmentally friendly" ],
+				"score": [0, 0, 1],
+				"weight": [1, 1, 1]
+			},
+			{
+				"qid": "81174",
+				"text": "Imagine you witness a man risk his life to save a child from drowning. When you see the man up close, you recognize his face as a bank robber who just escaped from jail. Which would you do?",
+				"answerText": [ "Notify the authorities." , "Try to capture him myself." , "Disregard the fact he is an escaped convict." , "Help him evade capture." ],
+				"score": [-1, -1, 1, 1],
+				"weight": [1, 1, 0.5, 1]
+			},
+			{
+				"qid": "93350",
+				"text": "If you were to discover that a person you know is a gay activist, would this change your opinion of them?",
+				"answerText": [ "Yes, positively.", "Yes, negatively.", "No." ],
+				"score": [1, -1, 0],
+				"weight": [1, 1, 1]
+			},
+			{
+				"qid": "79842",
+				"text": "Imagine that you haven't eaten in 24 hours. You have just enough money for one meal. You are about to enter a restaurant when you notice a small, thin child off to the side, begging for food. No one else notices this child. Which would you do?",
+				"answerText": [ "Buy myself a meal." , "Buy the child a meal." , "Take the child in and share a meal." ],
+				"score": [0, 1, 1],
+				"weight": [1, 1, 1]
+			},
+			{
+				"qid": "7295",
+				"text": "Do you condone free file sharing - even if it violates copyright policies?",
+				"answerText": [ "Yes", "No" ],
+				"score": [1, -1],
+				"weight": [1, 1]
+			},
+			{
+				"qid": "60855",
+				"text": "Have you ever lived in a \"commune?\"",
+				"answerText": [ "Yes, and I liked it." , "Yes, but I did not like it." , "No, and I'd never want to." , "No, but I'd like to." ],
+				"score": [1, -1, -1, 1],
+				"weight": [1, 1, 1, 1]
+			},
+			{
+				"qid": "26235",
+				"text": "Would you consider dating someone who is part of a commune?",
+				"answerText": [ "Yes.", "No.", "What is a commune?" ],
+				"score": [1, -1, 0],
+				"weight": [1, 1, 1]
+			},
+			{
 				"qid": "214",
 				"text": "Overall, has capitalism made the world a better place?",
 				"answerText": ["Yes", "No"],
@@ -247,6 +331,13 @@ _OKCP.fileQuestions.politics =
 				"weight": [ 1, 1 ]
 			},
 			{
+				"qid": "400",
+				"text": "Would you cheat on your taxes, if you were absolutely 100% sure you could get away with it?",
+				"answerText": [ "Yes", "No" ],
+				"score": [ 1, -1 ],
+				"weight": [ 1, -1 ]
+			},
+			{
 				"qid": "42062",
 				"text": "Do you consider government taxes (such as income tax) a form of theft?",
 				"answerText": [ "Yes.", "No.", "I'm Not Sure." ],
@@ -315,7 +406,78 @@ _OKCP.fileQuestions.politics =
 				"answerText": [ "Willed to children", "Redistributed" ],
 				"score": [ -1, 1 ],
 				"weight": [ 1, 1 ]
+			},
+			{
+				"qid": "21093",
+				"text": "How willing would you be to sacrifice your life in order to save your country's Head of State (eg. Queen or President)",
+				"answerText": [ "I would do it without hesitation" , "It depends on the circumstances" , "I would never do it." ],
+				"score": [ -1, -1, 1 ],
+				"weight": [ 1, 0.75, 1 ]
+			},
+			{
+				"qid": "81743",
+				"text": "A man steals money from a friend and is caught by the police.  The thief apologizes to his friend.  The friend forgives the thief and asks that any charges be dropped.  Should the thief still be punished by the legal system?",
+				"answerText": [ "Yes.", "No." ],
+				"score": [ -1, 1 ],
+				"weight": [ 1, 1 ]
+			},
+			{
+				"qid": "64193",
+				"text": "Is owning a distinctive car important to you?",
+				"answerText": [ "Yes.", "No." ],
+				"score": [ -1, 1 ],
+				"weight": [ 1, 1 ]
+			},
+			{
+				"qid": "15158",
+				"text": "Do you conform with society more, or go against it?",
+				"answerText": [ "Conform" , "Rebel" , "Neither / Both / Unsure" ],
+				"score": [ -1, 1, 0 ],
+				"weight": [ 1, 1, 1 ]
+			},
+			{
+				"qid": "1446",
+				"text": "Do you care about other people's suffering?",
+				"answerText": [ "Yes, solidarity is important" , "No, everyone has their own responsibility" , "It depends on the kind of suffering" ],
+				"score": [ 1, -1, 1 ],
+				"weight": [ 1, 1, 0.5 ]
+			},
+			{
+				"qid": "31233",
+				"text": "Generally speaking, do you believe that violent revolution is a legitimate method of effecting fundamental social, political, and economic change?",
+				"answerText": [ "Yes" , "No" , "I'm not sure" , "I don't care about such matters" ],
+				"score": [ 1, -1, 1, 0 ],
+				"weight": [ 1, 1, 0.25, 1 ]
+			},
+			{
+				"qid": "37818",
+				"text": "Would you consider dating someone who chooses not to vote as an act of political protest?",
+				"answerText": [ "Yes." , "No." ],
+				"score": [ 1, -1 ],
+				"weight": [ 1, 1 ]
+			},
+			{
+				"qid": "86215",
+				"text": "Which is more effective, militant action or peaceful protest?",
+				"answerText": [  "Militant action." , "Peaceful protest." , "It depends upon the situation." ],
+				"score": [ 1, 0, 1 ],
+				"weight": [ 1, 1, 0.5 ]
+			},
+			{
+				"qid": "1135",
+				"text": "Do you believe people, as a whole, are capable of ruling themselves, or is government of some kind needed?",
+				"answerText": [ "Anarchy; people can rule themselves", "Government; someone needs to be in charge" ],
+				"score": [ 1, -1 ],
+				"weight": [ 1, 1 ]
+			},
+			{
+				"qid": "284",
+				"text": "Would you cut off your own good hand, if you knew it would magically solve poverty in the world?",
+				"answerText": [ "Yes", "No" ],
+				"score": [ 1, 0 ],
+				"weight": [ 1, 1 ]
 			}
+
 		]
 	};
 

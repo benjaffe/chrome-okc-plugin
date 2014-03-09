@@ -2,6 +2,48 @@ _OKCP.fileQuestions.domsub =
 	{
 		"dominant": [
 			{
+				"qid": "37748",
+				"text": "Even if it isn't your personal style, would you dress accordingly to a partner's wishes, just to make them happy during an outing?",
+				"answerText": [ "Yes, without question.", "Yes. within reason.", "No." ],
+   			"score": [-1, 0, 1],
+				"weight": [1, 1, 1]
+			},
+			{
+				"qid": "38721",
+				"text": "Imagine that you and your partner cannot agree on the choice of music. If you were driving and your partner a passenger, how should the music be chosen?",
+				"answerText": [ "I would play the music I like." , "I would allow my partner to choose the music." , "We should take turns choosing the music." , "It would be best to keep the stereo off." ],
+   			"score": [1, -1, 0, 0],
+				"weight": [1, 1, 1, 1]
+			},
+			{
+				"qid": "1387",
+				"text": "Would you ever engage in a sexual activity you didn't enjoy, just because your partner did?",
+				"answerText": [ "Yes" , "No" ],
+   			"score": [-1, 1],
+				"weight": [1, 1]
+			},
+			{
+				"qid": "86725",
+				"text": "If your partner wanted to cut his or her hair way shorter than you like it, what would you do?",
+				"answerText": [ "Give them an ultimatum. Keep it long or it's over." , "Argue vehemently to keep it long." , "Express my opinion that it looks better long." , "I'd keep my opinion to myself." ],
+				"score": [1, 0, 0, -1],
+				"weight": [1, 0, 0, 1]
+			},
+			{
+				"qid": "46632",
+				"text": "Do you like the idea of having a partner bathe you?",
+				"answerText": [ "Yes.", "No.", "I'm not sure." ],
+				"score": [1, 0, 0],
+				"weight": [1, 0, 0]
+			},
+			{
+				"qid": "47379",
+				"text": "Which would you prefer in terms of distributing decision making power in an 'ideal' relationship?",
+				"answerText": [ "I would make most of the decisions." , "My partner would make most of the decisions." , "Decisions made jointly through consensus." , "Distribution based upon traditional gender roles." ],
+				"score": [1, -1, 0, 0],
+				"weight": [1, 1, 1, 0]
+			},
+			{
 				"qid": "353294",
 				"text": "Sexually speaking, how dominant or submissive would you say you are?",
 				"answerText": [ "Very Dominant", "Mostly Dominant", "Mostly Submissive", "Very Submissive" ],
@@ -250,6 +292,41 @@ _OKCP.fileQuestions.domsub =
 
 
 		"submissive": [
+			{
+				"qid": "37748",
+				"text": "Even if it isn't your personal style, would you dress accordingly to a partner's wishes, just to make them happy during an outing?",
+				"answerText": [ "Yes, without question.", "Yes. within reason.", "No." ],
+   			"score": [1, 0, -1],
+				"weight": [1, 1, 1]
+			},
+			{
+				"qid": "38721",
+				"text": "Imagine that you and your partner cannot agree on the choice of music. If you were driving and your partner a passenger, how should the music be chosen?",
+				"answerText": [ "I would play the music I like." , "I would allow my partner to choose the music." , "We should take turns choosing the music." , "It would be best to keep the stereo off." ],
+   			"score": [-1, 1, 0, 0],
+				"weight": [1, 1, 1, 1]
+			},
+			{
+				"qid": "1387",
+				"text": "Would you ever engage in a sexual activity you didn't enjoy, just because your partner did?",
+				"answerText": [ "Yes" , "No" ],
+   			"score": [1, -1],
+				"weight": [1, 1]
+			},
+			{
+				"qid": "86725",
+				"text": "If your partner wanted to cut his or her hair way shorter than you like it, what would you do?",
+				"answerText": [ "Give them an ultimatum. Keep it long or it's over." , "Argue vehemently to keep it long." , "Express my opinion that it looks better long." , "I'd keep my opinion to myself." ],
+				"score": [-1, 0, 0, 1],
+				"weight": [1, 0, 0, 1]
+			},
+			{
+				"qid": "47379",
+				"text": "Which would you prefer in terms of distributing decision making power in an 'ideal' relationship?",
+				"answerText": [ "I would make most of the decisions." , "My partner would make most of the decisions." , "Decisions made jointly through consensus." , "Distribution based upon traditional gender roles." ],
+				"score": [-1, 1, 0, 0],
+				"weight": [1, 1, 1, 0]
+			},
 			{
 				"qid": "353294",
 				"text": "Sexually speaking, how dominant or submissive would you say you are?",
@@ -543,6 +620,21 @@ _OKCP.fileQuestions.domsub =
 				"answerText": [ "Yes." , "No." , "I am already totally 'natural' in this way." ],
    			"score": [1, 0, 0],
 				"weight": [1, 0, 0]
+			},
+			{
+				"qid": "801",
+				"text": "Are you willing to sit with your mate and watch their favorite TV show with them, even if it's one that you can't stand?",
+				"answerText": [ "Yes", "No", "ONLY if they're willing to do the same for me" ],
+   			"score": [1, 0, 0],
+				"weight": [1, 0, 0]
+			},
+			{
+				"qid": "22206",
+				"text": "Would you radically alter your appearance (hair, clothes, body modifications) for your significant other?",
+				"answerText": [ "Yes" , "No way!" , "I'm not sure, it depends..." ],
+   			"score": [1, 0, 0],
+				"weight": [1, 0, 0]
 			}
 		]
 	};
+
