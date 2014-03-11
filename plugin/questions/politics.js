@@ -72,6 +72,27 @@ _OKCP.fileQuestions.politics =
 				"weight": [1, 1, 0.25, 1]
 			},
 			{
+				"qid": "224",
+				"text": "If you could triple your money by investing in a company whose business practices you disapproved of, would you invest?",
+				"answerText": [ "Yes", "No" ],
+				"score": [1, -1],
+				"weight": [1, 1]
+			},
+			{
+				"qid": "85149",
+				"text": "Imagine that a friend of yours gives up a lucrative career as an executive of a multinational corporation to train as a a chef, claiming it as their true calling.  What is your first reaction?",
+				"answerText": [ "Good decision.", "Are they crazy?" ],
+				"score": [1, -1],
+				"weight": [1, 1]
+			},
+			{
+				"qid": "16820",
+				"text": "What is your opinion on Walmart?",
+				"answerText": [ "Retail heaven", "Devil incarnate", "Just another coporation" ],
+				"score": [-1, 1, 0],
+				"weight": [1, 1, 1]
+			},
+			{
 				"qid": "61083",
 				"text": "Would you ever picket a business that you do not approve of?",
 				"answerText": [ "Yes.", "No." ],
@@ -581,6 +602,13 @@ _OKCP.fileQuestions.politics =
 				"answerText": [ "Practical.", "Idealistic." ],
 				"score": [ 0, 1 ],
 				"weight": [ 1, 1 ]
+			},
+			{
+				"qid": "30865",
+				"text": "How much time do you spend doing volunteer work each week?",
+				"answerText": [ "None", "Less than 5 hours", "5 to 10 hours", "More than 10 hours" ],
+				"score": [ -1, 1, 1, 1 ],
+				"weight": [ 1, 1, 1, 1 ]
 			}
 
 		]

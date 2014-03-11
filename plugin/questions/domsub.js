@@ -2,6 +2,13 @@ _OKCP.fileQuestions.domsub =
 	{
 		"dominant": [
 			{
+				"qid": "95139",
+				"text": "Would you enter into a 24/7 TPE Master, slave type relationship in which you would be collared, registered, placed under contract and be ruled 100% by your Master?",
+				"answerText": [ "Yes", "No" ],
+				"score": [-1, 0],
+				"weight": [1, 0]
+			},
+			{
 				"qid": "34665",
 				"text": "Who will be responsible for cooking the meals and cleaning the house? Assume you both work.",
 				"answerText": [ "I will" , "S/he will" , "We will split or take turns" ],
@@ -247,13 +254,6 @@ _OKCP.fileQuestions.domsub =
 				"weight": [1, 1, 1]
 			},
 			{
-				"qid":"1488",
-				"text":"Would you wear your partner's underclothing if they wanted you to?",
-				"answerText": ["Yes", "No"],
-				"score": [1, -1],
-				"weight": [1, 1]
-			},
-			{
 				"qid":"61666",
 				"text":"In a relationship, how important is it for you to be in control?",
 				"answerText": ["Very important.", "Somewhat important.", "Not at all important."],
@@ -301,11 +301,25 @@ _OKCP.fileQuestions.domsub =
 				"answerText": ["Dominant", "Submissive", "Balanced"],
 				"score": [-1, 1, 0],
 				"weight": [1, 1, 1]
-			}
+			},
+			{
+				"qid": "27177",
+				"text": "When planning future activities with your significant other(s), do you generally like to take the lead?",
+				"answerText": [ "Yes, most of the time", "Share equally", "No, I'm not a planner. Help!" ],
+				"score": [1, 0, 0],
+				"weight": [1, 1, 0]
+			},
 		],
 
 
 		"submissive": [
+			{
+				"qid": "95139",
+				"text": "Would you enter into a 24/7 TPE Master, slave type relationship in which you would be collared, registered, placed under contract and be ruled 100% by your Master?",
+				"answerText": [ "Yes", "No" ],
+				"score": [1, -1],
+				"weight": [1, 1]
+			},
 			{
 				"qid": "34665",
 				"text": "Who will be responsible for cooking the meals and cleaning the house? Assume you both work.",
@@ -536,6 +550,13 @@ _OKCP.fileQuestions.domsub =
 				"answerText": ["Yes, always.", "Yes, sometimes.", "No, never."],
 				"score": [1, 0, -1],
 				"weight": [1, 1, 1]
+			},
+			{
+				"qid":"1488",
+				"text":"Would you wear your partner's underclothing if they wanted you to?",
+				"answerText": ["Yes", "No"],
+				"score": [1, -1],
+				"weight": [1, 1]
 			},
 			{
 				"qid":"54433",
