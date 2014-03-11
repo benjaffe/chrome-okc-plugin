@@ -18,11 +18,21 @@
   "content_scripts": [
     {
       "matches": ["http://*.okcupid.com/*"],
-      "css": ["lib/ui-lightness/jquery-ui-1.10.3.custom.css","style.css"],
-      "js": ["lib/knockout-2.2.0.js","lib/jquery-1.9.1.js", "lib/jquery-ui-1.10.3.custom.js", "lib/loglevel.js",
+      "css": [
+				"lib/ui-lightness/jquery-ui-1.10.3.custom.css"
+				, "style.css"
+			],
+      "js": [
+				"lib/knockout/build/output/knockout-latest.js",
+				"lib/jquery/jquery.min.js",
+				"lib/jqueryui/ui/minified/jquery-ui.min.js",
+				"lib/loglevel/dist/loglevel.min.js",
+				"lib/bootstrap/dist/js/bootstrap.min.js",
         "setup.js",
         "settings.js",
         "features/devTools.js",
+        "questions/domsub.js",
+        "questions/politics.js",
         "questions/children.js",
         "questions/demeanor.js",
         "questions/discrimination.js",
@@ -48,5 +58,8 @@
       "run_at": "document_end"
     }
   ],
-  "web_accessible_resources":  ["images/ajax-loader.gif"]
+  "web_accessible_resources":  [
+		"images/ajax-loader.gif",
+		"images/icon-128.png"
+	]
 }

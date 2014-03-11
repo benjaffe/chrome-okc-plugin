@@ -16,64 +16,27 @@
 .btn {cursor:pointer;}
 
 /* UI - Buttons */
-.okcp-btns {position:absolute;top:135px;right:15px;text-align:right;font-size:1.1em;line-height:1em;}
-.okcp-btns .divider {border-bottom:1px solid #89B;margin:7px 0 3px;}
-.okcp-btn {cursor:pointer;display:inline-block;color:#89B;}
-.okcp-btn + .okcp-btn {margin-left:10px;}
-.okcp-btn:after {content:"\2610";font-size:1.35em;margin-left:2px;}
+.okcp-btn:before {content:"\2610\00a0\00a0"; }
 .okcp-btn.checked {opacity:1;color:#356;}
-.okcp-btn.checked:after {content:"\2611";}
-.okcp-features-btn,
-.okcp-feature-btn {
-     position:relative;
-     font-size: 0.9em;
-     text-align: center;
-     display: block;
-     padding-bottom: 3px;
-     background: rgba(255,255,255,0.5);
-     padding-top: 3px;
-     color:#679;
-}
-.okcp-features-btn {
-     margin-top:-3px;
-     border-bottom: 1px solid rgb(136, 153, 187);
-     color:#89B;
-     font-size: 1.1em;
-     padding: 5px 0;
-}
-.okcp-feature {background: #eee;}
-.okcp-feature-btn {
-     padding:10px 5px;
-     border-top: 1px solid rgb(136, 153, 187);
-}
-.okcp-feature-details {
-     opacity:0.8;
-     font-size: 0.7em;
-     padding-top: 8px;
-     line-height: 1.3em;
-     color: #236;
-}
-#okcp .okcp-feature-list {
-     background: #eee;
-     position:absolute;
-     z-index: 10000;
-     margin-top: 0;
-     top: 23px;
-     right:0;
-     font-size: 1.4em;
-     width: 300px;
-     box-shadow: rgba(0, 0, 0, 0.498039) 0px 3px 5px;
-}
-.okcp-features-btn:hover,
-.okcp-feature-btn:hover {
-     background: rgba(255,255,255,0.9);
-}
+.okcp-btn.checked:before {content:"\2611\00a0\00a0" }
+.okcp-btn { font-size:.9em; padding-left:5em }
 
-.okcp-feature-list {display:none;}
-.okcp-features-btn:hover .okcp-feature-list {display:block;}
+.section.navigation { width:184px }
 
-
-
+.okcp-features-btn a {
+	color:white !important;
+	text-decoration: underline
+}
+.okcp-features-btn:hover > * {display:block;}
+.okcp-feature-list { display:none }
+.okcp-features-btn a {
+	background: url('chrome-extension://__MSG_@@extension_id__/images/icon-128.png') !important;
+	background-size:30px 30px !important;
+	background-repeat:no-repeat !important;
+	background-position: left !important;
+	//background: transparent !important;
+	//background-color:white !important;
+}
 
 /* UI - Match Ratios */
 .match-ratios-wrapper-outer {position:absolute;right: 181px;top: 2px;height: 224px;width: 225px;} /* Yes, a table... for complicated layout, vertical aligning to the bottom while scrolling when there are too many */
@@ -203,7 +166,6 @@ background-position:0 0, -1px -5px;}
 #match_results .okcp-hidden .percentages {top:11px;}
 
 
-
 /* UI - Thumbnail Letter Indicators */
 .okcp-poly,
 .okcp-to-message,
@@ -265,11 +227,6 @@ background-position:0 0, -1px -5px;}
 .answer_area label {display:block;}
 .iframe-close-btn {position:absolute;right:15px;margin-top:-9px;background:#666;border-radius:20px;width:25px;height:22px;padding-top:3px;text-align:center;color:white;font-weight:bold;cursor:pointer;}
 .iframe-close-btn:hover {background:#333;color:#CCC;}
-
-
-
-
-
 
 
 
@@ -398,3 +355,23 @@ background-image: url(data:image/gif;base64,R0lGODlhIAAgAPMAAP///wAAAMbGxoSEhLa2
 
 .spinner-note-patient {margin-right:70px;}
 .spinner-note-patient:after {content:"Searching for questions... This could take a while!";position:relative;left:33px;top:-10px;display:block;width:165px;padding:7px 0 7px 10px;background: white;border-radius:0 10px 10px 0;box-shadow:2px 1px 4px rgba(0,0,0,0.5);z-index:1000;color:black;}
+
+
+#okcp-pagetab ul.user_links {
+	z-index:1000;
+	display:none;
+	position:absolute;
+	top:-3px;
+}
+#okcp-pagetab ul li { float :left }
+#okcp-pagetab:hover > * {
+	display:block !important;
+	list-style:inline;
+	z-index:1;
+	float:left;
+	background:#f6f6f6;
+	opacity:1;
+}
+
+
+
