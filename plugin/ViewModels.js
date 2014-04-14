@@ -1,69 +1,61 @@
 // if we're on a profile page
 if (_OKCP.profilePath !== '') {
 
-	$('#sidebar_main').append(
-		$('<div>', {id:'section_navigation', 'class':'section navigation'}).append(
-			$('<ul>').append(
-				$('<li>', {'class': 'okcp-features-btn'}).append(
-					$('<a>',{'text':'Plugin Menu'}),
-					$('<ul>',{'class':'okcp-feature-list'}).append(
-
-						$('<li>', {'class':'okcp-feature'}).append(
-							$('<a>', {
-								'href':'#'
-								, 'class':'okcp-feature-btn review_saved_profile'
-								, 'review-saved-profile':true
-								, 'id':'review-saved-profile'
-								, 'text':'Review Saved Profiles'
-							}).append(
-								$('<div>', {
-									'class':'okcp-feature-details'
-									, 'text':'This feature allows you to review profiles you\'ve previously marked as "Poly", "Message", and "Maybe". (Keep in mind that this data gets cleared if you clear your browser\'s cache.)'
-								})
-							)
-						),
-
-						$('<li>', {'class':'okcp-feature'}).append(
-							$('<a>', {
-								'href':'#'
-								, 'class':'okcp-feature-btn change_categories'
-								, 'change-categories':true
-								, 'id':'change-categories'
-								, 'text':'Change Categories'
-							}).append(
-								$('<div>', {
-									'class':'okcp-feature-details'
-									, 'text':'This feature allows you to choose which categories you care about. Drag categories from the right to the left to enable them, and vice-versa to disable them.'
-								})
-							)
-						),
-
-						$('<li>', {'class':'okcp-feature'}).append(
-							$('<a>', {
-								'href':'#'
-								, 'class':'okcp-feature-btn improve-accuracy'
-								, 'review-saved-profile':true
-								, 'id':'improve-accuracy'
-								, 'text':'Improve Plugin Accuracy'
-							}).append(
-								$('<div>', {
-									'class':'okcp-feature-details'
-									, 'text':'This feature shows you questions that:<br><br>1. apply to the selected categories<br>2. that you haven\'t answered<br><br>The more of these questions you answer, the more accurate the plugin will be able to compare you and the user you\'re visiting.'
-								})
-							)
-						)
-
-					)
-				)
-			)
-		)
-	);
-
 	var $divider = $('<div></div>', {'class':'divider'});
 
 	$('.page_tabs').append(
-		$('<li>', {'id':'okcp-pagetab','class':'section navgiation'}).append(
-			$('<a>', {'text':'Plugin Features', 'href':'#'}),
+		$('<li>', {'class': 'okcp-pagetab okcp-pagetab-menu'}).append(
+			$('<a>',{'text':'Plugin Menu'}),
+			$('<ul>',{'class':'user_links'}).append(
+
+				$('<li>').append(
+					$('<a>', {
+						'href':'#'
+						, 'class':'okcp-feature-btn review_saved_profile'
+						, 'review-saved-profile':true
+						, 'id':'review-saved-profile'
+						, 'text':'Review Saved Profiles'
+					}).append(
+						$('<div>', {
+							'class':'okcp-feature-details'
+							, 'text':'This feature allows you to review profiles you\'ve previously marked as "Poly", "Message", and "Maybe". (Keep in mind that this data gets cleared if you clear your browser\'s cache.)'
+						})
+					)
+				),
+
+				$('<li>').append(
+					$('<a>', {
+						'href':'#'
+						, 'class':'okcp-feature-btn change_categories'
+						, 'change-categories':true
+						, 'id':'change-categories'
+						, 'text':'Change Categories'
+					}).append(
+						$('<div>', {
+							'class':'okcp-feature-details'
+							, 'text':'This feature allows you to choose which categories you care about. Drag categories from the right to the left to enable them, and vice-versa to disable them.'
+						})
+					)
+				),
+
+				$('<li>').append(
+					$('<a>', {
+						'href':'#'
+						, 'class':'okcp-feature-btn improve-accuracy'
+						, 'review-saved-profile':true
+						, 'id':'improve-accuracy'
+						, 'text':'Improve Plugin Accuracy'
+					}).append(
+						$('<div>', {
+							'class':'okcp-feature-details'
+							, 'text':'This feature shows you questions that:<br><br>1. apply to the selected categories<br>2. that you haven\'t answered<br><br>The more of these questions you answer, the more accurate the plugin will be able to compare you and the user you\'re visiting.'
+						})
+					)
+				)
+
+			)
+		), $('<li>', {'class':'okcp-pagetab okcp-pagetab-labels'}).append(
+			$('<a>', {'text':'Labels', 'href':'#'}),
 			$('<ul>', {'class':'user_links'}).append(
 				$('<li>').append(
 					'<a class="okcp-btn toggleIsPoly" data-bind="click: toggleIsPoly, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].ip == true : false}">Poly</a>'

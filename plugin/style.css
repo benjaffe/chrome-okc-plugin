@@ -284,14 +284,8 @@ html div#loveisblindday div.inner {background-color: rgb(0,15,45);margin-top: 27
 #p_profile #percentages {padding:20px 3px 40px;border-radius: 0 0 4px 4px;}
 #p_profile #upgrade_form {display:none;}
 #p_profile #actions {margin-bottom:-11px;height:220px;padding:10px 10px 0 10px;}
-#p_profile #wrapper #actions .action_options {padding-top:0;}
-#p_profile #actions .action_options .wide-buttons-that-are-now-not-wide.btn.small {width:62px;margin-bottom:0;float:left;border-radius:0;}
-#p_profile #actions .wide-buttons-that-are-now-not-wide #save_unsave {padding:0;/*border-radius:0!important;*/}
-#p_profile #actions .wide-buttons-that-are-now-not-wide #hide_btn,
-#p_profile #actions .wide-buttons-that-are-now-not-wide #unhide_btn,
-#p_profile #actions .wide-buttons-that-are-now-not-wide .flag {width:39px;padding:0;/*border-radius:0!important;*/}
-#p_profile #wrapper .tabbed_heading #actions .btn.hideflag.white {float: right;width: 108px;margin-bottom:0;}
-#p_profile #wrapper .tabbed_heading #actions .btn.hideflag.white a {width: 49px;border-radius:0!important;border-left:0!important;}
+#p_profile #wrapper #actions.show_options .action_options {padding-top:0;height:145px;}
+body#p_profile .tabbed_heading #actions .action_options .flatbutton {height:33px;line-height:10px;font-size:12px;margin-top:-1px;}
 .page_tabs {position: absolute;bottom: 0px;}
 
 #ajax_location {display:block;}
@@ -357,21 +351,45 @@ background-image: url(data:image/gif;base64,R0lGODlhIAAgAPMAAP///wAAAMbGxoSEhLa2
 .spinner-note-patient:after {content:"Searching for questions... This could take a while!";position:relative;left:33px;top:-10px;display:block;width:165px;padding:7px 0 7px 10px;background: white;border-radius:0 10px 10px 0;box-shadow:2px 1px 4px rgba(0,0,0,0.5);z-index:1000;color:black;}
 
 
-#okcp-pagetab ul.user_links {
-	z-index:1000;
+.page_tabs {width:759px;}
+
+#okcp .okcp-pagetab {
+     float:right;
+}
+.okcp-pagetab ul.user_links {
+	z-index:5000;
 	display:none;
 	position:absolute;
-	top:-3px;
+	top:-2px;
+     right: 0;
+     box-shadow:1px 1px 1px rgba(0,0,0,0.2), -1px 1px 1px rgba(0,0,0,0.2);
 }
-#okcp-pagetab ul li { float :left }
-#okcp-pagetab:hover > * {
+.okcp-pagetab-labels ul.user_links {
+     width: 220px;
+     padding:20px 0 20px 30px;
+}
+.okcp-pagetab-menu ul.user_links {
+     width:400px;
+     border-radius:0;
+}
+#okcp .okcp-pagetab-menu ul.user_links li {float:none;height:auto;padding:15px 10px;border-top:solid 1px #CCC;border-radius:0;}
+#okcp .okcp-pagetab-menu ul.user_links li:first-child {border-top:none;}
+.okcp-pagetab-menu ul.user_links li .okcp-feature-details {
+     font-weight: normal;
+}
+.okcp-pagetab-labels ul li {float:left;}
+div.tabbed_heading ul.page_tabs .okcp-pagetab-labels li {font-size:14px;font-weight:normal;border-radius:0;}
+div.tabbed_heading ul.page_tabs .okcp-pagetab li:hover {background-color: #DDD;}
+.okcp-pagetab:hover > * {
 	display:block !important;
-	list-style:inline;
 	z-index:1;
-	float:left;
 	background:#f6f6f6;
 	opacity:1;
 }
-
+.okcp-pagetab-labels:hover > * {
+     list-style:inline;
+     float:left;
+     padding-top:4px;
+}
 
 
