@@ -16,64 +16,27 @@
 .btn {cursor:pointer;}
 
 /* UI - Buttons */
-.okcp-btns {position:absolute;top:135px;right:15px;text-align:right;font-size:1.1em;line-height:1em;}
-.okcp-btns .divider {border-bottom:1px solid #89B;margin:7px 0 3px;}
-.okcp-btn {cursor:pointer;display:inline-block;color:#89B;}
-.okcp-btn + .okcp-btn {margin-left:10px;}
-.okcp-btn:after {content:"\2610";font-size:1.35em;margin-left:2px;}
+.okcp-btn:before {content:"\2610\00a0\00a0"; }
 .okcp-btn.checked {opacity:1;color:#356;}
-.okcp-btn.checked:after {content:"\2611";}
-.okcp-features-btn,
-.okcp-feature-btn {
-     position:relative;
-     font-size: 0.9em;
-     text-align: center;
-     display: block;
-     padding-bottom: 3px;
-     background: rgba(255,255,255,0.5);
-     padding-top: 3px;
-     color:#679;
-}
-.okcp-features-btn {
-     margin-top:-3px;
-     border-bottom: 1px solid rgb(136, 153, 187);
-     color:#89B;
-     font-size: 1.1em;
-     padding: 5px 0;
-}
-.okcp-feature {background: #eee;}
-.okcp-feature-btn {
-     padding:10px 5px;
-     border-top: 1px solid rgb(136, 153, 187);
-}
-.okcp-feature-details {
-     opacity:0.8;
-     font-size: 0.7em;
-     padding-top: 8px;
-     line-height: 1.3em;
-     color: #236;
-}
-#okcp .okcp-feature-list {
-     background: #eee;
-     position:absolute;
-     z-index: 10000;
-     margin-top: 0;
-     top: 23px;
-     right:0;
-     font-size: 1.4em;
-     width: 300px;
-     box-shadow: rgba(0, 0, 0, 0.498039) 0 3px 5px;
-}
-.okcp-features-btn:hover,
-.okcp-feature-btn:hover {
-     background: rgba(255,255,255,0.9);
-}
+.okcp-btn.checked:before {content:"\2611\00a0\00a0" }
+.okcp-btn { font-size:.9em; padding-left:5em }
 
-.okcp-feature-list {display:none;}
-.okcp-features-btn:hover .okcp-feature-list {display:block;}
+.section.navigation { width:184px }
 
-
-
+.okcp-features-btn a {
+	color:white !important;
+	text-decoration: underline
+}
+.okcp-features-btn:hover > * {display:block;}
+.okcp-feature-list { display:none }
+.okcp-features-btn a {
+	background: url('chrome-extension://__MSG_@@extension_id__/images/icon-128.png') !important;
+	background-size:30px 30px !important;
+	background-repeat:no-repeat !important;
+	background-position: left !important;
+	//background: transparent !important;
+	//background-color:white !important;
+}
 
 /* UI - Match Ratios */
 .match-ratios-wrapper-outer {position:absolute;right: 181px;top: 2px;height: 224px;width: 225px;} /* Yes, a table... for complicated layout, vertical aligning to the bottom while scrolling when there are too many */
@@ -84,7 +47,7 @@
 #okcp .match-ratio {position:relative;margin-bottom:2px;height:20px;}
 #okcp .match-ratio:last-child {margin-bottom:0;}
 
-#okcp .match-ratio .match-ratio-progressbar {position:absolute;top:0;bottom:0;right:0;width:0;border-radius: 15px;opacity:1;}
+#okcp .match-ratio .match-ratio-progressbar {position:absolute;top:0;bottom:0;right:0;width:0%;border-radius: 15px;opacity:1;}
 #okcp .match-ratio .match-ratio-value {display:none;position:absolute;right:0;width:23%;margin-right:2%;background:transparent;color:black;text-align: center;border-radius: 10px;text-shadow:1px 1px 2px rgba(255,255,255,0.5);}
 #okcp .match-ratio .match-ratio-category {position:absolute;right:-3px;text-shadow:0 0 0 rgba(0,0,0,0.4), 0 0 3px #FFF;color:#000;z-index:5;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
 
@@ -103,7 +66,8 @@
 #okcp .match-ratio.match-4 .match-ratio-progressbar {background: #8C8;}
 #okcp .match-ratio.match-5 .match-ratio-progressbar {background: #8D8;}
 
-#okcp .match-ratio.one-data-point-match .match-ratio-progressbar {background-position:0 0, -1px -5px; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAJ0lEQVQIW2NkwASSICFGNHGwIBA8R5aACyLrQBGESWAIIks8R7cLADoBBTkr0a5oAAAAAElFTkSuQmCC), url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAJ0lEQVQIW2NkwASSICFGNHGwIBA8R5aACyLrQBGESWAIIks8R7cLADoBBTkr0a5oAAAAAElFTkSuQmCC);}
+#okcp .match-ratio.one-data-point-match .match-ratio-progressbar {background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAJ0lEQVQIW2NkwASSICFGNHGwIBA8R5aACyLrQBGESWAIIks8R7cLADoBBTkr0a5oAAAAAElFTkSuQmCC), url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAJ0lEQVQIW2NkwASSICFGNHGwIBA8R5aACyLrQBGESWAIIks8R7cLADoBBTkr0a5oAAAAAElFTkSuQmCC);
+background-position:0 0, -1px -5px;}
 #okcp .match-ratio.more-than-10 .match-ratio-value {font-size: 0.8em;letter-spacing:-1px;}
 #okcp .match-ratio-category {display:inline-block;width:70%;margin-right:5%;text-align:right;}
 
@@ -164,7 +128,7 @@
 /* UI - Change Categories and Review Profiles */
 .categories-lists-wrapper:before,
 .rp-outer-wrapper:before {content:"";position:fixed;top:0;bottom:0;left:0;right:0;background-color: rgba(0,0,0,0.5);z-index:1701;}
-.categories-lists {position:absolute;z-index:15000;top:40px;left:50%;width:600px;margin-left:-350px;padding:50px;background: #CCC;border-radius: 10px;box-shadow: 0 1px 20px rgba(0,0,0,0.7);}
+.categories-lists {position:absolute;z-index:15000;top:40px;left:50%;width:600px;margin-left:-350px;padding:50px;background: #CCC;border-radius: 10px;box-shadow: 0px 1px 20px rgba(0,0,0,0.7);}
 .categories-lists:before {content:"Click and drag the categories between the lists to add or remove them";text-align:center;display:block;margin-bottom:10px;font-size:1.2em;}
 .categories-list {width:40%;margin-left:20%;}
 .categories-list:first-child {margin-left:0;}
@@ -202,7 +166,6 @@
 #match_results .okcp-hidden .percentages {top:11px;}
 
 
-
 /* UI - Thumbnail Letter Indicators */
 .okcp-poly,
 .okcp-to-message,
@@ -210,7 +173,7 @@
 
 .okcp-poly::before,
 .okcp-to-message::before,
-.okcp-maybe::before {position:absolute;top:0;left:0;z-index:5000;padding:4px 2px;font-size:28px;color:white;white-space:pre-wrap;text-shadow:0 0 3px black;opacity:0.8;pointer-events:none;}
+.okcp-maybe::before {position:absolute;top:0px;left:0px;z-index:5000;padding:4px 2px;font-size:28px;color:white;white-space:pre-wrap;text-shadow:0 0 3px black;opacity:0.8;pointer-events:none;}
 
 .okcp-poly:hover::before,
 .okcp-to-message:hover::before,
@@ -257,7 +220,7 @@
 
 /* UI - Unanswered Questions */
 .unanswered-questions {position: absolute;z-index:10000;top: 200px;left: 50%;width: 530px;margin-left: -270px;background: #DDD;padding: 20px;box-shadow: 0 0 20px rgba(0,0,0,0.4);}
-.unanswered-questions:after {content: "(Answer the questions *publically* or you won't increase the plugin's accuracy)";position: absolute;top: 5px;text-align: center;left: 40px;right: 40px;z-index: 10;color: #555;}
+.unanswered-questions:after {content: "(Answer the questions *publically* or you won't increase the plugin's accuracy)";position: absolute;top: 5px;text-align: center;left: 40px;right: 40px;z-index: 10;color: #555;z-index: 10;}
 .unanswered-questions iframe {margin-top:10px;border:solid 1px #888;}
 .unanswered-questions iframe:first-child {margin-top:0;}
 .qtext, .answer_area p {color: #2855A2;font-size:13px;font-weight: bold;line-height: 18px;margin:10px 0 5px;}
@@ -266,11 +229,6 @@
 .iframe-close-btn:hover {background:#333;color:#CCC;}
 
 
-
-/* Previous Messages UI */
-.btn-previous-messages {display:block;text-align: center;background: #ccc;padding: 2px 0;margin-bottom: -8px;font-size: 0.8em;}
-.btn-previous-messages:hover {background: #aaa;}
-.btn-previous-messages-previous-sibling-needs-a-nudge-up {margin-top:-18px}
 
 /* New Unreleased Features */
 .new-feature {display:none;}
@@ -304,7 +262,7 @@
 
 /* Readd notes feature */
 #okcp #inline_notes {width:300px;}
-.UI-change-btn {display:block;float: left;background: #f7f7f7;height:25px;width:60px;border: 1px solid #ddd;color:#555;text-align:center;padding:0 0;font-family:verdana,sans-serif;font-weight:bold;font-size:10px;line-height:25px;position:relative;z-index:1000;cursor:pointer;}
+.UI-change-btn {display:block;float: left;background: #f7f7f7;height:25px;width:60px;border: 1px solid #ddd;color:#555;text-align:center;padding:0 0px;font-family:verdana,sans-serif;font-weight:bold;font-size:10px;line-height:25px;position:relative;z-index:1000;cursor:pointer;}
 
 
 .UI-change-button:hover {background: #BBB;color:#2855A2;border-color:#999;}
@@ -320,9 +278,9 @@ html div#loveisblindday.expanded {height:80px;}
 html div#loveisblindday div.inner {background-color: rgb(0,15,45);margin-top: 27px;width: 300px;padding-top: 16px;}
 #p_profile div.tabbed_heading div#percentages span.match, #p_profile div.tabbed_heading div#percentages span.friend, #p_profile div.tabbed_heading div#percentages span.enemy {margin-bottom:1px;}
 #p_profile div.tabbed_heading div#basic_info div.aso_loc {max-width:240px;}
-#basic_info #basic_info_sn {text-shadow: 0 1px 0 #fff, 1px 1px 0 #E1E1E1, -1px 1px 0 #E1E1E1, 1px -1px 0 #E1E1E1, -1px -1px 0 #E1E1E1;}
+#basic_info #basic_info_sn {text-shadow: 0px 1px 0px #fff, 1px 1px 0px #E1E1E1, -1px 1px 0px #E1E1E1, 1px -1px 0px #E1E1E1, -1px -1px 0px #E1E1E1;}
 #p_profile #rating {position:absolute;top: 46px;left: 180px;float:none;z-index:2;-webkit-transform: scale(0.7);transform: scale(0.7);}
-#p_profile #rating span {margin-left: 4px;margin-bottom: 0;}
+#p_profile #rating span {margin-left: 4px;margin-bottom: 0px;}
 #p_profile #percentages {padding:20px 3px 40px;border-radius: 0 0 4px 4px;}
 #p_profile #upgrade_form {display:none;}
 #p_profile #actions {margin-bottom:-11px;height:220px;padding:10px 10px 0 10px;}
@@ -334,7 +292,7 @@ html div#loveisblindday div.inner {background-color: rgb(0,15,45);margin-top: 27
 #p_profile #actions .wide-buttons-that-are-now-not-wide .flag {width:39px;padding:0;/*border-radius:0!important;*/}
 #p_profile #wrapper .tabbed_heading #actions .btn.hideflag.white {float: right;width: 108px;margin-bottom:0;}
 #p_profile #wrapper .tabbed_heading #actions .btn.hideflag.white a {width: 49px;border-radius:0!important;border-left:0!important;}
-.page_tabs {position: absolute;bottom: 0;}
+.page_tabs {position: absolute;bottom: 0px;}
 
 #ajax_location {display:block;}
 
@@ -380,7 +338,6 @@ html div#loveisblindday div.inner {background-color: rgb(0,15,45);margin-top: 27
     border-radius: 4px;
     background-color: rgba(0,0,0,.5);
     -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
-    box-shadow: 0 0 1px rgba(255,255,255,.5);
 }
 
 
@@ -398,3 +355,23 @@ background-image: url(data:image/gif;base64,R0lGODlhIAAgAPMAAP///wAAAMbGxoSEhLa2
 
 .spinner-note-patient {margin-right:70px;}
 .spinner-note-patient:after {content:"Searching for questions... This could take a while!";position:relative;left:33px;top:-10px;display:block;width:165px;padding:7px 0 7px 10px;background: white;border-radius:0 10px 10px 0;box-shadow:2px 1px 4px rgba(0,0,0,0.5);z-index:1000;color:black;}
+
+
+#okcp-pagetab ul.user_links {
+	z-index:1000;
+	display:none;
+	position:absolute;
+	top:-3px;
+}
+#okcp-pagetab ul li { float :left }
+#okcp-pagetab:hover > * {
+	display:block !important;
+	list-style:inline;
+	z-index:1;
+	float:left;
+	background:#f6f6f6;
+	opacity:1;
+}
+
+
+
