@@ -36,22 +36,23 @@ if (_OKCP.profilePath !== '') {
 							, 'text':'This feature allows you to choose which categories you care about. Drag categories from the right to the left to enable them, and vice-versa to disable them.'
 						})
 					)
-				),
-
-				$('<li>').append(
-					$('<a>', {
-						'href':'#'
-						, 'class':'okcp-feature-btn improve-accuracy'
-						, 'review-saved-profile':true
-						, 'id':'improve-accuracy'
-						, 'text':'Improve Plugin Accuracy'
-					}).append(
-						$('<div>', {
-							'class':'okcp-feature-details'
-							, 'text':'This feature shows you questions that:<br><br>1. apply to the selected categories<br>2. that you haven\'t answered<br><br>The more of these questions you answer, the more accurate the plugin will be able to compare you and the user you\'re visiting.'
-						})
-					)
 				)
+				// ,
+
+				// $('<li>').append(
+				// 	$('<a>', {
+				// 		'href':'#'
+				// 		, 'class':'okcp-feature-btn improve-accuracy'
+				// 		, 'review-saved-profile':true
+				// 		, 'id':'improve-accuracy'
+				// 		, 'text':'Improve Plugin Accuracy'
+				// 	}).append(
+				// 		$('<div>', {
+				// 			'class':'okcp-feature-details'
+				// 			, 'text':'This feature shows you questions that:<br><br>1. apply to the selected categories<br>2. that you haven\'t answered<br><br>The more of these questions you answer, the more accurate the plugin will be able to compare you and the user you\'re visiting.'
+				// 		})
+				// 	)
+				// )
 
 			)
 		), $('<li>', {'class':'okcp-pagetab okcp-pagetab-labels'}).append(
