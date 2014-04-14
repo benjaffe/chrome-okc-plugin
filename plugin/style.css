@@ -288,6 +288,11 @@ html div#loveisblindday div.inner {background-color: rgb(0,15,45);margin-top: 27
 body#p_profile .tabbed_heading #actions .action_options .flatbutton {height:33px;line-height:10px;font-size:12px;margin-top:-1px;}
 .page_tabs {position: absolute;bottom: 0px;}
 
+/* Moving the stars */
+#okcp #percentages_and_ratings #rating {position: absolute;top: -19px;left: -50px;border-left:none;}
+/*#okcp #percentages_and_ratings #rating:not(:hover) > span {display:none;}*/
+
+
 #ajax_location {display:block;}
 
 #user_pane .pane {z-index:100;}
