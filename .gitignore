@@ -1,7 +1,6 @@
 *.swp
 .DS_Store
 /node_modules/*
-/*.zip
 /plugin.crx
 /plugin.pem
 /plugin/lib
