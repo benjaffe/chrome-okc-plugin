@@ -220,7 +220,7 @@ background-position:0 0, -1px -5px;}
 
 /* UI - Unanswered Questions */
 .unanswered-questions {position: absolute;z-index:10000;top: 200px;left: 50%;width: 530px;margin-left: -270px;background: #DDD;padding: 20px;box-shadow: 0 0 20px rgba(0,0,0,0.4);}
-.unanswered-questions:after {content: "(Answer the questions *publically* or you won't increase the plugin's accuracy)";position: absolute;top: 5px;text-align: center;left: 40px;right: 40px;z-index: 10;color: #555;z-index: 10;}
+.unanswered-questions:after {content: "Answer the questions *publicly* or it won't increase the plugin's accuracy";position: absolute;top: 5px;text-align: center;left: 40px;right: 40px;z-index: 10;color: #555;z-index: 10;}
 .unanswered-questions iframe {margin-top:10px;border:solid 1px #888;}
 .unanswered-questions iframe:first-child {margin-top:0;}
 .qtext, .answer_area p {color: #2855A2;font-size:13px;font-weight: bold;line-height: 18px;margin:10px 0 5px;}
