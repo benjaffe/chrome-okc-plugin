@@ -2,6 +2,7 @@ _OKCP.messageSearch = function() {
     var twoWeeksInMilliseconds = (1000*60*60*24*14);
     var messages = _OKCP.storage('messages');
     var indexMessagesNow = (_OKCP.storage('messagesIndexed') + twoWeeksInMilliseconds) < new Date().getTime(); //reindex every two weeks
+    //console.log(_OKCP.storage('messagesIndexed'));
     var pageMailbox = $('#p_mailbox').length > 0;
     var hasNeverMessaged = $('#actions .tooltip_text .fancydate').length === 0;
 
@@ -18,13 +19,14 @@ _OKCP.messageSearch = function() {
     if (indexMessagesNow) {
         //set the messagesIndexed date to two weeks before, plus 5 minutes. That way, if the indexing fails or gets cut short, it'll try again 5 mins from now
         _OKCP.storage('messagesIndexed', new Date().getTime()-twoWeeksInMilliseconds+60*5);
+        //console.log(_OKCP.storage('messagesIndexed'));
 
-        console.log('Indexing messages');
+        //console.log('Indexing messages');
         $('<iframe src="http://www.okcupid.com/messages"></iframe>').appendTo('body').load(function(){
-            _OKCP.indexMessages($(this.contentDocument));
+            _OKCP.indexMessages($(this.contentDocument),this.contentWindow);
         });
         $('<iframe src="http://www.okcupid.com/messages?folder=2"></iframe>').appendTo('body').load(function(){
-            _OKCP.indexMessages($(this.contentDocument));
+            _OKCP.indexMessages($(this.contentDocument),this.contentWindow);
         });
     }
 };
@@ -57,14 +59,45 @@ _OKCP.addMessageLinkUI = function() {
     }
 };
 
-_OKCP.indexMessages = function(elem) {
+_OKCP.indexMessages = function(elem, iframeWindow) {
     if (!elem) elem = document;
-    var urls = _OKCP.getPaginationUrls($(elem).find('#p_mailbox .count .last'), 30); //get the list of URLs to load
-    var dataElem = _OKCP.loadUrlsIntoElem(urls, '#messages .thread', function(pageResultsDiv){
-        // console.log('All done loading the pages!');
-        // console.log(pageResultsDiv);
+    console.log('indexing messages');
+    // var urls = _OKCP.getPaginationUrls($(elem).find('#p_mailbox .count .last'), 30); //get the list of URLs to load
+    //console.log(urls);
+    //var dataElem = _OKCP.loadUrlsIntoElem(urls, '#messages .thread',
+    var scrollTries = 0;
+    var timesToTryScroll = 5;
+    var numMessages = 0;
+
+    tryIndex(elem);
+
+    function tryIndex(elem) {
+        // scroll to the bottom
+        iframeWindow.scrollTo(0,document.body.scrollHeight);
+
+        var pageResultsDiv = $(elem).find('#messages');
+
+        if (numMessages !== pageResultsDiv.children.length) {
+            numMessages = pageResultsDiv.children.length;
+            //console.log('different lengths');
+            scrollTries = 0;
+            setTimeout(tryIndex(elem), 200);
+            return false;
+        } else {
+            scrollTries++;
+            if (scrollTries < timesToTryScroll) {
+                //console.log('lengths the same - waiting a bit longer');
+                setTimeout(tryIndex(elem), 200);
+                return false;
+            }
+        }
+        //console.log('success');
+
+        //console.log('All done loading the pages!');
+        //console.log(pageResultsDiv);
         var threads = [];
         var threadElemList = $(pageResultsDiv).find('.thread');
+        //console.log(threadElemList);
         threadElemList.each(function() {
             var username = this.querySelector('.subject').innerText;
             username = username.split(' ').pop();
@@ -73,7 +106,7 @@ _OKCP.indexMessages = function(elem) {
                 l: this.querySelector('.open').href, //link
                 d: Math.round(this.querySelector('.fancydate').id.split('fancydate_')[1] / 1000) //date
             }; //make a thread object
-
+            //console.log(thread);
             threads.push(thread); //add it to the list
         });
 
@@ -91,13 +124,13 @@ _OKCP.indexMessages = function(elem) {
                 }
                 if (threadToAdd) threads.push(threadToAdd);
             }
-            console.log('messages length = ' + threads.length);
+            //console.log('messages length = ' + threads.length);
             _OKCP.storage('messagesIndexed', new Date().getTime());
         }
 
         _OKCP.storage('messages',threads); //store the messages
         _OKCP.addMessageLinkUI();
-    });
+    }
 };
 _OKCP.clearMessages = function() {
     _OKCP.storage('messages',undefined);
@@ -115,8 +148,8 @@ _OKCP.loadUrlsIntoElem = function(urls, selector, callback) {
     function requestComplete (e, status) {
         numCompleteRequests++;
         if (status === 'error') {
-            console.log('request error on ' + numCompleteRequests);
-            console.log(e);
+            //console.log('request error on ' + numCompleteRequests);
+            //console.log(e);
         }
         if (numCompleteRequests === urls.length)
             callback(pageResultsDiv);
