@@ -180,7 +180,12 @@ function OKCP() {
 	this.profileList("location",$('#ajax_location').text());
 
 	this.toggleHideNotPoly = function(data) {		console.log('toggleHideNotPoly run');
-		this.profileList("p",!this.profileList()[_OKCP.profileName].p); //update storage
+		var originalValue = this.profileList()[_OKCP.profileName].p;
+		var oppositeValue = this.profileList()[_OKCP.profileName].ip;
+		this.profileList("p",!originalValue); //update storage
+		console.log(originalValue,oppositeValue);
+		if (!originalValue && oppositeValue)
+			this.profileList("ip",originalValue); //update storage
 		this.calculateHiddenProfile();
 	};
 
@@ -195,7 +200,12 @@ function OKCP() {
 	};
 
 	this.toggleIsPoly = function(data) {		console.log('toggleIsPoly run');
-		this.profileList("ip",!this.profileList()[_OKCP.profileName].ip); //update storage
+		var originalValue = this.profileList()[_OKCP.profileName].ip;
+		var oppositeValue = this.profileList()[_OKCP.profileName].p;
+		this.profileList("ip",!originalValue); //update storage
+		console.log(originalValue,oppositeValue);
+		if (!originalValue && oppositeValue)
+			this.profileList("p",originalValue); //update storage
 		this.calculateHiddenProfile();
 	};
 
