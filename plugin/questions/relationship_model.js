@@ -133,6 +133,13 @@ _OKCP.fileQuestions.relationship_model =
                 "answerText": ["Polyamory rocks!  I wish more people were poly.", "I might consider it under certain circumstances.","I wouldn't consider it.  Monogamy rules!","WTF is polyamory?"],
                 "score": [1, 1,-1,-1],
                 "weight": [1, 1,1,1]
+            },
+            {
+                "qid":"366"
+                "text":"When you're not in a serious relationship, what do you prefer?"
+                "answerText":["Dating multiple people at once","Dating one person at a time","I only have serious relationships; I don't 'date'"]
+                "score":[1, -1, 0]
+                "weight"[1,0.5,0.5]:
             }
         ],
 
@@ -255,6 +262,13 @@ _OKCP.fileQuestions.relationship_model =
                 "answerText": ["Polyamory rocks!  I wish more people were poly.", "I might consider it under certain circumstances.","I wouldn't consider it.  Monogamy rules!","WTF is polyamory?"],
                 "score": [1, 1,-1,-1],
                 "weight": [1, 1,1,1]
+            },
+            {
+                "qid":"366"
+                "text":"When you're not in a serious relationship, what do you prefer?"
+                "answerText":["Dating multiple people at once","Dating one person at a time","I only have serious relationships; I don't 'date'"]
+                "score":[1, -1, 0]
+                "weight"[1,1,0.5]:
             }
         ],
 
@@ -370,6 +384,13 @@ _OKCP.fileQuestions.relationship_model =
                 "answerText": ["Yes, and they both knew.", "Yes, and I didn't tell at least one of them.", "No."],
                 "score": [-1, -1, 1],
                 "weight": [0.8, 0.8, 0.8]
+            },
+            {
+                "qid":"366"
+                "text":"When you're not in a serious relationship, what do you prefer?"
+                "answerText":["Dating multiple people at once","Dating one person at a time","I only have serious relationships; I don't 'date'"]
+                "score":[-1, 1, 1]
+                "weight"[1,1,0.5]:
             }
         ],
 
