@@ -503,7 +503,7 @@ _OKCP.fileQuestions.relationship_model =
                 "qid":"18087",
                 "text":"If the subway was crowded and you were packed against several people just to fit in the car -- would you grope the cutest one next to you? ...they would never know it was you, much less they were groped.",
                 "answerText":["Yes","No","I'm Not Sure"],
-                "score":[1,-1,-0.8],
+                "score":[-1,1,-0.8],
                 "weight":[1,1,1]
             },
             {
