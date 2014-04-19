@@ -1,42 +1,31 @@
-Are you using OkCupid? You should definitely be using this extension.
-** Hey everyone, your developer here. Every day, more and more people are using this extension. That's wonderful! But I don't have as much free time as I wish I did. Feel free to email with requests and bug reports, and if you want to help with developing the plugin, let me know! -Ben **
+** Hey everyone, your developer here. Every day, more and more people are using this extension. That's wonderful! Feel free to make requests and file bug reports, and if you want to help with developing the plugin, let me know! More info on that below. -Ben **
 
 This extension improves OkCupid:
-* User thumbnails enlarge when you mouse over them.
-* You can also see categories that other users fall into right on their profile page. Categories include (but are not limited to):
+* Get an instant per-profile overview of relationship preferences, potential discrimination issues, demeanor, and several dozen other vectors. (Choose the categories that you want to see to you by clicking the "Change Categories" link on any profile page.)
+* Improve the plugin's accuracy by answering questions that the plugin finds.
+* Get a direct link to your message thread with a user from their profile page
+* Thumbnails images enlarge when you mouse over them.
+* Re-added the pagination that OkCupid recently removed on Questions and Messages pages
+* Re-added the notes feature that OkCupid recently removed for profile pages (thanks @jaredsohn & u/jbx0)
+
+The plugin includes the following categories
 ** Dietary Restrictions (ex. Vegetarian-Friendly)
 ** Discrimination (ex. race, LGBT, weight)
 ** Demeanor (ex. generally happy, not volatile)
 ** Drugs (ex. smoking, 420-friendly, hard drugs)
-** Relationship Model (ex. non-monogamous, communicative, wanting/not wanting children)
+** Relationship Model (ex. non-monogamous, monogamous, communicative, wanting/not wanting children)
 ** Science/Faith (ex. science-friendly, spiritual, religious)
-** Sex (ex. rough/kinky, BDSM, masochism, dom/sub, bondage)
+** Sex (ex. consent-aware, rough/kinky, BDSM, masochism, dom/sub, bondage)
 ** Sexuality (ex. bi-open, sex-positive)
-
-If you like the plugin, I'd love to hear from you. It's a 100% free plugin, and I'm building it entirely in my spare time, so positive feedback and ideas are what fuel me. If you have any ideas for questions or categories that you want to see added, email me.
+** And more! Feel free to get in touch with me to suggest categories that you'd like to see.
 
 Thanks everyone!
 -Ben
 
+Help Make It Better: If you like the plugin, I'd love to hear from you. It's a 100% free plugin, and I'm building it entirely in my spare time, so positive feedback and ideas are what fuel me. If you have any ideas for questions or categories that you want to see added, open an issue on the github page. https://github.com/benjaffe/chrome-okc-plugin/issues
 
-Note for Geeks: If you want to make custom categories, you'll have to do some data file hacking. I'm sorry I can't provide support for those of you who try, but I can say if you do, make a backup of your changes. Every time I update the plugin, it will overwrite your modifications.
+Open Source: This plugin is open source. You can see all of the code on github. https://github.com/benjaffe/chrome-okc-plugin
 
-----
+Compatibility: If you have the BetterCupid Chrome Extension installed alongside this extension, you'll see unexpected behavior (like data not saving properly). If you want to use this extension, please uninstall BetterCupid.
 
-Instructions for suggesting questions, as of Nov 5
-
-K, open up the Console (right-click on an okc page anywhere, click inspect element, then choose the console tab).
-
-Enter the following:
-
-localStorage.devMode = "true"
-
-Hit return, and you'll now see a suggest question button on every question that isn't already in the plugin. This is a feature that's not refined, so it's hidden behind "dev mode". It adds a few other dev tools too, but don't mind them. If you want to reverse it, enter the same line, but with "false" instead.
-
-BTW, feel special -- You're the fourth person in the entire world who has dev mode enabled!
-
-Now, go to your profile, click on questions, and start searching away for key terms. Click on the "suggest question" button and follow the instructions.
-
-I reallllllly appreciate the help, thank you! And let me know if you have any other questions!
-
-Ben
+Note for Geeks: If you want to make custom categories, you'll have to do some data file hacking. I'm sorry I can't provide support for those of you who try, and if you do, make a backup of your changes. Every time I update the plugin, it will overwrite your modifications. But if you contact me with your ideas and new data files, I'll integrate them!

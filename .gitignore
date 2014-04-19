@@ -1,1 +1,8 @@
+*.swp
 .DS_Store
+/node_modules/*
+/plugin.crx
+/plugin.pem
+/plugin/lib
+
+/-plugin.sublime-workspace

@@ -148,6 +148,13 @@ _OKCP.fileQuestions.sex =
 
 		"fetish": [
 			{
+				"qid":"64476",
+				"text":"Under the right circumstances, would you allow a partner to lick your anus?",
+				"answerText": ["Yes.", "No."],
+				"score": [1, -1],
+				"weight": [1, 1]
+			},
+			{
 				"qid":"67511",
 				"text":"Suppose you\'re dating someone who seems to have long-term potential. You discover that they want to urinate on you during sex. Would you consider staying with this person?",
 				"answerText": ["Yes.", "No."],
@@ -577,177 +584,16 @@ _OKCP.fileQuestions.sex =
 			}
 		],
 
-		"dominant": [
-			{
-				"qid": "156211",
-				"text": "Top or bottom?",
-				"answerText": ["Top", "Bottom.", "It depends."],
-				"score": [1, -1, -1],
-				"weight": [1, 0.5, 0.5]
-			},
-			{
-				"qid": "80304",
-				"text": "What is your BDSM orientation, or are you not kinky?",
-				"answerText": ["Prefer to be the Dom or Top", "Prefer to be the sub or bottom", "I really like to switch.", "Not kinky or just too new to know my preference."],
-				"score": [1, 0, 0, -1],
-				"weight": [1, 1, 1, 0.5]
-			},
-			{
-				"qid": "97920",
-				"text": "When it comes to bdsm...",
-				"answerText": ["I'd rather be the dominant person", "I'd rather be the submissive person", "It depends, I can go either way", "I'm not into it / don't know what it is"],
-				"score": [1, 0, 1, -1],
-				"weight": [1, 0.5, 0.5, 1]
-			},
-			{
-				"qid":"61733",
-				"text":"Would you be pleased if a partner expressed the desire to be sexually humiliated by you?",
-				"answerText": ["Yes.", "No."],
-				"score": [1, -1],
-				"weight": [1, 1]
-
-			},
-			{
-				"qid":"463",
-				"text":"In your ideal sexual encounter, do you take control, or do they?",
-				"answerText": ["I take control", "They take control"],
-				"score": [1, -1],
-				"weight": [1, 1]
-			},
-			{
-				"qid":"83808",
-				"text":"Would you ever consider a relationship where you would take on an exclusive sexual role as master or slave?",
-				"answerText": ["Yes, as the master only.", "Yes, as the slave only.", "Yes, as the master or the slave.", "No."],
-				"score": [1, -1, 1, -1],
-				"weight": [1, 1, 0.7, 1]
-			},
-			{//Added by RAA
-				"qid":"87450",
-				"text":"How would you prefer your lover in bed?",
-				"answerText": ["Very dominant", "Somewhat dominant", "Neutral or willing to take turns", "Submissive"],
-				"score": [-1, -1,0,1],
-				"weight": [1, 0.7, 0.7, 1]
-			}
-		],
-
-
-		"submissive": [
-			{
-				"qid": "156211",
-				"text": "Top or bottom?",
-				"answerText": ["Top", "Bottom.", "It depends."],
-				"score": [-1, 1, -1],
-				"weight": [0.5, 1, 0.5]
-			},
-			{
-				"qid": "60756",
-				"text": "If your partner wanted you to say a specific phrase during sex, would you?",
-				"answerText": ["Yes, I'd say anything they want me to.", "No, I wouldn't.", "Maybe, it would depend upon the phrase."],
-				"score": [1, -1, -1],
-				"weight": [1, 1, 0.5]
-			},
-			{
-				"qid": "150317",
-				"text": "Have you ever become sexually aroused as a result of being spanked?\n",
-				"answerText": ["Yes", "No"],
-				"score": [1, 0],
-				"weight": [1, 0.5]
-			},
-			{
-				"qid": "80304",
-				"text": "What is your BDSM orientation, or are you not kinky?",
-				"answerText": ["Prefer to be the Dom or Top", "Prefer to be the sub or bottom", "I really like to switch.", "Not kinky or just too new to know my preference."],
-				"score": [0, 1, 0, -1],
-				"weight": [1, 1, 1, 0.5]
-			},
-			{
-				"qid": "97920",
-				"text": "When it comes to bdsm...",
-				"answerText": ["I'd rather be the dominant person", "I'd rather be the submissive person", "It depends, I can go either way", "I'm not into it / don't know what it is"],
-				"score": [0, 1, 1, -1],
-				"weight": [0.5, 1, 0.5, 1]
-			},
-			{
-				"qid":"463",
-				"text":"In your ideal sexual encounter, do you take control, or do they?",
-				"answerText": ["I take control", "They take control"],
-				"score": [-1, 1],
-				"weight": [1, 1]
-			},
-			{
-				"qid":"60726",
-				"text":"If a trusted partner asked you to submit to them sexually, would you? Assume that this would involve letting them collar you, command you, and have control over you during sex.",
-				"answerText": ["Yes.", "No."],
-				"score": [1, -1],
-				"weight": [1, 0.5]
-			},
-			{
-				"qid":"38320",
-				"text":"Is it generally acceptable to you for a sex partner to initiate foreplay while you are sleeping?",
-				"answerText": ["Yes.", "No."],
-				"score": [1, -1],
-				"weight": [1, 1]
-			},
-			{
-				"qid":"83808",
-				"text":"Would you ever consider a relationship where you would take on an exclusive sexual role as master or slave?",
-				"answerText": ["Yes, as the master only.", "Yes, as the slave only.", "Yes, as the master or the slave.", "No."],
-				"score": [-1, 1, 1, -1],
-				"weight": [1, 1, 0.7, 1]
-			},
-			{
-				"qid":"79635",
-				"text":"How would you feel if someone called you \"good girl\" or \"good boy\" during sex?",
-				"answerText": ["Positive.", "Negative.", "Indifferent.", "It would depend on which of the two I was called."],
-				"score": [1, -1, 0, 1],
-				"weight": [1, 1, 0.5, 1]
-			},
-			{
-				"qid":"11",
-				"text":"How does the idea of being slapped hard in the face during sex make you feel?",
-				"answerText": ["Horrified", "Aroused", "Nostalgic", "Indifferent"],
-				"score": [-1, 1, 1, 0],
-				"weight": [1, 1, 0.7, 0.6]
-			},
-			{
-				"qid":"84005",
-				"text":"As an adult, have you ever worn a leash and collar in public?",
-				"answerText": ["Yes.", "No."],
-				"score": [1, -1],
-				"weight": [1, 0.2]
-			},
-			{
-				"qid":"48347",
-				"text":"Do you think you could ever enjoy being humiliated as part of a sexual experience?",
-				"answerText": ["Yes.", "No."],
-				"score": [1, -1],
-				"weight": [1, 0.6]
-			},
-			{
-				"qid":"1011",
-				"text":"Do you know what a 'safeword' is, in a sexual context?",
-				"answerText": ["Yes", "No"],
-				"score": [1, -1],
-				"weight": [0.1, 1]
-			},
-			{//Added by RAA
-				"qid":"87450",
-				"text":"How would you prefer your lover in bed?",
-				"answerText": ["Very dominant", "Somewhat dominant", "Neutral or willing to take turns", "Submissive"],
-				"score": [1, 1,0,-1],
-				"weight": [1, 0.7, 0.7, 1]
-			},
-			{
-				"qid":"93463",
-				"text":"Would you ever consent to being a total submissive to another human being?",
-				"answerText":["I would wear their collar at all times.","I would be submissive in the bed room.","I am willing to play along, occasionally.","I am a dominant person, and could never submit."],
-				"score":[1,0.75,0.5,-1],
-				"weight":[1,1,1,1]
-			}
-		],
 
 
 		"switch": [
+			{
+				"qid":"75998",
+				"text":"How do you feel about erotic spanking?",
+				"answerText": [ "Not for me", "I like to spank", "I like to be spanked", "I like both" ],
+				"score": [0, 0, 0, 1],
+				"weight": [1, 1, 1, 1]
+			},
 			{
 				"qid": "156211",
 				"text": "Top or bottom?",

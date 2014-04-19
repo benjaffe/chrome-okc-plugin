@@ -29,6 +29,8 @@ One other suggestion - add an option in the search page to filter out matches th
 
 * Settings: questions into JSON, customizable path to pull from?
 
+* Donate button for http://www.givewell.org/charities/top-charities
+
 ## Ideas for the future:
 ### (sorted by rough priority)
 * Categories:
@@ -57,7 +59,7 @@ One other suggestion - add an option in the search page to filter out matches th
 
 ---- Question Suggestions ----
 
-Thanks so much for the email. I'm glad you're getting a lot out of the plugin. I think those questions and categories would be wonderful additions. 
+Thanks so much for the email. I'm glad you're getting a lot out of the plugin. I think those questions and categories would be wonderful additions.
 
 I've added info below about how to format the question info for inclusion in the plugin. If you're up for helping out, and you send me the applicable questions, I'll roll them into the app and ship them out to all 5000 users! Would you be willing to help?
 
@@ -66,7 +68,7 @@ Ben
 
 --
 
-To get set up to suggest questions, turn on developer mode (only a few people know how, ha!). 
+To get set up to suggest questions, turn on developer mode (only a few people know how, ha!).
 
 Open the Console (right-click on any OkCupid page somewhere, click Inspect Element, click the Console tab -- or press Cmd-Opt-J (Mac) or Ctrl-Shift-J (Win)). In the console, type the following and press return.
 
