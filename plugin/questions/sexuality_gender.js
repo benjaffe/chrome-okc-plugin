@@ -49,7 +49,7 @@ _OKCP.fileQuestions.sexuality_gender =
 				"weight": [1, 1, 1, 0.5]
 			},
 			{
-				"qid":"458541"
+				"qid":"458541",
 				"text":"How would you feel if your sexual partner had a vulva/vagina?",
 				"answerText": ["Positive, regardless", "Positive only if she's a woman", "Positive only if he's a man", "Negative"],
 				"score": [1,-1, 1, -1],
