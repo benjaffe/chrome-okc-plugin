@@ -40,36 +40,36 @@ _OKCP.fileQuestions.sexuality_gender =
 		],
 
 		//transgender
-    "transgender-open": [
-      {
-        "qid":"458539",
-        "text":"How would you feel about your sexual partner having a penis? (Assume the penis is biological, i.e. not a dildo)",
-       "answerText": ["Positive, regardless", "Positive only if he's a man", "Positive only if she's a woman", "Negative"],
-       "score": [1, -1, 1, -1],
-       "weight": [1, 1, 1, 0.5]
-      },
-      {
-        "qid":"458541"
-        "text":"How would you feel if your sexual partner had a vulva/vagina?",
-        "answerText": ["Positive, regardless", "Positive only if she's a woman", "Positive only if he's a man", "Negative"],
-        "score": [1,-1, 1, -1],
-        "weight": [1, 1, 1, 0.5]
-      },
-      {
-        "qid":"12949",
-        "text":"Would you consider dating someone who's had a gender change?",
-        "answerText": ["Yes", "No", "I'm Not Sure"],
-        "score": [1, -1, 1],
-        "weight": [1, 1, 0.5]
-      },
-      {
-        "qid":"546",
-        "text":"Would you date a transgender person?",
-        "answerText": ["Yes", "No"],
-        "score": [1, -1],
-        "weight": [1, 1]
-      }
-    ],
+		"transgender-open": [
+			{
+				"qid":"458539",
+				"text":"How would you feel about your sexual partner having a penis? (Assume the penis is biological, i.e. not a dildo)",
+				"answerText": ["Positive, regardless", "Positive only if he's a man", "Positive only if she's a woman", "Negative"],
+				"score": [1, -1, 1, -1],
+				"weight": [1, 1, 1, 0.5]
+			},
+			{
+				"qid":"458541"
+				"text":"How would you feel if your sexual partner had a vulva/vagina?",
+				"answerText": ["Positive, regardless", "Positive only if she's a woman", "Positive only if he's a man", "Negative"],
+				"score": [1,-1, 1, -1],
+				"weight": [1, 1, 1, 0.5]
+			},
+			{
+				"qid":"12949",
+				"text":"Would you consider dating someone who's had a gender change?",
+				"answerText": ["Yes", "No", "I'm Not Sure"],
+				"score": [1, -1, 1],
+				"weight": [1, 1, 0.5]
+			},
+			{
+				"qid":"546",
+				"text":"Would you date a transgender person?",
+				"answerText": ["Yes", "No"],
+				"score": [1, -1],
+				"weight": [1, 1]
+			}
+		],
 
 
 		"sex-positive": [
