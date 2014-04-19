@@ -135,11 +135,11 @@ _OKCP.fileQuestions.relationship_model =
                 "weight": [1, 1,1,1]
             },
             {
-                "qid":"366"
-                "text":"When you're not in a serious relationship, what do you prefer?"
-                "answerText":["Dating multiple people at once","Dating one person at a time","I only have serious relationships; I don't 'date'"]
-                "score":[1, -1, 0]
-                "weight"[1,0.5,0.5]:
+                "qid":"366",
+                "text":"When you're not in a serious relationship, what do you prefer?",
+                "answerText":["Dating multiple people at once","Dating one person at a time","I only have serious relationships; I don't 'date'"],
+                "score":[1, -1, 0],
+                "weight":[1,0.5,0.5]
             }
         ],
 
@@ -264,11 +264,11 @@ _OKCP.fileQuestions.relationship_model =
                 "weight": [1, 1,1,1]
             },
             {
-                "qid":"366"
-                "text":"When you're not in a serious relationship, what do you prefer?"
-                "answerText":["Dating multiple people at once","Dating one person at a time","I only have serious relationships; I don't 'date'"]
-                "score":[1, -1, 0]
-                "weight"[1,1,0.5]:
+                "qid":"366",
+                "text":"When you're not in a serious relationship, what do you prefer?",
+                "answerText":["Dating multiple people at once","Dating one person at a time","I only have serious relationships; I don't 'date'"],
+                "score":[1, -1, 0],
+                "weight":[1,1,0.5]
             }
         ],
 
@@ -386,11 +386,11 @@ _OKCP.fileQuestions.relationship_model =
                 "weight": [0.8, 0.8, 0.8]
             },
             {
-                "qid":"366"
-                "text":"When you're not in a serious relationship, what do you prefer?"
-                "answerText":["Dating multiple people at once","Dating one person at a time","I only have serious relationships; I don't 'date'"]
-                "score":[-1, 1, 1]
-                "weight"[1,1,0.5]:
+                "qid":"366",
+                "text":"When you're not in a serious relationship, what do you prefer?",
+                "answerText":["Dating multiple people at once","Dating one person at a time","I only have serious relationships; I don't 'date'"],
+                "score":[-1, 1, 1],
+                "weight":[1,1,0.5]
             }
         ],
 
