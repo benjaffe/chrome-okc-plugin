@@ -1,7 +1,7 @@
 {
   "name": "OkCupid (for the Non-Mainstream User)",
   "short_name": "OkC Alt",
-  "version": "2.8.2",
+  "version": "2.8.3",
   "manifest_version": 2,
   "description": "Are you using OkCupid? You should definitely be using this extension.",
   "homepage_url": "http://benjaffe.me/projects/date/",
