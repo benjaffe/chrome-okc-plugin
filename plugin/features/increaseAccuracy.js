@@ -10,7 +10,7 @@ _OKCP.showUnansweredQuestions = function(data) {
 		for (var i = 0; i < questionsList.length; i++) {
 			var question = questionsList[i];
 			var qid = question.qid;
-			var iframe = $('<iframe qid='+qid+' class="unanswered-questions-iframe" src="http://www.okcupid.com/questions?rqid=' + qid + '" style="width:100%;height:1px;" qid="' + qid + '">');
+			var iframe = $('<iframe qid='+qid+' class="unanswered-questions-iframe" src="//www.okcupid.com/questions?rqid=' + qid + '" style="width:100%;height:1px;" qid="' + qid + '">');
 			iframe.load(function() {
 				$(this).attr('loaded','true');
 

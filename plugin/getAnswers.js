@@ -219,7 +219,7 @@ _OKCP.getAnswers = function (list) {
 				questionFilterParameter = 'very_important=1';
 			}
 			questionPageNum = pageNum || questionPageNum;
-			questionPath = "http://www.okcupid.com/profile/" + _OKCP.profileName + "/questions?n=1&low=" + (questionPageNum*10+1) + "&" + questionFilterParameter;
+			questionPath = "//www.okcupid.com/profile/" + _OKCP.profileName + "/questions?n=1&low=" + (questionPageNum*10+1) + "&" + questionFilterParameter;
 			if (_OKCP.questionFetchingMethod === "mobile_app") questionPath += '&mobile_app=1';
 			questionPageNum++;
 		}

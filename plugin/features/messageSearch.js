@@ -22,10 +22,10 @@ _OKCP.messageSearch = function() {
         //console.log(_OKCP.storage('messagesIndexed'));
 
         //console.log('Indexing messages');
-        $('<iframe src="http://www.okcupid.com/messages"></iframe>').appendTo('body').load(function(){
+        $('<iframe src="//www.okcupid.com/messages"></iframe>').appendTo('body').load(function(){
             _OKCP.indexMessages($(this.contentDocument),this.contentWindow);
         });
-        $('<iframe src="http://www.okcupid.com/messages?folder=2"></iframe>').appendTo('body').load(function(){
+        $('<iframe src="//www.okcupid.com/messages?folder=2"></iframe>').appendTo('body').load(function(){
             _OKCP.indexMessages($(this.contentDocument),this.contentWindow);
         });
     }

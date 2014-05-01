@@ -47,7 +47,7 @@ _OKCP.reviewProfiles = function() {
 				var profileObj = sublistData[profile];
 				var profileElem = $('<li class="profile"></li>');
 				var locationStr = profileObj.location ? ' ('+profileObj.location+')' : '';
-				profileElem.append('<a href="http://www.okcupid.com/profile/'+profile+'" target="_blank">'+profile+'</a><span class="location">'+locationStr+'</span>');
+				profileElem.append('<a href="//www.okcupid.com/profile/'+profile+'" target="_blank">'+profile+'</a><span class="location">'+locationStr+'</span>');
 				sublist.append(profileElem);
 			}
 

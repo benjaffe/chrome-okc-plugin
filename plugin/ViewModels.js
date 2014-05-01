@@ -157,7 +157,7 @@ function OKCP() {
 		$('.largeThumbViewerImage').attr('src',chrome.extension.getURL('images/ajax-loader.gif')).attr('src',largeThumbPath);
 		$('.largeThumbViewer').show();
 		/* // This gets JSON data for a profile, but I can't really use it because OkC throttles those requests
-		$.getJSON('http://www.okcupid.com/profile/'+profileName+'?json=2',function(data){
+		$.getJSON('//www.okcupid.com/profile/'+profileName+'?json=2',function(data){
 			// console.log(data);
 			$('.largeThumbViewerCaption').html(data.username + ' / ' + data.age + ' / ' + data.sex + ' / ' + data.location.split(', ')[0] + ', ' + stateAbbr[data.location.split(', ')[1]] + ' (' + data.distance + data.units + ')');
 		}); */
