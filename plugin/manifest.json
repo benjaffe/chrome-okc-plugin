@@ -21,7 +21,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["http://*.okcupid.com/*"],
+      "matches": ["http://*.okcupid.com/*","https://*.okcupid.com/*"],
       "css": [
 				"lib/ui-lightness/jquery-ui-1.10.3.custom.css"
 				, "style.css"
