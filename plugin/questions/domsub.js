@@ -676,7 +676,21 @@ _OKCP.fileQuestions.domsub =
 				"answerText": [ "Yes" , "No way!" , "I'm not sure, it depends..." ],
    			"score": [1, 0, 0],
 				"weight": [1, 0, 0]
-			}
+			},
+			{
+				"qid":"30",
+				"text":"Would you like to receive pain during sex?",
+				"answerText": ["Yes, lots and lots", "Yes, some", "No"],
+				"score": [1, 0.3, 0],
+				"weight": [1, 1, 0]
+			},
+			{
+				"qid":"28545",
+				"text":"When having sex, do you like to have your hair pulled?",
+				"answerText": ["Yes, and hard!", "Yes, but gently.", "No way.", "Don't know / Not sure."],
+				"score": [1, 0.3, 0, 0],
+				"weight": [1, 1, 0, 0]
+			},
 		]
 	};
 
