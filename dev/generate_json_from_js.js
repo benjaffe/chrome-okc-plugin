@@ -1,3 +1,4 @@
+#!node --harmony
 "use strict";
 
 // node --harmony --use-strict $0
@@ -44,7 +45,4 @@ co( function *() {
 		);
 	}
 } )();
-		
-		//console.log(__file_header());
-		//console.log(__file_footer());
 
