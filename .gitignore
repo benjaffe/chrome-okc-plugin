@@ -6,3 +6,5 @@
 /plugin/lib
 
 /-plugin.sublime-workspace
+
+*.psd
