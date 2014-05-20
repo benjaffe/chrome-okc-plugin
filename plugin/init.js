@@ -19,7 +19,6 @@ $(function(){
 
 	// Profile Pages
 	if (pageProfile) {
-		_OKCP.readdNotes(); // re-add notes on profile pages
 		_OKCP.getAnswers(); // get answers and add categories
 		_OKCP.messageSearch(); // check to see if you've messaged them before
 	}

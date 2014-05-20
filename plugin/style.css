@@ -260,14 +260,6 @@ background-position:0 0, -1px -5px;}
 #online_now {z-index: 10;} /* prevent online_now indicator from getting hidden behind the image */
 .guilt {display:none;}
 
-/* Readd notes feature */
-#okcp #inline_notes {width:300px;}
-.UI-change-btn {display:block;float: left;background: #f7f7f7;height:25px;width:60px;border: 1px solid #ddd;color:#555;text-align:center;padding:0 0px;font-family:verdana,sans-serif;font-weight:bold;font-size:10px;line-height:25px;position:relative;z-index:1000;cursor:pointer;}
-
-
-.UI-change-button:hover {background: #BBB;color:#2855A2;border-color:#999;}
-.UI-change-button:active {background: #999;color:white;box-shadow:inset 1px 1px 2px rgba(0,0,0,0.3);}
-
 
 
 

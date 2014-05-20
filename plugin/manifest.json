@@ -52,7 +52,6 @@
         "questions-init.js",
         "features/suggestQuestion.js",
         "features/readdPagination.js",
-        "features/readdNotes.js",
         "features/thumbViewer.js",
         "features/changeCategories.js",
         "features/increaseAccuracy.js",
