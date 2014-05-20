@@ -275,9 +275,19 @@ html div#loveisblindday div.inner {background-color: rgb(0,15,45);margin-top: 27
 #p_profile #rating span {margin-left: 4px;margin-bottom: 0px;}
 #p_profile #percentages {padding:20px 3px 40px;border-radius: 0 0 4px 4px;}
 #p_profile #upgrade_form {display:none;}
-#p_profile #actions {margin-bottom:-11px;height:220px;padding:10px 10px 0 10px;}
-#p_profile #wrapper #actions.show_options .action_options {padding-top:0;height:145px;}
-body#p_profile .tabbed_heading #actions .action_options .flatbutton {height:33px;line-height:10px;font-size:12px;margin-top:-1px;}
+#okcp #p_profile #actions {margin-bottom:-11px;height:175px;padding:25px 7px 0 10px;}
+#p_profile #wrapper #actions.show_options .action_options {padding-top:0;height:160px;}
+body#p_profile .tabbed_heading #actions .action_options .flatbutton {height:30px;line-height:10px;font-size:12px;}
+
+.UI-change-btn {display:block;float: left;background: #f7f7f7;height:25px;width:60px;border: 1px solid #ddd;color:#555;text-align:center;padding:0 0px;font-family:verdana,sans-serif;font-weight:bold;font-size:10px;line-height:25px;position:relative;z-index:1000;cursor:pointer;}
+
+
+/* make "More Options" more accessible */
+#okcp body#p_profile .tabbed_heading #actions .trigger_action_options_wrapper {display:none;}
+#okcp body#p_profile .tabbed_heading #actions .action_options {height:auto;}
+#okcp body#p_profile .tabbed_heading #actions .action_options {opacity:0;position:relative;top:-5px;-webkit-transform:translateZ(0);-webkit-transition:all 0.2s ease-in-out;}
+#okcp body#p_profile .tabbed_heading #actions:hover .action_options {opacity:1;top:0;}
+
 .page_tabs {position: absolute;bottom: 0px;}
 
 /* Moving the stars */

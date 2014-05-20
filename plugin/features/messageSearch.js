@@ -39,10 +39,10 @@ _OKCP.addMessageLinkUI = function() {
         return false;
     }
 
-    messageLinkUI = $('<a href="#" class="btn-previous-messages">View Previous Messages</a>').hide();
-    $('.trigger_action_options_wrapper')
-        .before(messageLinkUI) //add the new UI element
-        .prevAll('.large_black') //get the message-user button
+    messageLinkUI = $('<button href="#" class="flatbutton white UI-change-btn btn-previous-messages">View Previous Messages</button>').hide();
+    $('.action_options')
+        .prepend(messageLinkUI) //add the new UI element
+        .parent().prevAll('.large_black') //get the message-user button
         .addClass('btn-previous-messages-previous-sibling-needs-a-nudge-up');
 
 
