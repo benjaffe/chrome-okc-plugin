@@ -24,23 +24,23 @@
 .section.navigation { width:184px }
 
 .okcp-features-btn a {
-	color:white !important;
-	text-decoration: underline
+    color:white !important;
+    text-decoration: underline
 }
 .okcp-features-btn:hover > * {display:block;}
 .okcp-feature-list { display:none }
 .okcp-features-btn a {
-	background: url('chrome-extension://__MSG_@@extension_id__/images/icon-128.png') !important;
-	background-size:30px 30px !important;
-	background-repeat:no-repeat !important;
-	background-position: left !important;
-	//background: transparent !important;
-	//background-color:white !important;
+    background: url('chrome-extension://__MSG_@@extension_id__/images/icon-128.png') !important;
+    background-size:30px 30px !important;
+    background-repeat:no-repeat !important;
+    background-position: left !important;
+    background: transparent !important;
+    background-color:white !important;
 }
 
 /* UI - Match Ratios */
-.match-ratios-wrapper-outer {position:absolute;right: 181px;top: 2px;height: 224px;width: 225px;} /* Yes, a table... for complicated layout, vertical aligning to the bottom while scrolling when there are too many */
-#okcp .match-ratios-list {box-shadow: none;margin:0;padding:0;max-height: 210px;overflow-y: scroll;overflow-x:hidden;border-bottom: 1px solid #BBB;border-top: 1px solid #BBB;width: 100%;}
+.match-ratios-wrapper-outer {position:absolute;right: 181px;top: 0px;height: 209px;width: 225px;} /* Yes, a table... for complicated layout, vertical aligning to the bottom while scrolling when there are too many */
+#okcp .match-ratios-list {box-shadow: none;padding:0;max-height: 210px;overflow-y: scroll;overflow-x:hidden;border-bottom: 1px solid #BBB;border-top: 1px solid #BBB;width: 100%;}
 #okcp .match-ratios-list::-webkit-scrollbar {-webkit-appearance: none;width: 7px;}
 #okcp .match-ratios-list::-webkit-scrollbar-thumb {border-radius: 4px;background-color: rgba(0,0,0,.5);box-shadow: 0 0 1px rgba(255,255,255,.5);}
 #okcp .match-ratios {vertical-align: bottom;}
@@ -266,8 +266,7 @@ background-position:0 0, -1px -5px;}
 /* Overrides (My god, some of these selectors are awful. Just for the record, they are copied and pasted from OkC's code. They are NOT mine!!) */
 #wrapper {position:relative;}
 #likeonfacebook {display: none;}
-html div#loveisblindday.expanded {height:80px;}
-html div#loveisblindday div.inner {background-color: rgb(0,15,45);margin-top: 27px;width: 300px;padding-top: 16px;}
+body.tabs_redesign div.tabbed_heading {height:220px;}
 #p_profile div.tabbed_heading div#percentages span.match, #p_profile div.tabbed_heading div#percentages span.friend, #p_profile div.tabbed_heading div#percentages span.enemy {margin-bottom:1px;}
 #p_profile div.tabbed_heading div#basic_info div.aso_loc {max-width:240px;}
 #basic_info #basic_info_sn {text-shadow: 0px 1px 0px #fff, 1px 1px 0px #E1E1E1, -1px 1px 0px #E1E1E1, 1px -1px 0px #E1E1E1, -1px -1px 0px #E1E1E1;}
@@ -275,7 +274,7 @@ html div#loveisblindday div.inner {background-color: rgb(0,15,45);margin-top: 27
 #p_profile #rating span {margin-left: 4px;margin-bottom: 0px;}
 #p_profile #percentages {padding:20px 3px 40px;border-radius: 0 0 4px 4px;}
 #p_profile #upgrade_form {display:none;}
-#okcp #p_profile #actions {margin-bottom:-11px;height:175px;padding:25px 7px 0 10px;}
+#okcp #p_profile #actions {margin-bottom:-11px;height:175px;padding:10px 7px 10px 10px;}
 #p_profile #wrapper #actions.show_options .action_options {padding-top:0;height:160px;}
 body#p_profile .tabbed_heading #actions .action_options .flatbutton {height:30px;line-height:10px;font-size:12px;}
 
@@ -283,12 +282,8 @@ body#p_profile .tabbed_heading #actions .action_options .flatbutton {height:30px
 
 
 /* make "More Options" more accessible */
-#okcp body#p_profile .tabbed_heading #actions .trigger_action_options_wrapper {display:none;}
-#okcp body#p_profile .tabbed_heading #actions .action_options {height:auto;}
-#okcp body#p_profile .tabbed_heading #actions .action_options {opacity:0;position:relative;top:-5px;-webkit-transform:translateZ(0);-webkit-transition:all 0.2s ease-in-out;}
-#okcp body#p_profile .tabbed_heading #actions:hover .action_options {opacity:1;top:0;}
+#okcp body#p_profile .tabbed_heading #actions .action_options {position:relative;top:-5px;-webkit-transform:translateZ(0);-webkit-transition:all 0.2s ease-in-out;}
 
-.page_tabs {position: absolute;bottom: 0px;}
 
 /* Moving the stars */
 #okcp #percentages_and_ratings #rating {position: absolute;top: -19px;left: -50px;border-left:none;}
@@ -314,7 +309,7 @@ body#p_profile .tabbed_heading #actions .action_options .flatbutton {height:30px
 
 
 /* Styling for the (usually hidden) page results at the bottom */
-.page-results-link {color:#96B7FF;font-size:0.9em;}
+/*.page-results-link {color:#96B7FF;font-size:0.9em;}
 #page-results:target {display:block;padding-top:10px;border-top:solid 3px #CCC;margin-top:10px;}
 
 #page-results {display:none;background:white;text-align:center;}
@@ -327,7 +322,7 @@ body#p_profile .tabbed_heading #actions .action_options .flatbutton {height:30px
 
 #page-results .question {padding-bottom:10px;margin-bottom:10px;border-bottom:solid 1px #CCC;}
 #page-results .qtext {font-size: 1.2em;margin-bottom:8px;}
-#page-results .note {display:block;}
+#page-results .note {display:block;}*/
 
 
 /* Scrollbars always available */
@@ -364,10 +359,10 @@ background-image: url(data:image/gif;base64,R0lGODlhIAAgAPMAAP///wAAAMbGxoSEhLa2
      float:right;
 }
 .okcp-pagetab ul.user_links {
-	z-index:5000;
-	display:none;
-	position:absolute;
-	top:-2px;
+    z-index:5000;
+    display:none;
+    position:absolute;
+    top:212px;
      right: 0;
      box-shadow:1px 1px 1px rgba(0,0,0,0.2), -1px 1px 1px rgba(0,0,0,0.2);
 }
@@ -388,10 +383,10 @@ background-image: url(data:image/gif;base64,R0lGODlhIAAgAPMAAP///wAAAMbGxoSEhLa2
 div.tabbed_heading ul.page_tabs .okcp-pagetab-labels li {font-size:14px;font-weight:normal;border-radius:0;}
 div.tabbed_heading ul.page_tabs .okcp-pagetab li:hover {background-color: #DDD;}
 .okcp-pagetab:hover > * {
-	display:block !important;
-	z-index:1;
-	background:#f6f6f6;
-	opacity:1;
+    display:block !important;
+    z-index:1;
+    background:#f6f6f6;
+    opacity:1;
 }
 .okcp-pagetab-labels:hover > * {
      list-style:inline;
