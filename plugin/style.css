@@ -40,7 +40,7 @@
 
 /* UI - Match Ratios */
 .match-ratios-wrapper-outer {position:absolute;right: 181px;top: 0px;height: 209px;width: 225px;} /* Yes, a table... for complicated layout, vertical aligning to the bottom while scrolling when there are too many */
-#okcp .match-ratios-list {box-shadow: none;padding:0;max-height: 210px;overflow-y: scroll;overflow-x:hidden;border-bottom: 1px solid #BBB;border-top: 1px solid #BBB;width: 100%;}
+#okcp .match-ratios-list {box-shadow: none;padding:0;max-height: 180px;overflow-y: scroll;overflow-x:hidden;border-bottom: 1px solid #BBB;border-top: 1px solid #BBB;width: 100%;}
 #okcp .match-ratios-list::-webkit-scrollbar {-webkit-appearance: none;width: 7px;}
 #okcp .match-ratios-list::-webkit-scrollbar-thumb {border-radius: 4px;background-color: rgba(0,0,0,.5);box-shadow: 0 0 1px rgba(255,255,255,.5);}
 #okcp .match-ratios {vertical-align: bottom;}
@@ -309,7 +309,7 @@ body#p_profile .tabbed_heading #actions .action_options .flatbutton {height:30px
 
 
 /* Styling for the (usually hidden) page results at the bottom */
-/*.page-results-link {color:#96B7FF;font-size:0.9em;}
+.page-results-link {color:#96B7FF;font-size:0.9em;}
 #page-results:target {display:block;padding-top:10px;border-top:solid 3px #CCC;margin-top:10px;}
 
 #page-results {display:none;background:white;text-align:center;}
@@ -322,7 +322,7 @@ body#p_profile .tabbed_heading #actions .action_options .flatbutton {height:30px
 
 #page-results .question {padding-bottom:10px;margin-bottom:10px;border-bottom:solid 1px #CCC;}
 #page-results .qtext {font-size: 1.2em;margin-bottom:8px;}
-#page-results .note {display:block;}*/
+#page-results .note {display:block;}
 
 
 /* Scrollbars always available */
@@ -362,7 +362,7 @@ background-image: url(data:image/gif;base64,R0lGODlhIAAgAPMAAP///wAAAMbGxoSEhLa2
     z-index:5000;
     display:none;
     position:absolute;
-    top:212px;
+    top:211px;
      right: 0;
      box-shadow:1px 1px 1px rgba(0,0,0,0.2), -1px 1px 1px rgba(0,0,0,0.2);
 }
