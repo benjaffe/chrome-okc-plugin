@@ -84,37 +84,12 @@ _OKCP.initSuggestQuestionsFeature = function () {
         showSuggestedQuestions();
     });
 
-	function logCurrQuestionData(elem) {
-		//duplicated code, but works for now
-		var question = elem || $('.question:first');
-		var qid = question.attr('id').split('question_')[1];
-		var qtext = $('#qtext_' + qid).text();
-		var answers = [];
-		var obj, category;
-		$('#answer_'+qid+' .their_answer').each(function() {
-			answers.push( $(this).parent().text() );
-		});
+    function logCurrQuestionData(obj) {
+        // log out pretty version
+        var objStr = JSON.stringify(obj, null, '\t');
+        console.log(objStr);
+    }
 
-		scoreWeightPlaceholder = [];
-		for (var i = 0; i < answers.length; i++) {
-			scoreWeightPlaceholder.push(1);
-		}
-
-		obj = {
-			"qid": qid,
-			"text": qtext,
-			"answerText": answers,
-			"score": scoreWeightPlaceholder,
-			"weight": scoreWeightPlaceholder
-		};
-
-		// log out pretty version
-		var objStr = JSON.stringify(obj);
-		objStr = '{\n\t' + objStr.split('{')[1];
-		objStr = objStr.split('}')[0]+'\n}';
-		objStr = objStr.split('"text"').join('\n\t"text"').split('"answerText"').join('\n\t"answerText"').split('"score"').join('\n\t"score"').split('"weight"').join('\n\t"weight"');
-		console.log(objStr);
-	}
 	if (location.href.split('rqid=')[1] !== undefined && _OKCP.devmode) {
 		logCurrQuestionData();
 	}
