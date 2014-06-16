@@ -48,9 +48,10 @@ _OKCP.initSuggestQuestionsFeature = function () {
 		var qtext = $('#qtext_' + qid).text();
 		var answers = [];
 		var obj;
-		$('#answer_'+qid+' .their_answer').each(function() {
-			answers.push( $(this).parent().text() );
-		});
+        // Switched to my_answer because they no longer use their_answer
+        $('#answer_'+qid+' .container.my_answer label').each(function() {
+            answers.push( $(this).text() );
+        });
 
 		var scoreWeightPlaceholder = [];
 		for (var i = 0; i < answers.length; i++) {
@@ -68,7 +69,7 @@ _OKCP.initSuggestQuestionsFeature = function () {
         questionsToSuggest.push(obj);
         persistQuestionsToSuggest(questionsToSuggest);
         showSuggestedQuestions();
-		logCurrQuestionData(question);
+		logCurrQuestionData(obj);
 	});
 
     function showSuggestedQuestions() {
