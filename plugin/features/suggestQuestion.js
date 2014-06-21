@@ -1,5 +1,8 @@
 
 _OKCP.initSuggestQuestionsFeature = function () {
+    if (!_OKCP.suggestMode) {
+        return;
+    }
 	$('<div class="copy-this"><h2>To submit your questions, carefully copy the following text and email it to <a href="mailto: okcp.suggestions@gmail.com" style="color:#DDD;">okcp.suggestions@gmail.com</a>, grouped by category.'
     + ' See <a href="http://github.com/benjaffe/chrome-okc-plugin/wiki/Suggest-Questions" style="color:#DDD;">wiki page</a> for more information.</h2><div class="okcp-clear-questions btn new-feature">Clear Questions</div><div class="copy-this-text"></div></div>').appendTo('body');
 
@@ -39,7 +42,7 @@ _OKCP.initSuggestQuestionsFeature = function () {
             $(this).prepend('<div>Existing categories: ' + existingCategoriesString + '</div>');
         }
 
-        $(this).prepend('<div class="okcp-suggest-question btn new-feature">Suggest Question</div>');
+        $(this).prepend('<div class="okcp-suggest-question btn">Suggest Question</div>');
 
     });
 
@@ -75,7 +78,9 @@ _OKCP.initSuggestQuestionsFeature = function () {
         questionsToSuggest.push(obj);
         persistQuestionsToSuggest(questionsToSuggest);
         showSuggestedQuestions();
-		logCurrQuestionData(obj);
+		if (_OKCP.devmode) {
+            logCurrQuestionData(obj);
+        }
 	});
 
     function showSuggestedQuestions() {

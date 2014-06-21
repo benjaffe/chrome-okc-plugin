@@ -2,6 +2,8 @@
 if (localStorage.getItem("okcpDevMode") == "true")
     _OKCP.devmode = true;
 
+if (localStorage.getItem("okcpSuggestMode") == "true")
+    _OKCP.suggestMode = true;
 
 
 
