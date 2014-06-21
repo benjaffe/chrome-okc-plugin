@@ -1,44 +1,58 @@
+function persistQuestionsToSuggest(questionsToSuggest) {
+    localStorage.setItem("questionsToSuggest", JSON.stringify(questionsToSuggest));
+}
 _OKCP.initSuggestQuestionsFeature = function () {
-	var prevCat = '';
-	var fullQuestionsList = _OKCP.fullQuestionsList;
-	var firstClick = true;
-	_OKCP.questionsToSuggest = {};
+	$('<div class="copy-this"><h2>To submit your questions, carefully copy the following text and email it to <a href="mailto: okcp.suggestions@gmail.com" style="color:#DDD;">okcp.suggestions@gmail.com</a>, grouped by category.'
+    + ' See <a href="http://github.com/benjaffe/chrome-okc-plugin/wiki/Suggest-Questions" style="color:#DDD;">wiki page</a> for more information.</h2><div class="okcp-clear-questions btn new-feature">Clear Questions</div><div class="copy-this-text"></div></div>').appendTo('body');
 
-	$('<div class="copy-this" style="display:none;"><h2>To submit your questions, carefully copy the following text and email it to <a href="mailto: okcp.suggestions@gmail.com" style="color:#DDD;"> okcp.suggestions@gmail.com</a></h2><div class="copy-this-text"></div></div>').appendTo('body');
+    var questionsToSuggest = localStorage.getItem("questionsToSuggest");
+    if(null == questionsToSuggest) {
+        questionsToSuggest = [];
+    } else {
+        questionsToSuggest = JSON.parse (questionsToSuggest);
+    }
+    showSuggestedQuestions();
 
-	$('.question').filter(function(){
-			var qid = this.id.split('question_')[1];
-			for (var i = 0, len = fullQuestionsList.length; i < len; i++) {
-				if (fullQuestionsList[i].qid == qid) return false;
-			}
-			return true;
-		}).prepend('<div class="okcp-suggest-question btn new-feature">Suggest Question</div>');
+    $('.question').each(function () {
+        var existingCategories = new Object(null); // empty set
+        var qid = this.id.split('question_')[1];
+
+        // find all categories for this question (if any). TODO - create cached qid/category mapping
+        for(var fileCategory in _OKCP.fileQuestions) {
+            _OKCP.fileQuestions[fileCategory].forEach(function(fileQuestion) {
+                if(fileQuestion.qid == qid) {
+                    existingCategories[fileCategory] = true;
+                }
+            })
+        }
+
+        if (Object.keys(existingCategories).length > 0) {
+            var existingCategoriesString = "";
+            for (var category in existingCategories) {
+                if(existingCategoriesString.length > 0) {
+                    existingCategoriesString = existingCategoriesString + ",";
+                }
+                existingCategoriesString = existingCategoriesString + category;
+            }
+            $(this).prepend('<div>Existing categories: ' + existingCategoriesString + '</div>');
+        }
+
+        $(this).prepend('<div class="okcp-suggest-question btn new-feature">Suggest Question</div>');
+
+    });
+
 
 	$('.okcp-suggest-question').click(function() {
 		var question = $(this).parent();
 		var qid = question.attr('id').split('question_')[1];
 		var qtext = $('#qtext_' + qid).text();
 		var answers = [];
-		var obj, category;
-		if (firstClick) {
-			firstClick = false;
-			alert('OkC Plugin:\nThis feature allows you to suggest questions for the developer to include in the plugin!');
-		}
+		var obj;
 		$('#answer_'+qid+' .their_answer').each(function() {
 			answers.push( $(this).parent().text() );
 		});
-		category = prompt("What category does this question fall under?",prevCat);
-		if (category === '') {
-			alert('Category name cannot be empty');
-			return false;
-		} else if (category === undefined) {
-			return false;
-		}
-		category = category.toLowerCase();
-		prevCat = category;
-		category = category.split(' ').join('_');
 
-		scoreWeightPlaceholder = [];
+		var scoreWeightPlaceholder = [];
 		for (var i = 0; i < answers.length; i++) {
 			scoreWeightPlaceholder.push(1);
 		}
@@ -51,15 +65,24 @@ _OKCP.initSuggestQuestionsFeature = function () {
 			"weight": scoreWeightPlaceholder
 		};
 
-		_OKCP.questionsToSuggest[category] = _OKCP.questionsToSuggest[category] || [];
-		_OKCP.questionsToSuggest[category].push(obj);
-
-		$('.copy-this').show();
-		$('.copy-this-text').text(JSON.stringify(_OKCP.questionsToSuggest));
-		alert('Your question(s) have NOT been suggested YET. When you are ready to sumbit, scroll to the very bottom of the page and follow the instructions.');
-		$(this).remove();
+        questionsToSuggest.push(obj);
+        persistQuestionsToSuggest(questionsToSuggest);
+        showSuggestedQuestions();
 		logCurrQuestionData(question);
 	});
+
+    function showSuggestedQuestions() {
+        $('.copy-this-text').text('');
+        questionsToSuggest.forEach(function(suggestedQuestion) {
+            $('.copy-this-text').append('<div>' + JSON.stringify(suggestedQuestion) + '</div>');
+        });
+    }
+
+    $('.okcp-clear-questions').click(function() {
+        questionsToSuggest = [];
+        persistQuestionsToSuggest(questionsToSuggest);
+        showSuggestedQuestions();
+    });
 
 	function logCurrQuestionData(elem) {
 		//duplicated code, but works for now
