@@ -68,6 +68,10 @@ _OKCP.initSuggestQuestionsFeature = function () {
 			"weight": scoreWeightPlaceholder
 		};
 
+        // filter duplicates (question will be placed at end)
+        questionsToSuggest = questionsToSuggest.filter(function(question) {
+           return question.qid != obj.qid;
+        });
         questionsToSuggest.push(obj);
         persistQuestionsToSuggest(questionsToSuggest);
         showSuggestedQuestions();
