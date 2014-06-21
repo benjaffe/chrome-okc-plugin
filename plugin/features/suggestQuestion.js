@@ -1,16 +1,18 @@
-function persistQuestionsToSuggest(questionsToSuggest) {
-    localStorage.setItem("questionsToSuggest", JSON.stringify(questionsToSuggest));
-}
+
 _OKCP.initSuggestQuestionsFeature = function () {
 	$('<div class="copy-this"><h2>To submit your questions, carefully copy the following text and email it to <a href="mailto: okcp.suggestions@gmail.com" style="color:#DDD;">okcp.suggestions@gmail.com</a>, grouped by category.'
     + ' See <a href="http://github.com/benjaffe/chrome-okc-plugin/wiki/Suggest-Questions" style="color:#DDD;">wiki page</a> for more information.</h2><div class="okcp-clear-questions btn new-feature">Clear Questions</div><div class="copy-this-text"></div></div>').appendTo('body');
 
-    var questionsToSuggest = localStorage.getItem("questionsToSuggest");
-    if(null == questionsToSuggest) {
-        questionsToSuggest = [];
-    } else {
-        questionsToSuggest = JSON.parse (questionsToSuggest);
+
+    const STORAGEKEY_QuestionsToSuggest = "QuestionsToSuggest";
+    function getQuestionsToSuggest() {
+        return _OKCP.storage(STORAGEKEY_QuestionsToSuggest) || [];
     }
+    function persistQuestionsToSuggest(questionsToSuggest) {
+        _OKCP.storage(STORAGEKEY_QuestionsToSuggest, questionsToSuggest);
+    }
+
+    var questionsToSuggest = getQuestionsToSuggest();
     showSuggestedQuestions();
 
     $('.question').each(function () {
