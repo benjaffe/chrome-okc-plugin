@@ -278,6 +278,8 @@ body.tabs_redesign div.tabbed_heading {height:220px;}
 #p_profile #wrapper #actions.show_options .action_options {padding-top:0;height:160px;}
 body#p_profile .tabbed_heading #actions .action_options .flatbutton {height:30px;line-height:10px;font-size:12px;}
 
+#basic_info {z-index:1}
+
 .UI-change-btn {display:block;float: left;background: #f7f7f7;height:25px;width:60px;border: 1px solid #ddd;color:#555;text-align:center;padding:0 0px;font-family:verdana,sans-serif;font-weight:bold;font-size:10px;line-height:25px;position:relative;z-index:1000;cursor:pointer;}
 
 
