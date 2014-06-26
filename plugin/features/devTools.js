@@ -1,6 +1,10 @@
-// dev mode toggle
-if (!!localStorage.devMode && JSON.parse(localStorage.devMode) === true)
-	_OKCP.devmode = true;
+// Using localStorage because _OKCP is not visible from console
+if (localStorage.getItem("okcpDevMode") == "true")
+    _OKCP.devmode = true;
+
+if (localStorage.getItem("okcpSuggestMode") == "true")
+    _OKCP.suggestMode = true;
+
 
 
 if (_OKCP.debugTimerEnabled) {_OKCP.debugTimer = new Date();}
