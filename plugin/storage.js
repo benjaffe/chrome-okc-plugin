@@ -66,10 +66,11 @@ _OKCP.storage.profiles = {
 	 * Updates an object in profile storage.
 	 * @param profile The profile to update
 	 * @param data The attributes & values to update in the store.
-	 * @return A promise when the operation complete.
+	 * @return A promise when the operation completes.
 	 */
 	set: function(profile, data) {
 		return new Promise(function(resolve, reject) {
+			// OkCupid localStorage method
 			var storage = JSON.parse(localStorage.okcp);
 			var profile = storage.profileList[profile];
 			if (profile == undefined) {
@@ -82,4 +83,58 @@ _OKCP.storage.profiles = {
 			resolve();
 		});
 	}
-}
+};
+
+/// Synced setting storage (also used for internal global state)
+_OKCP.storage.settings = {
+	/**
+	 * Gets values from setting storage.
+	 * @param fields An array of settings to retrieve.
+	 * @return A promise.
+	 *
+	 * The returned promise will yield an object, whose attributes match those 
+	 * requested. If a requested value is not in storage, it will be missing.
+	 */
+	get: function(fields) {
+		if (typeof fields == "string") {
+			// fields was not an array
+			console.warn("fields was a single string, not an array");
+			fields = [fields];
+		}
+		return new Promise(function(resolve, reject) {
+			// OkCupid localStorage method
+			// Some values are stored in the top level, while others are stored in a settings object
+			var stored = JSON.parse(localStorage.okcp);
+			var data = {};
+			fields.forEach(function(f) {
+				if (stored[f] != undefined) {
+					data[f] = stored[f];
+				} else if (stored.settings[f] != undefined) {
+					data[f] = stored.settings[f];
+				}
+			});
+			resolve(data);
+		});
+	},
+	/**
+	 * Updates values in setting storage.
+	 * @param data The attributes & values to update in the store.
+	 * @return A promise when the operation completes.
+	 */
+	set: function(profile, data) {
+		return new Promise(function(resolve, reject) {
+			// OkCupid localStorage method
+			var storage = JSON.parse(localStorage.okcp);
+			for (var f in data) {
+				// XXX: Should we have an explicit of what goes where?
+				if (stored[f] != undefined) {
+					stored[f] = data[f];
+				} else {
+					stored.settings[f] = data[f];
+				}
+			}
+			localStorage.okcp = JSON.stringify(storage);
+			resolve();
+		});
+	}
+};
