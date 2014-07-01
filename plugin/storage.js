@@ -82,6 +82,29 @@ _OKCP.storage.profiles = {
 			localStorage.okcp = JSON.stringify(storage);
 			resolve();
 		});
+	},
+	_change_handlers: [],
+	/**
+	 * Register an event handler for when a profile is updated.
+	 * @param handler The function to call.
+	 * 
+	 * The callback should be in the form of:
+	 * function(profile, changed):
+	 *  * profile: the profile that changed
+	 *  * changed: An object mapping field names to {old: ..., new: ...} objects
+	 * 
+	 * No guarentees are made about collation or frequency of changed events.
+	 */
+	changed: function(handler) {
+		this._change_handlers.push(handler);
+	},
+	_on_localstorage_event: function(e) {
+		/* TODO:
+		1. Unspool old and new values
+		2. Iterate through the profiles in new:
+		   1. check each value against old, making changed object
+		   2. Call all the handlers with the profile and changed value
+		*/
 	}
 };
 
@@ -136,5 +159,30 @@ _OKCP.storage.settings = {
 			localStorage.okcp = JSON.stringify(storage);
 			resolve();
 		});
+	},
+	_change_handlers: [],
+	/**
+	 * Register an event handler for when a profile is updated.
+	 * @param handler The function to call.
+	 * 
+	 * The callback should be in the form of:
+	 * function(changed):
+	 *  * changed: An object mapping field names to {old: ..., new: ...} objects
+	 * 
+	 * No guarentees are made about collation or frequency of changed events.
+	 */
+	changed: function(handler) {
+		this._change_handlers.push(handler);
+	},
+	_on_localstorage_event: function(e) {
+		/* TODO:
+		1. Unspool old and new values
+		2. Iterate through global values:
+		   1. Check that it's not settings or profileList
+		   2. check each value against old, making changed object
+		3. Iterate through settings values:
+		   1. check each value against old, making changed object
+		4. Call each handler with changed object
+		*/
 	}
 };
