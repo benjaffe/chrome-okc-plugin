@@ -29,7 +29,7 @@ _OKCP.storage.init = function() {
 
 /*
 Cache, Local, and Synced
-Cache: The profile/question DB (IndexDB?)
+Cache: Profile/questions, messages
 Local: None
 Sync: global settings and per-profile settings
 */
