@@ -20,15 +20,17 @@ _OKCP.sortByEnemy = function() {
 // This is run in a loop because as the user scrolls, more items will appear.
 setInterval(function() {
 	var doSortByEnemy = false;
-	// Match Search Page
-	_OKCP.matchresultsThumbs = $('#match_results .match_row');
-	_OKCP.matchresultsThumbs.each(function() {
-		//if it doesn't have a binding applied, apply one
-		if ($(this).attr('data-bind') === undefined) {
-			this.thumbName = $(this).find('.username').text();
-			applyBindingsToProfileThumb($(this),'#'+this.id);
-			doSortByEnemy = !!JSON.parse(localStorage.okcp).settings.sortByEnemy; // doSortByEnemy = true if the setting is enabled
-		}
+	_OKCP.storage.settings.get(['sortByEnemy']).then(function(data) {
+		var doSortByEnemy = !!data.sortByEnemy;
+		// Match Search Page
+		_OKCP.matchresultsThumbs = $('#match_results .match_row');
+		_OKCP.matchresultsThumbs.each(function() {
+			//if it doesn't have a binding applied, apply one
+			if ($(this).attr('data-bind') === undefined) {
+				this.thumbName = $(this).find('.username').text();
+				applyBindingsToProfileThumb($(this),'#'+this.id);
+			}
+		});
+		if (doSortByEnemy) _OKCP.sortByEnemy();
 	});
-	if (doSortByEnemy) _OKCP.sortByEnemy();
 },1000);
