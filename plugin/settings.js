@@ -1,6 +1,5 @@
 _OKCP.settings = function(setting, value) {
-	console.warn("Use of old _OKCP.settings()");
-	console.trace();
+	console.trace("Use of old _OKCP.settings()");
 	var settingsObj = JSON.parse(localStorage.okcpSettings);
 
 	if (value) {
