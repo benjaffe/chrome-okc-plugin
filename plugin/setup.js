@@ -35,6 +35,7 @@ if (_OKCP.profilePath === '') {
 }
 
 // check to see if any database upgrades or localStorage cleanups are necessary
+// FIXME: Move this to storage.init()
 (function () {
 	// create a settings object if there isn't one
 	if (!localStorage.okcpSettings) {
@@ -51,7 +52,7 @@ if (_OKCP.profilePath === '') {
 	}
 
 	var storage = JSON.parse(localStorage.okcp);
-	storage.dataCleanupJobNumToReach = '2.3.0';
+	_OKCP.storage.setting.set('dataCleanupJobNumToReach', '2.3.0');
 
 	if (storage.dataCleanupJobNum === storage.dataCleanupJobNumToReach) {
 		return false;

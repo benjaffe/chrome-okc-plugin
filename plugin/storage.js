@@ -1,5 +1,7 @@
 /// This is only temporary, for historical reasons.
 _OKCP.storage = function(key, value) {
+	console.warn("Use of old _OKCP.storage()")
+	console.trace();
     if (arguments.length === 0) {
         return JSON.parse(localStorage.okcp);
     } else if (arguments.length === 1) {
