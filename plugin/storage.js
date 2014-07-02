@@ -16,7 +16,13 @@ _OKCP.storage = function(key, value) {
  * Will initialize storage, perform migrations, etc.
  */
 _OKCP.storage.init = function() {
-
+	if (!localStorage.okcp) {
+		localStorage.okcp = JSON.stringify({
+			"dataModelVersion": "1.1.40",
+			"profileList": {},
+			"settings": {}
+		});
+	}
 };
 
 /*
@@ -99,20 +105,19 @@ _OKCP.storage.profiles = {
 		this._change_handlers.push(handler);
 	},
 	_on_localstorage_event: function(e) {
-		/* TODO:
-		1. Unspool old and new values
-		2. Iterate through the profiles in new:
-		   1. check each value against old, making changed object
-		   2. Call all the handlers with the profile and changed value
-		*/
 		if (e.key != 'okcp')
 			return;
+		// 1. Unspool 
 		var odata, ndata;
 		if (e.oldValue) {
 			odata = JSON.parse(e.oldValue);
+		} else {
+			odata = {profileList: {}}; // Dummy empty data
 		}
 		ndata = JSON.parse(e.newValue);
+		// 2. Iterate the profiles in newValue
 		for (var profile in ndata.profileList) {
+			// 3. Check each value, generating the changed object
 			var changed = {};
 			if (odata.profileList[profile]) {
 				// Compare profile data to produce change data
@@ -121,23 +126,25 @@ _OKCP.storage.profiles = {
 				// FIXME: Is there a way to condense these loops?
 				for (var prop in nprof) {
 					if (nprof[prop] != oprof[prop]) {
-						changed[prop] = {newValue: nprof[prop], oldValue: nprof[prop]};
+						changed[prop] = {newValue: nprof[prop], oldValue: oprof[prop]};
 					}
 				}
 				// Iterate over the old one to grab deleted values
 				for (var prop in oprof) {
 					if (nprof[prop] != oprof[prop]) {
-						changed[prop] = {newValue: nprof[prop], oldValue: nprof[prop]};
+						changed[prop] = {newValue: nprof[prop], oldValue: oprof[prop]};
 					}
 				}
 			} else {
 				changed = ndata.profileList[profile];
 			}
 
-			// Call all the event handlers
-			for (var i in _OKCP.storage.profiles._change_handlers) {
-				// Use setTimeout() to decouple those event handlers from the current handler.
-				window.setTimeout(_OKCP.storage.profiles._change_handlers[i], 0, profile, changed);
+			// 4. Call all the event handlers
+			if (changed) {
+				for (var i in _OKCP.storage.profiles._change_handlers) {
+					// Use setTimeout() to decouple those event handlers from the current handler.
+					window.setTimeout(_OKCP.storage.profiles._change_handlers[i], 0, profile, changed);
+				}
 			}
 		}
 	}
@@ -220,6 +227,56 @@ _OKCP.storage.settings = {
 		   1. check each value against old, making changed object
 		4. Call each handler with changed object
 		*/
+		if (e.key != 'okcp')
+			return;
+		// 1. Unspool 
+		var odata, ndata;
+		if (e.oldValue) {
+			odata = JSON.parse(e.oldValue);
+		} else {
+			odata = {settings: {}}; // Dummy empty data
+		}
+		ndata = JSON.parse(e.newValue);
+		var changed = {};
+		// FIXME: This makes the assumption that values don't move between global and settings.
+		// 2. Iterate through global values
+		for (var val in ndata) {
+			if (val == 'dataModelVersion' ||
+				val == 'profileList' ||
+				val == 'settings')
+				break;
+			if (ndata[val] != odata[val]) {
+				changed[val] = {newValue: ndata[val], oldValue: odata[val]};
+			}
+		}
+		for (var val in odata) { // Catch deleted values
+			if (val == 'dataModelVersion' ||
+				val == 'profileList' ||
+				val == 'settings')
+				break;
+			if (ndata[val] != odata[val]) {
+				changed[val] = {newValue: ndata[val], oldValue: odata[val]};
+			}
+		}
+		// 3. Iterate through settings values
+		var oset = odata.settings, nset = ndata.settings;
+		for (var val in nset) {
+			if (nset[val] != oset[val]) {
+				changed[val] = {newValue: nset[val], oldValue: oset[val]};
+			}
+		}
+		for (var val in oset) { // Catch deleted values
+			if (nset[val] != oset[val]) {
+				changed[val] = {newValue: nset[val], oldValue: oset[val]};
+			}
+		}
+		// 4. Call all the event handlers
+		if (changed) {
+			for (var i in _OKCP.storage.profiles._change_handlers) {
+				// Use setTimeout() to decouple those event handlers from the current handler.
+				window.setTimeout(_OKCP.storage.profiles._change_handlers[i], 0, changed);
+			}
+		}
 	}
 };
 window.addEventListener("storage", _OKCP.storage.settings._on_localstorage_event, false);
