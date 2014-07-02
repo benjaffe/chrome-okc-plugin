@@ -91,6 +91,25 @@ _OKCP.storage.profiles = {
 			resolve();
 		});
 	},
+	/**
+	 * Allows processing over the entire profile database.
+	 * @param body Callback of the form function(profile, data){}
+	 * @return A promise that will resolve after the loop completes.
+	 *
+	 * Remember that all operations may be asyncronous, so the body may be 
+	 * called later. However, the body will not be called again after the promise
+	 * resolves.
+	 */
+	each: function (body) {
+		return new Promise(function(resolve, reject) {
+			// OkCupid localStorage method
+			var storage = JSON.parse(localStorage.okcp);
+			for (var profile in storage.profileList) {
+				body(profile, storage.profileList[profile]);
+			}
+			resolve();
+		});
+	},
 	_change_handlers: [],
 	/**
 	 * Register an event handler for when a profile is updated.
