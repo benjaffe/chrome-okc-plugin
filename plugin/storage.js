@@ -12,7 +12,7 @@ _OKCP.storage = function(key, value) {
 };
 
 /**
- * Call once when the plugin is loaded.
+ * Call once, when the plugin is loaded.
  * Will initialize storage, perform migrations, etc.
  */
 _OKCP.storage.init = function() {
@@ -91,7 +91,7 @@ _OKCP.storage.profiles = {
 	 * The callback should be in the form of:
 	 * function(profile, changed):
 	 *  * profile: the profile that changed
-	 *  * changed: An object mapping field names to {old: ..., new: ...} objects
+	 *  * changed: An object mapping field names to {oldValue: ..., newValue: ...} objects
 	 * 
 	 * No guarentees are made about collation or frequency of changed events.
 	 */
@@ -105,8 +105,44 @@ _OKCP.storage.profiles = {
 		   1. check each value against old, making changed object
 		   2. Call all the handlers with the profile and changed value
 		*/
+		if (e.key != 'okcp')
+			return;
+		var odata, ndata;
+		if (e.oldValue) {
+			odata = JSON.parse(e.oldValue);
+		}
+		ndata = JSON.parse(e.newValue);
+		for (var profile in ndata.profileList) {
+			var changed = {};
+			if (odata.profileList[profile]) {
+				// Compare profile data to produce change data
+				var oprof = odata.profileList[profile];
+				var nprof = ndata.profileList[profile];
+				// FIXME: Is there a way to condense these loops?
+				for (var prop in nprof) {
+					if (nprof[prop] != oprof[prop]) {
+						changed[prop] = {newValue: nprof[prop], oldValue: nprof[prop]};
+					}
+				}
+				// Iterate over the old one to grab deleted values
+				for (var prop in oprof) {
+					if (nprof[prop] != oprof[prop]) {
+						changed[prop] = {newValue: nprof[prop], oldValue: nprof[prop]};
+					}
+				}
+			} else {
+				changed = ndata.profileList[profile];
+			}
+
+			// Call all the event handlers
+			for (var i in _OKCP.storage.profiles._change_handlers) {
+				// Use setTimeout() to decouple those event handlers from the current handler.
+				window.setTimeout(_OKCP.storage.profiles._change_handlers[i], 0, profile, changed);
+			}
+		}
 	}
 };
+window.addEventListener("storage", _OKCP.storage.profiles._on_localstorage_event, false);
 
 /// Synced setting storage (also used for internal global state)
 _OKCP.storage.settings = {
@@ -167,7 +203,7 @@ _OKCP.storage.settings = {
 	 * 
 	 * The callback should be in the form of:
 	 * function(changed):
-	 *  * changed: An object mapping field names to {old: ..., new: ...} objects
+	 *  * changed: An object mapping field names to {oldValue: ..., newValue: ...} objects
 	 * 
 	 * No guarentees are made about collation or frequency of changed events.
 	 */
@@ -186,3 +222,4 @@ _OKCP.storage.settings = {
 		*/
 	}
 };
+window.addEventListener("storage", _OKCP.storage.settings._on_localstorage_event, false);
