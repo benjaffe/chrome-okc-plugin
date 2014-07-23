@@ -305,7 +305,7 @@ _OKCP.getAnswers = function (list) {
 		if ($('.question-detail > ul').length === 0) {
 			$('.question-detail').append('<ul><li class="match match-nomatches"><ul>'+
 				'<li class="noresults">' + 'No Results' + '</li>'+
-				'<li class="note">' + 'To improve the plugin\'s accuracy, answer more questions publicly and rank them as "Very Important" or "Mandatory". You can also click the "Improve Accuracy" link at the top of this panel to help out.' + '</li>'+
+				'<li class="note">' + 'To improve the plugin\'s accuracy, answer more questions publicly and rank them as "Very Important". You can also click the "Improve Accuracy" link at the top of this panel to help out.' + '</li>'+
 				'</ul></li></ul>');
 			return false;
 		}
