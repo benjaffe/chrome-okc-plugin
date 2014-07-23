@@ -538,12 +538,12 @@ _OKCP.fileQuestions.sex =
 				"text": "Would you ever sleep with a porn star?",
 				"answerText": ["Yes","No"],
 				"score": [1, -1],
-				"weight": [1, 1]
+				"weight": [0.8, 1]
 			}, {
 				"qid": "13",
 				"text": "Is a girl who's slept with 100 guys a bad person?",
 				"answerText": ["Yes","No"],
-				"score": [1, -1],
+				"score": [-1, 1],
 				"weight": [1, 1]
 			}, {
 				"qid": "48659",
