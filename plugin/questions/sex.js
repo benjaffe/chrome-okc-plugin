@@ -146,6 +146,30 @@ _OKCP.fileQuestions.sex =
 			}
 		],
 
+		"asexual_friendly": [
+			{
+				"qid": "60852",
+				"text":" Do you believe that regular sex is necessary in maintaining a healthy relationship? ",
+				"answerText":["Yes","No"],
+				"score":[-1,1],
+				"weight":[1,1]
+			},
+			{
+				"qid": "18682",
+				"text":" Do you think physical love is necessary for happiness in life?\n ",
+				"answerText":["Yes","No"],
+				"score":[-1,1],
+				"weight":[1,1]
+			},
+			{
+				"qid": "80929",
+				"text":" Would you consider dating someone who has no interest in sex and experiences no sexual attraction to either gender if they were otherwise perfect? ",
+				"answerText":["Yes.","No."],
+				"score":[1,-1],
+				"weight":[1,1]
+			}
+		],
+
 		"fetish": [
 			{
 				"qid":"64476",
@@ -766,15 +790,47 @@ _OKCP.fileQuestions.sex =
 				"qid": "63114",
 				"text": "How do you think your sex drive compares to what is typical for other people of your age and gender?",
 				"answerText": ["My sex drive is higher than average.", "My sex drive is about average.", "My sex drive is below average.", "I'm insatiable."],
-				"score": [0, 0, 0, 0],
-				"weight": [0, 0, 0, 0]
+				"score": [1, 0, -1, 1],
+				"weight": [1, 1, 1, 1]
 			},
 			{
 				"qid": "12605",
 				"text": "Once you're intimate, how often would you and your significant other have sex?",
 				"answerText": ["Every day", "About every other day", "Once or twice a week", "A few times a month or less"],
-				"score": [0, 0, 0, 0],
-				"weight": [0, 0, 0, 0]
+				"score": [1, 0.5, -0.5, -1],
+				"weight": [1, 1, 1, 1]
+			},
+			{
+				"qid":"86417",
+				"text":" How long can you go without sexual release? ",
+				"answerText":["A day or less.","More than a day, less than a week.","More than a week.","I have never had sexual release."],
+				"score":[1,0.5,-1,-1],
+				"weight":[1,1,1,1]
+			}
+		],
+
+
+		"low_sex_drive": [
+			{
+				"qid": "63114",
+				"text": "How do you think your sex drive compares to what is typical for other people of your age and gender?",
+				"answerText": ["My sex drive is higher than average.", "My sex drive is about average.", "My sex drive is below average.", "I'm insatiable."],
+				"score": [-1, -0.5, 1, -1],
+				"weight": [1, 1, 1, 1]
+			},
+			{
+				"qid": "12605",
+				"text": "Once you're intimate, how often would you and your significant other have sex?",
+				"answerText": ["Every day", "About every other day", "Once or twice a week", "A few times a month or less"],
+				"score": [-1, -0.5, 0.5, 1],
+				"weight": [1, 1, 1, 1]
+			},
+			{
+				"qid":"86417",
+				"text":" How long can you go without sexual release? ",
+				"answerText":["A day or less.","More than a day, less than a week.","More than a week.","I have never had sexual release."],
+				"score":[-1,-0.5,1,1],
+				"weight":[1,1,1,1]
 			}
 		],
 
