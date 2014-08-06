@@ -236,6 +236,7 @@ background-position:0 0, -1px -5px;}
 
 
 .not_answered .okcp-suggest-question {display:none;}
+#new_question .okcp-suggest-question {display:block;}
 .copy-this {width:800px;margin:20px auto 50px;background:rgba(255,255,255,0.2);padding:20px;}
 .copy-this h2 {color:white;font-size:15px;text-align: center;font-weight: normal;text-shadow:1px 1px 3px rgba(0,0,0,0.5);}
 .copy-this-text {white-space: pre-wrap;padding:20px;background:#DDD;color: black;}
