@@ -281,7 +281,7 @@ body#p_profile .tabbed_heading #actions .action_options .flatbutton {height:30px
 
 #basic_info {z-index:1}
 
-.UI-change-btn {display:block;float: left;background: #f7f7f7;height:25px;width:60px;border: 1px solid #ddd;color:#555;text-align:center;padding:0 0px;font-family:verdana,sans-serif;font-weight:bold;font-size:10px;line-height:25px;position:relative;z-index:1000;cursor:pointer;}
+.UI-change-btn {display:block;float: left;background: #f7f7f7;height:25px;width:60px;border: 1px solid #ddd;color:#555;text-align:center;padding:0 0px;font-family:verdana,sans-serif;font-weight:bold;font-size:10px;position:relative;z-index:1000;cursor:pointer;line-height: 27px!important;}
 
 
 /* make "More Options" more accessible */
@@ -365,7 +365,7 @@ background-image: url(data:image/gif;base64,R0lGODlhIAAgAPMAAP///wAAAMbGxoSEhLa2
     z-index:5000;
     display:none;
     position:absolute;
-    top:211px;
+    top:30px;
      right: 0;
      box-shadow:1px 1px 1px rgba(0,0,0,0.2), -1px 1px 1px rgba(0,0,0,0.2);
 }

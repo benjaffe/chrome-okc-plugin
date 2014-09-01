@@ -39,7 +39,7 @@ _OKCP.addMessageLinkUI = function() {
         return false;
     }
 
-    messageLinkUI = $('<button href="#" class="flatbutton white UI-change-btn btn-previous-messages">View Previous Messages</button>').hide();
+    messageLinkUI = $('<a href="#" class="flatbutton white UI-change-btn btn-previous-messages">View Previous Messages</a>').hide();
     $('.action_options')
         .prepend(messageLinkUI) //add the new UI element
         .parent().prevAll('.large_black') //get the message-user button
