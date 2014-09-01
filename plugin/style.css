@@ -365,7 +365,7 @@ background-image: url(data:image/gif;base64,R0lGODlhIAAgAPMAAP///wAAAMbGxoSEhLa2
     z-index:5000;
     display:none;
     position:absolute;
-    top:211px;
+    top:30px;
      right: 0;
      box-shadow:1px 1px 1px rgba(0,0,0,0.2), -1px 1px 1px rgba(0,0,0,0.2);
 }
