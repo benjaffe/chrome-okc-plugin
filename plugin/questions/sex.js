@@ -146,6 +146,30 @@ _OKCP.fileQuestions.sex =
 			}
 		],
 
+		"asexual_friendly": [
+			{
+				"qid": "60852",
+				"text":" Do you believe that regular sex is necessary in maintaining a healthy relationship? ",
+				"answerText":["Yes","No"],
+				"score":[-1,1],
+				"weight":[1,1]
+			},
+			{
+				"qid": "18682",
+				"text":" Do you think physical love is necessary for happiness in life?\n ",
+				"answerText":["Yes","No"],
+				"score":[-1,1],
+				"weight":[1,1]
+			},
+			{
+				"qid": "80929",
+				"text":" Would you consider dating someone who has no interest in sex and experiences no sexual attraction to either gender if they were otherwise perfect? ",
+				"answerText":["Yes.","No."],
+				"score":[1,-1],
+				"weight":[1,1]
+			}
+		],
+
 		"fetish": [
 			{
 				"qid":"64476",
@@ -514,6 +538,52 @@ _OKCP.fileQuestions.sex =
 			}
 		],
 
+		"sex_worker_positive": [
+			{
+				"qid": "38508",
+				"text": "Imagine that after becoming romantically involved with someone, they reveal that they formerly earned a living as a prostitute. How would you react to this new information?",
+				"answerText": ["Positively.", "Negatively.", "Indifferently."],
+				"score": [1, -1, 1],
+				"weight": [1, 1, 1]
+			}, {
+				"qid": "18048",
+				"text": "Could you date someone who is/was any sort of sex worker?",
+				"answerText": ["Sure. At least they know what they're doing.","No way!","Depends... what kind of sex worker?","The very notion of this question offends me."],
+				"score": [1, -1, -0.5, 1],
+				"weight": [1, 1, 1, 0.5]
+			}, {
+				"qid": "218",
+				"text": "Should prostitution be legal?",
+				"answerText": ["Yes, absolutely","Yes, only if it were regulated","I don't think so","ABSOLUTELY NOT" ],
+				"score": [1, 0.2, -1, -1],
+				"weight": [1, 0.8, 1, 1]
+			}, {
+				"qid": "333",
+				"text": "Would you ever sleep with a porn star?",
+				"answerText": ["Yes","No"],
+				"score": [1, -1],
+				"weight": [0.8, 1]
+			}, {
+				"qid": "13",
+				"text": "Is a girl who's slept with 100 guys a bad person?",
+				"answerText": ["Yes","No"],
+				"score": [-1, 1],
+				"weight": [1, 1]
+			}, {
+				"qid": "48659",
+				"text": "Would you consider having a serious relationship with an active porn star?",
+				"answerText": ["Yes.","No."],
+				"score": [1, -1],
+				"weight": [1, 1]
+			}, {
+				"qid": "61465",
+				"text": "If you had an eighteen year old son or daughter who wanted to become an adult film star, how would you react?",
+				"answerText": ["I would encourage him or her.","I would discourage him or her.","I would encourage my son, but not my daughter.","I would encourage my daughter, but not my son."],
+				"score": [1, 0, -1, -1],
+				"weight": [1, 0.5, 1, 1]
+			}
+		],
+
 
 		"BDSM": [
 			{
@@ -720,15 +790,47 @@ _OKCP.fileQuestions.sex =
 				"qid": "63114",
 				"text": "How do you think your sex drive compares to what is typical for other people of your age and gender?",
 				"answerText": ["My sex drive is higher than average.", "My sex drive is about average.", "My sex drive is below average.", "I'm insatiable."],
-				"score": [0, 0, 0, 0],
-				"weight": [0, 0, 0, 0]
+				"score": [1, 0, -1, 1],
+				"weight": [1, 1, 1, 1]
 			},
 			{
 				"qid": "12605",
 				"text": "Once you're intimate, how often would you and your significant other have sex?",
 				"answerText": ["Every day", "About every other day", "Once or twice a week", "A few times a month or less"],
-				"score": [0, 0, 0, 0],
-				"weight": [0, 0, 0, 0]
+				"score": [1, 0.5, -0.5, -1],
+				"weight": [1, 1, 1, 1]
+			},
+			{
+				"qid":"86417",
+				"text":" How long can you go without sexual release? ",
+				"answerText":["A day or less.","More than a day, less than a week.","More than a week.","I have never had sexual release."],
+				"score":[1,0.5,-1,-1],
+				"weight":[1,1,1,1]
+			}
+		],
+
+
+		"low_sex_drive": [
+			{
+				"qid": "63114",
+				"text": "How do you think your sex drive compares to what is typical for other people of your age and gender?",
+				"answerText": ["My sex drive is higher than average.", "My sex drive is about average.", "My sex drive is below average.", "I'm insatiable."],
+				"score": [-1, -0.5, 1, -1],
+				"weight": [1, 1, 1, 1]
+			},
+			{
+				"qid": "12605",
+				"text": "Once you're intimate, how often would you and your significant other have sex?",
+				"answerText": ["Every day", "About every other day", "Once or twice a week", "A few times a month or less"],
+				"score": [-1, -0.5, 0.5, 1],
+				"weight": [1, 1, 1, 1]
+			},
+			{
+				"qid":"86417",
+				"text":" How long can you go without sexual release? ",
+				"answerText":["A day or less.","More than a day, less than a week.","More than a week.","I have never had sexual release."],
+				"score":[-1,-0.5,1,1],
+				"weight":[1,1,1,1]
 			}
 		],
 
