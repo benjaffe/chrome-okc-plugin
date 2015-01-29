@@ -1,7 +1,7 @@
 // questions from here:
 // github.com/meitar/pat-okcupid/blob/master/okcupid-predator-alert-tool.user.js
 
-_OKCP.fileQuestions.discrimination =
+_OKCP.fileQuestions.predator =
 {
     "predator": [
         {
