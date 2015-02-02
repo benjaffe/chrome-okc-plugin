@@ -49,6 +49,9 @@ discrimination
 	disability
 	weight
 
+predator
+	predator
+
 other
 	artist
 	non-artist

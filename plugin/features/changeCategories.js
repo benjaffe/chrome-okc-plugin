@@ -6,12 +6,24 @@ _OKCP.changeCategories = function(){
 	showCategorySorter();
 
 	function showCategorySorter () {
-		$('body').append('<div class="categories-lists-wrapper"><div class="categories-lists"><ul class="active-categories categories-list"></ul><ul class="available-categories categories-list"></ul><input id="save-category-changes" type="button" value="Save Changes"><input id="cancel-category-changes" type="button" value="Cancel"><input id="reset-categories" type="button" value="Reset Categories"></div></div>');
+		$('body').append(
+			'<div class="categories-lists-wrapper">' +
+			'<div class="categories-lists">' +
+			'<ul class="active-categories categories-list">' +
+			'</ul>' +
+			'<ul class="available-categories categories-list">' +
+			'</ul><input id="save-category-changes" type="button" value="Save Changes">' +
+			'<input id="cancel-category-changes" type="button" value="Cancel">' +
+			'<input id="reset-categories" type="button" value="Reset Categories">' +
+			'</div>' +
+			'</div>');
+
 		$.each(_OKCP.categoryList, function(i, value){
 			var valueReadable = value.split('_').join(' ');
-			if ($.inArray(value,currCategories) >= 0) {
+			if ($.inArray(value, currCategories) >= 0) {
 				$('.active-categories').append('<li>' + valueReadable + '</li>');
 			} else {
+				console.log(valueReadable);
 				$('.available-categories').append('<li>' + valueReadable + '</li>');
 			}
 		});
