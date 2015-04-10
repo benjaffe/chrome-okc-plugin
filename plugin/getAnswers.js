@@ -61,7 +61,7 @@ _OKCP.getAnswers = function (list) {
 				var num = listItem.qid;
 				var possibleAnswers = listItem.answerText;
 				// var questionElem = $('#question_' + num + '[public]');		//misses some
-				var questionElem = $(this).find('#question_' + num);
+				var questionElem = $('#page-results #question_' + num);
 
 				// if question isn't present on page, continue
 				if (questionElem.length === 0) {continue;}
@@ -71,14 +71,14 @@ _OKCP.getAnswers = function (list) {
 				if (questionText === "") continue;
 
 				if (_OKCP.onOwnProfile) {
-					theirAnswer = questionElem.find("#self_answers_"+num+" .match.mine").text().trim();
-					theirNote = questionElem.find("#explanation_"+num).text().trim();
+					theirAnswer = questionElem.find("summary > div:eq(0) > div:eq(1) > p:eq(0)").text().trim();
+					theirNote = questionElem.find("summary > div:eq(0) > div:eq(1) > p:eq(1)").text().trim();
 				} else {
-					theirAnswer = questionElem.find('#answer_target_'+num).text().trim();
+					theirAnswer = questionElem.find("summary > div:eq(0) > div:eq(1) > p:eq(0)").text().trim();
 					if (theirAnswer === '') continue; //if the answer elem doesn't exist, continue
-					theirNote   = questionElem.find('#note_target_'+num).text().trim();
-					yourAnswer  = questionElem.find('#answer_viewer_'+num).text().trim();
-					yourNote    = questionElem.find('#note_viewer_'+num).text().trim();
+					theirNote   = questionElem.find("summary > div:eq(0) > div:eq(1) > p:eq(1)").text().trim();
+					yourAnswer  = questionElem.find("summary > div:eq(1) > div:eq(1) > p:eq(0)").text().trim();
+					yourNote    = questionElem.find("summary > div:eq(1) > div:eq(1) > p:eq(1)").text().trim();
 				}
 				for (var j = 0; j < possibleAnswers.length; j++) {
 					// console.log(questionText + "  " + theirAnswer + " | " + wrongAnswers[j]);
