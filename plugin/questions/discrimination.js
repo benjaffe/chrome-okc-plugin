@@ -115,6 +115,27 @@ _OKCP.fileQuestions.discrimination =
 				"answerText": ["Yes.", "No.", "Only if I thought the hug was more than friendly."],
 				"score": [-1, 1, 0],
 				"weight": [0.5, 0.5, 0]
+			},
+			{
+				"qid":"7085",
+				"text":"Do you have any gay, bisexual, or transgender friends?",
+				"answerText": ["Yes", "No"],
+				"score": [1, -1],
+				"weight": [0.5, 0.5]
+			},
+			{
+				"qid":"121451",
+				"text":"Would you think less of a person who is transgendered or attracted to people who are transgendered?",
+				"answerText": ["Yes", "No"],
+				"score": [-1, 1],
+				"weight": [1, 1]
+			},
+			{
+				"qid":"129208",
+				"text":"How do you feel about trans-gendered people?",
+				"answerText": ["I am trans-gendered.", "I have no problem with it.", "Fine, as long as they don't live near me.", "Ew, that's wrong/sick/immoral."],
+				"score": [1, 1, -1, -1],
+				"weight": [1, 1, 0.5, 1]
 			}
 		],
 

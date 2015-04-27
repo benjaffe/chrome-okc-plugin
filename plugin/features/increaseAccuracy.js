@@ -10,7 +10,7 @@ _OKCP.showUnansweredQuestions = function(data) {
 		for (var i = 0; i < questionsList.length; i++) {
 			var question = questionsList[i];
 			var qid = question.qid;
-			var iframe = $('<iframe qid='+qid+' class="unanswered-questions-iframe" src="http://www.okcupid.com/questions?rqid=' + qid + '" style="width:100%;height:1px;" qid="' + qid + '">');
+			var iframe = $('<iframe qid='+qid+' class="unanswered-questions-iframe" src="//www.okcupid.com/questions?rqid=' + qid + '" style="width:100%;height:1px;" qid="' + qid + '">');
 			iframe.load(function() {
 				$(this).attr('loaded','true');
 
@@ -23,7 +23,8 @@ _OKCP.showUnansweredQuestions = function(data) {
 				var questionStuff = iFrameContent.find('#new_question');
 
 				if (iFrameContent.find(".notice p:not(.btn)").text().indexOf('already answered this question') !== -1 ||
-						iFrameContent.find(".notice.pink p:eq(1)").not(':hidden').size() > 0) {
+						iFrameContent.find(".notice.pink p:eq(1)").not(':hidden').size() > 0 ||
+						iFrameContent.find('#new_question > .question').hasClass('disabled')) {
 					$(this).remove();
 					addiFrame();
 					return false;
@@ -32,12 +33,29 @@ _OKCP.showUnansweredQuestions = function(data) {
 
 				// hide and reorganize everything
 				iFrameContent.find('body > *').hide();
-				iFrameContent.find('body').append(('<div class="big_dig" style="padding:0;"><div class="questions" id="addQuestionStuffHere" style="width:auto;margin:0;"></div></div>'));
+				iFrameContent.find('body').css({'background-color':'white'})
+					.append(('<div class="big_dig" style="padding:0;"><div class="questions" id="addQuestionStuffHere" style="width:auto;margin:0;"></div></div>'));
 				iFrameContent.find('#addQuestionStuffHere').html( questionStuff );
-				iFrameContent.find('.notice.green, .notice.pink .btn').hide();
+				iFrameContent.find('.content > .status, .content > .answer_btn,'+
+									'.content > .skip_btn,'+
+									'.answer_area .importance_5,'+
+									'.irrelevant_message,'+
+									'.footer,'+
+									'.hide_on_answering').hide();
+				iFrameContent.find('.importance_2 > .label').text('Quite')
 				iFrameContent.find('.submit_btn').click(function(){
 					iFrameContent.find('#new_question').hide();
 				});
+				iFrameContent.find('head').append('<style>'+
+					'.content {padding: 10px 30px;}'+
+					'.qtext {font-size: 1.2em;margin-bottom: 10px;}'+
+					'.title {margin-bottom:5px;}'+
+					'.answer_privately {margin-top:5px;}'+
+					'.explanation textarea {height:80px;}'+
+					'.states_container {height:auto!important;}'+
+					'body {display:flex;}'+
+					'.big_dig {margin:auto;}'+
+				'</style>');
 
 				$('<a class="iframe-close-btn">X</a>').insertBefore(this).click(function() {
 					removeiFrame($(this).next());

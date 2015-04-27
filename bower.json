@@ -1,8 +1,9 @@
 {
   "name": "chrome-okc-plugin",
   "version": "2.0.0",
-  "homepage": "https://github.com/EvanCarroll/chrome-okc-plugin",
+  "homepage": "https://github.com/benjaffe/chrome-okc-plugin",
   "authors": [
+    "Ben Jaffe <jaffe.ben@gmail.com>",
     "Evan Carroll <me@evancarroll.com>"
   ],
   "directory": "plugin/lib/",
@@ -24,5 +25,6 @@
     "jquery": "1.9.1",
     "loglevel": "~0.5.0",
     "knockout": "2.2",
+    "bootstrap": "~3.1.1"
   }
 }

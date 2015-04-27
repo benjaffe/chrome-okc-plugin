@@ -80,7 +80,7 @@ _OKCP.fileQuestions.science_spirituality =
 				"qid":"511",
 				"text":"If you flipped three pennies, what would be the odds that they all came out the same?",
 				"answerText": ["I admit, I don't know!", "1 in 3", "1 in 4", "1 in 8"],
-				"score": [0.5, -1, -1, 1],
+				"score": [0, 1, 1, -1],
 				"weight": [1, 1, 1, 1]
 			},
 			{

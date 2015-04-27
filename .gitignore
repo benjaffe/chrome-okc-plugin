@@ -1,7 +1,11 @@
 *.swp
 .DS_Store
 /node_modules/*
-/*.zip
 /plugin.crx
 /plugin.pem
 /plugin/lib
+
+/-plugin.sublime-workspace
+
+*.psd
+chrome-okc-plugin.iml

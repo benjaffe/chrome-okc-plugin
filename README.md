@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/benjaffe/chrome-okc-plugin.png?label=ready&title=Ready)](https://waffle.io/benjaffe/chrome-okc-plugin)
 chrome-okc-plugin
 =================
 

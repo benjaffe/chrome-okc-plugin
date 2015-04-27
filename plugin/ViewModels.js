@@ -1,69 +1,61 @@
 // if we're on a profile page
 if (_OKCP.profilePath !== '') {
 
-	$('#sidebar_main').append(
-		$('<div>', {id:'section_navigation', 'class':'section navigation'}).append(
-			$('<ul>').append(
-				$('<li>', {'class': 'okcp-features-btn'}).append(
-					$('<a>',{'text':'Plugin Menu'}),
-					$('<ul>',{'class':'okcp-feature-list'}).append(
-
-						$('<li>', {'class':'okcp-feature'}).append(
-							$('<a>', {
-								'href':'#'
-								, 'class':'okcp-feature-btn review_saved_profile'
-								, 'review-saved-profile':true
-								, 'id':'review-saved-profile'
-								, 'text':'Review Saved Profiles'
-							}).append(
-								$('<div>', {
-									'class':'okcp-feature-details'
-									, 'text':'This feature allows you to review profiles you\'ve previously marked as "Poly", "Message", and "Maybe". (Keep in mind that this data gets cleared if you clear your browser\'s cache.)'
-								})
-							)
-						),
-
-						$('<li>', {'class':'okcp-feature'}).append(
-							$('<a>', {
-								'href':'#'
-								, 'class':'okcp-feature-btn change_categories'
-								, 'change-categories':true
-								, 'id':'change-categories'
-								, 'text':'Change Categories'
-							}).append(
-								$('<div>', {
-									'class':'okcp-feature-details'
-									, 'text':'This feature allows you to choose which categories you care about. Drag categories from the right to the left to enable them, and vice-versa to disable them.'
-								})
-							)
-						),
-
-						$('<li>', {'class':'okcp-feature'}).append(
-							$('<a>', {
-								'href':'#'
-								, 'class':'okcp-feature-btn improve-accuracy'
-								, 'review-saved-profile':true
-								, 'id':'improve-accuracy'
-								, 'text':'Improve Plugin Accuracy'
-							}).append(
-								$('<div>', {
-									'class':'okcp-feature-details'
-									, 'text':'This feature shows you questions that:<br><br>1. apply to the selected categories<br>2. that you haven\'t answered<br><br>The more of these questions you answer, the more accurate the plugin will be able to compare you and the user you\'re visiting.'
-								})
-							)
-						)
-
-					)
-				)
-			)
-		)
-	);
-
 	var $divider = $('<div></div>', {'class':'divider'});
 
 	$('.page_tabs').append(
-		$('<li>', {'id':'okcp-pagetab','class':'section navgiation'}).append(
-			$('<a>', {'text':'Plugin Features', 'href':'#'}),
+		$('<li>', {'class': 'okcp-pagetab okcp-pagetab-menu'}).append(
+			$('<a>',{'text':'Plugin Menu'}),
+			$('<ul>',{'class':'user_links'}).append(
+
+				$('<li>').append(
+					$('<a>', {
+						'href':'#'
+						, 'class':'okcp-feature-btn review_saved_profile'
+						, 'review-saved-profile':true
+						, 'id':'review-saved-profile'
+						, 'text':'Review Saved Profiles'
+					}).append(
+						$('<div>', {
+							'class':'okcp-feature-details'
+							, 'text':'This feature allows you to review profiles you\'ve previously marked as "Poly", "Message", and "Maybe". (Keep in mind that this data gets cleared if you clear your browser\'s cache.)'
+						})
+					)
+				),
+
+				$('<li>').append(
+					$('<a>', {
+						'href':'#'
+						, 'class':'okcp-feature-btn change_categories'
+						, 'change-categories':true
+						, 'id':'change-categories'
+						, 'text':'Change Categories'
+					}).append(
+						$('<div>', {
+							'class':'okcp-feature-details'
+							, 'text':'This feature allows you to choose which categories you care about. Drag categories from the right to the left to enable them, and vice-versa to disable them.'
+						})
+					)
+				),
+
+				$('<li>').append(
+					$('<a>', {
+						'href':'#'
+						, 'class':'okcp-feature-btn improve-accuracy'
+						, 'review-saved-profile':true
+						, 'id':'improve-accuracy'
+						, 'text':'Improve Plugin Accuracy'
+					}).append(
+						$('<div>', {
+							'class':'okcp-feature-details'
+							, 'text':'This feature shows you questions that:\n\n1. apply to the selected categories\n2. that you haven\'t answered\n\nThe more of these questions you answer, the more accurate the plugin will be able to compare you and the user you\'re visiting.'
+						})
+					)
+				)
+
+			)
+		), $('<li>', {'class':'okcp-pagetab okcp-pagetab-labels'}).append(
+			$('<a>', {'text':'Labels', 'href':'#'}),
 			$('<ul>', {'class':'user_links'}).append(
 				$('<li>').append(
 					'<a class="okcp-btn toggleIsPoly" data-bind="click: toggleIsPoly, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].ip == true : false}">Poly</a>'
@@ -97,7 +89,7 @@ if (_OKCP.profilePath !== '') {
 
 
 	// UI: Category match percentages (#social exists on your own profile page, #actions is on others')
-	$('#actions, #social').append('<table class="match-ratios-wrapper-outer"><tr><td class="match-ratios">'+
+	$('#actions, #social').parent().append('<table class="match-ratios-wrapper-outer"><tr><td class="match-ratios">'+
 		'<ul class="match-ratios-list"></ul>'+
 		'</td></tr></table>');
 
@@ -165,7 +157,7 @@ function OKCP() {
 		$('.largeThumbViewerImage').attr('src',chrome.extension.getURL('images/ajax-loader.gif')).attr('src',largeThumbPath);
 		$('.largeThumbViewer').show();
 		/* // This gets JSON data for a profile, but I can't really use it because OkC throttles those requests
-		$.getJSON('http://www.okcupid.com/profile/'+profileName+'?json=2',function(data){
+		$.getJSON('//www.okcupid.com/profile/'+profileName+'?json=2',function(data){
 			// console.log(data);
 			$('.largeThumbViewerCaption').html(data.username + ' / ' + data.age + ' / ' + data.sex + ' / ' + data.location.split(', ')[0] + ', ' + stateAbbr[data.location.split(', ')[1]] + ' (' + data.distance + data.units + ')');
 		}); */
@@ -188,7 +180,12 @@ function OKCP() {
 	this.profileList("location",$('#ajax_location').text());
 
 	this.toggleHideNotPoly = function(data) {		console.log('toggleHideNotPoly run');
-		this.profileList("p",!this.profileList()[_OKCP.profileName].p); //update storage
+		var originalValue = this.profileList()[_OKCP.profileName].p;
+		var oppositeValue = this.profileList()[_OKCP.profileName].ip;
+		this.profileList("p",!originalValue); //update storage
+		console.log(originalValue,oppositeValue);
+		if (!originalValue && oppositeValue)
+			this.profileList("ip",originalValue); //update storage
 		this.calculateHiddenProfile();
 	};
 
@@ -203,7 +200,12 @@ function OKCP() {
 	};
 
 	this.toggleIsPoly = function(data) {		console.log('toggleIsPoly run');
-		this.profileList("ip",!this.profileList()[_OKCP.profileName].ip); //update storage
+		var originalValue = this.profileList()[_OKCP.profileName].ip;
+		var oppositeValue = this.profileList()[_OKCP.profileName].p;
+		this.profileList("ip",!originalValue); //update storage
+		console.log(originalValue,oppositeValue);
+		if (!originalValue && oppositeValue)
+			this.profileList("p",originalValue); //update storage
 		this.calculateHiddenProfile();
 	};
 
@@ -364,22 +366,31 @@ _OKCP.conversationThumbs.each(function() {
 });
 applyBindingsToProfileThumb(_OKCP.conversationThumbs,'#conversations', false, true);
 
-setInterval(function() {
-	var doSortByEnemy = false;
 
-	// Match Search Page
-	_OKCP.matchresultsThumbs = $('#match_results .match_row');
-	_OKCP.matchresultsThumbs.each(function() {
-		//if it doesn't have a binding applied, apply one
-		if ($(this).attr('data-bind') === undefined) {
-			this.thumbName = $(this).find('.username').text().trim();
-			applyBindingsToProfileThumb($(this), '#'+this.id, false, true);
-			// doSortByEnemy = !!JSON.parse(localStorage.okcp).settings.sortByEnemy; // doSortByEnemy = true if the setting is enabled
-		}
-	});
+if ( $('#p_match').length !== 0 ) { //if we're on the matches page, enable the timer
+	setInterval(function() {
+		var doSortByEnemy = false;
 
-	if (doSortByEnemy) OKCP.sortByEnemy();
-},1000);
+		// Match Search Page
+		_OKCP.matchresultsThumbs = $('#match_results .image_wrapper');
+		_OKCP.matchresultsThumbs.each(function() {
+			//if it doesn't have a binding applied, apply one
+			if ($(this).attr('data-bind') === undefined) {
+				this.img = $(this).find('img');
+
+				//OkC puts the elements below, but doesn't load the images, so we have to confirm that the images exist
+				if (this.img.length === 0) return false;
+
+				this.thumbName = this.img.attr('alt').split('Picture of ')[1];
+				this.id = 'okcp-' + this.thumbName + '-thumb-link';
+				applyBindingsToProfileThumb($(this), '#'+this.id, false, true);
+				// doSortByEnemy = !!JSON.parse(localStorage.okcp).settings.sortByEnemy; // doSortByEnemy = true if the setting is enabled
+			}
+		});
+
+		if (doSortByEnemy) OKCP.sortByEnemy();
+	},500);
+}
 
 // Bindings are applied, so remove class from body enabling hide button.
 $('.OKCP-bindings-not-yet-loaded').removeClass('OKCP-bindings-not-yet-loaded');

@@ -44,14 +44,14 @@ if (_OKCP.profilePath === '') {
 	// create a database if there isn't one
 	if (localStorage.okcp === undefined) {
 		localStorage.okcp = JSON.stringify({
-			dataModelVersion: '1.1.40',
+			dataModelVersion: '1.2.40',
 			profileList: {},
 			settings: {}
 		});
 	}
 
 	var storage = JSON.parse(localStorage.okcp);
-	storage.dataCleanupJobNumToReach = '2.3.0';
+	storage.dataCleanupJobNumToReach = '2.4.0';
 
 	if (storage.dataCleanupJobNum === storage.dataCleanupJobNumToReach) {
 		return false;
@@ -86,14 +86,14 @@ if (_OKCP.profilePath === '') {
 	if (storage.hiddenProfileList !== undefined) {
 		var oldData = storage;
 		var newData = {
-			'dataModelVersion': '1.1.0',
+			'dataModelVersion': '1.2.0',
 			'profileList': {}
 		};
 		for (i=0; i < oldData.hiddenProfileList.length; i++) {
 			newData.profileList[oldData.hiddenProfileList[i]] = {h:true};
 		}
 		localStorage.okcp = JSON.stringify(newData);
-		upgradeMessage.push('  * Updated Data Model to Version 1.1.0');
+		upgradeMessage.push('  * Updated Data Model to Version 1.2.0');
 	}
 
 	storage.dataCleanupJobNum = storage.dataCleanupJobNumToReach;

@@ -61,7 +61,7 @@ _OKCP.getAnswers = function (list) {
 				var num = listItem.qid;
 				var possibleAnswers = listItem.answerText;
 				// var questionElem = $('#question_' + num + '[public]');		//misses some
-				var questionElem = $(this).find('#question_' + num);
+				var questionElem = $('#page-results #question_' + num);
 
 				// if question isn't present on page, continue
 				if (questionElem.length === 0) {continue;}
@@ -71,14 +71,14 @@ _OKCP.getAnswers = function (list) {
 				if (questionText === "") continue;
 
 				if (_OKCP.onOwnProfile) {
-					theirAnswer = questionElem.find("#self_answers_"+num+" .match.mine").text().trim();
-					theirNote = questionElem.find("#explanation_"+num).text().trim();
+					theirAnswer = questionElem.find("summary > div:eq(0) > div:eq(1) > p:eq(0)").text().trim();
+					theirNote = questionElem.find("summary > div:eq(0) > div:eq(1) > p:eq(1)").text().trim();
 				} else {
-					theirAnswer = questionElem.find('#answer_target_'+num).text().trim();
+					theirAnswer = questionElem.find("summary > div:eq(0) > div:eq(1) > p:eq(0)").text().trim();
 					if (theirAnswer === '') continue; //if the answer elem doesn't exist, continue
-					theirNote   = questionElem.find('#note_target_'+num).text().trim();
-					yourAnswer  = questionElem.find('#answer_viewer_'+num).text().trim();
-					yourNote    = questionElem.find('#note_viewer_'+num).text().trim();
+					theirNote   = questionElem.find("summary > div:eq(0) > div:eq(1) > p:eq(1)").text().trim();
+					yourAnswer  = questionElem.find("summary > div:eq(1) > div:eq(1) > p:eq(0)").text().trim();
+					yourNote    = questionElem.find("summary > div:eq(1) > div:eq(1) > p:eq(1)").text().trim();
 				}
 				for (var j = 0; j < possibleAnswers.length; j++) {
 					// console.log(questionText + "  " + theirAnswer + " | " + wrongAnswers[j]);
@@ -219,7 +219,7 @@ _OKCP.getAnswers = function (list) {
 				questionFilterParameter = 'very_important=1';
 			}
 			questionPageNum = pageNum || questionPageNum;
-			questionPath = "http://www.okcupid.com/profile/" + _OKCP.profileName + "/questions?n=1&low=" + (questionPageNum*10+1) + "&" + questionFilterParameter;
+			questionPath = "//www.okcupid.com/profile/" + _OKCP.profileName + "/questions?n=1&low=" + (questionPageNum*10+1) + "&" + questionFilterParameter;
 			if (_OKCP.questionFetchingMethod === "mobile_app") questionPath += '&mobile_app=1';
 			questionPageNum++;
 		}
@@ -305,7 +305,7 @@ _OKCP.getAnswers = function (list) {
 		if ($('.question-detail > ul').length === 0) {
 			$('.question-detail').append('<ul><li class="match match-nomatches"><ul>'+
 				'<li class="noresults">' + 'No Results' + '</li>'+
-				'<li class="note">' + 'To improve the plugin\'s accuracy, answer more questions publicly and rank them as "Very Important" or "Mandatory". You can also click the "Improve Accuracy" link at the top of this panel to help out.' + '</li>'+
+				'<li class="note">' + 'To improve the plugin\'s accuracy, answer more questions publicly and rank them as "Very Important". You can also click the "Improve Accuracy" link at the top of this panel to help out.' + '</li>'+
 				'</ul></li></ul>');
 			return false;
 		}

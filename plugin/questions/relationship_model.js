@@ -133,6 +133,13 @@ _OKCP.fileQuestions.relationship_model =
                 "answerText": ["Polyamory rocks!  I wish more people were poly.", "I might consider it under certain circumstances.","I wouldn't consider it.  Monogamy rules!","WTF is polyamory?"],
                 "score": [1, 1,-1,-1],
                 "weight": [1, 1,1,1]
+            },
+            {
+                "qid":"366",
+                "text":"When you're not in a serious relationship, what do you prefer?",
+                "answerText":["Dating multiple people at once","Dating one person at a time","I only have serious relationships; I don't 'date'"],
+                "score":[1, -1, 0],
+                "weight":[1,0.5,0.5]
             }
         ],
 
@@ -255,6 +262,13 @@ _OKCP.fileQuestions.relationship_model =
                 "answerText": ["Polyamory rocks!  I wish more people were poly.", "I might consider it under certain circumstances.","I wouldn't consider it.  Monogamy rules!","WTF is polyamory?"],
                 "score": [1, 1,-1,-1],
                 "weight": [1, 1,1,1]
+            },
+            {
+                "qid":"366",
+                "text":"When you're not in a serious relationship, what do you prefer?",
+                "answerText":["Dating multiple people at once","Dating one person at a time","I only have serious relationships; I don't 'date'"],
+                "score":[1, -1, 0],
+                "weight":[1,1,0.5]
             }
         ],
 
@@ -370,6 +384,13 @@ _OKCP.fileQuestions.relationship_model =
                 "answerText": ["Yes, and they both knew.", "Yes, and I didn't tell at least one of them.", "No."],
                 "score": [-1, -1, 1],
                 "weight": [0.8, 0.8, 0.8]
+            },
+            {
+                "qid":"366",
+                "text":"When you're not in a serious relationship, what do you prefer?",
+                "answerText":["Dating multiple people at once","Dating one person at a time","I only have serious relationships; I don't 'date'"],
+                "score":[-1, 1, 1],
+                "weight":[1,1,0.5]
             }
         ],
 
@@ -468,35 +489,35 @@ _OKCP.fileQuestions.relationship_model =
                 "qid":"19162",
                 "text":"No means NO!",
                 "answerText":["Always. Period.","Mostly, occasionally it's really a Yes in disguise","A No is just a Yes that needs a little convincing!","Never, they all want me.  They just don't know it."],
-                "score":[1,1,1,1],
-                "weight":[1,1,1,1]
+                "score":[1,0,-1,-1],
+                "weight":[1,0.3,1,1]
             },
             {
                 "qid":"21527",
                 "text":"Do you feel there are any circumstances in which a person is obligated to have sex with you?",
                 "answerText":["Yes","No"],
-                "score":[1,1],
+                "score":[-1,1],
                 "weight":[1,1]
             },
             {
                 "qid":"18087",
                 "text":"If the subway was crowded and you were packed against several people just to fit in the car -- would you grope the cutest one next to you? ...they would never know it was you, much less they were groped.",
                 "answerText":["Yes","No","I'm Not Sure"],
-                "score":[1,1,1],
+                "score":[-1,1,-0.8],
                 "weight":[1,1,1]
             },
             {
                 "qid":"17140",
                 "text":"During sex, if the other person looked like they had a serious psychological issue, would you stop the sex or keep going anyway?",
                 "answerText":["Stop","Keep going"],
-                "score":[1,1],
+                "score":[1,-1],
                 "weight":[1,1]
             },
             {
                 "qid":"20781",
                 "text":"How many times would a person have to turn you down before you took the hint?",
                 "answerText":["Just the once.","I like to try a few times just to make sure.","After the 10th time I call it quits.","I'm relentless!"],
-                "score":[1,1,1,1],
+                "score":[1,-0.5,-1,-1],
                 "weight":[1,1,1,1]
             }
         ],

@@ -1,11 +1,11 @@
 {
   "name": "OkCupid (for the Non-Mainstream User)",
   "short_name": "OkC Alt",
-  "version": "2.6.5",
+  "version": "2.8.14",
   "manifest_version": 2,
   "description": "Are you using OkCupid? You should definitely be using this extension.",
-  "homepage_url": "http://cleverdeveloper.com/projects/okcupid-enhanced/",
-  "browser_action": {
+  "homepage_url": "http://benjaffe.me/projects/date/",
+  "page_action": {
     "default_icon": {
       "19": "images/icon19.png"
     },
@@ -13,29 +13,43 @@
     "default_popup": "options.html"
   },
   "permissions": [
-    "http://*.okcupid.com/*", "https://*.okcupid.com/*"
+    "storage",
+    "idle",
+    "notifications",
+    "unlimitedStorage",
+    "http://*.okcupid.com/*",
+    "https://*.okcupid.com/*"
   ],
+  "background": {
+    "scripts": ["features/eventPage.js"],
+    "persistent": false
+  },
   "content_scripts": [
     {
-      "matches": ["http://*.okcupid.com/*"],
+      "matches": [
+        "http://*.okcupid.com/*",
+        "https://*.okcupid.com/*"
+      ],
       "css": [
-				"lib/ui-lightness/jquery-ui-1.10.3.custom.css"
-				, "style.css"
-			],
+        "lib/ui-lightness/jquery-ui-1.10.3.custom.css",
+        "style.css"
+      ],
       "js": [
-				"lib/knockout/build/output/knockout-latest.js",
-				"lib/jquery/jquery.min.js",
-				"lib/jqueryui/ui/minified/jquery-ui.min.js",
-				"lib/loglevel/dist/loglevel.min.js",
-				"lib/bootstrap/dist/js/bootstrap.min.js",
+        "lib/knockout/build/output/knockout-latest.js",
+        "lib/jquery/jquery.min.js",
+        "lib/jqueryui/ui/minified/jquery-ui.min.js",
+        "lib/loglevel/dist/loglevel.min.js",
+        "lib/bootstrap/dist/js/bootstrap.min.js",
         "setup.js",
         "settings.js",
+        "storage.js",
         "features/devTools.js",
         "questions/domsub.js",
         "questions/politics.js",
         "questions/children.js",
         "questions/demeanor.js",
         "questions/discrimination.js",
+        "questions/predator.js",
         "questions/drugs_smokes.js",
         "questions/other.js",
         "questions/relationship_model.js",
@@ -47,19 +61,21 @@
         "questions-init.js",
         "features/suggestQuestion.js",
         "features/readdPagination.js",
-        "features/readdNotes.js",
         "features/thumbViewer.js",
         "features/changeCategories.js",
         "features/increaseAccuracy.js",
         "features/reviewProfiles.js",
+        "features/messageSearch.js",
         "getAnswers.js",
         "ViewModels.js",
-        "init.js"],
+        "init.js"
+      ],
       "run_at": "document_end"
     }
   ],
-  "web_accessible_resources":  [
-		"images/ajax-loader.gif",
-		"images/icon-128.png"
-	]
+  "web_accessible_resources": [
+    "images/ajax-loader.gif",
+    "images/icon-128.png",
+    "lib/jquery/jquery.min.map"
+  ]
 }

@@ -2,7 +2,7 @@
 	"folders":
 	[
 		{
-			"path": "/Users/ben/Sites/chrome-okc-plugin/plugin"
+			"path": "/Users/ben/Sites/chrome-okc"
 		}
 	],
 	"ternjs":
@@ -20,5 +20,17 @@
         	"browser",
         	"jquery"
         ]
+    },
+    "SublimeLinter":
+    {
+        "linters":
+        {
+            "csslint": {
+                "ignore": ["adjoining-classes","box-model","overqualified-elements","compatible-vendor-prefixes","fallback-colors","ids"]
+            },
+            "jshint": {
+                "excludes": []
+            }
+        }
     }
 }

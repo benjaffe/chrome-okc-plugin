@@ -24,23 +24,23 @@
 .section.navigation { width:184px }
 
 .okcp-features-btn a {
-	color:white !important;
-	text-decoration: underline
+    color:white !important;
+    text-decoration: underline
 }
 .okcp-features-btn:hover > * {display:block;}
 .okcp-feature-list { display:none }
 .okcp-features-btn a {
-	background: url('chrome-extension://__MSG_@@extension_id__/images/icon-128.png') !important;
-	background-size:30px 30px !important;
-	background-repeat:no-repeat !important;
-	background-position: left !important;
-	//background: transparent !important;
-	//background-color:white !important;
+    background: url('chrome-extension://__MSG_@@extension_id__/images/icon-128.png') !important;
+    background-size:30px 30px !important;
+    background-repeat:no-repeat !important;
+    background-position: left !important;
+    background: transparent !important;
+    background-color:white !important;
 }
 
 /* UI - Match Ratios */
-.match-ratios-wrapper-outer {position:absolute;right: 181px;top: 2px;height: 224px;width: 225px;} /* Yes, a table... for complicated layout, vertical aligning to the bottom while scrolling when there are too many */
-#okcp .match-ratios-list {box-shadow: none;margin:0;padding:0;max-height: 210px;overflow-y: scroll;overflow-x:hidden;border-bottom: 1px solid #BBB;border-top: 1px solid #BBB;width: 100%;}
+.match-ratios-wrapper-outer {position:absolute;right: 181px;top: 0px;height: 209px;width: 225px;} /* Yes, a table... for complicated layout, vertical aligning to the bottom while scrolling when there are too many */
+#okcp .match-ratios-list {box-shadow: none;padding:0;max-height: 180px;overflow-y: scroll;overflow-x:hidden;border-bottom: 1px solid #BBB;border-top: 1px solid #BBB;width: 100%;}
 #okcp .match-ratios-list::-webkit-scrollbar {-webkit-appearance: none;width: 7px;}
 #okcp .match-ratios-list::-webkit-scrollbar-thumb {border-radius: 4px;background-color: rgba(0,0,0,.5);box-shadow: 0 0 1px rgba(255,255,255,.5);}
 #okcp .match-ratios {vertical-align: bottom;}
@@ -220,7 +220,7 @@ background-position:0 0, -1px -5px;}
 
 /* UI - Unanswered Questions */
 .unanswered-questions {position: absolute;z-index:10000;top: 200px;left: 50%;width: 530px;margin-left: -270px;background: #DDD;padding: 20px;box-shadow: 0 0 20px rgba(0,0,0,0.4);}
-.unanswered-questions:after {content: "(Answer the questions *publically* or you won't increase the plugin's accuracy)";position: absolute;top: 5px;text-align: center;left: 40px;right: 40px;z-index: 10;color: #555;z-index: 10;}
+.unanswered-questions:after {content: "Answer the questions *publicly* or it won't increase the plugin's accuracy";position: absolute;top: 5px;text-align: center;left: 40px;right: 40px;z-index: 10;color: #555;z-index: 10;}
 .unanswered-questions iframe {margin-top:10px;border:solid 1px #888;}
 .unanswered-questions iframe:first-child {margin-top:0;}
 .qtext, .answer_area p {color: #2855A2;font-size:13px;font-weight: bold;line-height: 18px;margin:10px 0 5px;}
@@ -236,6 +236,7 @@ background-position:0 0, -1px -5px;}
 
 
 .not_answered .okcp-suggest-question {display:none;}
+#new_question .okcp-suggest-question {display:block;}
 .copy-this {width:800px;margin:20px auto 50px;background:rgba(255,255,255,0.2);padding:20px;}
 .copy-this h2 {color:white;font-size:15px;text-align: center;font-weight: normal;text-shadow:1px 1px 3px rgba(0,0,0,0.5);}
 .copy-this-text {white-space: pre-wrap;padding:20px;background:#DDD;color: black;}
@@ -260,22 +261,13 @@ background-position:0 0, -1px -5px;}
 #online_now {z-index: 10;} /* prevent online_now indicator from getting hidden behind the image */
 .guilt {display:none;}
 
-/* Readd notes feature */
-#okcp #inline_notes {width:300px;}
-.UI-change-btn {display:block;float: left;background: #f7f7f7;height:25px;width:60px;border: 1px solid #ddd;color:#555;text-align:center;padding:0 0px;font-family:verdana,sans-serif;font-weight:bold;font-size:10px;line-height:25px;position:relative;z-index:1000;cursor:pointer;}
-
-
-.UI-change-button:hover {background: #BBB;color:#2855A2;border-color:#999;}
-.UI-change-button:active {background: #999;color:white;box-shadow:inset 1px 1px 2px rgba(0,0,0,0.3);}
-
 
 
 
 /* Overrides (My god, some of these selectors are awful. Just for the record, they are copied and pasted from OkC's code. They are NOT mine!!) */
 #wrapper {position:relative;}
 #likeonfacebook {display: none;}
-html div#loveisblindday.expanded {height:80px;}
-html div#loveisblindday div.inner {background-color: rgb(0,15,45);margin-top: 27px;width: 300px;padding-top: 16px;}
+body.tabs_redesign div.tabbed_heading {height:220px;}
 #p_profile div.tabbed_heading div#percentages span.match, #p_profile div.tabbed_heading div#percentages span.friend, #p_profile div.tabbed_heading div#percentages span.enemy {margin-bottom:1px;}
 #p_profile div.tabbed_heading div#basic_info div.aso_loc {max-width:240px;}
 #basic_info #basic_info_sn {text-shadow: 0px 1px 0px #fff, 1px 1px 0px #E1E1E1, -1px 1px 0px #E1E1E1, 1px -1px 0px #E1E1E1, -1px -1px 0px #E1E1E1;}
@@ -283,16 +275,23 @@ html div#loveisblindday div.inner {background-color: rgb(0,15,45);margin-top: 27
 #p_profile #rating span {margin-left: 4px;margin-bottom: 0px;}
 #p_profile #percentages {padding:20px 3px 40px;border-radius: 0 0 4px 4px;}
 #p_profile #upgrade_form {display:none;}
-#p_profile #actions {margin-bottom:-11px;height:220px;padding:10px 10px 0 10px;}
-#p_profile #wrapper #actions .action_options {padding-top:0;}
-#p_profile #actions .action_options .wide-buttons-that-are-now-not-wide.btn.small {width:62px;margin-bottom:0;float:left;border-radius:0;}
-#p_profile #actions .wide-buttons-that-are-now-not-wide #save_unsave {padding:0;/*border-radius:0!important;*/}
-#p_profile #actions .wide-buttons-that-are-now-not-wide #hide_btn,
-#p_profile #actions .wide-buttons-that-are-now-not-wide #unhide_btn,
-#p_profile #actions .wide-buttons-that-are-now-not-wide .flag {width:39px;padding:0;/*border-radius:0!important;*/}
-#p_profile #wrapper .tabbed_heading #actions .btn.hideflag.white {float: right;width: 108px;margin-bottom:0;}
-#p_profile #wrapper .tabbed_heading #actions .btn.hideflag.white a {width: 49px;border-radius:0!important;border-left:0!important;}
-.page_tabs {position: absolute;bottom: 0px;}
+#okcp #p_profile #actions {margin-bottom:-11px;height:175px;padding:10px 7px 10px 10px;}
+#p_profile #wrapper #actions.show_options .action_options {padding-top:0;height:160px;}
+body#p_profile .tabbed_heading #actions .action_options .flatbutton {height:30px;line-height:10px;font-size:12px;}
+
+#basic_info {z-index:1}
+
+.UI-change-btn {display:block;float: left;background: #f7f7f7;height:25px;width:60px;border: 1px solid #ddd;color:#555;text-align:center;padding:0 0px;font-family:verdana,sans-serif;font-weight:bold;font-size:10px;position:relative;z-index:1000;cursor:pointer;line-height: 27px!important;}
+
+
+/* make "More Options" more accessible */
+#okcp body#p_profile .tabbed_heading #actions .action_options {position:relative;top:-5px;-webkit-transform:translateZ(0);-webkit-transition:all 0.2s ease-in-out;}
+
+
+/* Moving the stars */
+#okcp #percentages_and_ratings #rating {position: absolute;top: -19px;left: -50px;border-left:none;}
+/*#okcp #percentages_and_ratings #rating:not(:hover) > span {display:none;}*/
+
 
 #ajax_location {display:block;}
 
@@ -357,21 +356,45 @@ background-image: url(data:image/gif;base64,R0lGODlhIAAgAPMAAP///wAAAMbGxoSEhLa2
 .spinner-note-patient:after {content:"Searching for questions... This could take a while!";position:relative;left:33px;top:-10px;display:block;width:165px;padding:7px 0 7px 10px;background: white;border-radius:0 10px 10px 0;box-shadow:2px 1px 4px rgba(0,0,0,0.5);z-index:1000;color:black;}
 
 
-#okcp-pagetab ul.user_links {
-	z-index:1000;
-	display:none;
-	position:absolute;
-	top:-3px;
-}
-#okcp-pagetab ul li { float :left }
-#okcp-pagetab:hover > * {
-	display:block !important;
-	list-style:inline;
-	z-index:1;
-	float:left;
-	background:#f6f6f6;
-	opacity:1;
-}
+.page_tabs {width:759px;}
 
+#okcp .okcp-pagetab {
+     float:right;
+}
+.okcp-pagetab ul.user_links {
+    z-index:5000;
+    display:none;
+    position:absolute;
+    top:30px;
+     right: 0;
+     box-shadow:1px 1px 1px rgba(0,0,0,0.2), -1px 1px 1px rgba(0,0,0,0.2);
+}
+.okcp-pagetab-labels ul.user_links {
+     width: 220px;
+     padding:20px 0 20px 30px;
+}
+.okcp-pagetab-menu ul.user_links {
+     width:400px;
+     border-radius:0;
+}
+#okcp .okcp-pagetab-menu ul.user_links li {float:none;height:auto;padding:15px 10px;border-top:solid 1px #CCC;border-radius:0;}
+#okcp .okcp-pagetab-menu ul.user_links li:first-child {border-top:none;}
+.okcp-pagetab-menu ul.user_links li .okcp-feature-details {
+     font-weight: normal;
+}
+.okcp-pagetab-labels ul li {float:left;}
+div.tabbed_heading ul.page_tabs .okcp-pagetab-labels li {font-size:14px;font-weight:normal;border-radius:0;}
+div.tabbed_heading ul.page_tabs .okcp-pagetab li:hover {background-color: #DDD;}
+.okcp-pagetab:hover > * {
+    display:block !important;
+    z-index:1;
+    background:#f6f6f6;
+    opacity:1;
+}
+.okcp-pagetab-labels:hover > * {
+     list-style:inline;
+     float:left;
+     padding-top:4px;
+}
 
 

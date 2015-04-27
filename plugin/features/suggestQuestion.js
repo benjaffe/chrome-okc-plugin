@@ -1,44 +1,64 @@
+
 _OKCP.initSuggestQuestionsFeature = function () {
-	var prevCat = '';
-	var fullQuestionsList = _OKCP.fullQuestionsList;
-	var firstClick = true;
-	_OKCP.questionsToSuggest = {};
+    if (!_OKCP.suggestMode) {
+        return;
+    }
+	$('<div class="copy-this"><h2>To submit your questions, carefully copy the following text and email it to <a href="mailto:jaffe.ben@gmail.com" style="color:#DDD;">jaffe.ben@gmail.com</a>, grouped by category.'
+    + ' See <a href="http://github.com/benjaffe/chrome-okc-plugin/wiki/Suggest-Questions" style="color:#DDD;">wiki page</a> for more information.</h2><div class="okcp-clear-questions btn">Clear Questions</div><div class="copy-this-text"></div></div>').appendTo('body');
 
-	$('<div class="copy-this" style="display:none;"><h2>To submit your questions, carefully copy the following text and email it to <a href="mailto: okcp.suggestions@gmail.com" style="color:#DDD;"> okcp.suggestions@gmail.com</a></h2><div class="copy-this-text"></div></div>').appendTo('body');
 
-	$('.question').filter(function(){
-			var qid = this.id.split('question_')[1];
-			for (var i = 0, len = fullQuestionsList.length; i < len; i++) {
-				if (fullQuestionsList[i].qid == qid) return false;
-			}
-			return true;
-		}).prepend('<div class="okcp-suggest-question btn new-feature">Suggest Question</div>');
+    const STORAGEKEY_QuestionsToSuggest = "QuestionsToSuggest";
+    function getQuestionsToSuggest() {
+        return _OKCP.storage(STORAGEKEY_QuestionsToSuggest) || [];
+    }
+    function persistQuestionsToSuggest(questionsToSuggest) {
+        _OKCP.storage(STORAGEKEY_QuestionsToSuggest, questionsToSuggest);
+    }
+
+    var questionsToSuggest = getQuestionsToSuggest();
+    showSuggestedQuestions();
+
+    $('.question').each(function () {
+        var existingCategories = new Object(null); // empty set
+        var qid = this.id.split('question_')[1];
+
+        // find all categories for this question (if any). TODO - create cached qid/category mapping
+        for(var fileCategory in _OKCP.fileQuestions) {
+            _OKCP.fileQuestions[fileCategory].forEach(function(fileQuestion) {
+                if(fileQuestion.qid == qid) {
+                    existingCategories[fileCategory] = true;
+                }
+            })
+        }
+
+        if (Object.keys(existingCategories).length > 0) {
+            var existingCategoriesString = "";
+            for (var category in existingCategories) {
+                if(existingCategoriesString.length > 0) {
+                    existingCategoriesString = existingCategoriesString + ",";
+                }
+                existingCategoriesString = existingCategoriesString + category;
+            }
+            $(this).prepend('<div>Existing categories: ' + existingCategoriesString + '</div>');
+        }
+
+        $(this).prepend('<div class="okcp-suggest-question btn">Suggest Question</div>');
+
+    });
+
 
 	$('.okcp-suggest-question').click(function() {
 		var question = $(this).parent();
 		var qid = question.attr('id').split('question_')[1];
 		var qtext = $('#qtext_' + qid).text();
 		var answers = [];
-		var obj, category;
-		if (firstClick) {
-			firstClick = false;
-			alert('OkC Plugin:\nThis feature allows you to suggest questions for the developer to include in the plugin!');
-		}
-		$('#answer_'+qid+' .their_answer').each(function() {
-			answers.push( $(this).parent().text() );
-		});
-		category = prompt("What category does this question fall under?",prevCat);
-		if (category === '') {
-			alert('Category name cannot be empty');
-			return false;
-		} else if (category === undefined) {
-			return false;
-		}
-		category = category.toLowerCase();
-		prevCat = category;
-		category = category.split(' ').join('_');
+		var obj;
+        // Switched to my_answer because they no longer use their_answer
+        $('#answer_'+qid+' .container.my_answer label').each(function() {
+            answers.push( $(this).text() );
+        });
 
-		scoreWeightPlaceholder = [];
+		var scoreWeightPlaceholder = [];
 		for (var i = 0; i < answers.length; i++) {
 			scoreWeightPlaceholder.push(1);
 		}
@@ -51,47 +71,37 @@ _OKCP.initSuggestQuestionsFeature = function () {
 			"weight": scoreWeightPlaceholder
 		};
 
-		_OKCP.questionsToSuggest[category] = _OKCP.questionsToSuggest[category] || [];
-		_OKCP.questionsToSuggest[category].push(obj);
-
-		$('.copy-this').show();
-		$('.copy-this-text').text(JSON.stringify(_OKCP.questionsToSuggest));
-		alert('Your question(s) have NOT been suggested YET. When you are ready to sumbit, scroll to the very bottom of the page and follow the instructions.');
-		$(this).remove();
-		logCurrQuestionData(question);
+        // filter duplicates (question will be placed at end)
+        questionsToSuggest = questionsToSuggest.filter(function(question) {
+           return question.qid != obj.qid;
+        });
+        questionsToSuggest.push(obj);
+        persistQuestionsToSuggest(questionsToSuggest);
+        showSuggestedQuestions();
+		if (_OKCP.devmode) {
+            logCurrQuestionData(obj);
+        }
 	});
 
-	function logCurrQuestionData(elem) {
-		//duplicated code, but works for now
-		var question = elem || $('.question:first');
-		var qid = question.attr('id').split('question_')[1];
-		var qtext = $('#qtext_' + qid).text();
-		var answers = [];
-		var obj, category;
-		$('#answer_'+qid+' .their_answer').each(function() {
-			answers.push( $(this).parent().text() );
-		});
+    function showSuggestedQuestions() {
+        $('.copy-this-text').text('');
+        questionsToSuggest.forEach(function(suggestedQuestion) {
+            $('.copy-this-text').append('<div>' + JSON.stringify(suggestedQuestion) + '</div>');
+        });
+    }
 
-		scoreWeightPlaceholder = [];
-		for (var i = 0; i < answers.length; i++) {
-			scoreWeightPlaceholder.push(1);
-		}
+    $('.okcp-clear-questions').click(function() {
+        questionsToSuggest = [];
+        persistQuestionsToSuggest(questionsToSuggest);
+        showSuggestedQuestions();
+    });
 
-		obj = {
-			"qid": qid,
-			"text": qtext,
-			"answerText": answers,
-			"score": scoreWeightPlaceholder,
-			"weight": scoreWeightPlaceholder
-		};
+    function logCurrQuestionData(obj) {
+        // log out pretty version
+        var objStr = JSON.stringify(obj, null, '\t');
+        console.log(objStr);
+    }
 
-		// log out pretty version
-		var objStr = JSON.stringify(obj);
-		objStr = '{\n\t' + objStr.split('{')[1];
-		objStr = objStr.split('}')[0]+'\n}';
-		objStr = objStr.split('"text"').join('\n\t"text"').split('"answerText"').join('\n\t"answerText"').split('"score"').join('\n\t"score"').split('"weight"').join('\n\t"weight"');
-		console.log(objStr);
-	}
 	if (location.href.split('rqid=')[1] !== undefined && _OKCP.devmode) {
 		logCurrQuestionData();
 	}
