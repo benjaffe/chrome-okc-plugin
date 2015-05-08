@@ -39,7 +39,15 @@
 }
 
 /* UI - Match Ratios */
-.match-ratios-wrapper-outer {position:absolute;right: 181px;top: 0px;height: 209px;width: 225px;} /* Yes, a table... for complicated layout, vertical aligning to the bottom while scrolling when there are too many */
+/* This is a table so we can vertical align to the bottom while scrolling when there are too many */
+.match-ratios-wrapper-outer {
+    position:absolute;
+    right: 195px;
+    top: 0px;
+    height: 209px;
+    width: 225px;
+}
+
 #okcp .match-ratios-list {box-shadow: none;padding:0;max-height: 180px;overflow-y: scroll;overflow-x:hidden;border-bottom: 1px solid #BBB;border-top: 1px solid #BBB;width: 100%;}
 #okcp .match-ratios-list::-webkit-scrollbar {-webkit-appearance: none;width: 7px;}
 #okcp .match-ratios-list::-webkit-scrollbar-thumb {border-radius: 4px;background-color: rgba(0,0,0,.5);box-shadow: 0 0 1px rgba(255,255,255,.5);}
@@ -78,7 +86,7 @@ background-position:0 0, -1px -5px;}
 	position:absolute;
 	z-index: 110;
 	left:900px;
-	top:247px;
+	top:-40px;
 	padding:0 8px 18px;
 	max-width:300px;
 	margin:0 0 10px;
@@ -310,10 +318,26 @@ body#p_profile .tabbed_heading #actions .action_options .flatbutton {height:30px
 
 
 /* Media Queries */
-@media only screen and (max-width: 1332px) {
+@media only screen and (max-width: 1450px) {
      div#right_column {width:230px!important;margin-right:70px;}
-     .question-detail {left: 694px;}
+     #page .page-section {
+        margin-left: 150px;
+        transition: margin-left 0.6s ease-in-out;
+    }
 }
+
+@media only screen and (max-width: 1350px) {
+    #page .page-section {
+        margin-left: 50px;
+    }
+}
+
+@media only screen and (max-width: 1250px) {
+    #page .page-section {
+        margin-left: 10px;
+    }
+}
+
 /* Hide features until they're ready */
 .OKCP-bindings-not-yet-loaded #logo:after,
 .OKCP-bindings-not-yet-loaded .match-ratios-wrapper-outer,
