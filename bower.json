@@ -21,7 +21,6 @@
     "tests"
   ],
   "dependencies": {
-    "jqueryui": "1.10.3",
     "jquery": "1.9.1",
     "loglevel": "~0.5.0",
     "knockout": "~3.3.0",

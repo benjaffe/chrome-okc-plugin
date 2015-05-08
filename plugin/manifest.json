@@ -31,13 +31,13 @@
         "https://*.okcupid.com/*"
       ],
       "css": [
-        "bower_components/jqueryui/themes/ui-lightness/jquery-ui.min.css",
+        "bower_components/jquery-ui/themes/ui-lightness/jquery-ui.min.css",
         "style.css"
       ],
       "js": [
         "bower_components/knockout/dist/knockout.js",
         "bower_components/jquery/jquery.min.js",
-        "bower_components/jqueryui/ui/minified/jquery-ui.min.js",
+        "bower_components/jquery-ui/jquery-ui.min.js",
         "bower_components/loglevel/dist/loglevel.min.js",
         "bower_components/bootstrap/dist/js/bootstrap.min.js",
         "setup.js",
