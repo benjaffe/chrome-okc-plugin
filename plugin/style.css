@@ -549,14 +549,15 @@
 }
 
 .rp-wrapper {
-  position: absolute;
+  position: fixed;
   z-index: 15000;
-  top: 40px;
+  top: 66px;
   left: 40px;
   right: 40px;
+  bottom: 40px;
   overflow-y: scroll;
   background-color: #DDD;
-  border-radius: 10px;
+  border-radius: 0 0 10px 10px;
   box-shadow: 0 1px 20px rgba(0, 0, 0, 0.7);
   padding: 20px;
 }
@@ -823,8 +824,8 @@
   background: #666;
   border-radius: 20px;
   width: 25px;
-  height: 22px;
-  padding-top: 3px;
+  height: 25px;
+  padding-top: 2px;
   text-align: center;
   color: white;
   font-weight: bold;
