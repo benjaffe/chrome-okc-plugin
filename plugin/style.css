@@ -71,6 +71,7 @@
   top: 0px;
   height: 209px;
   width: 225px;
+  z-index: 0;
 }
 
 #okcp .match-ratios-list {
@@ -129,13 +130,11 @@
   color: black;
   text-align: center;
   border-radius: 10px;
-  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 }
 
 #okcp .match-ratio .match-ratio-category {
   position: absolute;
   right: -3px;
-  text-shadow: 0 0 0 rgba(0, 0, 0, 0.4), 0 0 3px #FFF;
   color: #000;
   z-index: 5;
   text-overflow: ellipsis;
@@ -680,7 +679,6 @@
 .okcp-maybe:hover::before {
   font-size: 14px;
   opacity: 1;
-  text-shadow: 0 0 3px 1px black;
   padding: 4px 6px;
   background: rgba(0, 0, 0, 0.2);
 }
@@ -1018,7 +1016,7 @@ body#p_profile .tabbed_heading #actions .action_options .flatbutton {
 }
 
 #basic_info {
-  z-index: 1
+  z-index: 0;
 }
 
 .UI-change-btn {
