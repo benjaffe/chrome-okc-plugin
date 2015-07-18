@@ -1249,14 +1249,24 @@ body#p_profile .tabbed_heading #actions .action_options .flatbutton {
 }
 
 div.tabbed_heading ul.page_tabs .okcp-pagetab-labels li {
+  border-radius: 0;
+  display: inline-block;
+  float: none;
   font-size: 14px;
   font-weight: normal;
-  border-radius: 0;
+  margin-right: 0px;
+  width: 95px;
 }
 
-div.tabbed_heading ul.page_tabs .okcp-pagetab li:hover {
-  background-color: #DDD;
+div.tabbed_heading ul.page_tabs .okcp-pagetab-labels li a {
+  cursor: pointer;
+  padding-left: 10px;
 }
+
+div.tabbed_heading ul.page_tabs .okcp-pagetab-labels li a:hover {
+  background: #eee;
+}
+
 
 .okcp-pagetab:hover > * {
   display: block !important;
