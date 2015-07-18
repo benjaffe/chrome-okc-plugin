@@ -89,9 +89,9 @@ if (_OKCP.profilePath !== '') {
 
 
 	// UI: Category match percentages (#social exists on your own profile page, #actions is on others')
-	$('#actions, #social').parent().append('<table class="match-ratios-wrapper-outer"><tr><td class="match-ratios">'+
+	$('#actions, #social').parent().append('<div class="match-ratios-wrapper-outer match-ratios">'+
 		'<ul class="match-ratios-list"></ul>'+
-		'</td></tr></table>');
+		'</div>');
 
 	// UI: Question Detail
 	$('#right_column').before('<div class="question-detail"></div>');

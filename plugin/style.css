@@ -68,7 +68,7 @@
 .match-ratios-wrapper-outer {
   position: absolute;
   right: 195px;
-  top: 0px;
+  top: 50px;
   height: 209px;
   width: 225px;
 }
@@ -79,8 +79,6 @@
   max-height: 180px;
   overflow-y: scroll;
   overflow-x: hidden;
-  border-bottom: 1px solid #BBB;
-  border-top: 1px solid #BBB;
   width: 100%;
 }
 
