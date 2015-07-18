@@ -68,7 +68,7 @@
 .match-ratios-wrapper-outer {
   position: absolute;
   right: 195px;
-  top: 0px;
+  top: 50px;
   height: 209px;
   width: 225px;
 }
@@ -79,8 +79,6 @@
   max-height: 180px;
   overflow-y: scroll;
   overflow-x: hidden;
-  border-bottom: 1px solid #BBB;
-  border-top: 1px solid #BBB;
   width: 100%;
 }
 
@@ -93,10 +91,6 @@
   border-radius: 4px;
   background-color: rgba(0, 0, 0, .5);
   box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-}
-
-#okcp .match-ratios {
-  vertical-align: bottom;
 }
 
 #okcp .match-ratio {
@@ -488,11 +482,11 @@
 .categories-lists {
   position: absolute;
   z-index: 15000;
-  top: 40px;
+  top: 75px;
   left: 50%;
-  width: 600px;
-  margin-left: -350px;
-  padding: 50px;
+  width: 700px;
+  margin-left: -400px;
+  padding: 20px;
   background: #CCC;
   border-radius: 10px;
   box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.7);
@@ -507,35 +501,44 @@
 }
 
 .categories-list {
-  width: 40%;
-  margin-left: 20%;
-}
-
-.categories-list:first-child {
-  margin-left: 0;
+  margin: 10px 0;
 }
 
 .active-categories:before {
   content: "Currently-selected Categories:";
+  display: block;
   font-weight: bold;
   color: #222;
 }
 
 .active-categories {
-  float: left;
   color: #000;
 }
 
 .available-categories:before {
   content: "Available Categories:";
+  display: block;
   font-weight: bold;
   color: #222;
 }
 
 .available-categories {
-  float: right;
   color: #333;
 }
+
+.categories-lists .ui-sortable-handle {
+  background-color: #EEE;
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 13px;
+  margin: 5px;
+  padding: 5px 10px;
+}
+
+.categories-lists .ui-sortable-handle:hover {
+  background-color: #DDD;
+}
+
 
 .categories-list input {
   float: left;
@@ -552,7 +555,7 @@
 .rp-wrapper {
   position: absolute;
   z-index: 15000;
-  top: 40px;
+  top: 80px;
   left: 40px;
   right: 40px;
   overflow-y: scroll;
@@ -826,7 +829,7 @@
   border-radius: 20px;
   width: 25px;
   height: 22px;
-  padding-top: 3px;
+  padding-top: 1px;
   text-align: center;
   color: white;
   font-weight: bold;
@@ -966,6 +969,10 @@ body.tabs_redesign div.tabbed_heading {
 #p_profile div.tabbed_heading div#percentages span.friend,
 #p_profile div.tabbed_heading div#percentages span.enemy {
   margin-bottom: 1px;
+}
+
+#p_profile div.tabbed_heading #profile_thumbs {
+  z-index: 10;
 }
 
 #p_profile div.tabbed_heading div#basic_info div.aso_loc {
@@ -1191,7 +1198,7 @@ body#p_profile .tabbed_heading #actions .action_options .flatbutton {
 }
 
 .page_tabs {
-  width: 759px;
+  width: 100%;
 }
 
 #okcp .okcp-pagetab {
@@ -1199,6 +1206,7 @@ body#p_profile .tabbed_heading #actions .action_options .flatbutton {
 }
 
 .okcp-pagetab ul.user_links {
+  background: #f3f5f9;
   z-index: 5000;
   display: none;
   position: absolute;
@@ -1209,7 +1217,7 @@ body#p_profile .tabbed_heading #actions .action_options .flatbutton {
 
 .okcp-pagetab-labels ul.user_links {
   width: 220px;
-  padding: 20px 0 20px 30px;
+  padding: 10px;
 }
 
 .okcp-pagetab-menu ul.user_links {
@@ -1230,7 +1238,9 @@ body#p_profile .tabbed_heading #actions .action_options .flatbutton {
 }
 
 .okcp-pagetab-menu ul.user_links li .okcp-feature-details {
+  font-size: 14px;
   font-weight: normal;
+  line-height: 20px;
 }
 
 .okcp-pagetab-labels ul li {
@@ -1238,14 +1248,24 @@ body#p_profile .tabbed_heading #actions .action_options .flatbutton {
 }
 
 div.tabbed_heading ul.page_tabs .okcp-pagetab-labels li {
+  border-radius: 0;
+  display: inline-block;
+  float: none;
   font-size: 14px;
   font-weight: normal;
-  border-radius: 0;
+  margin-right: 0px;
+  width: 95px;
 }
 
-div.tabbed_heading ul.page_tabs .okcp-pagetab li:hover {
-  background-color: #DDD;
+div.tabbed_heading ul.page_tabs .okcp-pagetab-labels li a {
+  cursor: pointer;
+  padding-left: 10px;
 }
+
+div.tabbed_heading ul.page_tabs .okcp-pagetab-labels li a:hover {
+  background: #eee;
+}
+
 
 .okcp-pagetab:hover > * {
   display: block !important;

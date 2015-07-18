@@ -80,6 +80,12 @@ _OKCP.getAnswers = function (list) {
 					yourAnswer  = questionElem.find("summary > div:eq(1) > div:eq(1) > p:eq(0)").text().trim();
 					yourNote    = questionElem.find("summary > div:eq(1) > div:eq(1) > p:eq(1)").text().trim();
 				}
+
+				if (theirNote !== '') {
+					theirNote = theirNote.replace("201c", '"').replace("201d", '"');
+					theirNote = theirNote.replace(/\\u/g, '');
+				}
+
 				for (var j = 0; j < possibleAnswers.length; j++) {
 					// console.log(questionText + "  " + theirAnswer + " | " + wrongAnswers[j]);
 					if (possibleAnswers[j] === theirAnswer) {

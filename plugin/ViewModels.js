@@ -5,7 +5,7 @@ if (_OKCP.profilePath !== '') {
 
 	$('.page_tabs').append(
 		$('<li>', {'class': 'okcp-pagetab okcp-pagetab-menu'}).append(
-			$('<a>',{'text':'Plugin Menu'}),
+			$('<a>',{'text':'Plugin Menu', 'class': 'btn'}),
 			$('<ul>',{'class':'user_links'}).append(
 
 				$('<li>').append(
@@ -55,7 +55,7 @@ if (_OKCP.profilePath !== '') {
 
 			)
 		), $('<li>', {'class':'okcp-pagetab okcp-pagetab-labels'}).append(
-			$('<a>', {'text':'Labels', 'href':'#'}),
+			$('<a>', {'text':'Labels', 'class':'btn'}),
 			$('<ul>', {'class':'user_links'}).append(
 				$('<li>').append(
 					'<a class="okcp-btn toggleIsPoly" data-bind="click: toggleIsPoly, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].ip == true : false}">Poly</a>'
@@ -89,9 +89,9 @@ if (_OKCP.profilePath !== '') {
 
 
 	// UI: Category match percentages (#social exists on your own profile page, #actions is on others')
-	$('#actions, #social').parent().append('<table class="match-ratios-wrapper-outer"><tr><td class="match-ratios">'+
+	$('#actions, #social').parent().append('<div class="match-ratios-wrapper-outer match-ratios">'+
 		'<ul class="match-ratios-list"></ul>'+
-		'</td></tr></table>');
+		'</div>');
 
 	// UI: Question Detail
 	$('#right_column').before('<div class="question-detail"></div>');
