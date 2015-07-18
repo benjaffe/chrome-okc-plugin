@@ -975,6 +975,10 @@ body.tabs_redesign div.tabbed_heading {
   margin-bottom: 1px;
 }
 
+#p_profile div.tabbed_heading #profile_thumbs {
+  z-index: 10;
+}
+
 #p_profile div.tabbed_heading div#basic_info div.aso_loc {
   max-width: 240px;
 }
