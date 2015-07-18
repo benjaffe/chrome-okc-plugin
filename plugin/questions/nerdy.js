@@ -40,13 +40,6 @@ _OKCP.fileQuestions.nerdy =
       "weight": [1, 1]
     },
     {
-      "qid": "37693",
-      "text": "Would you be willing to date someone who plays video games almost every day, for at least 2 hours?",
-      "answerText": ["Yes, I'd be playing with them", "Yes, but I would not play that much.", "Yes, but I don't like video games.", "No."],
-      "score": [1, 1, 1, -1],
-      "weight": [1, 0.75, 0.50, 1]
-    },
-    {
       "qid": "413",
       "text": "Have you ever played Dungeons and Dragons?",
       "answerText": ["Yes", "No"],
