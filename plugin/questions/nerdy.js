@@ -53,5 +53,42 @@ _OKCP.fileQuestions.nerdy =
       "score": [1, -1, 1, 1],
       "weight": [1, 1, 0.75, 0.50]
     },
+  ],
+  "well_read": [
+    {
+      "qid": "34662",
+      "text": "How many books do you own?",
+      "answerText": ["Less than 5", "5-25", "25-50", "50+"],
+      "score": [-1, 1, 1, 1],
+      "weight": [1, 0.5, 0.75, 1]
+    },
+    {
+      "qid": "542",
+      "text": "Roughly how many books have you read in the past year?",
+      "answerText": ["Less than five", "Between five and fifteen", "Between sixteen and fifty", "Fifty or more"],
+      "score": [-1, 1, 1, 1],
+      "weight": [1, 0.5, 0.75, 1]
+    },
+    {
+      "qid": "51354",
+      "text": "Do you borrow books from public libraries?",
+      "answerText": ["Regularly.", "Occasionally.", "Never."],
+      "score": [1, 1, -1],
+      "weight": [1, 0.75, 1]
+    },
+    {
+      "qid": "617",
+      "text": "If evil forces made you choose to either watch tv OR read books for the rest of your life, you would:",
+      "answerText": ["watch tv", "read books"],
+      "score": [-1, 1],
+      "weight": [1, 1]
+    },
+    {
+      "qid": "57307",
+      "text": "Would the idea of a quiet evening sitting together reading books ever appeal to you?",
+      "answerText": ["Yes.", "No."],
+      "score": [1, -1],
+      "weight": [1, 1]
+    }
   ]
 };
