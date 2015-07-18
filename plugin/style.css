@@ -559,7 +559,7 @@
 .rp-wrapper {
   position: absolute;
   z-index: 15000;
-  top: 40px;
+  top: 80px;
   left: 40px;
   right: 40px;
   overflow-y: scroll;
@@ -833,7 +833,7 @@
   border-radius: 20px;
   width: 25px;
   height: 22px;
-  padding-top: 3px;
+  padding-top: 1px;
   text-align: center;
   color: white;
   font-weight: bold;
