@@ -5,7 +5,7 @@ if (_OKCP.profilePath !== '') {
 
 	$('.page_tabs').append(
 		$('<li>', {'class': 'okcp-pagetab okcp-pagetab-menu'}).append(
-			$('<a>',{'text':'Plugin Menu'}),
+			$('<a>',{'text':'Plugin Menu', 'class': 'btn'}),
 			$('<ul>',{'class':'user_links'}).append(
 
 				$('<li>').append(
@@ -55,7 +55,7 @@ if (_OKCP.profilePath !== '') {
 
 			)
 		), $('<li>', {'class':'okcp-pagetab okcp-pagetab-labels'}).append(
-			$('<a>', {'text':'Labels', 'href':'#'}),
+			$('<a>', {'text':'Labels', 'class':'btn'}),
 			$('<ul>', {'class':'user_links'}).append(
 				$('<li>').append(
 					'<a class="okcp-btn toggleIsPoly" data-bind="click: toggleIsPoly, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].ip == true : false}">Poly</a>'
