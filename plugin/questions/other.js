@@ -185,5 +185,6 @@ _OKCP.fileQuestions.other =
 				"answerText": ["Yes, it's very important.", "It's somewhat important.", "It's not very important", "It's not important at all."],
 				"score": [-1, -0.6, 1, 1]
 			}
-		]
+		],
+
 	};

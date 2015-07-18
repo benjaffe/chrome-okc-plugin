@@ -56,6 +56,10 @@ other
 	artist
 	non-artist
 
+nerdy
+	programmer
+	enjoys_board_games
+
 demeanor
 	generally happy
 	unaggressive
