@@ -93,10 +93,6 @@
   box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
 
-#okcp .match-ratios {
-  vertical-align: bottom;
-}
-
 #okcp .match-ratio {
   position: relative;
   margin-bottom: 2px;
@@ -486,7 +482,7 @@
 .categories-lists {
   position: absolute;
   z-index: 15000;
-  top: 50px;
+  top: 75px;
   left: 50%;
   width: 700px;
   margin-left: -400px;
@@ -1202,7 +1198,7 @@ body#p_profile .tabbed_heading #actions .action_options .flatbutton {
 }
 
 .page_tabs {
-  width: 759px;
+  width: 100%;
 }
 
 #okcp .okcp-pagetab {
@@ -1210,6 +1206,7 @@ body#p_profile .tabbed_heading #actions .action_options .flatbutton {
 }
 
 .okcp-pagetab ul.user_links {
+  background: #f3f5f9;
   z-index: 5000;
   display: none;
   position: absolute;
@@ -1220,7 +1217,7 @@ body#p_profile .tabbed_heading #actions .action_options .flatbutton {
 
 .okcp-pagetab-labels ul.user_links {
   width: 220px;
-  padding: 20px 0 20px 30px;
+  padding: 10px;
 }
 
 .okcp-pagetab-menu ul.user_links {
@@ -1241,7 +1238,9 @@ body#p_profile .tabbed_heading #actions .action_options .flatbutton {
 }
 
 .okcp-pagetab-menu ul.user_links li .okcp-feature-details {
+  font-size: 14px;
   font-weight: normal;
+  line-height: 20px;
 }
 
 .okcp-pagetab-labels ul li {
