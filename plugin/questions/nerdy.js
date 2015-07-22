@@ -53,6 +53,13 @@ _OKCP.fileQuestions.nerdy =
       "score": [1, -1, 1, 1],
       "weight": [1, 1, 0.75, 0.50]
     },
+    {
+      "qid": "43304",
+      "text": "Do you get angry when you lose a game?",
+      "answerText": ["Usually", "Sometimes", "Never"],
+      "score": [-1, 0, 1],
+      "weight": [1, 1, 1]
+    }
   ],
   "well_read": [
     {
@@ -89,6 +96,43 @@ _OKCP.fileQuestions.nerdy =
       "answerText": ["Yes.", "No."],
       "score": [1, -1],
       "weight": [1, 1]
+    }
+  ]
+  "video_gamer": [
+    {
+      "qid": "37693",
+      "text": "Would you be willing to date someone who plays video games almost every day, for at least 2 hours?",
+      "answerText": ["Yes, I'd be playing with them.", "Yes, but I would not play that much.", "Yes, but I don't like video games.", "No."],
+      "score": [1, 0.50, 0.25, -1],
+      "weight": [1, 1, 1, 1]
+    },
+    {
+      "qid": "17457",
+      "text": "Have you ever spent more than 8 hours straight playing video games?",
+      "answerText": ["Yes.", "No.", "Anyone who does is a loser."],
+      "score": [1, 0, -1],
+      "weight": [1, 1, 1]
+    },
+    {
+      "qid": "6867",
+      "text": "Would you enjoy a night in playing video games?",
+      "answerText": ["Yes", "No"],
+      "score": [1, -1],
+      "weight": [1, 1]
+    },
+    {
+      "qid": "16752",
+      "text": "Do you think video or computer games are childish?",
+      "answerText": ["Yes", "No"],
+      "score": [-1, 1],
+      "weight": [1, 1]
+    },
+    {
+      "qid": "46255",
+      "text": "Which of the following types of video games do you like most?",
+      "answerText": ["Role playing or strategy games.", "Sports or action games.", "Card or puzzle games.", "I dislike all of the above video game types."],
+      "score": [1, 1, 1, -1],
+      "weight": [1, 1, 1, 1]
     }
   ]
 };

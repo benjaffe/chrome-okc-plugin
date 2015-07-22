@@ -17,7 +17,6 @@ sexuality / gender
 	trans-friendly
 	sex-positive
 
-
 sex
 	cuddling
 	love priority
@@ -59,6 +58,8 @@ other
 nerdy
 	programmer
 	enjoys_board_games
+	well_read
+	video_gamer
 
 demeanor
 	generally happy
