@@ -63,13 +63,6 @@ _OKCP.fileQuestions.science_spirituality =
 				"weight": [1, 1, 1, 1]
 			},
 			{
-				"qid": "6802",
-				"text": "If two cars were faced away from each other back to back, both cars travelled 8 miles forward then made a 90 degree left turn and traveled another 6 miles, how far apart would they be?",
-				"answerText": ["Right next to each other.", "48km", "32km", "I'm not sure / Hey, there's no SKIP button"],
-				"score": [1, 1, 1, 1],
-				"weight": [1, 1, 1, 1]
-			},
-			{
 				"qid":"255",
 				"text":"STALE is to STEAL as 89475 is to...",
 				"answerText": ["89457", "98547", "89754", "89547"],
