@@ -197,6 +197,13 @@ _OKCP.fileQuestions.science_spirituality =
 				"answerText": ["Yes", "No"],
 				"score": [1, 0],
 				"weight": [1, 0]
+			},
+			{
+				"qid":"41",
+				"text":" How important is religion/God in your life? ",
+				"answerText": ["Extremely important", "Somewhat important", "Not very important", "Not at all important"],
+				"score": [1, 0.5, 0.25, 0],
+				"weight": [1, 1, 1, 1]
 			}
 		],
 
@@ -235,6 +242,13 @@ _OKCP.fileQuestions.science_spirituality =
 				"answerText": ["Yes", "No"],
 				"score": [-1, 0],
 				"weight": [1, 0]
+			},
+			{
+				"qid":"41",
+				"text":" How important is religion/God in your life? ",
+				"answerText": ["Extremely important", "Somewhat important", "Not very important", "Not at all important"],
+				"score": [0, 0.25, 0.5, 1],
+				"weight": [1, 1, 1, 1]
 			}
 		],
 
