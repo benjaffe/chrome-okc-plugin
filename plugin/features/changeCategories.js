@@ -9,33 +9,34 @@ _OKCP.changeCategories = function(){
 		$('body').append(
 			'<div class="categories-lists-wrapper">' +
 			'<div class="categories-lists">' +
-			'<ul class="active-categories categories-list">' +
-			'</ul>' +
-			'<ul class="available-categories categories-list">' +
-			'</ul><input id="save-category-changes" type="button" value="Save Changes">' +
+			'<ul class="available-categories"></ul>' +
+			'<div class="list-controls">' +
+			'<input id="save-category-changes" type="button" value="Save Changes">' +
 			'<input id="cancel-category-changes" type="button" value="Cancel">' +
 			'<input id="reset-categories" type="button" value="Reset Categories">' +
-			'</div>' +
+			'</div></div>' +
 			'</div>');
 
 		$.each(_OKCP.categoryList, function(i, value){
 			var valueReadable = value.split('_').join(' ');
-			if ($.inArray(value, currCategories) >= 0) {
-				$('.active-categories').append('<li>' + valueReadable + '</li>');
-			} else {
-				console.log(valueReadable);
-				$('.available-categories').append('<li>' + valueReadable + '</li>');
-			}
+			var active = ($.inArray(value, currCategories) > -1) ? 'active' : '';
+			var listItem = '<li class="category ' + active + '">' + valueReadable + '</li>';
+
+			$('.available-categories').append(listItem);
 		});
-		$( ".categories-list" ).sortable({
-			connectWith: ".categories-list"
-		}).disableSelection();
+
+		$('li.category').click(function() {
+			$(this).toggleClass('active');
+		});
+
 		$('#save-category-changes').click(function(){
 			saveCategoryChanges();
 		});
+
 		$('#cancel-category-changes').click(function(){
 			hideCategorySorter();
 		});
+
 		$('#reset-categories').click(function(){
 			resetCategories();
 		});
@@ -48,14 +49,17 @@ _OKCP.changeCategories = function(){
 
 	function saveCategoryChanges(){
 		var newCategoriesArr = [];
-		$('.active-categories').each(function(){
-			newCategoriesArr.push(this.value);
+
+		$('.available-categories .active').each(function(index, category){
+			newCategoriesArr.push($(this).text());
 		});
+
 		var newQuestionCategories = [];
 		try {
 
-			$('.active-categories li').each(function(i, value){
-				newQuestionCategories.push($(value).text().split(' ').join('_'));
+			$('.available-categories li.active').each(function() {
+				var categoryName = $(this).text().split(' ').join('_');
+				newQuestionCategories.push(categoryName);
 			});
 
 			console.log(storage);

@@ -493,64 +493,44 @@
 }
 
 .categories-lists:before {
-  content: "Click and drag the categories between the lists to add or remove them";
+  content: "Click categories to toggle whether they are selected.";
   text-align: center;
   display: block;
   margin-bottom: 10px;
   font-size: 1.2em;
 }
 
-.categories-list {
+.available-categories {
   margin: 10px 0;
 }
 
-.active-categories:before {
-  content: "Currently-selected Categories:";
-  display: block;
-  font-weight: bold;
-  color: #222;
-}
-
-.active-categories {
-  color: #000;
-}
-
-.available-categories:before {
-  content: "Available Categories:";
-  display: block;
-  font-weight: bold;
-  color: #222;
-}
-
-.available-categories {
-  color: #333;
-}
-
-.categories-lists .ui-sortable-handle {
+.categories-lists .category {
   background-color: #EEE;
+  border: 1px solid #DDD;
   border-radius: 5px;
+  cursor: pointer;
   display: inline-block;
   font-size: 13px;
   margin: 5px;
   padding: 5px 10px;
 }
 
-.categories-lists .ui-sortable-handle:hover {
+.categories-lists .category:hover {
   background-color: #DDD;
 }
 
+.categories-lists .active {
+  background-color: #e7eef5;
+  border: 1px solid #3260c7;
+  color: #3260c7;
+}
 
-.categories-list input {
+.list-controls input {
   float: left;
 }
 
-.categories-list li {
-  cursor: pointer;
-}
 
-.categories-list .ui-sortable-helper {
-  text-shadow: 1px 1px 0 white;
-}
+
 
 .rp-wrapper {
   position: absolute;
