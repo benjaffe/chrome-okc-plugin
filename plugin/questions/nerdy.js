@@ -59,6 +59,13 @@ _OKCP.fileQuestions.nerdy =
       "answerText": ["Usually", "Sometimes", "Never"],
       "score": [-1, 0, 1],
       "weight": [1, 1, 1]
+    },
+    {
+      "qid": "37893",
+      "text": "When playing games with friends, which is more important to you?",
+      "answerText": ["Winning.", "Having fun.", "Neither, I do not play games with my friends.", "I don't have any friends."],
+      "score": [0.75, 1, -1, 0],
+      "weight": [1, 1, 1, 1]
     }
   ],
   "well_read": [
@@ -132,6 +139,20 @@ _OKCP.fileQuestions.nerdy =
       "text": "Which of the following types of video games do you like most?",
       "answerText": ["Role playing or strategy games.", "Sports or action games.", "Card or puzzle games.", "I dislike all of the above video game types."],
       "score": [1, 1, 1, -1],
+      "weight": [1, 1, 1, 1]
+    },
+    {
+      "qid": "119334",
+      "text": "Are you an active video gamer?",
+      "answerText": ["Yes", "No", "I play video games seldom", "I wish I could play more video games."],
+      "score": [1, -1, 0.5, 0.75],
+      "weight": [1, 1, 1, 1]
+    },
+    {
+      "qid": "37893",
+      "text": "When playing games with friends, which is more important to you?",
+      "answerText": ["Winning.", "Having fun.", "Neither, I do not play games with my friends.", "I don't have any friends."],
+      "score": [0.75, 1, -1, 0],
       "weight": [1, 1, 1, 1]
     }
   ]
