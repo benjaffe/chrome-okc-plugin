@@ -22,7 +22,9 @@ The label feature allows you to mark profiles for future use such as "poly" or "
 ## Building
 When you clone the repository you'll need to build it using the grunt file. You'll need to install Grunt and then run
 
-``` npm install
+``` 
+npm install
+```
 
 Depending on your local environment you may need to run as an administrator.
 
