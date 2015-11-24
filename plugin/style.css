@@ -32,11 +32,6 @@
   content: "\2611\00a0\00a0"
 }
 
-.okcp-btn {
-  font-size: .9em;
-  padding-left: 5em
-}
-
 .section.navigation {
   width: 184px
 }
@@ -67,9 +62,11 @@
 /* This is a table so we can vertical align to the bottom while scrolling when there are too many */
 .match-ratios-wrapper-outer {
   position: absolute;
-  right: 195px;
-  top: 0px;
-  height: 209px;
+  max-height: 153px;
+  left: 50%;
+  margin-left: 500px;
+  bottom: 35px;
+  overflow-y: scroll;
   width: 225px;
   z-index: 0;
 }
@@ -77,7 +74,7 @@
 #okcp .match-ratios-list {
   box-shadow: none;
   padding: 0;
-  max-height: 180px;
+  max-height: 160px;
   overflow-y: scroll;
   overflow-x: hidden;
   border-bottom: 1px solid #BBB;
@@ -238,18 +235,8 @@
     margin-left: -40px;
   }
 }
-/*
-@media only screen and (max-width: 1350px) {
-  #page .page-section {
-    margin-left: 50px;
-  }
-}
 
-@media only screen and (max-width: 1250px) {
-  #page .page-section {
-    margin-left: 10px;
-  }
-}*/
+
 
 #p_profile .photos .question-detail {
   left: -34px;
@@ -1226,37 +1213,49 @@ body#p_profile .tabbed_heading #actions .action_options .flatbutton {
   width: 759px;
 }
 
-#okcp .okcp-pagetab {
+#okcp .okcp-pagetab-nav {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  margin-left: 170px;
+}
+
+#okcp .okcp-pagetab-item {
   display: inline-block;
   margin-right: 15px;
   position: relative;
+  background: white;
+  padding: 2px 10px;
+  border-radius: 4px 4px 0 0;
 }
 
-#okcp .okcp-pagetab .user_links {
+#okcp .okcp-pagetab-item .user_links {
   display: none;
   position: absolute;
   top: 100%;
   right: 0;
+  z-index: 1;
+  background: #eee;
+  box-shadow: 0 8px 8px rgba(0,0,0,0.3);
 }
 
-/*
-.okcp-pagetab ul.user_links {
-  z-index: 5000;
-  display: none;
-  position: absolute;
-  top: 30px;
-  right: 0;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2), -1px 1px 1px rgba(0, 0, 0, 0.2);
+#okcp .okcp-pagetab-item:hover {
+  background: #eee;
+  box-shadow: 0 0 8px rgba(255,255,255,0.3);
+}
+
+.okcp-pagetab-item:hover > .user_links {
+  display: block !important;
 }
 
 .okcp-pagetab-labels ul.user_links {
-  width: 220px;
-  padding: 20px 0 20px 30px;
+  width: 260px;
+  padding: 20px;
+  -webkit-column-count: 2;
 }
 
 .okcp-pagetab-menu ul.user_links {
   width: 400px;
-  border-radius: 0;
 }
 
 #okcp .okcp-pagetab-menu ul.user_links li {
@@ -1275,10 +1274,6 @@ body#p_profile .tabbed_heading #actions .action_options .flatbutton {
   font-weight: normal;
 }
 
-.okcp-pagetab-labels ul li {
-  float: left;
-}
-
 div.tabbed_heading ul.page_tabs .okcp-pagetab-labels li {
   font-size: 14px;
   font-weight: normal;
@@ -1287,17 +1282,3 @@ div.tabbed_heading ul.page_tabs .okcp-pagetab-labels li {
 
 div.tabbed_heading ul.page_tabs .okcp-pagetab li:hover {
   background-color: #DDD;
-}
-*/
-.okcp-pagetab:hover > * {
-  display: block !important;
-  z-index: 1;
-  background: #f6f6f6;
-  opacity: 1;
-}
-/*
-.okcp-pagetab-labels:hover > * {
-  list-style: inline;
-  float: left;
-  padding-top: 4px;
-}*/

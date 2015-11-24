@@ -5,82 +5,84 @@
 	// decide where to inject our elements
 	var $pageTabMenuParent = $('.actions2015').parent();
 	var $linkBtnsParent = $('#main_content');
-	var $matchPercentageTableParent = $('#main_content');
+	var $matchPercentageTableParent = $('.profile2015-header > .inner');
 	var $questionDetailParent = $('.profile2015-content:eq(0)');
 
 	var $divider = $('<div></div>', {'class':'divider'});
 
 	$pageTabMenuParent.append(
-		$('<li>', {'class': 'okcp-pagetab okcp-pagetab-menu'}).append(
-			$('<a>',{'text':'Plugin Menu'}),
-			$('<ul>',{'class':'user_links'}).append(
+		$('<ul>', {'class': 'okcp-pagetab okcp-pagetab-nav'}).append(
+			$('<li>', {'class': 'okcp-pagetab-item okcp-pagetab-menu'}).append(
+				$('<a>',{'text':'Plugin Menu'}),
+				$('<ul>',{'class':'user_links'}).append(
 
-				$('<li>').append(
-					$('<a>', {
-						'href':'#'
-						, 'class':'okcp-feature-btn review_saved_profile'
-						, 'review-saved-profile':true
-						, 'id':'review-saved-profile'
-						, 'text':'Review Saved Profiles'
-					}).append(
-						$('<div>', {
-							'class':'okcp-feature-details'
-							, 'text':'This feature allows you to review profiles you\'ve previously marked as "Poly", "Message", and "Maybe". (Keep in mind that this data gets cleared if you clear your browser\'s cache.)'
-						})
+					$('<li>').append(
+						$('<a>', {
+							'href':'#'
+							, 'class':'okcp-feature-btn review_saved_profile'
+							, 'review-saved-profile':true
+							, 'id':'review-saved-profile'
+							, 'text':'Review Saved Profiles'
+						}).append(
+							$('<div>', {
+								'class':'okcp-feature-details'
+								, 'text':'This feature allows you to review profiles you\'ve previously marked as "Poly", "Message", and "Maybe". (Keep in mind that this data gets cleared if you clear your browser\'s cache.)'
+							})
+						)
+					),
+
+					$('<li>').append(
+						$('<a>', {
+							'href':'#'
+							, 'class':'okcp-feature-btn change_categories'
+							, 'change-categories':true
+							, 'id':'change-categories'
+							, 'text':'Change Categories'
+						}).append(
+							$('<div>', {
+								'class':'okcp-feature-details'
+								, 'text':'This feature allows you to choose which categories you care about. Drag categories from the right to the left to enable them, and vice-versa to disable them.'
+							})
+						)
+					),
+
+					$('<li>').append(
+						$('<a>', {
+							'href':'#'
+							, 'class':'okcp-feature-btn improve-accuracy'
+							, 'review-saved-profile':true
+							, 'id':'improve-accuracy'
+							, 'text':'Improve Plugin Accuracy'
+						}).append(
+							$('<div>', {
+								'class':'okcp-feature-details'
+								, 'text':'This feature shows you questions that:\n\n1. apply to the selected categories\n2. that you haven\'t answered\n\nThe more of these questions you answer, the more accurate the plugin will be able to compare you and the user you\'re visiting.'
+							})
+						)
 					)
-				),
 
-				$('<li>').append(
-					$('<a>', {
-						'href':'#'
-						, 'class':'okcp-feature-btn change_categories'
-						, 'change-categories':true
-						, 'id':'change-categories'
-						, 'text':'Change Categories'
-					}).append(
-						$('<div>', {
-							'class':'okcp-feature-details'
-							, 'text':'This feature allows you to choose which categories you care about. Drag categories from the right to the left to enable them, and vice-versa to disable them.'
-						})
+				)
+			), $('<li>', {'class':'okcp-pagetab-item okcp-pagetab-labels'}).append(
+				$('<a>', {'text':'Labels', 'href':'#'}),
+				$('<ul>', {'class':'user_links'}).append(
+					$('<li>').append(
+						'<a class="okcp-btn toggleIsPoly" data-bind="click: toggleIsPoly, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].ip == true : false}">Poly</a>'
 					)
-				),
-
-				$('<li>').append(
-					$('<a>', {
-						'href':'#'
-						, 'class':'okcp-feature-btn improve-accuracy'
-						, 'review-saved-profile':true
-						, 'id':'improve-accuracy'
-						, 'text':'Improve Plugin Accuracy'
-					}).append(
-						$('<div>', {
-							'class':'okcp-feature-details'
-							, 'text':'This feature shows you questions that:\n\n1. apply to the selected categories\n2. that you haven\'t answered\n\nThe more of these questions you answer, the more accurate the plugin will be able to compare you and the user you\'re visiting.'
-						})
+					, $('<li>').append(
+						'<a class="okcp-btn hide-btn poly-hide-btn" data-bind="click: toggleHideNotPoly, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].p == true : false}">Not Poly</a>'
 					)
-				)
-
-			)
-		), $('<li>', {'class':'okcp-pagetab okcp-pagetab-labels'}).append(
-			$('<a>', {'text':'Labels', 'href':'#'}),
-			$('<ul>', {'class':'user_links'}).append(
-				$('<li>').append(
-					'<a class="okcp-btn toggleIsPoly" data-bind="click: toggleIsPoly, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].ip == true : false}">Poly</a>'
-				)
-				, $('<li>').append(
-					'<a class="okcp-btn hide-btn poly-hide-btn" data-bind="click: toggleHideNotPoly, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].p == true : false}">Not Poly</a>'
-				)
-				, $('<li>').append(
-					'<a class="okcp-btn" data-bind="click: toggleWantToMessage, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].wm == true : false}">Message</a>'
-				)
-				, $('<li>').append(
-					'<a class="okcp-btn" data-bind="click: toggleMaybeInterested, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].m == true : false}">Maybe</a>'
-				)
-				, $('<li>').append(
-					'<a class="okcp-btn hide-btn uninterested-hide-btn" data-bind="click: toggleHideUninterested, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].u == true : false}">Not For Me</a>'
-				)
-				, $('<li>').append(
-					'<a class="okcp-btn hide-btn nodata-hide-btn" data-bind="click: toggleHideNoData, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].d == true : false}">N/A</a>'
+					, $('<li>').append(
+						'<a class="okcp-btn" data-bind="click: toggleWantToMessage, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].wm == true : false}">Message</a>'
+					)
+					, $('<li>').append(
+						'<a class="okcp-btn" data-bind="click: toggleMaybeInterested, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].m == true : false}">Maybe</a>'
+					)
+					, $('<li>').append(
+						'<a class="okcp-btn hide-btn uninterested-hide-btn" data-bind="click: toggleHideUninterested, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].u == true : false}">Not For Me</a>'
+					)
+					, $('<li>').append(
+						'<a class="okcp-btn hide-btn nodata-hide-btn" data-bind="click: toggleHideNoData, css: { checked: profileListData()[\''+_OKCP.profileName+'\'] ? profileList()[\''+_OKCP.profileName+'\'].d == true : false}">N/A</a>'
+					)
 				)
 			)
 		)
