@@ -1,9 +1,16 @@
-// if we're on a profile page
-if (_OKCP.profilePath !== '') {
+(function() {
+	// if we're not on a profile page, return early
+	if (_OKCP.profilePath === '') return false;
+
+	// decide where to inject our elements
+	var $pageTabMenuParent = $('.actions2015').parent();
+	var $linkBtnsParent = $('#main_content');
+	var $matchPercentageTableParent = $('#main_content');
+	var $questionDetailParent = $('.profile2015-content:eq(0)');
 
 	var $divider = $('<div></div>', {'class':'divider'});
 
-	$('.page_tabs').append(
+	$pageTabMenuParent.append(
 		$('<li>', {'class': 'okcp-pagetab okcp-pagetab-menu'}).append(
 			$('<a>',{'text':'Plugin Menu'}),
 			$('<ul>',{'class':'user_links'}).append(
@@ -79,24 +86,24 @@ if (_OKCP.profilePath !== '') {
 		)
 	);
 
-	// UI: link-buttons and spinner)
-	$('#main_content .tabbed_heading').append(
+	// UI: link-buttons and spinner
+	$linkBtnsParent.append(
 		$('<div>', {'class':"okcp-btns"}).append($('</div>', {'class':'spinner'}))
 	);
+
 	$('#review-saved-profile').click(_OKCP.reviewProfiles);
 	$('#change-categories').click(_OKCP.changeCategories);
 	$('#improve-accuracy').click(_OKCP.showUnansweredQuestions);
 
-
 	// UI: Category match percentages (#social exists on your own profile page, #actions is on others')
-	$('#actions, #social').parent().append('<table class="match-ratios-wrapper-outer"><tr><td class="match-ratios">'+
+	$matchPercentageTableParent.append('<table class="match-ratios-wrapper-outer"><tr><td class="match-ratios">'+
 		'<ul class="match-ratios-list"></ul>'+
 		'</td></tr></table>');
 
 	// UI: Question Detail
-	$('#right_column').before('<div class="question-detail"></div>');
+	$questionDetailParent.append('<div class="question-detail"></div>');
 
-}
+}());
 
 
 function OKCP() {

@@ -207,16 +207,49 @@
 /* UI - Question Detail */
 .question-detail {
   position: absolute;
+  top: 0;
+  left: auto;
+  right: -270px;
   z-index: 110;
-  left: 900px;
-  top: -40px;
   padding: 0 8px 18px;
   max-width: 300px;
   margin: 0 0 10px;
-  border-radius: 4px;
   min-width: 260px;
-  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
+
+/* Scoot the page over */
+.profile2015-header .inner {
+  position: relative;
+  left: -160px;
+}
+.profile2015-content {
+  position: relative;
+  left: -160px;
+}
+
+@media only screen and (max-width: 1240px) {
+  #okcp .profile2015-header .inner {
+    left: 0;
+    margin-left: -40px;
+  }
+  #okcp .profile2015-content {
+    left: 0;
+    margin-left: -40px;
+  }
+}
+/*
+@media only screen and (max-width: 1350px) {
+  #page .page-section {
+    margin-left: 50px;
+  }
+}
+
+@media only screen and (max-width: 1250px) {
+  #page .page-section {
+    margin-left: 10px;
+  }
+}*/
 
 #p_profile .photos .question-detail {
   left: -34px;
@@ -1065,7 +1098,7 @@ body#p_profile .tabbed_heading #actions .action_options .flatbutton {
 }
 
 /* Media Queries */
-@media only screen and (max-width: 1450px) {
+/*@media only screen and (max-width: 1450px) {
   div#right_column {
     width: 230px!important;
     margin-right: 70px;
@@ -1087,7 +1120,7 @@ body#p_profile .tabbed_heading #actions .action_options .flatbutton {
   #page .page-section {
     margin-left: 10px;
   }
-}
+}*/
 
 /* Hide features until they're ready */
 .OKCP-bindings-not-yet-loaded #logo:after,
@@ -1194,9 +1227,19 @@ body#p_profile .tabbed_heading #actions .action_options .flatbutton {
 }
 
 #okcp .okcp-pagetab {
-  float: right;
+  display: inline-block;
+  margin-right: 15px;
+  position: relative;
 }
 
+#okcp .okcp-pagetab .user_links {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+}
+
+/*
 .okcp-pagetab ul.user_links {
   z-index: 5000;
   display: none;
@@ -1245,16 +1288,16 @@ div.tabbed_heading ul.page_tabs .okcp-pagetab-labels li {
 div.tabbed_heading ul.page_tabs .okcp-pagetab li:hover {
   background-color: #DDD;
 }
-
+*/
 .okcp-pagetab:hover > * {
   display: block !important;
   z-index: 1;
   background: #f6f6f6;
   opacity: 1;
 }
-
+/*
 .okcp-pagetab-labels:hover > * {
   list-style: inline;
   float: left;
   padding-top: 4px;
-}
+}*/
