@@ -263,6 +263,7 @@ _OKCP.getAnswers = function (list) {
 			if (countArr[0]/countArr[1] <= 0.1) {
 				matchClass += ' not-a-match';
 			}
+
 			var numerator = Math.round(countArr[0]*10)/10+'';
 			var denominator = Math.round(countArr[1]*10)/10+'';
 			var numeratorArr = numerator.split('.');
@@ -272,13 +273,16 @@ _OKCP.getAnswers = function (list) {
 			$('<li class="match-ratio ' + matchClass + '" category="'+category+'"><span class="match-ratio-progressbar ' + matchClass + '" style="width:' + (Math.round(countArr[0]/countArr[1]*93)+7) + '%"></span><span class="match-ratio-category">' + categoryReadable + '</span><span class="match-ratio-value">' + matchRatioHtmlValue + '</span></li>')
 				.appendTo('.match-ratios-list')
 				.hover(function(e){
-					if (!_OKCP.getAnswersFinished) return false; //only show these when the questions have finished loading
+					// return early if questions haven't finished loading
+					if (!_OKCP.getAnswersFinished) return false;
+
 					var target = e.target.tagName === 'LI' ? $(e.target) : $(e.target).parent('li');
 					var category = target.attr('category');
-					if ($('.question-detail-hover-view.question-detail-'+category).length > 0) $('.question-detail-'+category).show();
-					else $('.question-detail-'+category).clone().appendTo('.match-ratios').addClass('question-detail-hover-view question-detail');
+
+					$('.question-detail > ul:not(.question-detail-' + category + ')').stop().slideUp(500);
+
 				}, function() {
-					$('.question-detail-hover-view').hide();
+					$('.question-detail > ul').slideDown(500);
 				});
 
 

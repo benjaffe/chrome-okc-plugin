@@ -294,8 +294,7 @@
 
 .question-detail .match {
   position: relative;
-  padding: 5px;
-  padding-bottom: 10px;
+  padding: 0 0 5px;
   border-bottom: solid 1px #DDD;
   box-shadow: inset 2px 0 1px rgba(0, 0, 0, 0.1);
   background: #F6F6F6;
@@ -303,7 +302,7 @@
 }
 
 .question-detail .match .answer {
-  padding-right: 20px;
+  padding-right: 25px;
   padding-left: 18px;
 }
 
@@ -346,9 +345,14 @@
 .question-detail .match .question {
   position: relative;
   font-size: 11px;
-  color: #999;
-  height: 1.6em;
+  max-height: 3.5em;
   overflow: hidden;
+  border-radius: 0;
+  padding: 1px 5px 2px;
+  margin-bottom: 5px;
+  background: #eee;
+  color: #333;
+  line-height: 1.6;
 }
 
 .question-detail .match .question:after {
@@ -379,17 +383,13 @@
 }
 
 .question-detail .match:hover .question {
-  height: auto;
+  max-height: 12em;
   overflow: hidden;
   color: #578;
 }
 
 .question-detail .match:hover .question:after {
   display: none;
-}
-
-.question-detail .match:hover .answer {
-  font-size: 1.1em;
 }
 
 .question-detail .match .answer {
@@ -433,61 +433,6 @@
 }
 
 .question-detail .match:hover .explanation:after {
-  display: none;
-}
-
-/* Question Detail Hover View */
-.question-detail.question-detail-hover-view {
-  position: absolute;
-  left: -266px;
-  top: 10px;
-  padding: 0;
-  background: white;
-  width: 220px;
-  z-index: 100;
-  border: 1px solid #ccc;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.question-detail-hover-view .category-header {
-  display: none;
-}
-
-.question-detail-hover-view .match {
-  padding: 5px;
-  border-top: 1px solid #ccc;
-}
-
-.question-detail-hover-view .match:first-child {
-  border-top: none;
-}
-
-.question-detail-hover-view .match ul {
-  margin: 0;
-}
-
-.question-detail.question-detail-hover-view .match .question {
-  height: auto;
-  overflow: hidden;
-  color: #578;
-}
-
-.question-detail.question-detail-hover-view .match .question:after {
-  display: none;
-}
-
-.question-detail.question-detail-hover-view .match .answer {
-  font-size: 1.1em;
-}
-
-.question-detail.question-detail-hover-view .match .explanation {
-  height: auto;
-  padding: 5px;
-  font-style: italic;
-  color: #666;
-}
-
-.question-detail.question-detail-hover-view .match .explanation:after {
   display: none;
 }
 
