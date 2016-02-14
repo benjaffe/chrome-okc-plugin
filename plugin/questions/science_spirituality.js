@@ -9,7 +9,7 @@ _OKCP.fileQuestions.science_spirituality =
 			},
 			{
 				"qid":"178", //Which is bigger?
-				"answerText": ["The earth", "The sun"],
+				"answerText": ["The Earth", "The Sun"],
 				"score": [-1, 1],
 				"weight": [1, 1]
 			}
