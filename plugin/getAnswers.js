@@ -71,9 +71,10 @@ _OKCP.getAnswers = function (list) {
 				if (questionText === "") continue;
 
 			    if (_OKCP.onOwnProfile) {
-				        // TODO: Fix own profile view
-					theirAnswer = questionElem.find("summary > div:eq(0) > div:eq(1) > p:eq(0)").text().trim();
-					theirNote = questionElem.find("summary > div:eq(0) > div:eq(1) > p:eq(1)").text().trim();
+				// TODO: Fix own profile view - we need the text of the label which follows the <input>
+				// element that is checked
+					theirAnswer = questionElem.find(".my_answer input:checked + label").text().trim();
+					theirNote = questionElem.find(".explanation textarea").text().trim();
 				} else {
 					theirAnswer = questionElem.find("#answer_target_"+num).text().trim();
 					if (theirAnswer === '') continue; //if the answer elem doesn't exist, continue
