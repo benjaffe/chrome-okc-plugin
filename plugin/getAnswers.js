@@ -61,24 +61,26 @@ _OKCP.getAnswers = function (list) {
 				var num = listItem.qid;
 				var possibleAnswers = listItem.answerText;
 				// var questionElem = $('#question_' + num + '[public]');		//misses some
-				var questionElem = $('#page-results #question_' + num);
+				var questionElem = $('#question_' + num);
 
 				// if question isn't present on page, continue
 				if (questionElem.length === 0) {continue;}
 
 				// get question information
-				var questionText = questionElem.find('h4').text().trim();
+				var questionText = questionElem.find('.qtext').text().trim();
 				if (questionText === "") continue;
 
-				if (_OKCP.onOwnProfile) {
-					theirAnswer = questionElem.find("summary > div:eq(0) > div:eq(1) > p:eq(0)").text().trim();
-					theirNote = questionElem.find("summary > div:eq(0) > div:eq(1) > p:eq(1)").text().trim();
+			    if (_OKCP.onOwnProfile) {
+				// TODO: Fix own profile view - we need the text of the label which follows the <input>
+				// element that is checked
+					theirAnswer = questionElem.find(".my_answer input:checked + label").text().trim();
+					theirNote = questionElem.find(".explanation textarea").text().trim();
 				} else {
-					theirAnswer = questionElem.find("summary > div:eq(0) > div:eq(1) > p:eq(0)").text().trim();
+					theirAnswer = questionElem.find("#answer_target_"+num).text().trim();
 					if (theirAnswer === '') continue; //if the answer elem doesn't exist, continue
-					theirNote   = questionElem.find("summary > div:eq(0) > div:eq(1) > p:eq(1)").text().trim();
-					yourAnswer  = questionElem.find("summary > div:eq(1) > div:eq(1) > p:eq(0)").text().trim();
-					yourNote    = questionElem.find("summary > div:eq(1) > div:eq(1) > p:eq(1)").text().trim();
+					theirNote   = questionElem.find("#note_target_"+num).text().trim();
+					yourAnswer  = questionElem.find("#answer_viewer_"+num).text().trim();
+					yourNote    = questionElem.find("#note_viewer_"+num).text().trim();
 				}
 				for (var j = 0; j < possibleAnswers.length; j++) {
 					// console.log(questionText + "  " + theirAnswer + " | " + wrongAnswers[j]);
@@ -207,7 +209,7 @@ _OKCP.getAnswers = function (list) {
 				//add page results, parse the page
 				$('<div id="page-results-' + questionPageNum + '"></div>')
 					.appendTo(pageResultsDiv)
-					.load(questionPath + ' [class$="questions"]', loadData);
+					.load(questionPath, loadData);
 			}
 		}
 	}
@@ -219,8 +221,8 @@ _OKCP.getAnswers = function (list) {
 				questionFilterParameter = 'very_important=1';
 			}
 			questionPageNum = pageNum || questionPageNum;
-			questionPath = "//www.okcupid.com/profile/" + _OKCP.profileName + "/questions?n=1&low=" + (questionPageNum*10+1) + "&" + questionFilterParameter;
-			if (_OKCP.questionFetchingMethod === "mobile_app") questionPath += '&mobile_app=1';
+			questionPath = "//www.okcupid.com/profile/" + _OKCP.profileName + "/questions?n=2&low=" + (questionPageNum*10+1) + "&" + questionFilterParameter;
+			if (_OKCP.questionFetchingMethod === "mobile_app") questionPath += '&leanmode=1';
 			questionPageNum++;
 		}
 	}
