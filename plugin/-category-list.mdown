@@ -1,6 +1,7 @@
 relationship model
 	poly/non-monog
 	poly-open
+	solo poly
 	monog
 	not possessive
 	children

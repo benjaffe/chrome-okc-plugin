@@ -573,6 +573,57 @@ _OKCP.fileQuestions.relationship_model =
                 "score": [-1, 1],
                 "weight": [0.8, 0.8]
             }
+        ],
+
+        "solo_poly": [
+            {
+                "qid":"464140",
+                "text":"Given the choice, which style would you prefer for your intimate relationships?",
+                "answerText": [
+                  "One partner at a time",
+                  "One primary partner + secondary/casual partners",
+                  "One or more significant attachments, no ‘primary’",
+                  "Only casual partners, no significant attachments"
+                ],
+                "score": [-1, -1, 1, 1],
+                "weight": [1, 1, 1, 1]
+            },
+            {
+                "qid":"464141",
+                "text":"Many people define ‘commitment’ as: being a couple, being exclusive, living together, sharing finances, getting married. Which of the following best describes your idea of ‘commitment’?",
+                "answerText": [
+                  "All of the above",
+                  "Some but not all of the above",
+                  "Spending time together, keeping our agreements",
+                  "Something else"
+                ],
+                "score": [-1, -1, 1, 1],
+                "weight": [1, 1, 1, 1]
+            },
+            {
+                "qid":"461934",
+                "text":"Given the choice (and assuming that kids/pets could be present in any of these arrangements) I'd prefer to live:",
+                "answerText": [
+                  "with my family of origin",
+                  "in a traditional family unit: me and my spouse",
+                  "with one or more other adults",
+                  "by myself"
+                ],
+                "score": [-1, -1, 1, 1],
+                "weight": [0.5, 1, 1, 1]
+            },
+            {
+                "qid":"464142",
+                "text":"What is your view of 'solo polyamory'?",
+                "answerText": [
+                  "Never heard of it/ sounds like an oxymoron",
+                  "Know what it is, not for me",
+                  "I am comfortable dating solo poly people",
+                  "I am solo poly"
+                ],
+                "score": [-1, -1, 1, 1],
+                "weight": [0.5, 1, 0.5, 1]
+            }
         ]
 
         //traditional conservative
