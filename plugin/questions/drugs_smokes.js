@@ -27,6 +27,13 @@ _OKCP.fileQuestions.drugs_smokes =
 				"answerText": ["I support the laws", "I oppose the laws"],
 				"score": [1, 1],
 				"weight": [1, 0]
+			},
+			{
+				"qid": "87",
+				"text": "Is smoking disgusting?",
+				"answerText": ["Yes", "No"],
+				"score": [1, -1],
+				"weight": [1, 1]
 			}
 		],
 
@@ -56,6 +63,13 @@ _OKCP.fileQuestions.drugs_smokes =
 				"answerText": ["I support the laws", "I oppose the laws"],
 				"score": [-1, 1],
 				"weight": [1, 0]
+			},
+			{
+				"qid": "87",
+				"text": "Is smoking disgusting?",
+				"answerText": ["Yes", "No"],
+				"score": [-1, 1],
+				"weight": [1, 1]
 			}
 		],
 

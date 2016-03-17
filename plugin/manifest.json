@@ -55,6 +55,7 @@
         "questions/relationship_model.js",
         "questions/science_spirituality.js",
         "questions/sex.js",
+        "questions/nerdy.js",
         "questions/sexuality_gender.js",
         "questions/veggie_vegan.js",
         "questions/to_integrate.js",
