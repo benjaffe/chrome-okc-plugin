@@ -44,6 +44,7 @@
         "settings.js",
         "storage.js",
         "features/devTools.js",
+        "questions/attachment.js",
         "questions/domsub.js",
         "questions/politics.js",
         "questions/children.js",
