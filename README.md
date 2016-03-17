@@ -1,6 +1,11 @@
 [![Stories in Ready](https://badge.waffle.io/benjaffe/chrome-okc-plugin.png?label=ready&title=Ready)](https://waffle.io/benjaffe/chrome-okc-plugin)
 chrome-okc-plugin
 =================
+# Note
+This plugin is no longer in active development due to a lack of free time on my part. I do still intend to make changes and incorporate new questions (and possibly new features if pull requests are submitted for them), but not necessarily in a timely manner. I also intend to fix things if possible when they break due to OkC pushing new changes, so keep reporting issues if you find them.
+
+If you are interested in forking and continuing development on the plugin, please do. I am open to directing users of this plugin to another plugin if the feature set is similar enough and it is under more active development than this one.
+
 # Intro
 This plugin was created by [benjaffe ](https://github.com/benjaffe) in order to make it easier for people, particularly with non-mainstream preferences, to find good matches on OKCupid.
 
