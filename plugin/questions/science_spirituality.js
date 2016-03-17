@@ -63,13 +63,6 @@ _OKCP.fileQuestions.science_spirituality =
 				"weight": [1, 1, 1, 1]
 			},
 			{
-				"qid": "6802",
-				"text": "If two cars were faced away from each other back to back, both cars travelled 8 miles forward then made a 90 degree left turn and traveled another 6 miles, how far apart would they be?",
-				"answerText": ["Right next to each other.", "48km", "32km", "I'm not sure / Hey, there's no SKIP button"],
-				"score": [1, 1, 1, 1],
-				"weight": [1, 1, 1, 1]
-			},
-			{
 				"qid":"255",
 				"text":"STALE is to STEAL as 89475 is to...",
 				"answerText": ["89457", "98547", "89754", "89547"],
@@ -204,6 +197,13 @@ _OKCP.fileQuestions.science_spirituality =
 				"answerText": ["Yes", "No"],
 				"score": [1, 0],
 				"weight": [1, 0]
+			},
+			{
+				"qid":"41",
+				"text":" How important is religion/God in your life? ",
+				"answerText": ["Extremely important", "Somewhat important", "Not very important", "Not at all important"],
+				"score": [1, 0.5, 0.25, 0],
+				"weight": [1, 1, 1, 1]
 			}
 		],
 
@@ -242,6 +242,13 @@ _OKCP.fileQuestions.science_spirituality =
 				"answerText": ["Yes", "No"],
 				"score": [-1, 0],
 				"weight": [1, 0]
+			},
+			{
+				"qid":"41",
+				"text":" How important is religion/God in your life? ",
+				"answerText": ["Extremely important", "Somewhat important", "Not very important", "Not at all important"],
+				"score": [0, 0.25, 0.5, 1],
+				"weight": [1, 1, 1, 1]
 			}
 		],
 

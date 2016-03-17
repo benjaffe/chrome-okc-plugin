@@ -17,7 +17,6 @@ sexuality / gender
 	trans-friendly
 	sex-positive
 
-
 sex
 	cuddling
 	love priority
@@ -55,6 +54,12 @@ predator
 other
 	artist
 	non-artist
+
+nerdy
+	programmer
+	enjoys_board_games
+	well_read
+	video_gamer
 
 demeanor
 	generally happy
