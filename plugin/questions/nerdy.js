@@ -104,7 +104,7 @@ _OKCP.fileQuestions.nerdy =
       "score": [1, -1],
       "weight": [1, 1]
     }
-  ]
+  ],
   "video_gamer": [
     {
       "qid": "37693",
