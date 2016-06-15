@@ -1163,6 +1163,7 @@ body#p_profile .tabbed_heading #actions .action_options .flatbutton {
   bottom: 0px;
   left: 50%;
   margin-left: 170px;
+  z-index: 50;
 }
 
 #okcp .okcp-pagetab-item {
