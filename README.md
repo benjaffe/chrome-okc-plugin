@@ -25,12 +25,25 @@ The label feature allows you to mark profiles for future use such as "poly" or "
 
 # Development
 ## Building
-When you clone the repository you'll need to build it using the grunt file. You'll need to install Grunt and then run
+You can just run this by cloning it, you need to install all the dependencies to build it correctly. To do that first run
 
 ``` 
 npm install
+```
+
+That will install Grunt, a task runner that is responsible for the tasks needed in order to register the extension for use in Chrome.
+
+Run Grunt by running the Grunt command
+```
+grunt
+```
+Read Grunt.js to learn more about the other tasks it performs.
+
+Finally, you'll need to run Bower, which installs some plugin dependencies like Jquery and Bootstrap
+```
 bower install
 ```
+
 
 Depending on your local environment you may need to run as an administrator.
 
