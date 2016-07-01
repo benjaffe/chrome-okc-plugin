@@ -29,6 +29,7 @@ When you clone the repository you'll need to build it using the grunt file. You'
 
 ``` 
 npm install
+bower install
 ```
 
 Depending on your local environment you may need to run as an administrator.
