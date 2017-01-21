@@ -1,7 +1,7 @@
 {
   "name": "chrome-okc-plugin",
   "private": "true",
-  "version": "2.9.5",
+  "version": "3.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/benjaffe/chrome-okc-plugin/"
