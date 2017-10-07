@@ -76,5 +76,7 @@ _OKCP.fileQuestions.categoryname =
 
 ```
 
+How do you find the question ID? If you find a question on the site, you can get the question ID (in Google Chrome) by right-clicking on the question title, `Inspect Element`, then look for something like `<div id="qtext_41953" class="qtext">`. In this example, the qid would be 41953.
+
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/benjaffe/chrome-okc-plugin/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
