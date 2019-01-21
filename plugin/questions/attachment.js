@@ -165,6 +165,12 @@ _OKCP.fileQuestions.attachment =
             "text":"Regardless of future plans, what's more interesting to you right now?",
             "answerText": ["Sex", "Love"],
             "score": [-1, 1]
+        },
+        {
+           "qid":"60145",
+            "text": "Are you still in love with one or more of your former partners?",
+            "answerText": ["Yes - One of them.", "Yes - More than one.", "No.", "No - I've never been in love with a partner."],
+            "score": [-1, -1, 1, -.5]
         }
 
     ],

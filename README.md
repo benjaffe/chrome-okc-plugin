@@ -31,12 +31,25 @@ The label feature allows you to mark profiles for future use such as "poly" or "
 # Development
 
 ## Building
+You can just run this by cloning it, you need to install all the dependencies to build it correctly. To do that first run
 
-When you clone the repository you'll need to build it using the grunt file. You'll need to install Grunt and then run
-
-```
+``` 
 npm install
 ```
+
+That will install Grunt, a task runner that is responsible for the tasks needed in order to register the extension for use in Chrome.
+
+Run Grunt by running the Grunt command
+```
+grunt
+```
+Read Grunt.js to learn more about the other tasks it performs.
+
+Finally, you'll need to run Bower, which installs some plugin dependencies like Jquery and Bootstrap
+```
+bower install
+```
+
 
 Depending on your local environment you may need to run as an administrator.
 
@@ -71,6 +84,7 @@ _OKCP.fileQuestions.categoryname =
 
 ```
 
+How do you find the question ID? If you find a question on the site, you can get the question ID (in Google Chrome) by right-clicking on the question title, `Inspect Element`, then look for something like `<div id="qtext_41953" class="qtext">`. In this example, the qid would be 41953.
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/benjaffe/chrome-okc-plugin/trend.png)](https://bitdeli.com/free 'Bitdeli Badge')
 
 Previous feature text (no longer supported):
