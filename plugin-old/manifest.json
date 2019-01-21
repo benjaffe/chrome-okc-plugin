@@ -1,0 +1,80 @@
+{
+  "name": "OkCupid (for the Non-Mainstream User)",
+  "short_name": "OkC Alt",
+  "version": "2.9.5",
+  "manifest_version": 2,
+  "description": "Are you using OkCupid? You should definitely be using this extension.",
+  "homepage_url": "http://benjaffe.me/projects/date/",
+  "page_action": {
+    "default_icon": {
+      "19": "images/icon19.png"
+    },
+    "default_title": "OkCupid (for the Non-Mainstream User)",
+    "default_popup": "options.html"
+  },
+  "permissions": [
+    "storage",
+    "idle",
+    "notifications",
+    "unlimitedStorage",
+    "http://*.okcupid.com/*",
+    "https://*.okcupid.com/*"
+  ],
+  "background": {
+    "scripts": ["features/eventPage.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*.okcupid.com/*", "https://*.okcupid.com/*"],
+      "css": [
+        "bower_components/jquery-ui/themes/ui-lightness/jquery-ui.min.css",
+        "style.css"
+      ],
+      "js": [
+        "bower_components/knockout/dist/knockout.js",
+        "bower_components/jquery/jquery.min.js",
+        "bower_components/jquery-ui/jquery-ui.min.js",
+        "bower_components/loglevel/dist/loglevel.min.js",
+        "bower_components/bootstrap/dist/js/bootstrap.min.js",
+        "setup.js",
+        "settings.js",
+        "storage.js",
+        "features/devTools.js",
+        "questions/attachment.js",
+        "questions/domsub.js",
+        "questions/politics.js",
+        "questions/children.js",
+        "questions/demeanor.js",
+        "questions/discrimination.js",
+        "questions/predator.js",
+        "questions/drugs_smokes.js",
+        "questions/other.js",
+        "questions/relationship_model.js",
+        "questions/science_spirituality.js",
+        "questions/sex.js",
+        "questions/nerdy.js",
+        "questions/sexuality_gender.js",
+        "questions/veggie_vegan.js",
+        "questions/to_integrate.js",
+        "questions-init.js",
+        "features/suggestQuestion.js",
+        "features/readdPagination.js",
+        "features/thumbViewer.js",
+        "features/changeCategories.js",
+        "features/increaseAccuracy.js",
+        "features/reviewProfiles.js",
+        "features/messageSearch.js",
+        "getAnswers.js",
+        "ViewModels.js",
+        "init.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    "images/ajax-loader.gif",
+    "images/icon-128.png",
+    "plugin/jquery/jquery.min.map"
+  ]
+}

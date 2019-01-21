@@ -20,7 +20,7 @@ module.exports = function(grunt) {
         app: 'Google Chrome Canary'
       },
       file : {
-        path : '/Users/ben/Sites/chrome-okc-plugin'
+        path : '/Users/ben/Sites/chrome-okc'
       }
     },
     watch: {

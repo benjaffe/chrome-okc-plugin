@@ -1,7 +1,7 @@
 {
   "name": "OkCupid (for the Non-Mainstream User)",
   "short_name": "OkC Alt",
-  "version": "2.9.5",
+  "version": "3.0.0",
   "manifest_version": 2,
   "description": "Are you using OkCupid? You should definitely be using this extension.",
   "homepage_url": "http://benjaffe.me/projects/date/",
@@ -26,20 +26,10 @@
   },
   "content_scripts": [
     {
-      "matches": [
-        "http://*.okcupid.com/*",
-        "https://*.okcupid.com/*"
-      ],
-      "css": [
-        "bower_components/jquery-ui/themes/ui-lightness/jquery-ui.min.css",
-        "style.css"
-      ],
+      "matches": ["http://*.okcupid.com/*", "https://*.okcupid.com/*"],
+      "css": ["style.css"],
       "js": [
-        "bower_components/knockout/dist/knockout.js",
         "bower_components/jquery/jquery.min.js",
-        "bower_components/jquery-ui/jquery-ui.min.js",
-        "bower_components/loglevel/dist/loglevel.min.js",
-        "bower_components/bootstrap/dist/js/bootstrap.min.js",
         "setup.js",
         "settings.js",
         "storage.js",
@@ -61,15 +51,7 @@
         "questions/veggie_vegan.js",
         "questions/to_integrate.js",
         "questions-init.js",
-        "features/suggestQuestion.js",
-        "features/readdPagination.js",
-        "features/thumbViewer.js",
-        "features/changeCategories.js",
-        "features/increaseAccuracy.js",
-        "features/reviewProfiles.js",
-        "features/messageSearch.js",
         "getAnswers.js",
-        "ViewModels.js",
         "init.js"
       ],
       "run_at": "document_end"

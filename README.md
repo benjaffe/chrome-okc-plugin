@@ -1,18 +1,23 @@
 [![Stories in Ready](https://badge.waffle.io/benjaffe/chrome-okc-plugin.png?label=ready&title=Ready)](https://waffle.io/benjaffe/chrome-okc-plugin)
 chrome-okc-plugin
 =================
+
 # Note
+
 This plugin is no longer in active development due to a lack of free time on my part. I do still intend to make changes and incorporate new questions (and possibly new features if pull requests are submitted for them), but not necessarily in a timely manner. I also intend to fix things if possible when they break due to OkC pushing new changes, so keep reporting issues if you find them.
 
 If you are interested in forking and continuing development on the plugin, please do. I am open to directing users of this plugin to another plugin if the feature set is similar enough and it is under more active development than this one.
 
 # Intro
+
 This plugin was created by [benjaffe ](https://github.com/benjaffe) in order to make it easier for people, particularly with non-mainstream preferences, to find good matches on OKCupid.
 
 # Features
+
 When you install the plugin and visit someone else's profile on OKCupid you will see "Plugin Menu" on the right side of the user navigation.
 
 ## Plugin Menu/Categories
+
 The categories feature allows you to chose different categories you care about such as "coffee" or "no coffee." You do this through "Change Categories" on the plugin menu. Drag from the "Available Categories" to "Currently-selected categories."
 
 All of them comb through the questions set for these categories to calculate a user's score. It requires for you to answer the questions for that category and to mark them as Very Important or Mandatory. To answer more questions in your chosen category you can go to "Plugin Menu" and select "Improve Plugin Accuracy."
@@ -20,14 +25,16 @@ All of them comb through the questions set for these categories to calculate a u
 Once you've chosen categories, when you visit another user, the meter showing their performance in each chosen category will display next to their picture. You can mouseover to see how they answered each question. The meters will only display if the users have answered questions in that category though.
 
 ## Labels
+
 The label feature allows you to mark profiles for future use such as "poly" or "not for me." This will make all links to their profile more transparent throughout the site.
 
-
 # Development
+
 ## Building
+
 When you clone the repository you'll need to build it using the grunt file. You'll need to install Grunt and then run
 
-``` 
+```
 npm install
 ```
 
@@ -36,16 +43,18 @@ Depending on your local environment you may need to run as an administrator.
 To test out your local copy in Chrome go to chrome://chrome/extensions/, click the "Developer Mode" checkbox. After that you should have the option to "Load Unpacked Extensions." Select your local copy.
 
 ## Data
+
 Data is stored locally in localStorage. If you'd like to examine it, the extension [Storage Area Explorer](https://chrome.google.com/webstore/detail/storage-area-explorer) is helpful.
 
 ## Adding Custom Categories
- * Create a new .js file in plugin/questions named after your category. For example categoryname.js.
- * Add your category to category-list.mdown
- * Add it to manifest.json
 
- The other option is adding a new subcategory into an existing category file.
+- Create a new .js file in plugin/questions named after your category. For example categoryname.js.
+- Add your category to category-list.mdown
+- Add it to manifest.json
 
- Editing is pretty simple, you can use the other categories as models, but basically each category is an array in the format:
+The other option is adding a new subcategory into an existing category file.
+
+Editing is pretty simple, you can use the other categories as models, but basically each category is an array in the format:
 
 ```
 _OKCP.fileQuestions.categoryname =
@@ -62,5 +71,11 @@ _OKCP.fileQuestions.categoryname =
 
 ```
 
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/benjaffe/chrome-okc-plugin/trend.png)](https://bitdeli.com/free 'Bitdeli Badge')
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/benjaffe/chrome-okc-plugin/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+Previous feature text (no longer supported):
+
+- Improve the plugin's accuracy by answering questions that the plugin finds.
+- Get a direct link to your message thread with a user from their profile page
+- Thumbnails images enlarge when you mouse over them.
+- Re-added the pagination that OkCupid recently removed on Questions and Messages pages
