@@ -62,10 +62,9 @@
 /* This is a table so we can vertical align to the bottom while scrolling when there are too many */
 .match-ratios-wrapper-outer {
   position: absolute;
+  top: -40px;
+  right: 60px;
   max-height: 153px;
-  left: 50%;
-  margin-left: 500px;
-  bottom: 35px;
   overflow-y: scroll;
   width: 225px;
   z-index: 0;
@@ -74,7 +73,7 @@
 #okcp .match-ratios-list {
   box-shadow: none;
   padding: 0;
-  max-height: 160px;
+  max-height: 95px;
   overflow-y: scroll;
   overflow-x: hidden;
   border-bottom: 1px solid #BBB;
