@@ -136,11 +136,11 @@ if (_OKCP.profilePath === '') {
   $('html').attr('id', 'okcp'); //an ID to use to override OkC's sad CSS specificity madness
   // .addClass("OKCP-bindings-not-yet-loaded"); //, and a class to hide everything until it is set up
 
-  var $matchPercentageTableParent = $('.profile2015-header > .inner');
-  var $questionDetailParent = $('.profile2015-content:eq(0)');
+  var $matchPercentageTableParent = $('.matchprofile-details');
+  var $questionDetailParent = $('.matchprofile-details');
   $matchPercentageTableParent.append(
     '<table class="match-ratios-wrapper-outer"><tr><td class="match-ratios">' +
-      '<ul class="match-ratios-list"></ul>' +
+      '<ul class="match-ratios-list"><li><em>Loading…</em></li></ul>' +
       '</td></tr></table>',
   );
   $questionDetailParent.append('<div class="question-detail"></div>');
