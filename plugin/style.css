@@ -61,24 +61,14 @@
 /* UI - Match Ratios */
 /* This is a table so we can vertical align to the bottom while scrolling when there are too many */
 .match-ratios-wrapper-outer {
-  position: absolute;
-  max-height: 153px;
-  left: 50%;
-  margin-left: 500px;
-  bottom: 35px;
-  overflow-y: scroll;
-  width: 225px;
-  z-index: 0;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 #okcp .match-ratios-list {
   box-shadow: none;
   padding: 0;
   max-height: 160px;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  border-bottom: 1px solid #BBB;
-  border-top: 1px solid #BBB;
   width: 100%;
 }
 
@@ -206,7 +196,7 @@
   position: absolute;
   top: 0;
   left: auto;
-  right: -270px;
+  right: -300px;
   z-index: 110;
   padding: 0 8px 18px;
   max-width: 300px;

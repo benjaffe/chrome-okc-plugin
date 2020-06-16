@@ -61,9 +61,7 @@ _OKCP.getAnswers = function(answersToCompareCurrentProfileTo) {
     const initialRequest = new XMLHttpRequest();
     initialRequest.open(
       'GET',
-      `https://www.okcupid.com/1/apitun/profile/${profileName}/answers?after=${window.btoa(
-        '0,10',
-      )}&_=${Date.now()}`,
+      `https://www.okcupid.com/1/apitun/profile/${profileName}/answers?filter=1&after=${window.btoa('0,10')}&_=${Date.now()}`,
     );
     initialRequest.setRequestHeader(
       'authorization',
@@ -79,7 +77,7 @@ _OKCP.getAnswers = function(answersToCompareCurrentProfileTo) {
       const getRequestsToMake = answerRangesToGet
         .map(
           range =>
-            `https://www.okcupid.com/1/apitun/profile/${profileName}/answers?after=${window.btoa(
+            `https://www.okcupid.com/1/apitun/profile/${profileName}/answers?filter=1&after=${window.btoa(
               range,
             )}&_=${Date.now()}`,
         )
@@ -104,7 +102,6 @@ _OKCP.getAnswers = function(answersToCompareCurrentProfileTo) {
         (acc, val) => acc.concat(val.data),
         response.data,
       );
-      console.log(questionsList);
       // recalculateScoring();
       updateUIWithQuestions(questionsList);
     };
@@ -204,6 +201,10 @@ _OKCP.getAnswers = function(answersToCompareCurrentProfileTo) {
 
   // if we're done, it hides the spinner and adds the UI, then sorts the categories
   function updateUIWithQuestions(questionsList) {
+    questionsList.sort((a, b) => +a.question.id  - +b.question.id)
+    questionsList.forEach(q => {
+      console.log(`${q.question.id}: ${q.question.text} ${q.target.answer} ${q.target.note || ''}`)
+    })
     console.log('start of something');
     something(questionsList);
     console.log('end of something');
